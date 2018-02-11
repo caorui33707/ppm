@@ -1,0 +1,41 @@
+<ul>
+    <a href="{:C('WEB_ROOT')}/index.php/User/index">
+
+        <if condition="$info['menu'] eq 'index'">
+            <li class="on">账户总览</li>
+        <else />
+            <li>账户总览</li>
+        </if>
+    </a>
+    <a href="{:C('WEB_ROOT')}/index.php/User/index/account">
+
+        <if condition="$info['menu'] eq 'account'">
+            <li class="on">我的账户</li>
+        <else />
+            <li>我的账户</li>
+        </if>
+    </a>
+    <a href="{:C('WEB_ROOT')}/index.php/User/index/dueDetail">
+
+        <if condition="$info['menu'] eq 'dueDetail'">
+            <li class="on">我的投资</li>
+        <else />
+            <li>我的投资</li>
+        </if>
+    </a>
+    <a href="{:C('WEB_ROOT')}/index.php/User/index/coupon">
+
+        <if condition="$info['menu'] eq 'coupon'">
+            <li class="on">我的优惠 <span> {$Think.cookie.couponCount }</span></li>
+        <else />
+            <li>我的优惠 <span> {$Think.cookie.couponCount }</span></li>
+        </if>
+    </a>
+    <a href="{:C('WEB_ROOT')}/index.php/User/index/bank">
+        <if condition="$info['menu'] eq 'bank'">
+            <li class="on">我的银行卡</li>
+        <else />
+            <li>我的银行卡</li>
+        </if>
+    </a>
+</ul>

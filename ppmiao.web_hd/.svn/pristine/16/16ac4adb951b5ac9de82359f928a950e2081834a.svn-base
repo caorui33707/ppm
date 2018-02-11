@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/flexible.js"></script>
+    <script src="js/flexible_css.js"></script>
+    <title>银行存管</title>
+
+
+</head>
+<body>
+  <div class="index_top1"></div>
+  <div class="index_top2"></div>
+  <div class="index_top3"></div>
+  <div class="index_top4"></div>
+  <div class="index_top5"></div>
+  <div class="index_top6"></div>
+  <div class="index_top7"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <link href="https://image.ppmiao.com/Public/activity/jrtt/css/basic.css" rel="stylesheet" type="text/css" />
+  <link href="https://image.ppmiao.com/Public/activity/jrtt/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://image.ppmiao.com/Public/activity/jrtt/js/jquery.min.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+  <title>注册送888元红包</title>
+
+</head>
+
+<body>
+  <section>
+    <div class="register_pic"></div>
+    <div class="register_download1 tc">
+    
+    <if condition="($type eq 2)"> 
+      <div class="index_eight">
+        <img src="https://image.ppmiao.com/Public/activity/jrtt/images/fo_03.jpg?1" />
+      </div>
+    <else />
+      <div class="index_eight">
+        <img src="https://image.ppmiao.com/Public/activity/jrtt/images/mo_02.jpg" />
+      </div>
+     </if>
+     
+     <if condition="($type eq 2)"> 
+      <div class="register_member" style="display:block;">
+        <p><span>888</span>现金大礼包已发送至您账户,请下载APP查收</p>
+      </div>
+      </if>
+      
+      <div class="login_app1  tc">
+        <a href="{$url}"><img src="https://image.ppmiao.com/Public/activity/jrtt/images/button1.png" /></a>
+      </div>
+      <div class="index_footer">
+        <p>票票喵理财保留在法律允许范围内对活动的解释权</p>
+        <p>客服热线：400-992-8855</p>
+      </div>
+    </div>
+	<div class="" >
+    	<img src="https://image.ppmiao.com/Public/activity/jrtt/images/pp8.jpg">
+  	</div>
+  </section>
+</body>
+
+</html>

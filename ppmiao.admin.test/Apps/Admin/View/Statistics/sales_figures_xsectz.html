@@ -1,0 +1,63 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/modules/exporting.js"></script>
+    <div class="content">
+        <div class="title">销售图表 -
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/daily">日数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/monthly">月数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/year">年数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/bk">爆款数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/hbfxztl">还本付息再次投资率</a>&nbsp;&nbsp;
+            购买新手标二次投资&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/cumulative">销售增量(产品)</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/cumulative_wallet">销售增量</a>&nbsp;&nbsp;
+        </div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+
+        </div>
+        <div id="result" class="result none"></div>
+        <div id="container" style="min-width: 310px; height: 800px; margin: 0 auto"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '购买新手标二次购买占比'
+            },
+            subtitle: {
+                text: '购买新手标总人数：{$device_totle}'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '比例',
+                data: [{$device_data}]
+            }]
+        });
+    });
+</script>

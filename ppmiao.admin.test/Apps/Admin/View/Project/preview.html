@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>预览</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ADMIN')}/preview/css/css.css?=4" rel="stylesheet" type="text/css" media="all"/>
+    <style>
+        img{width:100%!important;}
+        .wrap{padding:10px;}
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <section class="proDetails01">
+        <p>年化利率</p>
+        <div class="proDetails01Txt01">
+            <h2>{$detail.user_interest}%
+            <if condition="$detail.user_platform_subsidy gt 0 ">
+            +{$detail.user_platform_subsidy}%
+            </if>		
+            </h2>
+            <span>期限{$detail.duration}天</span>
+        </div>
+        <div class="proDetails01Txt02">
+            <div class="rateBox">
+                <div class="rateInner" style="width:{$detail.percent}%;">
+                </div>
+            </div>
+            <span class="span01">
+            	已售{$detail.percent}%
+            </span>
+            <span class="span02">
+            	剩余总额<em>{$detail.able|number_format=0}</em>元
+            </span>
+        </div>
+    </section>
+
+    <section class="proDetails02">
+        <div class="proDetails02Title" style="text-align:center;">
+            <ul>
+                <li class="li01">
+                	<span>起购金额<em>{$detail.money_min|number_format=0}元</em></span>
+                </li>
+                <li class="li02"><span>封顶金额<em>{$detail.money_max|number_format=0}元</em></span></li>
+                <li class="li03"><span>已购人次<em>{$buy_count|default=0}</em></span></li>
+                <li class="li04"><span>融资金额<em>{$detail.amount|number_format=0}元</em></span></li>
+            </ul>
+        </div>
+        <div class="proDetails02Content">
+            <div class="proDetails02ContentPList">
+                <p><em>*</em>起息日：T(成交日)+{$detail['count_interest_type']-1}</p>
+                <p><em>*</em>到期日：{$detail.end_time|strtotime|date='Y/m/d',###}</p>
+                <p><em>*</em>还款方式：<switch name="detail.repayment_type"><case value="1">一次性还本付息</case><case value="2">按月付息，到期还本(每月{$detail.repayment_day}日)</case></switch></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="proDetails03">
+        <ul>            
+            <li style="border-bottom:none;"><p>相关协议</p></li>
+        </ul>
+        
+    </section>
+
+    <section class="proDetails04">
+        <div class="">
+            <img src="{$detail.invest_direction_image}"/>
+        	<foreach name="detail.repayment_source_descr" item="item">
+            	<img src="{$item}" />
+            </foreach>
+        </div>
+        
+        <span class="proDetails04Inner">
+    		<p>资金账户安全由平安保险100%承保</p>
+        </span>
+        
+    </section>
+</div>
+</body>
+</html>

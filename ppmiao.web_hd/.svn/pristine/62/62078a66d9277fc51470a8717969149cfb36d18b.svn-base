@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+img{
+    /*margin: -2px auto 0 auto;*/
+    width: 10rem;
+}
+body{
+    background-color: #0c0f3b;
+    text-align: center;
+}
+.button-add{
+    background-image: url(img/button@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 10rem;
+    height: 1.29rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3), only screen and (min--moz-device-pixel-ratio: 3), only screen and (-o-min-device-pixel-ratio: 3/1), only screen and (min-device-pixel-ratio: 3) {
+    .button-add{
+        background-image: url(img/button@3x.png);
+    }
+}

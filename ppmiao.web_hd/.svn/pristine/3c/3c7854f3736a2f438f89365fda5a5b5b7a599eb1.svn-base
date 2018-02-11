@@ -1,0 +1,70 @@
+.main {
+    background-color: #F5F5F5;
+    margin-top: 96px;
+}
+
+.container {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.invertSuccess {
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+    width: 1200px;
+    text-align: center;
+}
+
+.invertSuccess-title {
+    margin: 20px;
+    font-size: 24px;
+}
+
+.invertSuccess-money {
+    font-size: 16px;
+    margin: 10px auto;
+    color: #333;
+    width: 300px;
+}
+
+.invertSuccess-money div {
+    display: inline-block;
+}
+
+.invertSuccess__text {
+    color: #999;
+    padding-right: 30px;
+    width: 130px;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tr {
+    text-align: right;
+    width: 100px;
+}
+
+.finish {
+    width: 200px;
+    background: #ff580f;
+    color: #fff;
+    height: 50px;
+    border: 0;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.myInvert {
+    width: 200px;
+    background: #fff;
+    color: #ff580f;
+    height: 50px;
+    border: 0;
+    border-radius: 5px;
+    margin: 20px;
+    border: 1px solid #ff580f;
+}

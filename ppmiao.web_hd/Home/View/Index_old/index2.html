@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/flash.js"></script>
+</head>
+
+<body>
+<include file="PublicNew:menu" />
+
+<div class="banner">
+    <ul>
+        <a href="{:C('WEB_ROOT')}/a_wheel.html" target="_blank"><li style="background:url(Public/v2/images/banner04.png) no-repeat scroll center top; display:block;"></li></a>
+        <a href="{:C('WEB_ROOT')}/product/wallet.html" target="_blank" style="display:none;"><li style="background:url(Public/v2/images/banner01.jpg) no-repeat scroll center top;display:block;"></li></a>
+        <a href="{:C('WEB_ROOT')}/product/abfund.html" target="_blank" style="display:none;"><li style="background:url(Public/v2/images/banner02.jpg) no-repeat scroll center top;display:block;"></li></a>
+        <a href="{:C('WEB_ROOT')}/about.html" target="_blank" style="display:none;"><li style="background:url(Public/v2/images/banner03.jpg) no-repeat scroll center top;display:block;"></li></a>
+    </ul>
+    <div class="num">
+        <a href="javascript:void(0)" class="cur"></a>
+        <a href="javascript:void(0)"></a>
+        <a href="javascript:void(0)"></a>
+        <a href="javascript:void(0)"></a>
+    </div>
+</div>
+
+<div class="bannerTwoBox">
+    <div class="bannerTwo w1010 clear">
+        <ul>
+            <li class="li01">
+                <img src="{:C('STATIC_ROOT')}/v2/images/bannerTwoImg01.png" />
+                <h3>开放理财</h3>
+                <p>无须注册直接申购</p>
+            </li>
+            <li class="li02">
+                <img src="{:C('STATIC_ROOT')}/v2/images/bannerTwoImg02.png" />
+                <h3>超高收益</h3>
+                <p>高收益，低风险</p>
+            </li>
+            <li class="li03">
+                <img src="{:C('STATIC_ROOT')}/v2/images/bannerTwoImg03.png" />
+                <h3>账户安全</h3>
+                <p>平安保险承保</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main w1010 clear">
+    <div class="pictureShow">
+        <ul>
+            <li>
+                <a href="{:C('WEB_ROOT')}/join.html">
+                    <img src="{:C('STATIC_ROOT')}/v2/images/img01.jpg" />
+                    <h5>加入我们</h5>
+                    <p>来吧，与我们一起共事！</p>
+                </a>
+            </li>
+            <li>
+                <a href="{:C('WEB_ROOT')}/product/wallet.html">
+                    <img src="{:C('STATIC_ROOT')}/v2/images/wallet.jpg" />
+                    <h5>石头钱包</h5>
+                    <p>一个会生钱的钱包</p>
+                </a>
+            </li>
+            <li>
+                <a href="{:C('WEB_ROOT')}/product/abfund.html">
+                    <img src="{:C('STATIC_ROOT')}/v2/images/img03.jpg" />
+                    <h5>石头“搏一搏”</h5>
+                    <p> 玩法更刺激   收益更暴力</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="downloadShow fLe clear">
+        <span class="downloadShowTitle"><img src="{:C('STATIC_ROOT')}/v2/images/indexImg01.png" /></span>
+        <div class="downloadShowLeft fLe clear">
+            <span><img src="{:C('STATIC_ROOT')}/v2/images/downloadShowImg01.jpg" /></span>
+            <span class="span02"><img src="{:C('STATIC_ROOT')}/v2/images/downloadShowImg02.jpg" /></span>
+            <span class="span03">
+                <a href="{:C('APP_DOWNLOAD_ANDROID')}" target="_blank"><img src="{:C('STATIC_ROOT')}/v2/images/downloadButton01.jpg" /></a>
+                <a href="{:C('APP_DOWNLOAD_IOS')}" target="_blank"><img src="{:C('STATIC_ROOT')}/v2/images/downloadButton02.jpg" /></a>
+            </span>
+        </div>
+        <div class="downloadShowRight fRi clear">
+            <div class="downloadShowRightImg fLe clear">
+                <img src="{:C('STATIC_ROOT')}/v2/images/downloadShowImg03.gif" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="indexFooterBox">
+    <div class="indexFooter w1010 clear">
+        <div class="indexFooter01 fLe clear">
+            <ul>
+                <li>
+                    <dl>
+                        <dt><span>关于我们</span></dt>
+                        <dd><a href="{:C('WEB_ROOT')}/qualifications.html" target="_blank">公司资质</a></dd>
+                        <dd><a href="{:C('WEB_ROOT')}/about.html#media_dynamics">媒体报道</a></dd>
+                        <dd><a href="{:C('WEB_ROOT')}/about.html#brand" target="_blank">品牌故事</a></dd>
+                        <dd><a href="{:C('WEB_ROOT')}/about.html#culture" target="_blank">石头文化</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>安全保障</span></dt>
+                        <dd><a href="{:C('WEB_ROOT')}/provision.html" target="_blank">服务条款</a></dd>
+                        <dd><a href="{:C('WEB_ROOT')}/protection.html" target="_blank">隐私保护</a></dd>
+                        <dd><a href="{:C('WEB_ROOT')}/law.html" target="_blank">法律监督</a></dd>
+                        <dd><a>&nbsp;</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>投资指南</span></dt>
+                        <dd><a href="{:C('WEB_ROOT')}/faq.html" target="_blank">常见问题</a></dd>
+                        <!--<dd><a href="#">收益计算器</a></dd>-->
+                        <dd><a href="{:C('WEB_ROOT')}/introduction.html" target="_blank">产品介绍</a></dd>
+                        <dd><a href="{:C('WEB_ROOT')}/bank.html" target="_blank">合作银行</a></dd>
+                        <dd><a>&nbsp;</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="indexFooter01Right fLe clear">
+                <h2>客服热线</h2>
+                <h5><img src="{:C('STATIC_ROOT')}/v2/images/indexImg03.png" /></h5>
+                <p>CEO邮箱：ceo@stlc.cn</p>
+                <!--<p>商务QQ：196336769</p>-->
+                <p>客服QQ：1181905511</p>
+                <p>周一至周日：9:00-18:00</p>
+                <!--<p>周六到周日：9:00-17:00</p>-->
+            </div>
+        </div>
+
+        <div class="indexFooter02 fLe clear">
+            <p><a href="{:C('WEB_ROOT')}/about.html" target="_blank">关于石头</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="{:C('WEB_ROOT')}/join.html" target="_blank">加入我们</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="{:C('WEB_ROOT')}/contact.html" target="_blank">联系我们</a></p>
+            <p>©2015&nbsp;&nbsp;杭州时投信息科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;浙ICP备15009112号</p>
+        </div>
+    </div>
+</div>
+<include file="PublicNew:gotop" />
+</body>
+</html>

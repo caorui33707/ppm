@@ -1,0 +1,102 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">充值</div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/layer3/layer.js"></script>
+        <style>
+            pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+            .string { color: green; }
+            .number { color: darkorange; }
+            .boolean { color: blue; }
+            .null { color: magenta; }
+            .key { color: red; }
+        </style>
+        <pre id="result">
+            自有子账户余额:{$money}
+        </pre>
+        <form id="frmMain" method='post' action="">
+            <table id cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">充值金额：</td>
+                    <td class="tLeft" >
+                        <input type="text"style="width:320px;"  name="amount" placeholder="元">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="提交"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+
+        <div class="list" >
+            <table id="" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="3" colspan="4" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="5%">类型</th>
+                    <th width="5%">目标账户</th>
+                    <th width="12%" align="center">金额</th>
+                    <th width="10%" align="center">合计</th>
+                </tr>
+
+                <foreach name="list" item="item">
+                    <tr>
+                        <td>{$doType[$item['type']]}</td>
+                        <td>{$accountType[$item['dest_account']]}</td>
+                        <td>{$item.value}元</td>
+                        <td>{$item.add_time}</td>
+                    </tr>
+                </foreach>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    var _layerIndex2 = 0;
+    var _action = 0;
+    var _urlObj, _extObj;
+
+
+    var _adding = false;
+
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('请求中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/FundAccount/recharge_store',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.errorMsg == "正常"){
+                            layer.alert("充值成功", -1,function (){
+                                window.location.reload();
+                            });
+                        }else{
+                            layer.alert(msg.errorMsg, -1);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+
+
+</script>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link href="{:C('STATIC_ROOT')}/web_user/css/style.css" rel="stylesheet" type="text/css" />
+  <title>票票喵-充值</title>
+
+
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+<include file="Common:header" />
+<div class="pandect_big">
+  <div class="pandect_seat">
+    <p>您现在的位置：我的账户>我的钱包><span>充值</span></p>
+  </div>
+  <!--左-->
+  <div class="pandect_left">
+
+      <include file="layouts:menu" />
+  </div>
+  <div class="pandect_right">
+    <div class="recharge_one">
+      <div class="pandect_property">
+        <p>充值</p>
+      </div>
+      <div class="recharge_balance">
+        <img src="{:C('STATIC_ROOT')}/web_user/images/recharge-3.png" />
+        <p>账户余额：<span>{$wallet->waitAmount}</span>元</p>
+      </div>
+      <div class="recharge_big">
+        <div class="recharge_money">
+          <p>充值金额：</p>
+          <input type="text" id="amount"  onkeyup="clearNoNum(this)" />
+          <span>单笔限额{$data->limitTimes}</span>
+        </div>
+        <div class="recharge_money_card">
+          <p>银行卡支付：</p>
+          <div class="recharge_quota">
+            <img src="{:C('OSS_ROOT')}/Uploads/focus/{$data->smallIcon}" />
+            <p>{$info['card_no']}</p>
+          </div>
+        </div>
+        <div class="recharge_money">
+          <p>预留号码：</p>
+          <p>{$info['mobile']}</p>
+          <div style="clear:both;"></div>
+        </div>
+        <div class="recharge_money" style="position: relative;">
+          <p>手机验证码：</p>
+          <input type="text" id="msgCode" name="code" maxlength="6" onkeyup="subStatus()" onkeypress="return event.keyCode>=48&&event.keyCode<=57" ng-pattern="/[^a-zA-Z]/" style="float:left;" />
+          <div class="have">
+            <input type="button" id="btn" value="获取验证码" />
+          </div>
+          <div class="registe_wrong3" id="error_msg" style="display: none">
+            <p id="error_msg_content"></p>
+          </div>
+        </div>
+        <div class="recharge_refer">
+          <button  disabled id="subbtn" style="background-color:gray;" onclick="submitForm();">提交</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<include file="Common:footer" />
+</body>
+
+</html>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+<script src="{:C('STATIC_ROOT')}/web_user/layer/layer.js"></script>
+<script>
+
+    var _layerIndex = 0;
+    var sleep = 60,
+        interval = null;
+    window.onload = function() {
+        var btn = document.getElementById('btn');
+        btn.onclick = function() {
+
+            var obj = this;
+            var able = true;
+
+            var amount = $('#amount').val();
+            if(!amount){
+                $('#error_msg').show();
+                $('#error_msg_content').html('请填写金额!');
+                able = false;
+            }else{
+                $('#error_msg').hide();
+            }
+            if (!interval && able == true) {
+
+
+                $.ajax({
+                    type: "post",
+                    url: "{:C('WEB_ROOT')}/index.php/User/index/getSmsCode",
+                    dataType: "json",
+                    success: function (data) {
+
+
+                        if(data.success == true){
+                            obj.style.backgroundColor = 'grey';
+                            obj.disabled = "disabled";
+                            obj.style.cursor = "wait";
+                            obj.value = sleep + " S";
+                            interval = setInterval(function() {
+                                if (sleep == 0) {
+                                    if (!!interval) {
+                                        clearInterval(interval);
+                                        interval = null;
+                                        sleep = 60;
+                                        btn.style.cursor = "pointer";
+                                        btn.removeAttribute('disabled');
+                                        btn.value = "获取验证码";
+                                        btn.style.backgroundColor = '#ff7117';
+                                    }
+                                    return false;
+                                }
+                                btn.value = "" + sleep-- + " S";
+                            }, 1000);
+                        }else{
+                            $('#error_msg').show();
+                            $('#error_msg_content').html(data.errorMsg);
+                        }
+
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    }
+                });
+
+
+
+            }
+        }
+    }
+
+
+    function submitForm() {
+        var msgCode = $('#msgCode').val();
+        var amount = $('#amount').val();
+
+        _layerIndex = layer.msg('提交中...');
+        $('#subbtn').attr('disabled',"true");//添加disabled属性
+        $('#subbtn').css("background-color","gray");
+
+
+        $.ajax({
+            type: "post",
+            url: "{:C('WEB_ROOT')}/index.php/User/index/recharge_store",
+            dataType: "json",
+            data:{msgCode:msgCode,amount:amount},
+            success: function (data) {
+                layer.close(_layerIndex);
+                $('#subbtn').removeAttr("disabled"); //移除disabled属性
+                $('#subbtn').css("background-color","#ff7117");
+                if(data.success == true){
+                    var ref = document.referrer;
+                    window.location.href='{:C(\'WEB_ROOT\')}/index.php/User/index/recharge_success?ref='+ref;
+                }else{
+                    $('#error_msg').show();
+                    $('#error_msg_content').html(data.errorMsg);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    }
+
+    function clearNoNum(obj){
+        obj.value = obj.value.replace(/[^\d]/g,"");  //清除“数字”和“.”以外的字符
+        subStatus();
+    }
+
+    function subStatus() {
+
+        var msgCode = $('#msgCode').val();
+        var amount = $('#amount').val();
+
+        if(msgCode && amount){
+            status = 1;
+        }else{
+            status = 0;
+        }
+
+        if(status == 0){
+
+            $('#subbtn').attr('disabled',"true");//添加disabled属性
+            $('#subbtn').css("background-color","gray");
+        }else{
+
+            $('#subbtn').removeAttr("disabled"); //移除disabled属性
+            $('#subbtn').css("background-color","#ff7117");
+        }
+    }
+
+
+</script>

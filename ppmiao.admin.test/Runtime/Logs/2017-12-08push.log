@@ -1,0 +1,36 @@
+[2017-12-08 16:20:26]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512721226 
+[2017-12-08 16:20:27]  SELECT * FROM `s_msg_push` WHERE `id` = 388 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:20:27]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512721237' WHERE ( id=388 )
+[2017-12-08 16:24:05]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512721445 
+[2017-12-08 16:24:06]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:24:06]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512721456' WHERE ( id=480 )
+[2017-12-08 16:24:50]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512721490 
+[2017-12-08 16:24:52]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:24:52]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512721501' WHERE ( id=480 )
+[2017-12-08 16:39:57]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512722397 
+[2017-12-08 16:39:58]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:39:58]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512722408' WHERE ( id=480 )
+[2017-12-08 16:40:39]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512722439 
+[2017-12-08 16:40:40]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:40:40]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512722450' WHERE ( id=480 )
+[2017-12-08 16:42:03]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512722522 
+[2017-12-08 16:42:04]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:42:04]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512722534' WHERE ( id=480 )
+[2017-12-08 16:42:32]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512722552 
+[2017-12-08 16:42:33]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:42:33]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512722563' WHERE ( id=480 )
+[2017-12-08 16:43:45]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512722625 
+[2017-12-08 16:43:46]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:43:46]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512722636' WHERE ( id=480 )
+[2017-12-08 16:44:08]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512722648 
+[2017-12-08 16:44:09]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:44:09]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512722659' WHERE ( id=480 )
+[2017-12-08 16:55:42]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512723342 
+[2017-12-08 16:55:43]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:55:43]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512723353' WHERE ( id=480 )
+[2017-12-08 16:56:40]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512723400 
+[2017-12-08 16:56:41]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 16:56:42]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512723411' WHERE ( id=480 )
+[2017-12-08 17:07:06]  SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE `status` = 0 AND `is_delete` = 0 AND `push_time` <= 1512724023 
+[2017-12-08 17:07:07]  SELECT * FROM `s_msg_push` WHERE `id` = 480 AND `status` = 1 LIMIT 1  
+[2017-12-08 17:07:07]  UPDATE `s_msg_push` SET `status`='1',`mtime`='1512724037' WHERE ( id=480 )

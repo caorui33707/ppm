@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<!-- 
+
+  ios: skip10 跳登录   
+	android > 5 <8 跳
+	
+	
+	android 9 是登录
+ -->
+
+
+<a onclick="go2App(1)">首页</a></br>
+<a href="###" onclick="go2App(2)">产品列表</a></br>
+<a href="###" onclick="go2App(3)">账户中心</a></br>
+<a href="###" onclick="go2App(4)">更多</a></br>
+<a href="###" onclick="go2App(5)">我的奖励</a></br>
+<a href="###" onclick="go2App(6)">好友推荐</a></br>
+<a href="###" onclick="go2App(7)">我的钱包</a></br>
+<a href="###" onclick="go2App(8)">银行卡列表</a></br>
+<a href="###" onclick="toDeatil(144)">产品详情页</a></br> 
+
+<script type="text/javascript">
+    
+    	var u = navigator.userAgent, app = navigator.appVersion;
+    	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; 
+    	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    	
+	    function go2App(t){
+	    	if(isAndroid == true) {
+	    		ppm.toAction(t);
+	    	} else if(isiOS == true) {
+	    		loadURL('skip'+t);
+	    	}
+	    	return;
+	    }
+    	
+    	function toDeatil(param) {
+    		if(isAndroid == true) {
+    			ppm.toDeatil(param);
+    		}else {
+    			loadURL('skip9/id/'+param);
+    		}
+    		
+    		return;
+    	}
+    	
+    	function loadURL(url) {
+	        var iFrame;
+	        iFrame = document.createElement("iframe");
+	        iFrame.setAttribute("src", url);
+	        iFrame.setAttribute("style", "display:none;");
+	        iFrame.setAttribute("height", "0px");
+	        iFrame.setAttribute("width", "0px");
+	        iFrame.setAttribute("frameborder", "0");
+	        document.body.appendChild(iFrame);
+	        iFrame.parentNode.removeChild(iFrame);
+	        iFrame = null;
+	    }
+</script>
+</body>
+</html>

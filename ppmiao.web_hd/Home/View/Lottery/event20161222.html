@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html style="background-color: black">
+
+<head>
+	<meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="{:C('STATIC_ROOT')}/lottery/event20161222/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20161222/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/lottery/event20161222/js/jquery-1.4.2.min.js"></script>
+	<title>票票喵 - 圣诞抽奖活动</title>
+	<style>
+        #leafContainer
+			{
+                background: url("{:C('STATIC_ROOT')}/lottery/event20161222/images/bj.jpg") no-repeat;
+                background-size:100% 100%;
+				position: fixed;
+				z-index: 2;
+				width: 100%;
+                height:93%;
+				top: 0;
+                right:0;
+				overflow: hidden;
+			}
+       .square_window .square_content {
+            top: 10%;
+            left: 5%;
+                margin: auto;
+                width: 90%;
+                height: 420px;
+                background: url("{:C('STATIC_ROOT')}/lottery/event20161222/images/223.png") no-repeat;
+                background-size: 100% 100%;
+                z-index:10;
+                position: fixed;
+            }
+            
+        .square2_content {
+            top: 18%;
+            left: 5%;
+                margin: auto;
+                width: 90%;
+                height: 380px;
+                background: url("{:C('STATIC_ROOT')}/lottery/event20161222/images/223.png") no-repeat;
+                background-size: 100% 100%;
+                z-index:10;
+                position: fixed;
+            }
+		</style>
+    
+</head>
+
+<body>
+    <section>
+        <!--规则弹框-->
+        <div class="hidden" id="square_bj"></div>
+
+        <div class="hidden" id="square1_window">
+            <div class="square_content rel">
+                <div class="success  ">
+                    <div class="center_html">
+                        <ul>
+                            <li style="font-size:15px;text-align:center;">活动规则</li>
+                            <li>
+                                1、活动期间，投资定期理财产品（除短期体验标、新手标外），每满5000元即可在圣诞树上任意打开一个礼盒，或者点击“试手气”按钮，均可随机获得一份精美礼品，多投多得，上不封顶；
+                            </li>
+                            <li style="font-size:10px;color:#ffd800;">
+                                （例如：小喵单笔投资10000元，相应得到2次获取礼品的机会。若单笔投资金额为12000元，也只能得到两次获取礼品机会哦！）
+                            </li>
+                            <li>
+                                2、券包类奖品（返现券、加息券、红包券）将实时发放至您的''券包''中，您可在【账户】- 【我的奖励】 中查看；
+                            </li>
+                            <li>
+                                3、若获得实物类奖品，我们将在活动结束后的7个工作日内与您取得联系，请保持电话畅通 。如果无法与您取得联系，奖品不予以发放；
+                            </li>
+                            <li>
+                                4、未使用的“铃儿响叮当”机会将在活动结束后自动失效。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="yes tc abs">
+                   <img onclick="Pass()" src="{:C('STATIC_ROOT')}/lottery/event20161222/images/cha_05.jpg" />
+                </div>
+            </div>
+        </div>
+        <!--我的奖品弹框-->
+       
+       <!-- 
+        <div class="hidden" id="square2_window">
+            <div class="invite_back1 rel mar">
+                <div class="rules tc mar">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/my_14.jpg" style="text-align:center;padding-bottom:10px;" />
+                    <div class="clear"></div>
+                    <div class="cut33 fl tc">
+                        <p>时间</p>
+                    </div>
+                    <div class="cut33 fl tc">
+                        <p>奖品名称</p>
+                    </div>
+                    <div class="cut33 fl tc">
+                        <p>兑换方式</p>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="topRec_List" style="" id="had">
+                        <div class="maquee">
+                            <ul id="iu" >
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="yes tc abs">
+                    <img onclick="onPass()" src="{:C('STATIC_ROOT')}/lottery/event20161222/images/cha_05.jpg" />
+                </div>
+            </div>
+        </div>
+		 -->
+		 
+		 
+		<div class="hidden" id="square2_window">
+            <div class="square2_content rel">
+                <div class="success2  tc">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/my_14.jpg" />
+                    <div class="clear"></div>
+                    <div class="must cut30 fl">
+                        <p>时间</p>
+                    </div>
+                    <div class="must cut40 fl">
+                        <p>奖品名称</p>
+                    </div>
+                    <div class="must cut30 fl">
+                        <p>兑换方式</p>
+                    </div>
+                    <div class="center2_html">
+                        <ul id="iu">
+                            <li>
+                                <div class="cut30 fl">2016-11-11</div>
+                                <div class="cut40 fl">150元红包奖励</div>
+                                <div class="cut30 fl">客服联系</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="yes2 tc abs">
+                    <img onclick="onPass()" src="{:C('STATIC_ROOT')}/lottery/event20161222/images/cha.png" />
+                </div>
+            </div>
+        </div>
+		
+		
+        <!--正文-->
+        <div id="leafContainer">
+            <div class="tree" style="    width: 80%;float: right;position: absolute;height: 95%;">
+                <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/3_03.png" style="width: 100%;height: 100%" /><!--树-->
+                <div class="star abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/star.gif" style="width:90px;" /><!--星星-->
+                </div>
+                <div class="ball1 abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/yuan_07.png" style="width:50%;" /><!--球1-->
+                </div>
+                <div class="ball2 abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/yuan_14.png" style="width:45%;" /><!--球2-->
+                </div>
+                <div class="ball3 abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/yuan_19.png" style="width:50%;" /><!--球3-->
+                </div>
+                <div class="ball4 abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/yuan_22.png" style="width:60%;"/><!--球4-->
+                </div>
+                <div class="ball8 abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/yuan_11.png" style="width:65%;" /><!--球5-->
+                </div>
+                <div class="ball5 abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/yuan_24.png" style="width:50%;" /><!--球6-->
+                </div>
+                <div class="ball6 abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/yuan_30.png" style="width:48%;" /><!--球7-->
+                </div>
+                <div class="ball7 abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/yuan_33.png" style="width:48%;" /><!--球8-->
+                </div>
+                <div class="world abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/two_09.png" style="width:48%;" /><!--投资提示-->
+                </div>
+                <div class="jian abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/jian.gif" style="width:48%;" /><!--箭头-->
+                </div>
+            </div>
+            <div class="green" style="width:10%;position: absolute">
+                <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/1_02.png" style="width: 100%" onclick="Pass()" /><!--规则-->
+            </div>
+            <div class="cha" style="width: 79px;position: absolute;">
+                <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/XXX.gif" style="width: 193px;" />
+                <div class="bell abs">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/time_03.png" style="width: 90px;" /><!--玲儿响叮当-->
+                </div>
+            </div>
+
+
+            <li style="top: -10px; left: 238px; animation-name: fade, drop; animation-duration: 5.81667s, 5.81667s; animation-delay: 2.48589s, 2.48589s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow1.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 5.29058s;"></li>
+            <li style="top: -10px; left: 652px; animation-name: fade, drop; animation-duration: 9.13407s, 9.13407s; animation-delay: 4.76437s, 4.76437s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow3.png" style="animation-name: clockwiseSpin; animation-duration: 6.29533s;"></li>
+            <li style="top: -10px; left: 344px; animation-name: fade, drop; animation-duration: 10.7612s, 10.7612s; animation-delay: 0.549252s, 0.549252s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 4.37331s;"></li>
+            <li style="top: -10px; left: 742px; animation-name: fade, drop; animation-duration: 10.5432s, 10.5432s; animation-delay: 4.01739s, 4.01739s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 6.0038s;"></li>
+            <li style="top: -10px; left: 241px; animation-name: fade, drop; animation-duration: 8.34178s, 8.34178s; animation-delay: 0.805049s, 0.805049s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow4.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 7.78937s;"></li>
+            <li style="top: -10px; left: 804px; animation-name: fade, drop; animation-duration: 9.98578s, 9.98578s; animation-delay: 0.503016s, 0.503016s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 4.88655s;"></li>
+            <li style="top: -10px; left: 739px; animation-name: fade, drop; animation-duration: 5.02336s, 5.02336s; animation-delay: 2.29103s, 2.29103s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: clockwiseSpin; animation-duration: 4.63428s;"></li>
+            <li style="top: -10px; left: 220px; animation-name: fade, drop; animation-duration: 5.49263s, 5.49263s; animation-delay: 2.36024s, 2.36024s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow1.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 7.00529s;"></li>
+            <li style="top: -10px; left: 885px; animation-name: fade, drop; animation-duration: 6.59159s, 6.59159s; animation-delay: 2.98334s, 2.98334s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 7.58028s;"></li>
+            <li style="top: -10px; left: 218px; animation-name: fade, drop; animation-duration: 9.70592s, 9.70592s; animation-delay: 3.77919s, 3.77919s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow4.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 5.40979s;"></li>
+            <li style="top: -10px; left: 302px; animation-name: fade, drop; animation-duration: 5.68845s, 5.68845s; animation-delay: 1.32113s, 1.32113s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 6.36214s;"></li>
+            <li style="top: -10px; left: 21px; animation-name: fade, drop; animation-duration: 8.41337s, 8.41337s; animation-delay: 4.37275s, 4.37275s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow3.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 4.46141s;"></li>
+            <li style="top: -10px; left: 718px; animation-name: fade, drop; animation-duration: 6.21629s, 6.21629s; animation-delay: 1.39604s, 1.39604s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow4.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 4.20126s;"></li>
+            <li style="top: -10px; left: 603px; animation-name: fade, drop; animation-duration: 9.99346s, 9.99346s; animation-delay: 4.10304s, 4.10304s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: clockwiseSpin; animation-duration: 7.61558s;"></li>
+            <li style="top: -10px; left: 573px; animation-name: fade, drop; animation-duration: 6.91236s, 6.91236s; animation-delay: 1.4533s, 1.4533s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow4.png" style="animation-name: clockwiseSpin; animation-duration: 7.14619s;"></li>
+            <li style="top: -10px; left: 481px; animation-name: fade, drop; animation-duration: 10.3329s, 10.3329s; animation-delay: 4.26885s, 4.26885s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow4.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 7.67916s;"></li>
+            <li style="top: -10px; left: 105px; animation-name: fade, drop; animation-duration: 10.1368s, 10.1368s; animation-delay: 2.40609s, 2.40609s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow4.png" style="animation-name: clockwiseSpin; animation-duration: 4.90097s;"></li>
+            <li style="top: -10px; left: 132px; animation-name: fade, drop; animation-duration: 6.99197s, 6.99197s; animation-delay: 0.625671s, 0.625671s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: clockwiseSpin; animation-duration: 5.82329s;"></li>
+            <li style="top: -10px; left: 644px; animation-name: fade, drop; animation-duration: 10.7545s, 10.7545s; animation-delay: 1.73552s, 1.73552s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow4.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 4.6705s;"></li>
+            <li style="top: -10px; left: 116px; animation-name: fade, drop; animation-duration: 10.9021s, 10.9021s; animation-delay: 0.489026s, 0.489026s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow2.png" style="animation-name: clockwiseSpin; animation-duration: 5.51395s;"></li>
+            <li style="top: -10px; left: 873px; animation-name: fade, drop; animation-duration: 8.12498s, 8.12498s; animation-delay: 3.88538s, 3.88538s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow3.png" style="animation-name: counterclockwiseSpinAndFlip; animation-duration: 5.84471s;"></li>
+            <li style="top: -10px; left: 78px; animation-name: fade, drop; animation-duration: 8.64629s, 8.64629s; animation-delay: 3.80864s, 3.80864s;"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/snow1.png" style="animation-name: clockwiseSpin; animation-duration: 6.08087s;"></li>
+        </div>
+
+        <!--球弹框-->
+        <div class="opacity"></div>
+        <div class="windows">
+            <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/window_10.png" style="width:90%;" />
+            <div class="" id="have" style=""><!--抽奖的奖品-->
+                <div class="text1">
+                    <a href="#">恭喜您获得</a>
+                </div>
+                <div class="text">
+                    <a href="#" id="prizeName"></a>
+                </div>
+            </div>
+            <div class="text2" id="no" style="display:none;"><!--无抽奖机会-->
+                <p id="error"></p>
+            </div>
+            <div class="close"><img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/cha.png" /></div>
+        </div>
+    </section>
+
+ <!--footer-->
+        <div class="foot_now "  onclick="">
+            <div class="" style="width:100%;margin:auto;">
+                <div class="hand cut40 fl tc">
+                    <img  src="{:C('STATIC_ROOT')}/lottery/event20161222/images/two_13.png" style="width:70%;height:rem;" /><!--试手气-->
+                </div>
+                <div class="cut30 fl tc rel">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161222/images/two_15.png" style="width:95%;height:rem;" />
+                    <div class="times abs tc">
+                        <em><a>还剩</a><span id="me_cnt">{$params.cnt}</span>次机会</em><!--摇奖次数-->
+                    </div>
+                </div>
+                <div class="cut30 fl tc">
+                    <img onclick="onPass()" src="{:C('STATIC_ROOT')}/lottery/event20161222/images/two_17.png" style="width:72%;height:rem;" /><!--我的奖品-->
+                </div>
+            </div>
+        </div>
+    <!--雪花-->
+    <script>
+    
+		var lotteryId = "{$params.lottery_id}";
+		var userId = "{$params.user_id}"; 
+		var userName = "{$params.user_name}";
+		var flg = true;
+    
+        const NUMBER_OF_LEAVES = 50;
+        function init() {
+            var container = document.getElementById('leafContainer');
+            for (var i = 0; i < NUMBER_OF_LEAVES; i++) {
+                container.appendChild(createALeaf());
+            }
+        }
+        function randomInteger(low, high) {
+            return low + Math.floor(Math.random() * (high - low));
+        }
+        function randomFloat(low, high) {
+            return low + Math.random() * (high - low);
+        }
+        function pixelValue(value) {
+            return value + 'px';
+        }
+        function durationValue(value) {
+            return value + 's';
+        }
+        function createALeaf() {
+            var leafDiv = document.createElement('li');
+            var image = document.createElement('img');
+
+            image.src = '{:C('STATIC_ROOT')}/lottery/event20161222/images/snow' + randomInteger(1, 5) + '.png';
+
+            leafDiv.style.top = "-20px";
+
+            leafDiv.style.left = pixelValue(randomInteger(0, 2000));
+            var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+            leafDiv.style.webkitAnimationName = 'fade, drop';
+            image.style.webkitAnimationName = spinAnimationName;
+            var fadeAndDropDuration = durationValue(randomFloat(5, 11));
+            var spinDuration = durationValue(randomFloat(4, 8));
+            leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+            var leafDelay = durationValue(randomFloat(0, 5));
+            leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+            image.style.webkitAnimationDuration = spinDuration;
+            leafDiv.appendChild(image);
+            return leafDiv;
+        }
+        window.addEventListener('load', init);
+    </script>
+    <!--规则弹框-->
+    <script>
+        var IsPopup = false;
+        function Pass() {
+            if (IsPopup) {
+                document.getElementById("square_bj").className = "hidden";
+                document.getElementById("square1_window").className = "hidden";
+                IsPopup = false;
+            } else {
+                document.getElementById("square_bj").className = "square_bj abs";
+                document.getElementById("square1_window").className = "square_window abs";
+                IsPopup = true;
+            }
+        }
+    </script>
+    <script>
+    var IsPopup = false;
+    function onPass() {
+        if (IsPopup) {
+            document.getElementById("square_bj").className = "hidden";
+            document.getElementById("square2_window").className = "hidden";
+            IsPopup = false;
+        } else {
+	    	if(!userId){
+	    		$("#have").css('display','none'); 
+            	$("#no").removeAttr('style');
+            	$("#error").empty().html('请先登录');
+            	$(".windows").fadeIn();
+                $(".opacity").fadeIn();
+	    		return false;
+	    	}
+		    $.ajax({
+       			type: "post",
+       		    async: false,
+       		    data:{'lotteryId':lotteryId,'userId':userId,'userName':userName},
+       		    url: "?c=Lottery&a=get_lottery_log", 
+       		    dataType: "json",
+       		    success: function (json) {
+       		        if(json.status == 1) {
+       		        	var arr = [];
+       		        	for(var item in json.info) {
+       		        		var type = '系统派发';
+           		        	if(json.info[item]['type'] >= 4) {
+           		        		type = '客服联系';
+           		        	}
+       		        		var s = "<li><div class='cut30 fl'>"+json.info[item]['create_time']+"</div><div class='cut40 fl'>"+json.info[item]['prize_name']+"</div><div class='cut30 fl'>"+type+"</div></li>";
+       		        		arr.push(s);
+       		        	}
+       		        	$('#iu').empty().html(arr.join(''));
+       		        	document.getElementById("square_bj").className = "square_bj abs";
+       		            document.getElementById("square2_window").className = "square_window abs";
+       		            IsPopup = true;
+       		        } else {
+    					$("#have").css('display','none'); 
+    	            	$("#no").removeAttr('style');
+    	            	$("#error").empty().html(json.info);
+    	            	$(".windows").fadeIn();
+    	                $(".opacity").fadeIn();
+    		    		return false;
+       		        }
+       		    }
+       		 });
+        }
+    }
+    </script>
+
+    <!--球晃动-->
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".ball1>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('ball1');
+            }, 900);
+        });
+        $(".ball2>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('ball2');
+            }, 900);
+        });
+        $(".ball3>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('ball3');
+            }, 900);
+        });
+        $(".ball4>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('ball4');
+            }, 900);
+        });
+        $(".ball5>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('ball5');
+            }, 900);
+        });
+        $(".ball6>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('ball6');
+            }, 900);
+        });
+        $(".ball7>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('ball7');
+            }, 900);
+            
+        });
+        $(".ball8>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('ball8');
+            }, 900);
+        });
+        $(".star>img").click(function () {
+            $(this).addClass("shake");
+            setTimeout(function () {
+            	do_lottery('star');
+            }, 900);
+        });
+        $(".hand>img").click(function () {
+            do_lottery('hand');
+        });
+        $(".close").click(function () {
+            $(this).parent().fadeOut(); $(".opacity").fadeOut();
+            $(".windows").css("display", "none");
+        })
+    });
+    
+    
+    function do_lottery( _obj ){
+    	if(!flg) {
+    		return false;
+    	}
+    	flg = false;
+    	$.ajax({
+		        type: "post",
+		        async: false,
+		        data:{'lotteryId':lotteryId,'userId':userId,'userName':userName},
+		        url: "?c=Lottery&a=do_lottery", 
+		        dataType: "json",
+		        success: function (json) {
+		        	flg = true;
+		        	if(json.status == 1) {
+		        		$("#prizeName").empty().html(json.info.name);
+		        		$("#no").css('display','none'); 
+		            	$("#have").removeAttr('style');
+
+		            	var _cnt = parseInt($("#me_cnt").text()) - 1;
+                    	if(_cnt<0){
+                    		_cnt = 0;
+                    	}
+                    	$("#me_cnt").html(_cnt);
+		        	} else{
+		        		$("#have").css('display','none'); 
+		            	$("#no").removeAttr('style');
+		            	$("#error").empty().html(json.info);
+		        	}
+		        	$("."+_obj+">img").removeClass("shake");
+		        	$(".windows").fadeIn();
+	                $(".opacity").fadeIn();
+		        }
+    	});
+    }
+    
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/css2/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/css2/style.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/css2/index.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+    <title>票票喵</title>
+
+</head>
+<body>
+    <section>
+        <!--正文-->
+        <div class="invite_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/images/banner_01.jpg" />
+            <img src="{:C('STATIC_ROOT')}/activity/images/banner_02.jpg" />
+            <img src="{:C('STATIC_ROOT')}/activity/images/banner_03.jpg" />
+            <img src="{:C('STATIC_ROOT')}/activity/images/banner_04.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/images/banner_05.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/images/banner_06.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/images/banner_07.jpg" />
+            <img src="{:C('STATIC_ROOT')}/activity/images/banner_08.jpg" />
+        </div>
+        <div class="invite_back " >
+            <div class="invite_detailed mar" style="margin-top:-1px;">
+                <div class="invite_line">
+                    <div class="invite_number cut33 tc fl bodb">
+                        <p>手机号</p>
+                    </div>
+                    <div class="invite_investment cut33 tc fl bodb">
+                        <p>是否投资</p>
+                    </div>
+                    <div class="invite_reward cut33 tc fl bodb">
+                        <p>获得奖励</p>
+                    </div>
+                </div>
+                <div class="topRec_List">
+                    <div class="maquee">
+                        <ul id="iu">
+                        	<foreach name="list" item="item">
+                            <li>
+                                <div>{$item.invited_phone}</div>
+                                <div>
+									<if condition="$item.amount gt 1 "> 是
+									<else /> 否
+									</if>
+								</div>
+                                <div>{$item.amount}元</div>
+                            </li>
+                          </foreach>  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="invite_money mar tc">
+                <div class="invite_star cut50 fl">
+                    <img src="{:C('STATIC_ROOT')}/activity/images/banner_11.png" />
+                </div>
+                <div class="invite_hundred cut50 fl">
+                    <p><span>{$total_amount}</span>元</p>
+                </div>
+            </div>
+            <div class="invite_pic">
+                <img src="{:C('STATIC_ROOT')}/activity/images/banner_09.jpg"  style="padding-bottom:50px;"/>
+            </div>
+            <div class="invite_now tc" style="cursor:pointer;" onclick="share()">
+                <p>立即邀请好友</p>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+    	
+    	var mobile = "{$mobile}";
+	    function share(){
+	    	var url = "http://testing.ppmiao.com/?c=Activity&a=invite";
+	    	
+	    	var device_type = '{$device_type}';
+	    	if(device_type == 'ios') {
+	    		firstClick(url);
+	    		return;
+	    	}
+	    	var str = '{ "content": "票据理财专业平台，银行托管多重保障。新手红包+邀请奖励，更有15%利率产品等你来体验！", "url": "'+url+'","imageUrl":"","mobile":"'+mobile+'"}'; 
+	    	ppm.share(str);
+	    }
+	    
+	    function loadURL(url) {
+	        var iFrame;
+	        iFrame = document.createElement("iframe");
+	        iFrame.setAttribute("src", url);
+	        iFrame.setAttribute("style", "display:none;");
+	        iFrame.setAttribute("height", "0px");
+	        iFrame.setAttribute("width", "0px");
+	        iFrame.setAttribute("frameborder", "0");
+	        document.body.appendChild(iFrame);
+	        // 发起请求后这个 iFrame 就没用了，所以把它从 dom 上移除掉
+	        iFrame.parentNode.removeChild(iFrame);
+	        iFrame = null;
+	    }
+	    
+	    function firstClick(url) {
+	        loadURL('share,'+url+",票据理财专业平台，银行托管多重保障。新手红包+邀请奖励，更有15%利率产品等你来体验！,"+mobile);
+	        
+	        //loadURL('skip2');
+	    }
+    
+	    function autoScroll(obj) {
+	        $(obj).find("ul").animate({
+	            marginTop: "-39px"
+	        }, 500, function () {
+	            $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	        })
+	    }
+	    $(function () {
+	
+	        var len = $("#iu li").length;
+	        if (len >= 3) {
+	            setInterval('autoScroll(".maquee")', 3000);
+	        }
+	    })
+
+    </script>
+</body>
+</html>

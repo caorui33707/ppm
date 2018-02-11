@@ -1,0 +1,993 @@
+[ 2017-11-20T18:06:36+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:06:55+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:07:27+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172447 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:07:28+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172448 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:08:29+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0110s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172509 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:08:30+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172510 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:08:31+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172510 )  [ RunTime:0.0070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:08:31+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172511 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:08:31+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172511 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:08:31+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172511 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:08:32+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172512 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:08:32+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172512 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:08:32+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172512 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:08:32+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0100s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172512 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:09:23+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511172563 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:12:39+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] require(./ Apps/Admin/Common/function.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Common\function.php 第 3 行.
+
+[ 2017-11-20T18:13:00+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:13:01+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:13:02+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:13:02+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:14:00+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:14:01+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:02+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:14:02+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:14:04+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:04+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:04+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:04+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:14:12+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:14:12+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:14:13+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:22:04+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] require_once(./Apps/AdminConf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Controller\PushMsgController.class.php 第 5 行.
+
+[ 2017-11-20T18:22:36+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173356 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:22:37+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173357 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:22:38+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173358 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:22:38+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173358 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:22:38+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173358 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:23:33+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173413 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:23:34+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173414 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:23:34+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173414 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:23:52+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173432 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:23:53+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173433 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:23:53+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173433 )  [ RunTime:0.0070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:24:57+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173497 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:24:58+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173498 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:24:58+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173498 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:25:21+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173521 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:25:22+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0100s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173522 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:25:22+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173522 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:25:22+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173522 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:25:22+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173522 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:25:23+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173523 )  [ RunTime:0.0070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:26:01+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173561 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:26:02+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173562 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:26:02+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173562 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:26:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173562 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:26:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173563 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:26:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173563 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:26:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173563 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:26:03+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173563 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:26:04+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173564 )  [ RunTime:0.0070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:26:04+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173564 )  [ RunTime:0.0070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:26:04+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173564 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:26:47+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:26:48+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:26:49+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:26:49+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:32:35+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173955 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:33:06+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511173986 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:33:23+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] include(./Conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './Conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174003 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:33:41+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] include(./Admin/Conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './Admin/Conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174021 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:33:42+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] include(./Admin/Conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './Admin/Conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0100s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174022 )  [ RunTime:0.0100s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:33:42+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] include(./Admin/Conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './Admin/Conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0100s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174022 )  [ RunTime:0.0100s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:33:42+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] include(./Admin/Conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './Admin/Conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174022 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:33:42+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] include(./Admin/Conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './Admin/Conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174022 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:33:43+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] include(./Admin/Conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(): Failed opening './Admin/Conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 18 行.
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174023 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:34:23+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] include(./conf/config.php): failed to open stream: No such file or directory E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] include(): Failed opening './conf/config.php' for inclusion (include_path='.;C:\php\pear') E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+NOTIC: [2] array_merge(): Argument #1 is not an array E:\wamp\www\ppmiao.admin.test\Apps\Task\Conf\config.php 第 19 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] session_start(): Cannot send session cache limiter - headers already sent (output started at E:\wamp\www\ppmiao.admin.test\ThinkPHP\Common\functions.php:850) E:\wamp\www\ppmiao.admin.test\ThinkPHP\Common\functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174063 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T18:34:46+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0090s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174086 )  [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T18:47:52+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174872 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-20T18:48:09+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1511174889 )  [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>银行存管开户</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link href="{:C('STATIC_ROOT')}/assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/cover.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/openAccount/style.css" rel="stylesheet" type="text/css">
+    <script src="{:C('STATIC_ROOT')}/assets/openAccount/index.js"></script>
+    <script src="{:C('STATIC_ROOT')}/assets/js/semantic.min.js"></script>
+</head>
+
+<body>
+<include file="Common:header" />
+<div class="main">
+    <div class="container">
+        <div class="pandect_big">
+            <div class="pandect_seat">
+                <p>您现在的位置：我的账户><span>我的银行卡</span></p>
+            </div>
+            <!--左-->
+            <div class="pandect_left">
+                <include file="layouts:menu" />
+            </div>
+            <!--<div class="pandect_right">-->
+                <!--<div class="container">-->
+                    <!--<div class="title">-->
+                        <!--开通银行存管账户-->
+                    <!--</div>-->
+                    <!--<div class="background">-->
+
+                    <!--</div>-->
+                    <!--<div class="subtitle">-->
+                        <!--<div>-->
+                            <!--1、票票喵采用与银行一致的认证机制，交易行为前需要进行银行存管开户。-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--2、此次绑定的银行卡，是您唯一的资金出入口，提现时只能提取到绑定的银行卡内，最大程度保障您的资金安全。-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form">-->
+                        <!--<div class="oneline">-->
+                            <!--<div class="Title">-->
+                                <!--真实姓名：-->
+                            <!--</div>-->
+                            <!--<div class="input">-->
+                                <!--<div class="ui input">-->
+                                    <!--<input type="text" id="realName" placeholder="请输入真实姓名"  onkeyup="subStatus()">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="warning">-->
+                                <!--&lt;!&ndash;请输入真实姓名&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="oneline">-->
+                            <!--<div class="Title">-->
+                                <!--身份证号码：-->
+                            <!--</div>-->
+                            <!--<div class="input">-->
+                                <!--<div class="ui input">-->
+                                    <!--<input type="text" id="cardNo" placeholder="请输入18位身份证号" onkeyup="clearNoNum(this)">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="warning">-->
+                                <!--&lt;!&ndash;请输入正确的身份证号&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="oneline">-->
+                            <!--<div class="Title">-->
+                                <!--开户银行：-->
+                            <!--</div>-->
+                            <!--<div class="input">-->
+                                <!--<select name="skills" id="bankCardNo" class="ui fluid search dropdown" style="width:250px;">-->
+                                    <!--<?php-->
+                                        <!--foreach($bankList->result as $key => $val):-->
+                                    <!--?>-->
+                                    <!--<option value="{$val->bankCode}">{$val->bankName}</option>-->
+                                    <!--<?php-->
+                                        <!--endforeach;-->
+                                    <!--?>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                            <!--<div class="warning">-->
+                                <!--&lt;!&ndash;请选择开户行&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="oneline">-->
+                            <!--<div class="Title">-->
+                                <!--银行卡号：-->
+                            <!--</div>-->
+                            <!--<div class="input">-->
+                                <!--<div class="ui input">-->
+                                    <!--<input type="text" id="bankCode" placeholder="目前仅支持储蓄卡" onkeyup="clearNoNum(this)">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="warning">-->
+                                <!--&lt;!&ndash;请输入正确的银行卡号&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="oneline">-->
+                            <!--<div class="Title">-->
+                                <!--银行预留手机号：-->
+                            <!--</div>-->
+                            <!--<div class="input">-->
+                                <!--<div class="ui input">-->
+                                    <!--<input type="text" id="mobile" placeholder="请输入开户时在银行预留的手机号" onkeyup="clearNoNum(this)">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div id="errorMsg" class="warning">-->
+                                <!--&lt;!&ndash;请输入正确的手机号&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="ui checkbox checkboxclick">-->
+                        <!--<input type="checkbox" id="agree" onclick="subStatus()" tabindex="0">-->
+                        <!--<label>我同意《XXX协议》</label>-->
+                    <!--</div>-->
+                    <!--<div class="button" id="subbtn"  style="background-color:gray;" onclick="bindCard()">-->
+                        <!--立即开户-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!-- 开户结果 -->
+            <div class="pandect_right">
+                <div class="container">
+                    <div class="title">
+                        开通银行存管账户
+                    </div>
+                    <!-- 开户成功 -->
+                    <div class="success">
+                        <div onclick="window.location.href='{:C(\'WEB_ROOT\')}/index.php/User/index/bank'" class="success-button1"></div>
+                        <div onclick="window.location.href='{:C(\'WEB_ROOT\')}/product/index.html'" class="success-button2"></div>
+                    </div>
+                    <!-- 开户失败 -->
+                    <!-- <div class="default">
+                        <div class="default-button"></div>
+                    </div> -->
+                    <div style="color:#999;padding:20px;border-top:1px solid #d9d9d9;">
+                        <div>
+                            温馨提示：
+                        </div>
+                        <div>
+                            1、票票喵采用与银行一致的认证机制，交易行为前需要进行银行存管开户。
+                        </div>
+                        <div>
+                            2、此次绑定的银行卡，是您唯一的资金出入口，提现时只能提取到绑定的银行卡内，最大程度保障您的资金安全
+                        </div>
+                        <div>
+                            3、如有疑问可联系客服热线：400-992-8855 服务时间  9:00-21:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />
+</body>
+<script></script>
+
+</html>

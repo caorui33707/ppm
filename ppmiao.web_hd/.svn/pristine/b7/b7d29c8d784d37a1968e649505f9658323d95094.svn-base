@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 20px
+}
+
+.background {
+    background-image: url(../img/bg@2x.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 95.5rem;
+    overflow-y: auto;
+}
+
+.fixedTime {
+    background-color: #333;
+    opacity: .7;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1rem;
+    z-index: 15;
+}
+
+.list {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    height: 27.9rem;
+    top: 15.3rem;
+}
+
+.oneline {
+    width: 100%;
+    height: 4.9rem;
+    position: relative;
+}
+
+.mark {
+    position: absolute;
+    font-size: .7rem;
+    color: white;
+    width: 1.3rem;
+    left: .9rem;
+}
+
+.rate {
+    position: absolute;
+    top: 1.3rem;
+    font-size: .8rem;
+    left: 2rem;
+    text-align: center;
+    width: 6.5rem;
+}
+.rate.rate2 {
+    width: 5.5rem;
+}
+
+.rate-num {
+    color: #e94d4d;
+    font-size: 1.1rem;
+}
+
+.rate-num span {
+    font-size: .8rem;
+}
+
+.rate-text {
+    color: #a49b9b;
+    line-height: 1.4rem;
+    font-size: .6rem;
+}
+
+.rate-button {
+    background-image: url(../img/button-3@2x.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 3rem;
+    position: absolute;
+    top: 1.3rem;
+    left: 13rem;
+}
+
+.rate-button-finish {
+    background-image: url(../img/button-2@2x.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 3rem;
+    position: absolute;
+    top: 1.3rem;
+    left: 13rem;
+}
+
+.rate-button-done {
+    background-image: url(../img/button-1@2x.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 3rem;
+    position: absolute;
+    top: 1.3rem;
+    left: 13rem;
+}
+.rate-button-sell {
+    background-image: url(../img/button-4@2x.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 3rem;
+    position: absolute;
+    top: 1.3rem;
+    left: 13rem;
+}
+
+.dataShow {
+    position: absolute;
+    top: 77.8rem;
+    font-size: .7rem;
+    left: 5rem;
+}
+
+.dataShow div {
+    margin: 0.1rem 0;
+    color: #333;
+    font-weight: 400;
+}
+
+.dataShow div span {
+    color: #ff5a4e;
+    font-size: .9rem;
+}
+
+.progress {
+    position: absolute;
+    left: 2rem;
+    right: 2rem;
+    top: 72.5rem;
+    border: 2px solid #db433a;
+    border-radius: 40px;
+    height: 1.75rem;
+}
+
+.progress-white {
+    border: 1px solid #ffc3bf;
+    border-radius: 40px;
+    height: 1.5rem;
+    position: absolute;
+    width: 100%;
+    box-shadow: inset 1px 1px 25px #ffc3bf;
+}
+.progress-value{
+    width: 80%;
+height: .4rem;
+background: #fff;
+border-radius: 40px;
+margin: auto;
+opacity: .3;
+position: relative;
+top: 0.2rem;
+}
+.progress-circle{
+    background-image: url(../img/circle@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: .35rem;
+    height: 1rem;
+    position: absolute;
+    top: .22rem;
+    left: 10%;
+}
+
+.money {
+    position: absolute;
+    top: 74.5rem;
+    font-size: .8rem;
+    color: #fff;
+    left: 1rem;
+}
+
+.money.paper20 {
+    background-image: url(../img/20@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 2rem;
+    height: 1rem;
+}
+
+.money.paper20.grey {
+    background-image: url(../img/20h@2x.png);
+}
+
+.money.paper20.paper30 {
+    background-image: url(../img/30@2x.png);
+}
+
+.money.paper20.paper30.grey {
+    background-image: url(../img/30h@2x.png);
+}
+
+.money.paper20.paper40 {
+    background-image: url(../img/40@2x.png);
+}
+
+.money.paper20.paper40.grey {
+    background-image: url(../img/40h@2x.png);
+}
+
+.money.paper20.paper50 {
+    background-image: url(../img/50@2x.png);
+}
+
+.money.paper20.paper50.grey {
+    background-image: url(../img/50h@2x.png);
+}
+
+.money.paper20.paper60 {
+    background-image: url(../img/60@2x.png);
+}
+
+.money.paper20.paper60.grey {
+    background-image: url(../img/60h@2x.png);
+}
+
+.borderLine {
+    width: 20%;
+    border-right: 1px solid #d5bf50;
+    border-left: 1px solid #f7df85;
+    position: relative;
+    height: 1.5rem;
+    float: left;
+    top: -1.5rem;
+    z-index: 9;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3), only screen and (min--moz-device-pixel-ratio: 3), only screen and (-o-min-device-pixel-ratio: 3/1), only screen and (min-device-pixel-ratio: 3) {
+    .rate-button {
+        background-image: url(../img/button-3@3x.png);
+    }
+    .rate-button-finish {
+        background-image: url(../img/button-2@3x.png);
+    }
+    .rate-button-done {
+        background-image: url(../img/button-1@3x.png);
+    }
+    .rate-button-sell {
+    	background-image: url(../img/button-4@3x.png);
+	}
+    .progress-circle{
+        background-image: url(../img/circle@3x.png);
+    }
+    .money.paper20 {
+        background-image: url(../img/20@3x.png);
+    }
+    .money.paper20.grey {
+        background-image: url(../img/20h@3x.png);
+    }
+
+    .money.paper20.paper30 {
+        background-image: url(../img/30@3x.png);
+    }
+
+    .money.paper20.paper30.grey {
+        background-image: url(../img/30h@3x.png);
+    }
+
+    .money.paper20.paper40 {
+        background-image: url(../img/40@3x.png);
+    }
+
+    .money.paper20.paper40.grey {
+        background-image: url(../img/40h@3x.png);
+    }
+
+    .money.paper20.paper50 {
+        background-image: url(../img/50@3x.png);
+    }
+
+    .money.paper20.paper50.grey {
+        background-image: url(../img/50h@3x.png);
+    }
+
+    .money.paper20.paper60 {
+        background-image: url(../img/60@3x.png);
+    }
+
+    .money.paper20.paper60.grey {
+        background-image: url(../img/60h@3x.png);
+    }
+}
+
+/* smartphones, portrait iPhone4s/5, portrait 480x320 phones (Android) */
+
+@media (min-width:320px) and (max-width:330px) {
+    html {
+        font-size: 15.4px
+    }
+}
+
+
+/*  iPhone6s/6, */
+
+@media (min-width:330px) and (max-width:360px) {
+    html {
+        font-size: 17.4px
+    }
+}
+
+
+/*  iPhone plus, */
+
+@media (min-width:361px) and (max-width:385px) {
+    html {
+        font-size: 18.1px
+    }
+}
+
+@media (min-width:414px) and (max-width:423px) {
+      html {
+        font-size: 20px
+    }
+}
+
+/* iphone plus*/
+@media (min-width:424px) and (max-width:430px) {
+      html {
+        font-size: 20.44px
+    }
+}
+/* 6英寸*/
+@media (min-width:431px) and (max-width:460px) {
+      html {
+        font-size: 20.8px
+    }
+}
+@media (min-width:442px) and (max-width:460px) {
+      html {
+        font-size: 21.3px
+    }
+}
+
+/* 6.4英寸*/
+@media (min-width:461px) and (max-width:468px) {
+      html {
+        font-size: 22.17px
+    }
+}
+
+@media (min-width:469px) and (max-width:480px) {
+      html {
+        font-size: 22.57px
+    }
+}
+@media (min-width:481px) and (max-width:486px) {
+      html {
+        font-size:  23.2px
+    }
+}
+
+
+/* smartphones, Android phones, landscape iPhone */
+@media (min-width:487px) and (max-width:520px){
+    html {
+        font-size: 23.4px
+    }
+}
+
+
+/* smartphones, Android phones, landscape iPhone */
+
+@media (min-width:521px) {
+    html {
+        font-size: 25.1px
+    }
+}
+
+
+/* smartphones, Android phones, landscape iPhone */
+
+@media (min-width:480px) {
+    html {
+        font-size: 23.2px
+    }
+}
+
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+@media (min-width:600px) {
+    html {
+        font-size: 29px
+    }
+}
+
+
+/*ipad/ipad mini*/
+
+@media (min-width:768px) {
+    html {
+        font-size: 37px
+    }
+}
+
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+
+@media (min-width:801px) {
+    html {
+        font-size: 43px
+    }
+}
+
+
+/* big landscape tablets, laptops, and desktops */
+
+@media (min-width:1024px) {
+    html {
+        font-size: 49px
+    }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+
+    <script type="text/javascript" src="https://image.ppmiao.com/Public/js/util.js"></script>
+    <link rel="stylesheet" href="https://image.ppmiao.com/Public/activity/llyh/css/index.css">
+    <title>票票喵理财</title>
+</head>
+<body>
+<div class="background img1"></div>
+<div class="background img2">
+    <input class="telphone input" name="mobile" type="text" placeholder="请输入手机号" name="" value="" onKeyUp="value=value.replace(/[^\d+]/g,'')"  >
+</div>
+<div class="background img3">
+    <input class="code input" type="text" name="code" placeholder="请输入验证码">
+    <span class="get-code code-time" >获取验证码</span>
+    <div class="agreement">
+        <input type="checkbox"  name="agreement" checked>
+        <span>已阅读并同意<a href="https://cg.ppmiao.com/act/agree/index.html">《注册协议》</a></span>
+    </div>
+    <span class="login" onclick="login()">登录 / 注册</span>
+</div>
+<div class="background img4"></div>
+<div class="background img5"></div>
+<div class="background img6"></div>
+<div class="cautious-back">
+    <div class="cautious"></div>
+</div>
+<div class="model">
+    <p id="text"></p>
+</div>
+</body>
+<script type="text/javascript">
+    setTimeout("$('.cautious-back').css('display','none')",3000);
+
+    var ch = "{$ch}";
+
+    // 获取验证码
+    $('.get-code').click(function() {
+        var mobile = $('input[name=mobile]').val();
+        if(!checkPhone(mobile)) {
+            if(mobile == "") {
+                $('#text').html('请输入您的手机号码！');
+            } else {
+                $('#text').html('输入的手机号码有误！');
+            }
+            fade();
+            return;
+        }
+
+        $.ajax({
+            url: "/hd/sendCode.html",
+            type: "post",
+            data: {'invitedMobile':mobile},
+            success: function (json) {
+                if(json.status == 1){
+                    Countdown();
+                } else {
+                    $('#text').html(json.info);
+                    fade();
+                }
+                return;
+            }
+        })
+
+    });
+
+    function login(){
+
+        if(!$('input[name=agreement]').is(':checked')){
+            $('#text').html('您没有同意用户注册协议！');
+            fade();
+            return ;
+        }
+
+        var mobile = $('input[name=mobile]').val();
+        var code = $('input[name=code]').val();
+
+        if(!checkPhone(mobile)) {
+            if(mobile == "") {
+                $('#text').html('请输入您的手机号码！');
+            } else {
+                $('#text').html('输入的手机号码有误！');
+            }
+            fade();
+            return ;
+        } else if(!code || code.length<6) {
+            $('#text').html('请输入6位数的验证码！');
+            fade();
+            return ;
+        }else{
+            $.ajax({
+                url: "/hd/llyh_res.html",
+                type: "post",
+                data: {'code':code,'mobile':mobile,'ch':ch},
+                success: function (json) {
+                    if(json.status == 0){
+                        $('#text').html(json.info);
+                        fade();
+                    } else {
+
+                        window.location.href=json.info;
+                    }
+                    return;
+                }
+            });
+        }
+
+    }
+
+
+    function fade(){
+        $('.model').css({
+            'display':'block',
+            'animation':'fadein 3s linear'
+        });
+        setTimeout("$('.model').css({'display':'none','animation':'none'})",3000);
+    }
+
+
+    // 倒计时
+    var sleep = 60, interval = null;
+    function Countdown(){
+        if (!interval) {
+            $('.get-code').css('pointer-events', 'none');
+            $('.code-time').html(sleep + " s");
+            interval = setInterval(function () {
+                if (sleep == 0) {
+                    if (!!interval) {
+                        clearInterval(interval);
+                        interval = null;
+                        sleep = 60;
+                        $('.get-code').css('pointer-events', 'auto');
+                        $(".code-time").html("获取验证码");
+                    }
+                    return false;
+                }
+                $('.code-time').html(sleep-- + " s");
+            }, 1000);
+        }
+    }
+
+
+    function checkPhone(phone){
+        if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){
+            return false;
+        }
+        return true;
+    }
+
+</script>
+</html>

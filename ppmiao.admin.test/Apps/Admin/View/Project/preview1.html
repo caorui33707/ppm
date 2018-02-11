@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$title}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ADMIN')}/preview/css/css.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+
+<body id="hkfx02">
+<div class="wrap">
+    <foreach name="descr" item="item">
+        <div class="hkfxListBox">
+            <section class="hkfxListTitle">
+                <h3>{$item[0]}</h3>
+            </section>
+            <section class="hkfxListTxt">
+                {$item[1]}
+            </section>
+        </div>
+    </foreach>
+    <notempty name="image">
+        <div class="hkfxListBox">
+            <section class="hkfxListTitle">
+                <h3>相关图片</h3>
+            </section>
+            <section class="hkfxListTxt">
+                <foreach name="image" item="item">
+                    <img src="{$item}" />
+                </foreach>
+            </section>
+        </div>
+    </notempty>
+</div>
+</body>
+</html>

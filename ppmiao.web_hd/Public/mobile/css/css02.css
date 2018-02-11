@@ -1,0 +1,165 @@
+/* CSS Document */
+body{ font-size:14px; font-family:"微软雅黑",Arial, Helvetica, sans-serif;color:#7f7f7f; margin:0px; padding:0px;background-image:url(about:blank);background-attachment:fixed; background:#ffffff;}
+ul li,li{ list-style:none;}
+ul,li,dl,dt,dd,span,p,cite,em,i,h1,h2,h3,h4,h5,h6,b{margin:0px; padding:0px;}
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+cite,em,i{ font-style:normal;}
+a{color:#7f7f7f; text-decoration:none; outline:none;}
+a:hover{ text-decoration:none;}
+a:hover,a:active, input, :focus { outline:none;}
+input{border: none;}
+img{ border:none;}
+
+
+/*==========share=============*/
+.shareBox{
+    overflow: hidden;
+    background:#fff;
+}
+.content{ background: #fff;}
+.shareBg{
+    position:relative;}
+.shareBg #sharebg01{
+    max-width: 100%;
+    position: relative;
+    z-index:1;
+}
+img{ display: inline; vertical-align: middle;}
+@media screen and (min-width:480px) {
+    body{ width:480px; margin:0 auto;}
+}
+.shareTxt{
+    width:100%;
+    background:#f64349;
+    display:inline-block;
+    position:absolute;
+    top:6%;
+    left:0;
+    z-index:999;}
+.shareTxt h6{
+    font:20px/30px "微软雅黑";
+    color:#ffffff;
+    text-align:center;
+    margin:0px 8px 0 8px;}
+.shareTxt h3{
+    font:25px/30px "微软雅黑";
+    color:#ffffff;
+    text-align:center;
+    margin:0 8px;}
+.shareTxt h3 em{
+    color:#ffff66;
+    font-size:36px;
+    margin:0 3px;}
+.shareTxt h5{
+    font:20px/30px "微软雅黑";
+    color:#ffffff;
+    text-align:center;
+    margin:0px 8px 0 8px;}
+.shareImg01Box{
+    width:100%;
+    height:220px;
+    position:absolute;
+    top:60px;
+    z-index:999;
+}
+.shareImg01 img{
+    width:65%;
+    position:absolute;
+    left:22%;
+    top:30%;
+    z-index:888;
+}
+.starBox{
+    width:100%;
+    position:absolute;
+    z-index:777;}
+.star img{
+    width:8%;
+    position:absolute;
+}
+.anima{
+    -webkit-animation-name: 'opt'; /*动画名称*/
+    -webkit-animation-duration: 3s;/*播放一次所持续时间*/
+    -webkit-animation-timing-function: ease;/*动画播放频率*/
+    -webkit-animation-iteration-count: infinite;/*动画播放次涒为无限次*/}
+@-webkit-keyframes 'opt' {
+    from {
+        opacity: 1;
+    }
+    40% {
+        opacity: .8;
+    }
+    40% {
+        opacity: .4;
+    }
+    80% {
+        opacity: .2;
+    }
+    100% {
+        opacity: .1;
+    }
+    to {
+        opacity: 1
+    }
+}
+.star01 img{
+    right:26%;
+    top:50px;
+    opacity: 1;}
+.star02 img{
+    left:22%;
+    top:60px;
+    opacity: 1;}
+.star03 img{
+    left:15%;
+    top:120px;
+    opacity: 1;}
+.shareImg02Box {
+    width:100%;
+    height:100px;
+    position:relative;
+    top:-50px;}
+.shareFooter{
+    width:100%;
+    height:150px;
+    position:relative;
+    padding-bottom:40px;
+    margin-top:30px;}
+.shareFooter img{
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    display: inline-block;
+}
+.shareFooter #shareerweima{
+    width:35%;
+    position:absolute;
+    top:0px;
+    left:10%;
+    z-index:999;}
+.shareFooter #shareBtn{
+    width:35%;
+    position:absolute;
+    top:20px;
+    left:52%;
+    z-index:999;}
+
+/*============404==========================*/
+#bodyGray03{
+    background:#eeeeee;}
+.nullContent{}
+.wrapBox03{
+    position:relative;}
+#null01{
+    width:46%;
+    position:absolute;
+    left:27%;
+    top:10%;
+    z-index:999;}
+#null02{
+    width:64%;
+    position:absolute;
+    left:18%;
+    top:36%;
+    z-index:998;}

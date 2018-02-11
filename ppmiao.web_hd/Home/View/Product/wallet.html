@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>零钱喵</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css?v=1.0" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/layer/layer.js"></script>
+</head>
+
+<body>
+<include file="PublicNew:menu" />
+
+<div class="joinBanner fLe clear">
+    <p style="background:url({:C('STATIC_ROOT')}/v2/images/img/walletBanner01.jpg) no-repeat scroll center top; display:block"></p>
+</div>
+
+<div class="walletDetailsBigBox02">
+    <div class="walletDetails02Box01 fLe clear">
+        <div class="w980 clear">
+            <h1>零钱喵，一个会生钱的钱包</h1>
+            <h3>一块钱就有高收益，想用钱随存随取</h3>
+        </div>
+    </div>
+
+    <div class="walletDetails02Box02 fLe clear">
+        <div class="walletDetails02Box02Inner w980 clear">
+            <p>“零钱喵”是基于多张银行承兑汇票而设立的票据池所对应的活期化理财产品，具有到期银行无条件兑付的优点，风险几乎为零，收益稳健，天天结算，理财灵活，准入门槛低等特点。钱包账户资金由国有银行实时监管，并由票票喵理财进行严格风控，钱包内资金按天计息，钱包利率依据所投票据市场的综合收益率每日计算并进行定时更新。【注：票票喵理财有权根据票据池风险控制方案，单方面结束“零钱喵”项目。若零钱喵项目结束，“零钱喵”利息结算至项目结束当日，预计于项目结束后的第2个工作日（T+1工作日）返还所有本息】</p>
+        </div>
+    </div>
+
+    <div class="walletDetails02Box02 fLe clear">
+        <div class="w980 clear">
+            <ul class="walletDetails02Box02Ul">
+                <li>
+                    <img src="{:C('STATIC_ROOT')}/v2/images/img/walletDetails02Icon01.png">
+                    <h2>我们<em>更好</em></h2>
+                    <p>收益比其他同类产品高1倍</p>
+                </li>
+                <li>
+                    <img src="{:C('STATIC_ROOT')}/v2/images/img/walletDetails02Icon02.png">
+                    <h2>我们<em>更快</em></h2>
+                    <p>T+1起息，T+1打款</p>
+                </li>
+                <li>
+                    <img src="{:C('STATIC_ROOT')}/v2/images/img/walletDetails02Icon03.png">
+                    <h2>我们<em>更低</em></h2>
+                    <p>1元起购，无手续费</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="walletDetails02Box03 fLe clear">
+        <div class="w980 clear">
+            <div class="walletDetails02Box03Txt fLe clear">
+                <h2>“零钱喵”是票票理财推出的会生钱的电子钱包</h2>
+                <span>
+                    <p class="p01">什么是零钱喵?</p>
+                    <p class="p02">基于多张银行承兑汇票而设立的票据池所对应的活期化理财产品，具有到期银行无条件兑付的优点，风险几乎为零，收益稳健，天天结算，理财灵活，准入门槛低等特点。</p>
+                    <p class="p01">零钱喵期限和收益率怎么计算？</p>
+                    <p class="p02">平台根据票据池规模每天将不定期增开额度，可随时赎回已购理财，当其他用户进行赎回操作后，将空出相应金额的额度供大家抢购；票票喵收益率会随着票据利率市场环境的变化而波动。
+                    <p class="p01">零钱喵如何赎回？</p>
+                    <p class="p02">由投资人申请赎回，赎回到账日为T+2个工作日，最快T+1个工作日，节假日顺延，资金与申购时同卡进出</p>
+                    <!--
+                    <p class="p01">石头理财其他产品到期后，是否支持自动转到“石头钱包”</p>
+                    <p class="p02">若用户购买石头理财产品到期后，想自动转入“石头钱包”，可通过石头理财设置；设置产品到期自动转入钱包,
+                        "我"->"账户设置"->"到期转入钱包"开关</p>
+                        -->
+                </span>
+                <eq name="isLogin" value="1">
+                    <a id="savemoney" href="javascript:;" class="walletDetails02Button" onclick="showWin()">马上存钱</a>
+                <else/>
+                    <a href="{:C('WEB_ROOT')}/login/" class="walletDetails02Button">马上存钱</a>
+                </eq>
+            </div>
+        </div>
+    </div>
+</div>
+<eq name="isLogin" value="1">
+    <script>
+        function showWin(){
+            $(".rechargeLayout,.bg").show();
+        }
+        function closeWin(){
+            $(".rechargeLayout,.bg").hide();
+        }
+        function recharge(){
+            var _money = $.trim($("#money").val());
+            if(_money == '') {
+                layer.alert('充值金额不能为空', -1);return;
+            }
+            if(isNaN(_money)){
+                layer.alert('充值金额必须为数字', -1);return;
+            }
+            if(_money <= 0){
+                layer.alert('充值金额必须大于0', -1);return;
+            }
+            if(_money%1 != 0){
+                layer.alert('充值金额必须为整数', -1);return;
+            }
+            closeWin();
+            $("#frmMain").submit();
+        }
+    </script>
+</eq>
+<include file="PublicNew:footer" />
+<eq name="isLogin" value="1">
+    <div class="rechargeLayout" style="display:none;position:fixed;">
+        <form id="frmMain" action="" method="post">
+            <div class="rechargeLayoutTitle fLe clear">
+                <h5>钱包充值</h5>
+                <a href="javascript:;" onclick="closeWin()"></a>
+            </div>
+            <div class="rechargeLayoutContent fLe clear">
+                <p class="p01"><span>充值金额：</span><input type="text" id="money" name="money" placeholder="最低充值1元" class="input01" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" /></p>
+                <p class="p02"><a href="javascript:;" onclick="recharge()">确定充值</a></p>
+            </div>
+        </form>
+    </div>
+    <div id="bg" class="bg" style="display:none;"></div>
+</eq>
+</body>
+</html>

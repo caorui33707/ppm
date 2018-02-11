@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    <title>票票喵 - 企业用户登录</title>
+</head>
+
+<style>
+    .content {
+        position: absolute;
+        opacity: 0.7;
+        z-index: 3;
+        width: 100%;
+        filter: alpha(opacity=70);
+    }
+    .about_banner {
+        margin-top: -96px;
+    }
+    <!-- 第二导航条透明度-->
+</style>
+<style>
+    .index_new:hover {
+        background-color: #ff5813;
+    }
+</style>
+<body style="background-color:#f4f4f4;">
+    <include file="Public:ppm_menu" />
+    <section>
+          <div class="enter_one" style="margin-top:150px;">
+              <div class="enter_two tc fr">
+                  <div class="enter_three">
+                      <p>登录</p>
+                  </div>
+                  <div class="enter_erro tc" style="color:#ff0000;margin-top:10px;">
+                      <p id="err"></p>
+                  </div>
+                  <div class="enter_write">
+                      <input type="text" id="username" name="username" maxlength="21" placeholder="营业执照号">
+                  </div>
+                  <div class="enter_write">
+                      <input type="password" id="password" name="password" maxlength="20" placeholder="请输入您的密码">
+                  </div>
+                  <div class="enter_in tc">
+                      <button>
+                          <p id="login" style="cursor:pointer;">登 录</p>
+                      </button>
+                  </div>
+                  <div class="enter_forget">
+                      <div class="enter_free mar">
+                          <a href="findpwd.html"><p class="fl bodr">忘记密码</p></a>
+                          <a href="sign.html"><p>立即注册</p></a>
+                      </div>
+                  </div>
+                  <div class="enter_world" style="font-size:12px;color: #575757;margin:auto;margin-top:5px;">
+                  	<p>理财有风险，投资需谨慎</p>
+                  </div>
+              </div>
+          </div>
+</section>
+
+<!--底部导航-->
+<include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+<script>
+$(function () {	
+    $(".enter_in").click(function () {    	
+    	var username = $("input[name='username']").val(); 
+    	var password = $("input[name='password']").val();     	
+    	var regexp = /^[0-9a-zA-Z]*$/g;    	
+    	if(!username){
+    		$("#err").empty().html('请输入营业执照号');
+    		return;
+    	}else if(!regexp.test(username)){
+    		$("#err").empty().html('营业执照号格式错误，由数字字母组成');
+    		return;
+    	} else if(!password){
+    		$("#err").empty().html('请输入密码');
+    		return;
+    	} else{
+    		$("#err").empty();
+    		$.ajax({     
+    		    url:'login.html',     
+    		    type:'post',     
+    		    data : {'username':username, 'password':password},//这里使用json对象  
+    		    success:function(data){     
+     		    	if(data.status==1){
+     		    		$("#err").empty().html('登录成功');
+     		    		location.href = data.info; 
+     		    	} else{
+     		    		$("#err").empty().html(data.info);  
+     		    	}   
+     		    },
+    		    error:function(){     
+    		    	$("#err").empty().html('系统异常');  
+    		    }     
+    		});  
+    	}
+    });
+    
+    $('#password').bind('keypress', function (event) {
+        if (event.keyCode == "13") {
+        	$(".enter_in").click();
+        }
+    });
+})
+</script>
+</body>
+</html>

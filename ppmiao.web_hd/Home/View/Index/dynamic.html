@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.min.js"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/tupianlunbo.js"></script>
+<script type="{:C('STATIC_ROOT')}/new_ppmiao/js/weixin/jquery-1.8.2.min.js"></script>
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style2.css" rel="stylesheet" type="text/css" />
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.1.4.2-min.js" type="text/javascript"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/lunbo.js"  type="text/javascript"/></script>
+<title>{$meta_title}</title>
+
+
+
+</head>
+<style>
+body{background-color:#FFF;}
+.content{ position:absolute;z-index:3; width: 100%;}
+.about_banner{margin-top:96px;}<!--第二导航条透明度-->
+
+</style>
+<style>
+.service{width:1100px;height:1500px;border:solid 1px #CCC;margin-top:50px;color:#7b7b7b;margin-bottom:50px;}
+.service p{margin:0 10px;padding-top:5px;line-height:25px;}
+.service h1{color:#353535;font-weight:bold;margin-bottom:10px;padding-top:20px;}
+</style>
+
+<style>
+.information_big{margin-bottom:50px;}
+.information_middle{width:100%;height:50px;background-color:#f6f6f6;margin-top:96px;border-top:solid 1px #b0afad;}
+.information_width{width:980px;line-height:50px;}
+.information_width p{padding-left:15px;color:#515151;}
+.information_width p:hover{color:#ff580f;}
+.information_big{width:1200px;}
+.information_homepage{line-height:30px;border:solid 1px #b0afad;background-color:#f6f6f6;padding-left:20px;color:#989898;font-size:12px;}
+.index_ticket p{color:#ff580f;}
+.index_ticket img {margin-bottom:15px;}
+.index_media{width:300px;margin-left:50px;}
+.information_notice{width:345px;height:500px;margin-left:31px;border:solid 1px #CCC;overflow:hidden;}
+.information_notice div{height:4000px;position:relative;}
+.information_notice p{padding-left:20px;padding-top:10px;}
+.information_notice img{padding-left:50px;}
+</style>
+<style>
+html, body {font: normal 13px "Microsoft YaHei";font-family: "Microsoft YaHei","微软雅黑","sans-serif";}
+.information_page{margin-left:300px;margin-bottom:500px;}
+
+.dynamic_squery{width:850px;height:800px;border:solid 1px #CCC;margin-bottom:20px;}
+.bigbox{ width:445px; height:308px; overflow:hidden; position:relative;}
+.imgbox{ width:2225px; height:308px;}
+.imgbox img{ width:20%; height:308px; float:left;}
+.ctrl{ height:20px;position:absolute; right:0; bottom:20px;}
+.ctrl span{ width:20px; height:20px;float:left;font-family:"微软雅黑"}
+.white{ color:#FFF;}
+
+.dynamic_piaopiao{margin:20px 10px;}
+.dynamic_piaopiao p{color:#ff580f;font-size:20px;}
+.dynamic_piaopiao span{font-size:13px;color:#5c5c5c;}
+.dynamic_house p{margin-left:20px;color:#333333;}
+.dynamic_house span{margin-right:10px;color:#999;}
+</style>
+<style>
+.index_media {
+    width: 345px;
+    margin-left: 30px;
+}
+</style>
+
+
+<!--middle图片轮播-->
+<style>
+* { 
+padding: 0;
+margin: 0;
+}
+ul {list-style: none;}
+.out {
+position: relative;
+width: 390px;
+height: 272px;
+margin: 20px auto;
+}
+.out .img li {
+position: absolute; 
+top: 0; 
+left: 0;
+display: none;
+}
+.out .num {
+position: absolute; 
+bottom: 20px;
+left: 0;
+font-size: 0;
+width: 100%;
+text-align: center;
+}
+.out .num li {
+width: 20px;
+height: 20px;
+display: inline-block;
+font-size: 13px;
+background-color: #000;
+color: #fff;
+text-align: center;
+line-height: 20px;
+border-radius: 50%;
+margin: 0 3px;
+cursor: pointer;
+}
+.out .num li.active { background-color:#fff;color:#ff580f;}
+.out .btn {
+position: absolute;
+top: 50%;
+width: 30px;
+height: 60px;
+margin-top: -30px;
+background: rgba(0,0,0,.5);
+color: #fff;
+text-align: center;
+line-height: 60px;
+font-size: 40px;
+display: none;
+}
+.out:hover .btn{ 
+display: block;
+cursor: pointer;
+}
+.out .left { left: 0;}
+.out .right { right: 0;}
+</style>
+<body>
+	<include file="Public:menu" />
+        <div class="clear"></div>
+        <!--第三导航条--> 
+        <div class="information_middle ">
+            <div class="information_width mar ">
+                <p class="fl"><a href="#" style="color:#ff580f">. 企业动态</a></p>
+                <p class="fl"><a href="news.html">. 行业资讯</a></p>
+                <p class="fl"><a href="wiki.html">. 票据百科</a></p>
+                <p class="fl"><a href="help.html">. 帮助中心</a></p>
+                <p class="fl"><a href="join.html">. 加入我们</a></p>
+            </div>  
+        </div> 
+        <!--banner--> 
+        <div class="information_banner tc">
+        	<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/industry_03.jpg"/>
+        </div>
+        <!--中间大框-->
+        <div class="information_big mar mtop6">
+        	<div class="information_left fl cut70">
+            	<div class="dynamic_squery">
+                	<div class="cut50 fl">
+                        <!--middle图片轮播-->
+                    	<div class="out">
+                            <ul class="img">
+                                <li><a href="#"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/企业动态_03.png" alt=""></a></li>
+                                <li><a href="#"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/企业动态_03.png" alt=""></a></li>
+                                <li><a href="#"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/企业动态_03.png" alt=""></a></li>
+                                <li><a href="#"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/企业动态_03.png" alt=""></a></li>
+                                <li><a href="#"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/企业动态_03.png" alt=""></a></li>
+                                <li><a href="#"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/企业动态_03.png" alt=""></a></li>
+                            </ul>
+                            <ul class="num">
+                                <!--底部数字栏-->
+                            </ul>
+                            <div class="left btn"><</div>
+                            <div class="right btn">></div>
+                        </div>
+												
+						<volist name="res.list" id="vo" offset="2" length='17'>
+                        <div class="dynamic_house mtop">
+                            <a href="detail.html?id={$vo.id}" target="_blank">
+                                <p class="fl">. {$vo.title}</p>
+                                <span class="fr">{$vo.add_time}</span>
+                                <div class="clear"></div>
+                            </a>
+                        </div>
+                       </volist>
+												                        
+                    </div>
+                    <div class="cut50 fl">
+                    	<volist name="res.list" id="vo" offset="0" length='2'>
+                    	<div class="dynamic_piaopiao tc">
+                        	<p><a href="detail.html?id={$vo.id}" target="_blank">{$vo.title}</a></p>
+                            <p class="mtop"><span>{$vo.intro}</span></p>
+                        </div>
+						</volist>
+
+						<volist name="res.list" id="vo" offset="19">
+                    		<div class="dynamic_house mtop">
+                        	<a href="detail.html?id={$vo.id}" target="_blank">
+                                <p class="fl">. {$vo.title}</p>
+                                <span class="fr">{$vo.add_time}</span>
+                                <div class="clear"></div>
+                            </a>
+                        </div>
+                    	</volist>
+						
+                    </div>
+                </div>
+            </div>
+            <div class="information_right fl cut30 ">
+              <div class="index_media  fl bodb mar">
+                  <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/industry_07.png"/>
+                  <p class="fl">还款通知</p>
+                  <img class="fr"  src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_06.png"/>
+              </div>
+              <div class="clear"></div>
+              <div class="information_notice mtop2">
+                  <div>
+					<foreach name="res.help_list_5" item="item">
+                  	<p>.{$item.title}</p>
+                	</foreach>                     
+                  </div>
+                </div>
+                <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/ergtm_03.png" style="margin-left:30px;"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+	<!--底部导航-->
+	<include file="Public:footer" />
+		
+      </body>
+ 
+ <!--点击二维码显示隐藏-->
+<script>
+var IsPopup = false;
+function IsPass() {
+	if (IsPopup) {
+		document.getElementById("index_bj").className = "hidden";
+		document.getElementById("index_window").className = "hidden";
+		IsPopup = false;
+	} else {
+		document.getElementById("index_bj").className = "index_bj abs";
+		document.getElementById("index_window").className = "index_window abs";
+		IsPopup = true;
+	}
+}
+</script>
+
+</html>

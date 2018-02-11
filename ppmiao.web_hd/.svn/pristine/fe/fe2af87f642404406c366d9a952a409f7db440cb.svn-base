@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script language="javascript" src="{:C('STATIC_ROOT')}/v2/js/tab.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <div class="ProDetailsBox01 fLe clear">
+        <div class="buyRecordBox01Title ProDetails fLe clear">
+            <h2>{$detail.title}</h2>
+            <if condition="$detail['type'] eq 110">
+                <h3 class="yellowBg">谨慎投资</h3>
+                <h4>高风险</h4>
+                <h5>高回报</h5>
+            <elseif condition="$detail['type'] eq 104 or $detail['type'] eq 109"/>
+                <h4>本金安全</h4>
+                <h5>浮动收益</h5>
+            </if>
+        </div>
+        <div class="ProDetailsBox01_Bigcontent fLe clear">
+            <div class="ProDetailsBox01_content01 fLe clear">
+                <div class="ProDetailsBox01_content01_details fLe clear">
+                    <div class="ProDetailsBox01_details_block01 fLe clear">
+                        <ul>
+                            <li class="li01">
+                                <h5>{$detail.user_interest|number_format=2}<em>%</em></h5>
+                                <p><if condition="$detail['type'] eq 104">近1个月年化收益率<elseif condition="$detail['type'] eq 109 or $detail['type'] eq 110" />近3个月年化收益率</if></p>
+                            </li>
+                            <li class="li02">
+                                <h5>{$detail.days}天</h5>
+                                <p>预计期限</p>
+                            </li>
+                            <li class="li03">
+                                <h5>{$detail.amount|number_format}元</h5>
+                                <p>融资总额</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ProDetailsBox01_details_block02 fLe clear">
+                        <eq name="detail.status" value="2">
+                            <div class="rateInner" style="width:{$detail.percent}%;"></div>
+                        <else/>
+                            <div class="rateInner" style="width:0px;"></div>
+                        </eq>
+                    </div>
+                    <div class="ProDetailsBox01_details_block03 fLe clear">
+                        <h5 class="fLe">已售 {$detail.percent|number_format=2}%</h5>
+                        <h5 class="fRi">剩余总额 {$detail.able|number_format}元</h5>
+                    </div>
+                </div>
+
+                <div class="ProDetailsBox01_content02_details fLe clear">
+                    <p><span>最低申购金额：</span>1000元</p>
+                    <p><span>计划投资期限：</span>60日（净值触及平仓线，提前结束）</p>
+                    <p><span>还款方式：</span>产品结束后，返还投资金额及收益，预计4-6个工作日到账</p>
+                </div>
+            </div>
+
+            <div class="ProDetailsBox01_content02 fLe clear">
+                <form id="frmMain" action="" method="post">
+                    <input type="hidden" name="target" value="{$data}" />
+                    <input type="hidden" name="minmoney" value="{$detail.money_min|default=0}" />
+                    <ul>
+                        <li class="li01"><span>申购金额</span><input type="text" id="money" name="money" value="{$detail.money_min}" class="input01" maxlength="10" onkeyup="value=value.replace(/[^\d]/g,'')" /></li>
+                        <li class="li02"><p>起购金额： {$detail.money_min|number_format} 元</p></li>
+                        <switch name="detail.status">
+                            <case value="2"><li class="li03"><input type="button" value="确认申购" class="button01 <gt name='detail.ts' value='0'>buttonGray</gt>" onclick="buy()" id="btn_buy" /></li></case>
+                            <case value="3"><li class="li03"><input type="button" value="已售罄" class="button01 buttonGray" /></li></case>
+                            <case value="4"><li class="li03"><input type="button" value="正在还款" class="button01 buttonGray" /></li></case>
+                            <case value="5"><li class="li03"><input type="button" value="已还款" class="button01 buttonGray" /></li></case>
+                        </switch>
+                        <li class="li04"><span class="moni_radio" onclick="changeAllow(this)">我同意<a href="{:C('WEB_ROOT')}/protocol.html" target="_blank">《服务协议》</a></span></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="ProDetailsBox02 fLe clear">
+        <div class="ProDetailsBox02Title fLe clear">
+            <h2 class="active">产品说明</h2>
+        </div>
+
+        <div class="ProDetailsBox02Txt ProDetails02Box02Txt fLe clear">
+            <foreach name="detail.description" item="item">
+                <h2>{$item[0]}</h2>
+                <p>{$item[1]}</p>
+            </foreach>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/detail.js"></script>
+<script>
+    var _root = "{:C('WEB_ROOT')}";
+    var _allow = true;
+    var _id = "{$detail.id}";
+    var _endTime = "{$detail['start_time']|strtotime|date='Y-m-d',###}";
+    var _fund_id = "{$detail_ex.fund_id}";
+    var _currentIndex = 1;
+    var _product_type = {$detail.type};
+    var _is_remind = "{$is_remind}";
+    var _minMoney = {$detail.money_min|default=0};
+</script>
+<include file="PublicNew:footer" />
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+
+    <script type="text/javascript" src="https://image.ppmiao.com/Public/js/util.js"></script>
+    <link rel="stylesheet" href="https://image.ppmiao.com/Public/activity/wenjuanxing2/css/wjx_index.css">
+    <style>
+        .pop{
+            width:10rem;
+            overflow:hidden;
+            background-color:rgba(0,0,0,0.7);
+            position:fixed;
+            top:0;bottom:0;
+            left:0;right:0;
+            z-index:120;
+            display:none;
+        }
+        .pop .dialog{
+            width:7.28rem;
+            height:3.33rem;
+            position:absolute;
+            top:9.5rem;
+            left:50%;
+            margin-top:-3.78rem;
+            margin-left:-3.64rem;
+            text-align:center
+        }
+        .pop .dialog .top{
+            width:100%;
+            height:1.03rem;
+            padding-top:.33rem;
+            padding-bottom:.33rem;
+            line-height:.85rem;
+            color:#fff;
+            background-color:#ca3733;
+            border-radius:.4rem .4rem 0 0;
+            font-size:.37rem;
+            white-space:pre;
+            text-align:center
+        }
+        .pop .dialog .bottom{
+            width:100%;
+            height:1.31rem;
+            line-height:1.31rem;
+            color:#ca3733;
+            background-color:#fff;
+            border-radius:0 0 .4rem .4rem;
+            font-size:.4rem
+        }
+    </style>
+    <title>首投送现金</title>
+
+    <script>
+        //声明_czc对象:
+        var _czc = _czc || [];
+        //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+        _czc.push(["_setAccount", "1271661273"]);
+    </script>
+
+</head>
+<body>
+<div class="background img1">
+    <div class="input-group">
+        <input class="phoneno" name="mobile" type="text" placeholder="请输入手机号">
+        <input class="code" type="text" name="code" placeholder="请输入验证码">
+        <span class="code-time" onclick="getCode()">获取验证码</span>
+    </div>
+    <div class="appointment">
+        <input type="checkbox" name="agreement" checked>
+        <span>已阅读并同意<a href="https://cg.ppmiao.com/act/agree/index.html">《注册协议》</a></span>
+    </div>
+</div>
+<div class="background img2">
+    <a href="javascipt:;" onclick="login()" >立即领取</a>
+</div>
+<div class="background img3"></div>
+<div class="background img4"></div>
+<div class="background img5"></div>
+<div class="background img6"></div>
+<div class="background img7"></div>
+
+<div class="pop">
+    <div class="dialog">
+        <div class="top">活动未开始</div>
+        <div class="bottom">
+            确定
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan style='display:none' id='cnzz_stat_icon_1271661273'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1271661273%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+<script type="text/javascript">
+    function isNew(){
+        $(window).scroll(function() {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            if(scrollTop + windowHeight == scrollHeight){
+                _czc.push(["_trackEvent",'scroll_downn','统计在注册页面下滑的次数','问卷星2','','']);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        isNew();
+    });
+
+</script>
+
+
+<script>
+
+    function staticTimes(){
+        _czc.push(["_trackEvent",'get_captcha','统计获取验证码的次数','问卷星2','','']);
+    }
+
+    function loginStatic(){
+        _czc.push(["_trackEvent",'login','统计完成注册或登录的次数','问卷星2','','']);
+    }
+
+    var ch = "{$ch}";
+
+    // 获取验证码
+    $('.code-time').click(function() {
+        staticTimes();
+        var mobile = $('input[name=mobile]').val();
+        if(!checkPhone(mobile)) {
+            if(mobile == "") {
+                $('.pop .top').html('请输入您的手机号码！');
+            } else {
+                $('.pop .top').html('输入的手机号码有误！');
+            }
+            $('.pop').css({display:'block'});
+            return;
+        }
+
+        $.ajax({
+            url: "/hd/sendCode.html",
+            type: "post",
+            data: {'invitedMobile':mobile},
+            success: function (json) {
+                if(json.status == 1){
+                    Countdown();
+                } else {
+                    $('.pop .top').html(json.info);
+                    $('.pop').css({display:'block'});
+                }
+                return;
+            }
+        })
+    });
+
+
+    // 倒计时
+    var sleep = 60, interval = null;
+    function Countdown(){
+        if (!interval) {
+            $('.get-code').css('pointer-events', 'none');
+            $('.code-time').html(sleep + " s");
+            interval = setInterval(function () {
+                if (sleep == 0) {
+                    if (!!interval) {
+                        clearInterval(interval);
+                        interval = null;
+                        sleep = 60;
+                        $('.get-code').css('pointer-events', 'auto');
+                        $(".code-time").html("获取验证码");
+                    }
+                    return false;
+                }
+                $('.code-time').html(sleep-- + " s");
+            }, 1000);
+        }
+    }
+
+    function login(){
+
+        if(!$('input[name=agreement]').is(':checked')){
+            $('.pop .top').html('您没有同意用户注册协议！');
+            $('.pop').css({display:'block'});
+            return ;
+        }
+
+        var mobile = $('input[name=mobile]').val();
+        var code = $('input[name=code]').val();
+
+        if(!checkPhone(mobile)) {
+            if(mobile == "") {
+                $('.pop .top').html('请输入您的手机号码！');
+            } else {
+                $('.pop .top').html('输入的手机号码有误！');
+            }
+            $('.pop').css({display:'block'});
+            return ;
+        } else if(!code || code.length<6) {
+            $('.pop .top').html('请输入6位数的验证码！');
+            $('.pop').css({display:'block'});
+            return ;
+        }else{
+            loginStatic();
+            $.ajax({
+                url: "/hd/wenjuanxing2_res.html",
+                type: "post",
+                data: {'code':code,'mobile':mobile,'ch':ch},
+                success: function (json) {
+                    if(json.status == 0){
+                        $('.pop .top').html(json.info);
+                        $('.pop').css({display:'block'});
+                    } else {
+
+                        window.location.href=json.info;
+                    }
+                    return;
+                }
+            });
+        }
+
+    }
+
+
+
+    function checkPhone(phone){
+        if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){
+            return false;
+        }
+        return true;
+    }
+
+
+    //隐藏弹框
+    $('.dialog .bottom').click(function() {
+       $('.model-back').css({display: "none"});
+    });
+
+    $('.pop .bottom').click(function() {
+        $('.pop').css({display: "none"});
+    });
+
+    function closed(){
+        $('.detail').css('display', 'none');
+    }
+    function openeds(){
+        $('.detail').css('display', 'block');
+    }
+    function getCode(){
+
+    }
+</script>
+</html>

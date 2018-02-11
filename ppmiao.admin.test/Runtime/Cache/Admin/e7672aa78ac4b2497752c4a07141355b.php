@@ -1,0 +1,2 @@
+<?php if (!defined('THINK_PATH')) exit();?>
+<?php if(is_array($methods["methods"])): foreach($methods["methods"] as $key=>$item): ?><option value="<?php echo ($item["sub_name"]); ?>" ><?php echo ($item["sub_name"]); ?></option><?php endforeach; endif; ?>

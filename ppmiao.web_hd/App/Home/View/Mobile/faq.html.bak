@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>常见问题</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/css.css?v=1.7" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+    <include file="Public:mobile_forbidding" />
+</head>
+
+<body id="questionBox">
+<div class="wrap">
+    <div id="questions">
+        <ul>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>为什么我们不需要注册就可以直接购买理财产品？</h5>
+                <div class="foldContent">
+                    <p>石头推出全新理念,实行开放性理财，无需注册，填写银行卡相关信息即可直接购买理财产品；购买成功后系统会自动将您的手机号注册为账号。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>新手如何投资？</h5>
+                <div class="foldContent">
+                    <p>下载石头理财APP，无需注册，选择您所要购买的理财产品，填写银行卡相关信息即可直接购买。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>石头是如何保证投资人的本金跟利息的？</h5>
+                <div class="foldContent">
+                    <p>每笔交易由连连支付代扣代付，每一笔账户资金由平安保险全额承保，石头不碰触用户资金。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>在石头投资理财是否需要手续费？</h5>
+                <div class="foldContent">
+                    <p>石头理财对投资人实施全免费政策。</p>
+                </div>
+            </li>
+           
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>忘记手势密码，怎么办？</h5>
+                <div class="foldContent">
+                    <p>点击”管理手势密码”进入手势密码管理界面，点击＂忘记手势密码＂，重新登录账号后即可清除手势密码。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>目前石头理财支持哪些银行卡支付？</h5>
+                <div class="foldContent">
+                    <div class="cardTable">
+                        <table width="100%" border="0">
+                            <tr>
+                                <th>银行</th>
+                                <th>单笔/单日/单月额度</th>
+                            </tr>
+                            <tr>
+                                <td>农业银行</td>
+                                <td>5万/30万/900万</td>
+                            </tr>
+                            <tr>
+                                <td>工商银行</td>
+                                <td>5万/5万/150万</td>
+                            </tr>
+                            <tr>
+                                <td>招商银行</td>
+                                <td>1万/1万/30万</td>
+                            </tr>
+                            <tr>
+                                <td>中国银行</td>
+                                <td>5万/20万/600万</td>
+                            </tr>
+                            <tr>
+                                <td>建设银行</td>
+                                <td>50万/不限/不限</td>
+                            </tr>
+                            <tr>
+                                <td>光大银行</td>
+                                <td>50万/100万/3000万</td>
+                            </tr>
+                            <tr>
+                                <td>华夏银行</td>
+                                <td>50万/100万/3000万</td>
+                            </tr>
+                            <tr>
+                                <td>中信银行</td>
+                                <td>50万/100万/3000万</td>
+                            </tr>
+                            <tr>
+                                <td>兴业银行</td>
+                                <td>5万/5万/150万</td>
+                            </tr>
+                            <tr>
+                                <td>邮储银行</td>
+                                <td>0.5万/0.5万/15万</td>
+                            </tr>
+                            <tr>
+                                <td>平安银行</td>
+                                <td>50万/100万/3000万</td>
+                            </tr>
+                            <tr>
+                                <td>浦发银行</td>
+                                <td>5万/5万/150万</td>
+                            </tr>
+                            <tr>
+                                <td>广发银行</td>
+                                <td>50万/不限/不限</td>
+                            </tr>
+                            <tr>
+                                <td>民生银行</td>
+                                <td>50万/100万/3000万</td>
+                            </tr>
+                            <tr>
+                                <td>交通银行</td>
+                                <td>5万/20万/600万</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </li>
+            <!--<li class="fold">-->
+                <!--<h5><b class="arrowLeft"></b>银行卡绑定后能否解绑？</h5>-->
+                <!--<div class="foldContent">-->
+                    <!--<p>在绑定银行卡后，到“账户中心”进行“银行卡管理”直接解绑。</p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>怎样邀请好友投资？</h5>
+                <div class="foldContent">
+                    <p>进入“我“的页面，点击”炫耀一下“进行朋友圈，微博，QQ等分享</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>项目到期，什么时候回款？</h5>
+                <div class="foldContent">
+                    <p>在账户中心”已购产品“列表提示正在支付状态，大概需要两个工作日时间处理，并发送短信提醒。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>已购项目收益利息是怎么支付的？</h5>
+                <div class="foldContent">
+                    <p>根据理财产品分类，一种是一次性还本付息，另一种是按月付息，每月20日付息，到期还本。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>项目到期赎回，本金和利息需要提现吗？</h5>
+                <div class="foldContent">
+                    <p>不需要提现，本金利息原路返回到你所支付的银行卡账户上，及时短信提醒。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>投钱交易失败常见问题</h5>
+                <div class="foldContent">
+                    <p>a、余额不足请您确保您绑定的银行卡的余额超过自己本次购买的金额<br/>
+                        b、余额透支或账户冻结可能是您绑定的银行卡余额不足或者账户冻结，建议您向绑定银行卡的发卡行咨询自己银行卡状态或者在自己银行卡补入存款<br/>
+                        c、单笔金额超限您本次交易的交易金额超过绑定银行卡的允许范围，建议您登录绑定银行卡网银修改交易单笔金额，或者将交易金额拆成多笔重新发起交易。<br/>
+                        d、币别或钞汇鉴别不存在可能是您银行卡本身的问题，建议您咨询银行，自己该张银行卡状态是否正常。<br/>
+                        e、网络状态出错目前与银行卡系统通讯异常，建议您核对余额是否变化或到查询有无成功交易，判断未成功后，可以重新发起一笔“立即投资”交易。<br/>
+                    </p>
+                </div>
+            </li>
+			 <li class="fold">
+                <h5><b class="arrowLeft"></b>石头理财用户绑定的银行卡丢失或是损坏了怎么办？</h5>
+                <div class="foldContent">
+                    <p>
+						需要提供以下资料给石头理财客服：<br/>
+						1.本人手持身份证正面照片：<br/>
+						2.已绑定银行卡的销卡凭证或换卡凭证，并加盖公章；或新办理银行卡的办卡凭证需显示姓名和卡号；<br/>
+						3.《石头理财银行卡资料变更申请表》的扫描件或拍照件，并本人手写签名。<br/>
+
+						《石头理财银行卡资料变更申请表》可通过4001830730电话热线进行索取；或是通过添加官方客服QQ：1181905511进行索取；
+						以上所需提供的内容请统一直接发送至石头理财kefu@stlc.cn客服邮箱，客服收到后第一时间帮您处理。
+					</p>
+                </div>
+            </li>
+			 <li class="fold">
+                <h5><b class="arrowLeft"></b>银行卡支付失败，提示9991怎么办？</h5>
+                <div class="foldContent">
+                    <p>您好，根据中国银联最新要求，为了确保支付成功率，需要在中国银联官网开通无卡支付业务。具体操作步骤如下： 
+						登录https://www.95516.com/portal/open/index.do注册账号，然后点击帮助中心的付款说明，查看“如何开通银联卡快速付款功能”，
+						按步骤 “开通银联在线支付”，然后再次进行支付。
+					</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        $("li>h5","#questions").bind("click",function(){
+            var li=$(this).parent();
+            if(li.hasClass("fold")){
+                li.removeClass("fold");
+                $(this).find("b").removeClass("arrowLeft").addClass("arrowUp");
+                li.find(".foldContent").slideDown('fast');
+            }else{
+                li.addClass("fold");
+                $(this).find("b").removeClass("arrowUp").addClass("arrowLeft");
+                li.find(".foldContent").slideUp('fast');
+            }
+        });
+    });
+</script>
+</body>
+</html>

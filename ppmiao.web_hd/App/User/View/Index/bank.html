@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/web_user/css/style.css" rel="stylesheet" type="text/css" />
+    <title>票票喵-我的银行卡</title>
+
+
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+<include file="Common:header" />
+<div class="pandect_big">
+    <div class="pandect_seat">
+        <p>您现在的位置：我的账户><span>我的银行卡</span></p>
+    </div>
+    <!--左-->
+    <div class="pandect_left">
+        <include file="layouts:menu" />
+    </div>
+    <div class="pandect_right">
+        <div class="card_one">
+            <div class="pandect_property">
+                <p>我的银行卡</p>
+            </div>
+            <div class="card_big">
+                <div class="card_square">
+                    <?php if($user->result->platcustAuth == 1){ ?>
+                        <div class="card_top">
+                            <img src="{:C('OSS_ROOT')}/Uploads/focus/{$data->smallIcon}"/>
+                            <p>{$data->bankName}</p>
+                        </div>
+                        <div class="card_number">
+                            <p>{$info['card_no']}</p>
+                        </div>
+                        <div class="card_money">
+                            <p>单笔{$info['limitTimes']} 单日{$info['limitDay']} 单月{$info['limitMonth']}</p>
+                        </div>
+                    <?php }elseif($user->result->platcustAuth == 2){ ?>
+                        <div class="card_square_none">
+                            <img src="{:C('STATIC_ROOT')}/web_user/images/bank.png"/>
+                        </div>
+                    <?php } ?>
+
+
+                </div>
+                <div class="pandect_property"></div>
+                <div class="card_reach">
+                    <p>温馨提示：</p>
+                    <p>1. 银行存管上线后，存管上线前绑定的银行卡不可使用，卡内在投资金将回款至您的存管账户余额，可通过绑定的存管银行卡进行提现；</p>
+                    <p>2. 银行存管上线后仅可绑定一张银行卡，如需更换，请先解绑原先银行卡后重新绑定新的银行卡；</p>
+                    <p>3. 如有疑问，请拨打客服热线：400-992-8855。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />
+</body>
+
+</html>

@@ -1,0 +1,686 @@
+[ 2016-03-12T01:29:51+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000310100226622600&reportTime=1603120129&mobile=18647327793&status=SGIP%3A13
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000290s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0266s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000310100226622600','1457717340','18647327793','SGIP:13') [ RunTime:0.0291s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000607s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000662s ]
+
+[ 2016-03-12T09:08:35+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813662700&reportTime=1603120908&mobile=13647644906&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0300s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813662700','1457744880','13647644906','DELIVRD') [ RunTime:0.0272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000604s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000649s ]
+
+[ 2016-03-12T09:08:35+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813665900&reportTime=1603120908&mobile=15210561826&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000412s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0265s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813665900','1457744880','15210561826','DELIVRD') [ RunTime:0.0284s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000506s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000551s ]
+
+[ 2016-03-12T09:08:36+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090814667500&reportTime=1603120908&mobile=18274947845&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000365s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0275s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090814667500','1457744880','18274947845','DELIVRD') [ RunTime:0.0269s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000581s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000634s ]
+
+[ 2016-03-12T09:08:38+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815673600&reportTime=1603120908&mobile=13818584587&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000363s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0267s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815673600','1457744880','13818584587','DELIVRD') [ RunTime:0.0269s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000778s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000822s ]
+
+[ 2016-03-12T09:08:38+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813663200&reportTime=1603120908&mobile=13370883895&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0269s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813663200','1457744880','13370883895','DELIVRD') [ RunTime:0.0269s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000647s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000700s ]
+
+[ 2016-03-12T09:08:39+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813663500&reportTime=1603120908&mobile=13831576033&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000479s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000525s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0265s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813663500','1457744880','13831576033','DELIVRD') [ RunTime:0.0266s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000544s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000588s ]
+
+[ 2016-03-12T09:08:39+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090814668000&reportTime=1603120908&mobile=13755653017&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0267s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090814668000','1457744880','13755653017','DELIVRD') [ RunTime:0.0271s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000655s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000703s ]
+
+[ 2016-03-12T09:08:39+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090814669000&reportTime=1603120908&mobile=13678637801&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0267s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090814669000','1457744880','13678637801','DELIVRD') [ RunTime:0.0270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000701s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000763s ]
+
+[ 2016-03-12T09:08:39+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813662500&reportTime=1603120908&mobile=13352003779&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0311s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813662500','1457744880','13352003779','DELIVRD') [ RunTime:0.0296s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000499s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000555s ]
+
+[ 2016-03-12T09:08:39+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090814669600&reportTime=1603120908&mobile=13602421898&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000372s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0266s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090814669600','1457744880','13602421898','DELIVRD') [ RunTime:0.0272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000612s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000665s ]
+
+[ 2016-03-12T09:08:40+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815675300&reportTime=1603120908&mobile=18621681959&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0274s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815675300','1457744880','18621681959','DELIVRD') [ RunTime:0.0272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000622s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000670s ]
+
+[ 2016-03-12T09:08:40+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813665400&reportTime=1603120908&mobile=18367052890&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0267s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813665400','1457744880','18367052890','DELIVRD') [ RunTime:0.0312s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000531s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000586s ]
+
+[ 2016-03-12T09:08:40+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816678900&reportTime=1603120908&mobile=15254329775&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000451s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000496s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0302s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816678900','1457744880','15254329775','DELIVRD') [ RunTime:0.0275s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000572s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000628s ]
+
+[ 2016-03-12T09:08:40+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813662200&reportTime=1603120908&mobile=13918474310&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0271s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813662200','1457744880','13918474310','DELIVRD') [ RunTime:0.0273s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000581s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000641s ]
+
+[ 2016-03-12T09:08:40+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090817683300&reportTime=1603120908&mobile=15979000580&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0273s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090817683300','1457744880','15979000580','DELIVRD') [ RunTime:0.0271s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000644s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000694s ]
+
+[ 2016-03-12T09:08:40+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816676900&reportTime=1603120908&mobile=15003545552&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000372s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0267s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816676900','1457744880','15003545552','DELIVRD') [ RunTime:0.0270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000529s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000574s ]
+
+[ 2016-03-12T09:08:41+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090814666900&reportTime=1603120908&mobile=15915471817&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000338s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0266s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090814666900','1457744880','15915471817','DELIVRD') [ RunTime:0.0325s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000560s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000629s ]
+
+[ 2016-03-12T09:08:41+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090812662000&reportTime=1603120908&mobile=15953806526&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090812662000','1457744880','15953806526','DELIVRD') [ RunTime:0.0272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000546s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000616s ]
+
+[ 2016-03-12T09:08:41+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816677300&reportTime=1603120908&mobile=13983790813&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000354s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0272s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816677300','1457744880','13983790813','DELIVRD') [ RunTime:0.0270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000618s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000679s ]
+
+[ 2016-03-12T09:08:41+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815670600&reportTime=1603120908&mobile=13683097075&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0266s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815670600','1457744880','13683097075','DELIVRD') [ RunTime:0.0276s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000647s ]
+
+[ 2016-03-12T09:08:42+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815672300&reportTime=1603120908&mobile=13383438071&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815672300','1457744880','13383438071','DELIVRD') [ RunTime:0.0355s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000509s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000558s ]
+
+[ 2016-03-12T09:08:42+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816678200&reportTime=1603120908&mobile=13703635365&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816678200','1457744880','13703635365','DELIVRD') [ RunTime:0.0273s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000595s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000637s ]
+
+[ 2016-03-12T09:08:42+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813664100&reportTime=1603120908&mobile=18069675987&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000478s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0267s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813664100','1457744880','18069675987','DELIVRD') [ RunTime:0.0271s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000512s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000555s ]
+
+[ 2016-03-12T09:08:42+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090813664700&reportTime=1603120908&mobile=18210437405&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000303s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0271s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090813664700','1457744880','18210437405','DELIVRD') [ RunTime:0.0272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000531s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000574s ]
+
+[ 2016-03-12T09:08:42+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090814666600&reportTime=1603120908&mobile=18367052890&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090814666600','1457744880','18367052890','DELIVRD') [ RunTime:0.0288s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000657s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000718s ]
+
+[ 2016-03-12T09:08:43+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090817684800&reportTime=1603120908&mobile=13675153422&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0266s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090817684800','1457744880','13675153422','DELIVRD') [ RunTime:0.0276s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000572s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000631s ]
+
+[ 2016-03-12T09:08:43+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090817682300&reportTime=1603120908&mobile=15927251614&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000375s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0267s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090817682300','1457744880','15927251614','DELIVRD') [ RunTime:0.0300s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000513s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000557s ]
+
+[ 2016-03-12T09:08:43+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815672900&reportTime=1603120908&mobile=18191027795&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000397s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0317s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815672900','1457744880','18191027795','DELIVRD') [ RunTime:0.0270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000630s ]
+
+[ 2016-03-12T09:08:43+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090818685400&reportTime=1603120908&mobile=13675153422&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000404s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0271s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090818685400','1457744880','13675153422','DELIVRD') [ RunTime:0.0351s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000584s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000626s ]
+
+[ 2016-03-12T09:08:43+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090817681500&reportTime=1603120908&mobile=15927251614&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0274s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090817681500','1457744880','15927251614','DELIVRD') [ RunTime:0.0278s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000587s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000688s ]
+
+[ 2016-03-12T09:08:44+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090817679400&reportTime=1603120908&mobile=13675860825&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000346s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090817679400','1457744880','13675860825','DELIVRD') [ RunTime:0.0276s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000511s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000555s ]
+
+[ 2016-03-12T09:08:44+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815673300&reportTime=1603120908&mobile=18225558283&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0269s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815673300','1457744880','18225558283','DELIVRD') [ RunTime:0.0273s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000549s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000593s ]
+
+[ 2016-03-12T09:08:44+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816676000&reportTime=1603120908&mobile=13866106759&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0268s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816676000','1457744880','13866106759','DELIVRD') [ RunTime:0.0272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000485s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000525s ]
+
+[ 2016-03-12T09:08:44+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815671600&reportTime=1603120908&mobile=13683097075&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000355s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0269s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815671600','1457744880','13683097075','DELIVRD') [ RunTime:0.0275s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000541s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000625s ]
+
+[ 2016-03-12T09:08:45+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815674100&reportTime=1603120908&mobile=15965097582&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000308s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000354s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0268s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815674100','1457744880','15965097582','DELIVRD') [ RunTime:0.0270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000656s ]
+
+[ 2016-03-12T09:08:45+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816677500&reportTime=1603120908&mobile=13195662251&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0269s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816677500','1457744880','13195662251','DELIVRD') [ RunTime:0.0270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000555s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000627s ]
+
+[ 2016-03-12T09:08:45+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090817680400&reportTime=1603120908&mobile=13693215855&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0268s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090817680400','1457744880','13693215855','DELIVRD') [ RunTime:0.0323s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000557s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000623s ]
+
+[ 2016-03-12T09:08:45+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816678500&reportTime=1603120908&mobile=15907218868&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000354s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816678500','1457744880','15907218868','DELIVRD') [ RunTime:0.0271s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000568s ]
+
+[ 2016-03-12T09:08:45+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090817679800&reportTime=1603120908&mobile=13675860825&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0266s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090817679800','1457744880','13675860825','DELIVRD') [ RunTime:0.0275s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000561s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000627s ]
+
+[ 2016-03-12T09:08:48+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815674700&reportTime=1603120908&mobile=18578305155&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815674700','1457744880','18578305155','DELIVRD') [ RunTime:0.0272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000565s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000618s ]
+
+[ 2016-03-12T09:08:48+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090814668300&reportTime=1603120908&mobile=15067524243&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0268s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090814668300','1457744880','15067524243','DELIVRD') [ RunTime:0.0270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000522s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000565s ]
+
+[ 2016-03-12T09:10:01+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816677800&reportTime=1603120909&mobile=13403101357&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0268s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816677800','1457744940','13403101357','DELIVRD') [ RunTime:0.0279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000668s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000741s ]
+
+[ 2016-03-12T09:12:42+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090816676600&reportTime=1603120912&mobile=18346203154&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000372s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0273s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090816676600','1457745120','18346203154','DELIVRD') [ RunTime:0.0270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000569s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000628s ]
+
+[ 2016-03-12T10:03:46+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090815671200&reportTime=1603121003&mobile=15914288300&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000451s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0274s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090815671200','1457748180','15914288300','DELIVRD') [ RunTime:0.0275s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000585s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000647s ]
+
+[ 2016-03-12T10:18:19+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090814669900&reportTime=1603121018&mobile=13516714811&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0272s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090814669900','1457749080','13516714811','DELIVRD') [ RunTime:0.0289s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000653s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000711s ]
+
+[ 2016-03-12T20:24:17+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000312090817684100&reportTime=1603122023&mobile=18562195306&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0312s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000312090817684100','1457785380','18562195306','DELIVRD') [ RunTime:0.0273s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000665s ]
+
+[ 2016-03-12T22:47:56+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000311093927936200&reportTime=1603122247&mobile=15010630087&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000372s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0274s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000311093927936200','1457794020','15010630087','DELIVRD') [ RunTime:0.0276s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000557s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000626s ]
+
+[ 2016-03-12T22:47:59+08:00 ] 222.73.117.150 /sms.php/Api/sms_callback?receiver=&pswd=&msgid=1000311093927936200&reportTime=1603122247&mobile=15010630087&status=DELIVRD
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /usr/share/nginx/html/admin/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `s_sms_status` [ RunTime:0.0268s ]
+SQL: INSERT INTO `s_sms_status` (`receiver`,`pswd`,`msgid`,`reportTime`,`mobile`,`status`) VALUES ('','','1000311093927936200','1457794020','15010630087','DELIVRD') [ RunTime:0.0279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000615s ]
+

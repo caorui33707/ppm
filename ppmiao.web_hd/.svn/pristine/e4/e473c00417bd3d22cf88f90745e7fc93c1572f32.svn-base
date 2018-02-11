@@ -1,0 +1,20 @@
+﻿@charset "utf-8";
+        .valentine_pic img {
+            width: 100%;
+            
+        }
+
+
+
+        .valentine_now {
+            width: 100%;
+            line-height: 50px;
+            background-color: #d80065;
+            color: #ffffff;
+            font-size: 17px;
+           width:100%;position:fixed;bottom:0;left:0;
+        }
+
+
+
+

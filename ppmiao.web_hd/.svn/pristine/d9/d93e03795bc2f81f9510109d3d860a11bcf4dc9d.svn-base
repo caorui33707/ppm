@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/mobile/css/basic.css" rel="stylesheet" type="text/css" />
+    <title>充值限额</title>
+    <style>
+        .quato_top {
+        line-height:50px;
+        color:#383838;
+        }
+        .quato_top img{
+        width:25px;
+        }
+        .quato_mess {
+        background-color:#F9F9F9;
+        line-height:35px;
+        font-size:11px;
+        }
+        .quato_top1{
+        width:90%;
+        margin:auto;
+        }
+        .quato_word p{
+            width: 90%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+    </style>
+
+</head>
+<body>
+    <section>
+        <!--head-->
+        <ul class="quato_top" style="
+         width: 100%;
+    line-height: 53px;
+    background-color: #fff;
+    color: #FFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    text-align: center;
+    border-bottom:solid 1px #DEDEDE;">
+            <li class="cut40  fl">
+                <p>银行</p>
+            </li>
+            <li class="cut20 tc fl">
+                <p>单笔</p>
+            </li>
+            <li class="cut20 tc fl">
+                <p>每日</p>
+            </li>
+            <li class="cut20 tc fl">
+                <p>每月</p>
+            </li>
+            <li class="clear"></li>
+        </ul>
+        <!--连连-->
+        <!-- 
+        <div class="quato_mess" style="margin-top:40px;">
+            <div class="quato_top1">
+                <p>连连支付限额（定期理财）</p>
+            </div>
+        </div>
+         -->
+        <!--卡限额-->
+        <div class="quato_top " style="margin-top:53px;">
+        	<foreach name="List" item="item">
+            <div>
+                <div class="cut40 fl bodb">
+                    <div class="cut30 fl ">
+                        <img src="{:C('WEB_ROOT')}/Uploads/focus/{$item.small_icon}" style="padding:0 0 0 15px;" />
+                    </div>
+                    <div class="quato_word cut70 fl tc ">
+                        <p>{$item.bank_name}</p>
+                    </div>
+                </div>
+                <div class="cut20 fl tc bodb">
+                    <p>{$item.limit_times}万</p>
+                </div>
+                <div class="cut20 fl tc bodb">
+                    <p>{$item.limit_day}万</p>
+                </div>
+                <div class="cut20 fl tc bodb">
+                    <p>{$item.limit_month}万</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            </foreach>
+        </div>
+        
+        
+        <!--融宝-->
+        <!-- 
+        <div class="quato_mess">
+            <div class="quato_top1">
+                <p>融宝支付限额（活期理财）</p>
+            </div>
+        </div>-->
+        
+        <!--卡限额-->
+        <!-- 
+        <div class="quato_top ">
+        	<foreach name="bfList" item="item">
+            <div>
+                <div class="cut40 fl bodb">
+                    <div class="cut30 fl ">
+                        <img src="{:C('WEB_ROOT')}/Uploads/focus/{$item.image}" style="padding:0 0 0 15px;" />
+                    </div>
+                    <div class="quato_word cut70 fl tc ">
+                        <p>{$item.bank_name}</p>
+                    </div>
+                </div>
+                <div class="cut20 fl tc bodb">
+                    <p>{$item.limit_once}万</p>
+                </div>
+                <div class="cut20 fl tc bodb">
+                    <p>{$item.limit_day}万</p>
+                </div>
+                <div class="cut20 fl tc bodb">
+                    <p>{$item.limit_month}万</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            </foreach>
+        </div>
+         -->
+    </section>
+    </body>
+</html>

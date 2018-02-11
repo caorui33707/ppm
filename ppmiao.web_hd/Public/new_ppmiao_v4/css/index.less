@@ -1,0 +1,313 @@
+body {
+	background-color: #f4f4f4;
+	position: relative;
+}
+.container {
+	width: 1200px;
+	margin: 0 auto;
+	background-color: #f4f4f4;
+	padding-bottom: 50px;
+	.echo {
+		height: 38px;
+		line-height: 38px;
+		margin: 0 auto;
+		text-align: center;
+		li {
+			width: 14%;
+			display: inline-block;
+			cursor: pointer;
+		}
+		.spanclick {
+			color: #fe712a;
+		}
+	}
+	.content {
+		width: 1200px;
+		margin: 0 auto;
+		background-color: #fff;
+		/* 余额 */
+		.remainder {
+			padding: 55px 56px 0 45px;
+			height: 180px;
+			.remainder-left {
+				float: left;
+				p {
+					font-size: 22px;
+					line-height: 40px;
+				}
+				.remainder-amount {
+					color: #ea581f;
+					margin-bottom: 30px;
+				}
+				.line {
+					margin: 0 32px;
+				}
+			}
+			.remainder-right {
+				float: right;
+				margin-top: 10px;
+				.recharge,
+				.cash {
+					float: left;
+					width: 150px;
+					height: 54px;
+					line-height: 54px;
+					border: 1px solid #ff712b;
+					border-radius: 30px;
+					color: #ff712b;
+					text-align: center;
+					font-size: 22px;
+					cursor: pointer;
+				}
+				.recharge {
+					margin-right: 26px;
+					background-color: #ff712b;
+					color: #fff;
+				}
+			}
+		}
+		/* 导航 */
+		.nav {
+			height: 90px;
+			line-height: 90px;
+			border: 1px solid #f9f9f9;
+			border-left: 0;
+			border-right: 0;
+			padding-left: 25px;
+			li {
+				border: 1px solid #fff;
+				border-radius: 20px;
+				color: #020202;
+				display: inline-block;
+				font-size: 18px;
+				line-height: 28px;
+				margin: 0 20px;
+				padding: 4px 10px;
+				cursor: pointer;
+			}
+			#repayment {
+				border: 1px solid #ff7128;
+				color: #ff7128;
+			}
+		}
+		/* 显示列表 */
+		.list {
+			padding: 20px 0 250px 40px;
+			height: auto;
+			/* 列表 */
+			.repayment,
+			.repayments,
+			.capital {
+				display: none;
+				dl {
+					color: #000;
+					float: left;
+					font-size: 18px;
+					// padding: 0 25px;
+					width: 16.5%;
+					dt {
+						padding: 3px 5px;
+					}
+					dd {
+						padding: 3px 5px;
+						margin-top: 17px;
+					}
+				}
+				/* 金额 */
+				.amount {
+					dd {
+						color: #ff3d3d;
+					}
+				}
+				/* 操作 */
+				.operation {
+					dd {
+						width: 50px;
+						background-color: #ea581f;
+						color: #fff;
+						cursor: pointer;
+						text-align: center;
+					}
+				}
+			}
+			/* 待还款 */
+			.repayment {
+				display: block;
+			}
+			/* 已还款 */
+			.repayments {
+
+			}
+			/* 资金明细 */
+			.capital {
+
+			}
+			/* 交易记录 */
+			.record {
+
+			}
+			/* 企业信息 */
+			.enterprise {
+
+			}
+		}
+	}
+}
+/* 弹出框 */
+.popup {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%; 
+	background-color: #000;
+	background-color: rgba(0,0,0,0.3);
+	filter:Alpha(opacity=30);
+	/* 会话层 */
+	.dialog	{
+		position: absolute;
+		top: 50px;
+		left: 50%;
+		margin-left: -360px;
+		width: 720px;
+		border-radius: 10px;
+		background-color: #fff;
+		padding-bottom: 10px;
+		.dialog-head {
+			height: 148px;
+			background-color: #f8f8f8;
+			border-radius: 10px 10px 0 0;
+			.bank-log {
+				float: left;
+				width: 118px;
+				height: 108px;
+				padding: 20px 25px;
+			}
+			p {
+				font-size: 28px;
+				color: #000;
+			}
+			.bankname {
+				padding-top: 38px;
+				margin-bottom: 14px;
+			}
+			.time {
+				font-size: 22px;
+				color: #797979;
+				padding-bottom: 10px;
+			}
+
+		}
+		.dialog-body {
+			padding: 0 60px 0 40px;
+			background-color: #fff;
+			border-radius: 0 0 10px 10px;
+			font-size: 22px;
+			/* 可用提现额度 */
+			.cash-limit {
+				margin: 66px 0 50px 0;
+				color: #000;
+				span {
+					color: #ea581f;
+					margin: 0 20px 0 40px;
+				}
+			}
+			/* 提现金额 */
+			.withdrawals {
+				margin-bottom: 50px;
+				input {
+					width: 433px;
+					height: 50px;
+					line-height: 50px;
+					margin-left: 80px;
+					padding-left: 10px;
+					color: #bfbfbf;
+					font-size: 22px;
+					border: 1px solid #d2d2d2;
+				}
+				::-webkit-input-placeholder { /* WebKit browsers */ 
+					color: #bfbfbf; 
+				} 
+				:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+					color: #bfbfbf; 
+				} 
+				::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+					color: #bfbfbf; 
+				} 
+				:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+					color: #bfbfbf; 
+				} 
+			}
+			/* 手机验证码 */
+			.verification {
+				input[type="text"] {
+					width: 230px;
+					height: 50px;
+					line-height: 50px;
+					margin-left: 60px;
+					padding-left: 10px;
+					color: #bfbfbf;
+					font-size: 22px;
+					border: 1px solid #d2d2d2;
+				}
+				::-webkit-input-placeholder { /* WebKit browsers */ 
+					color: #bfbfbf; 
+					} 
+				:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+					color: #bfbfbf; 
+				} 
+				::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+					color: #bfbfbf; 
+				} 
+				:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+					color: #bfbfbf; 
+				}
+				input[type="submit"] {
+					width: 170px;
+					height: 50px;
+					margin-left: 25px;
+					color: #fff;
+					font-size: 22px;
+					background-color: #ff804e;
+					border: 1px solid #ff804e;
+					cursor: pointer;
+				}
+			}
+			/* 提现说明 */
+			.explain {
+				margin-top: 30px;
+				font-size: 16px;
+				color: #797979;
+				line-height: 28px;
+			}
+			.withdrawals-btn,
+			.close-btn {
+				float: right;
+				width: 150px;
+				height: 50px;
+				line-height: 50px;
+				font-size: 24px;
+				text-align: center;
+				color: #fff;
+				background-color: #ff712b;
+				border: 0;
+				border-radius: 30px;
+				margin: 30px 0 40px 20px;
+				cursor: pointer;
+			}
+		}
+	}
+}
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}

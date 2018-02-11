@@ -1,0 +1,187 @@
+﻿@charset "utf-8";
+        .invite_pic img {
+            width: 100%;
+        }
+
+
+                .invite_time {
+        background-color:#0ca46b;
+        /*font-size:16px;*/
+        padding-bottom:5px;
+        }
+        .invite_big {
+        background-color:#0ca46b;
+        padding-top:10px;
+        padding-bottom:30px;
+        }
+        .invite_have {
+        background-color:#fff;
+        border:1px solid #0ca068;
+        width:90%;
+        border-radius:10px;
+        margin:auto;
+        padding-bottom:10px;
+        }
+            .invite_have img {
+            width:45%;
+            padding:15px 0 10px 0;
+            }
+            .invite_big img {
+            padding:15px 0 10px 0;
+            }
+        .invite_big p {
+        font-size:18px;
+        color:#ff0000;
+        }
+        .invite_square {
+        width:90%;
+        margin:auto;
+        margin-top:5px
+
+        }
+        .invite_people {
+        background-color:#fff;
+        border-radius:10px;
+        height:75px;
+        width:49.5%
+        }
+        .invite_world {
+        background-color:#0ca46b;
+        padding-top:10px;
+        }
+        .invite_more {
+        width:90%;
+        margin:auto;
+        font-size:13px;
+        line-height:20px;
+        }
+        .invite_more p{
+        color:#fff;
+        }
+        .invite_more span{
+        color:#ffe800;
+        }
+        .invite_exmple {
+        width:100%;
+        background-color:#0b925f;
+        border-radius:10px;
+        margin:auto;
+        padding:10px 0; 
+        margin-top:10px;
+        }
+        .invite_wid {
+        width:97%;
+        margin:auto;
+        }
+        .invite_bigger {
+        background-color:#0ca46b;
+        padding-top:10px;
+        margin-top:-3px;
+        }
+        .invite_wis {
+        width:90%;
+        height:375px;
+        border-radius:10px;
+        margin:auto;
+        }
+        .invite_friend {
+        line-height:45px;
+        }
+        .invite_money {
+        background-color:#08784e;
+        line-height:45px;
+        color:#fff;
+        }
+        .invite_bg p{
+        height:45px;
+        line-height:45px;
+        }
+        .invite_bg img{
+        width:25px;
+        padding-top:10px;
+        margin-left:14%;
+        }
+
+
+
+
+
+
+
+
+        /*弹框*/
+            .invite_back {
+            width: 100%;
+            margin-top:21%;
+            position: fixed;
+        }
+
+        .invite_detailed {
+            width: 90%;
+            height: 360px;
+            background-color: #fffee6;
+            border-radius: 10px;
+            border: solid 2px #ffd551;
+        }
+
+        .invite_line {
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: 16px;
+            color: #f76846;
+            padding-top: 20px;
+        }
+
+        .invite_number p {
+            margin-bottom: 10px;
+        }
+
+        .invite_investment p {
+            margin-bottom: 10px;
+        }
+
+        .invite_reward p {
+            margin-bottom: 10px;
+        }
+         .yes {
+            top: -60px;
+            left: 45%;
+        }
+        .yes img {
+                width: 35px;
+            }
+        .square_bj {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.6;
+            position: fixed;
+        }
+        .square_window {
+            top: 2%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /*小弹框*/
+        .now p{font-size:14px;padding:20px 0 20px 0;color:#f76846;}
+.listen p{color:#0000cc;padding:10px 0 10px 0;}
+.integral_window{top:20%;left:0; width:100%; height:100%; }
+.integral_content{border-radius:10px; width:60%; margin:auto;background-color:#fffee6;border:solid 2px #fff100;position: fixed;top:40%;left:20%;}
+
+
+
+
+
+        /*底部*/
+        .invite_now {
+            width: 100%;
+            line-height: 50px;
+            background-color: #fff100;
+            color: #0ca46b;
+            font-size: 17px;
+            width:100%;position:fixed;bottom:0;left:0;
+            text-align:center;
+        }

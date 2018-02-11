@@ -1,0 +1,217 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">积分任务 - 添加任务 [ <a href="{:C('ADMIN_ROOT')}/member/tasks">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="20%">任务分类：</td>
+                    <td class="tLeft" >
+                        <select name="category" id="category">
+                            <option value="1">新手任务</option>
+                            <option value="2">日常任务</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">任务名称：</td>
+                    <td class="tLeft" >
+                        <input type="text" name="title">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">任务类型：</td>
+                    <td class="tLeft">
+                        <select name="sub_category" id="sub_category" class="bleftrequire" onchange="changeAction(this)">
+                            <option value="">请选择</option>
+                            <foreach name="sub_category" item="item" key="key">
+                                <option value="{$key}">{$item}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">重复任务：</td>
+                    <td class="tLeft">
+                        <input type="radio" class="laydate-icon" name="repeat"  value="1"/>是
+                        <input type="radio" class="laydate-icon" name="repeat"  checked  value="0"/>否
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">奖励积分：</td>
+                    <td class="tLeft">
+                        <input type="text" name="jf_val" >
+                    </td>
+                </tr>
+            </table>
+                <span  id="category_ext">
+
+                </span>
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">任务说明：</td>
+                    <td class="tLeft">
+                        <textarea id="url" name="description" class="huge"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">跳转选项：</td>
+                    <td class="tLeft">
+                        <select name="redirect" id="red" class="bleftrequire" onchange="changeAction(this)">
+                            <foreach name="redirect" item="item" key="key">
+                                <option value="{$key}">{$item}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<section id="HIDDEN_REGISTER" style="display: none;">
+    <table>
+    </table>
+</section>
+<section id="HIDDEN_RECHARGE" style="display: none;">
+    <table>
+        <tr>
+            <td class="tRight">充值金额大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="recharge_amount" value="0">
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">持有天数大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="recharge_days" value="0">
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">是否首次充值：</td>
+            <td class="tLeft">
+                <input type="radio" class="laydate-icon" name="recharge_first"  value="1"/>是
+                <input type="radio" class="laydate-icon" name="recharge_first"  checked  value="0"/>否
+            </td>
+        </tr>
+    </table>
+</section>
+<section id="HIDDEN_BUY" style="display: none;">
+    <table>
+        <tr>
+            <td class="tRight">标的标签：</td>
+            <td class="tLeft">
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  value="0"/>普通
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  value="1"/>新人特惠
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  value="2"/>爆款
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  value="6"/>活动
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  value="8"/>私人专享
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">投资金额大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="buy_amount" value="0">
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">标的期限大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="buy_day" value="0">
+            </td>
+        </tr>
+    </table>
+</section>
+<section id="HIDDEN_INVITE" style="display: none;"></section>
+<section id="HIDDEN_INVITE_TOTAL" style="display: none;">
+    <table>
+        <tr>
+            <td class="tRight">选择邀请统计方式：</td>
+            <td class="tLeft">
+                <input type="radio" class="laydate-icon" name="invite_type"  value="number"/>总人数
+                <input type="radio" class="laydate-icon" name="invite_type" checked  value="money"/>总金额
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">邀请人数大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="invite_people_number" value="0">
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">好友投资金额总额大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="invite_buy_total_amount" value="0">
+            </td>
+        </tr>
+    </table>
+</section>
+<section id="HIDDEN_WECHAT" style="display: none;">
+</section>
+<section id="HIDDEN_SIGN" style="display: none;">
+    <tr>
+        <td class="tRight">累计签到天数：</td>
+        <td class="tLeft">
+            <input type="text" name="sign_days" value="0">
+        </td>
+    </tr>
+</section>
+<script>
+    var _layerIndex = 0;
+    var _action = 0;
+    var _urlObj, _extObj;
+
+
+
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/member/task_store',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('添加成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    function changeAction(_obj){
+        _action = $(_obj).val();
+        var table = $('#HIDDEN_'+_action).html();
+        $('#category_ext').html(table);
+
+    }
+    $("#is_activity").change(function() {
+        if ($("#is_activity").attr("checked")) {
+            $("#start_time").parent().parent().css('display', '');
+        } else{
+            $("#start_time").parent().parent().css('display', 'none');
+        }
+    });
+</script>

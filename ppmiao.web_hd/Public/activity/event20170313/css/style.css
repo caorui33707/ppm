@@ -1,0 +1,197 @@
+﻿@charset "utf-8";
+
+.gift_pic img {
+    width: 100%;
+}
+
+.gift_now {
+    width: 100%;
+    line-height: 50px;
+    background-color: #fcab25;
+    color: #fff;
+    font-size: 17px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+.gift_people img {
+    width: 75%;
+    margin-top: 10px;
+}
+
+.gift_people p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+/*导航*/
+.index_nav {
+    background-color: #e8b900;
+    font-size: 15px;
+    color: #333;
+    margin: auto;
+}
+.index_er {
+width:90%;
+margin:auto;
+}
+
+.abb img {
+    width: 100%;
+    height:100%;
+}
+
+.cbb img {
+    width: 100%;
+     height:100%;
+}
+
+.index_nav .nav_pic {
+    top: -0px;
+}
+
+    .index_nav .nav_pic img {
+        width: 100%;
+        height:100%;
+    }
+
+.crude {
+    margin: 5px auto;
+    width: 80%;
+}
+
+/*奖品榜*/
+.hot_pic img {
+    width: 100%;
+}
+
+/*排行榜*/
+.model_bj {
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    color:#fff;
+}
+
+.model_top p {
+    color: #f9e500;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.model_number p {
+    padding-top: 10px;
+    color:#fff;
+}
+.gift_ti {
+background-color:#fcab25;
+
+}
+
+
+/*前台*/
+.rule_now {
+position:fixed;
+top:38%;
+right:0;
+}
+.rule_now img {
+width:90px;
+}
+.fu_top img {
+width:100%;
+}
+.fu_money1 p {
+font-size:25px;
+color:#ffe800;
+padding-top:85px;
+}
+.fu_money3  {
+width:72%;
+margin:auto;
+font-size:15px;
+color:#ffe800;
+}
+.fu_money2 p {
+padding-top:22px;
+}
+.fu_one {
+width:93%;
+margin:auto;
+}
+.fu_one img {
+width:100%;
+}
+.fu_two {
+width:93%;
+margin:auto;
+}
+.fu_two img{
+width:100%;
+}
+.fu_three {
+width:93%;
+margin:auto;
+}
+.fu_three img{
+width:100%;
+}
+/*弹框*/
+.backgr{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    opacity: .6;
+    z-index: 11;
+}
+.tankuang{
+    position: fixed;
+    width: 100%;
+    top: 32%;
+    left: 0;
+}
+.integral_content img{
+    width:100%;
+}
+
+.integral_window {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.integral_window .integral_content {
+    border-radius: 5px;
+    width: 70%;
+    margin-left: 15%;
+    background-color: #fff;
+    height: 220px;
+    position: fixed;
+    margin-top: 671px;
+}
+.fu_bigger {
+background-color:#F83B39;
+}
+.fu_big {
+background-color:#fb544f;
+width:95%;
+margin:auto;
+}
+
+
+
+.fu_now {
+width: 100%;
+line-height: 50px;
+background-color: #f2e92a;
+color: #f50f0f;
+font-size: 17px;
+width:100%;position:fixed;bottom:0;left:0;
+text-align:center;
+}

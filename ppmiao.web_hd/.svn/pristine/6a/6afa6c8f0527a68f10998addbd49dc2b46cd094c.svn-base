@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <link href="https://image.ppmiao.com/Public/activity/ppmqixi/css/basic.css" rel="stylesheet" type="text/css" />
+  <link href="https://image.ppmiao.com/Public/activity/ppmqixi/css/index_style.css" rel="stylesheet" type="text/css" />
+  <script src="https://image.ppmiao.com/Public/activity/ppmqixi/js/jquery.min.js"></script>
+  <script src="https://image.ppmiao.com/Public/activity/js/common.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+  <title>票票喵</title>
+</head>
+
+<body>
+  <!--弹出层-->
+  <div class="backgr" id="integral_bj" style="display: none;"></div>
+  <div class="tankuang" id="integral_window" style="z-index:1;display: none;">
+    <div class="integral_content">
+      <p class="tc" id="err_info"></p>
+    </div>
+  </div>
+  <div class="tankuang1" id="integral_window1" style="z-index:1;display: none;">
+    <div class="integral_content1 tc">
+      <p style="border-bottom:1px solid #f84d6a;">注册成功</p>
+      <a href="#" id="jump_url">
+        <p>返回活动</p>
+      </a>
+    </div>
+  </div>
+
+  <!--正文-->
+  <div class="register_download ">
+    <div class="enter mar" style="padding-top:6.7rem;">
+      <div class="number fl">
+        <img src="https://image.ppmiao.com/Public/activity/ppmqixi/images/user_03.png" />
+      </div>
+      <input type="text" id="mobile" name="mobile" placeholder="请输入手机号" maxlength="11">
+    </div>
+    <div class="enter mar ">
+      <div class="number  fl">
+        <img src="https://image.ppmiao.com/Public/activity/ppmqixi/images/user_06.png" />
+      </div>
+      <div class="rel">
+        <input type="text" id="code" name="code" placeholder="请输入验证码" maxlength="6">
+        <div class="have abs bor">
+          <input type="button" id="btn" value="获取验证码" style="border-left-width:2px;height:1.1rem;" />
+        </div>
+      </div>
+    </div>
+    <div class="login_read">
+      <img src="https://image.ppmiao.com/Public/activity/ppmqixi/images/x@2x.png" style="width:0.4rem;" class="wujiang_pic_size" id="caocao_pic" onClick="change_pic()"/>
+      <div class="login_already">
+        <p>已阅读并同意<a href="https://cg.ppmiao.com/act/agree/index.html" style="color:#fae04f;">《注册协议》</a></p>
+      </div>
+    </div>
+    <div class="login_app">
+      <img src="https://image.ppmiao.com/Public/activity/ppmqixi/images/button2.png"/>
+    </div>
+  </div>
+  <div id="mask"></div>
+  <div id="mask_succ"></div>
+  <div class="register_pic2"></div>
+  <div class="register_pic3"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+
+	$("#btn").click(function(){
+		var mobile = $('input[name=mobile]').val();
+		if(!checkPhone(mobile)) {
+			if(mobile == "") {
+				$("#err_info").empty().html('请输入您的手机号码！');
+			} else {
+				$("#err_info").empty().html('输入的手机号码有误！');
+			}
+			$('#mask').click(); 
+			return;
+		}
+		
+		$.ajax({
+	    	url: "/hd/sendCode.html",
+	        type: "post",
+	        data: {'invitedMobile':mobile},
+	        success: function (json) {
+	        	if(json.status == 1){
+	        		Countdown();
+	        	} else {
+	        		$("#err_info").empty().html(json.info);
+	        		$('#mask').click(); 
+	        	}
+	        	return
+	          }
+	   	})
+	});
+	
+	
+	$(".login_app").click(function(){
+		
+		var mobile = $('input[name=mobile]').val();    		
+		var code = $('input[name=code]').val();
+		var ch = "ppmQixi";
+		if(!checkPhone(mobile)) {
+			if(mobile == "") {
+				$("#err_info").empty().html('请输入您的手机号码！');
+			} else {
+				$("#err_info").empty().html('输入的手机号码有误！');
+			}
+			$('#mask').click(); 
+			return false;
+		}
+		
+		if(!code) {
+			$("#err_info").empty().html('请输入手机验证码！');
+			$('#mask').click(); 
+			return false;
+		}
+
+		
+		if(!Flag){
+			$("#err_info").empty().html('您没有同意用户注册协议');
+			$('#mask').click(); 
+			return false;
+		}
+		
+		$.ajax({
+	    	url: "/hd/tg_login.html",
+	        type: "post",
+	        data: {'code':code,'mobile':mobile,'ch':ch},
+	        success: function (json) {
+	        	if(json.status == 0){
+	        		//$('#mask_succ').click();
+	        		$("#err_info").empty().html(json.info);
+	        		$('#mask').click(); 
+	        	} else {
+	        		var url = 'http://image.ppmiao.com/Public/activity/Notice20170822_act/index.html?mobile='+mobile;
+	        		$("#jump_url").attr('href',url);
+	        		$('#mask_succ').click();
+	        	}
+	        	return;
+	        }
+	   	})   
+	})
+
+	
+
+var sleep = 60, interval = null;
+function Countdown(){
+	if (!interval) {
+	   $("#btn").css("backgroundColor","#FFF");
+		   $("#btn").attr("disabled","disabled");
+		   $('#btn').css('cursor','wait');
+		   $('#btn').val(sleep + " S");
+		   interval = setInterval(function () {
+			   if (sleep == 0) {
+				   if (!!interval) {
+					   clearInterval(interval);
+					   interval = null;
+					   sleep = 60;
+					   $('#btn').css('cursor','pointer');
+					   $("#btn").removeAttr("disabled");					   
+					   $("#btn").val("获取验证码");
+					   $("#btn").css("backgroundColor","#FFF");
+				   }
+				   return false;
+			   }
+			   $('#btn').val("" + sleep-- + " S");
+		   }, 1000);
+    }
+}
+
+var Flag = true;
+function change_pic(){
+	var imgObj = document.getElementById("caocao_pic");
+	if(Flag){
+		Flag = false;
+		imgObj.src="https://image.ppmiao.com/Public/activity/ppmqixi/images/4@2x.png";
+	} else{
+		Flag = true;
+		imgObj.src="https://image.ppmiao.com/Public/activity/ppmqixi/images/x@2x.png";
+	}
+}
+</script>
+<script>
+  $(function(){
+	    $("#mask").click(function(){
+	        $("#integral_bj").show();
+	        $("#integral_window").show();
+	        setTimeout(function(){
+	            $("#integral_bj").hide();
+	            $("#integral_window").hide();
+	        },2500);
+	    });
+	    
+	    $("#mask_succ").click(function(){
+	        $("#integral_bj").show();
+	        $("#integral_window1").show();
+	    });
+	    
+	    
+	    return false;
+	});
+</script>

@@ -1,0 +1,58 @@
+[ 2016-03-29T18:46:14+08:00 ] 127.0.0.1 /task.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Index
+
+[ 2016-03-29T18:47:02+08:00 ] 127.0.0.1 /task.php/ClearExpireBag/clearbag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0090s ]
+SQL: SELECT `id` FROM `s_user_redenvelope` WHERE ( status = 0 and unix_timestamp(`expire_time`)< UNIX_TIMESTAMP() )  [ RunTime:0.0050s ]
+
+[ 2016-03-29T18:47:16+08:00 ] 127.0.0.1 /task.php/ClearExpireBag/clearbag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0000s ]
+SQL: SELECT `id` FROM `s_user_redenvelope` WHERE ( status = 0 and unix_timestamp(`expire_time`)< UNIX_TIMESTAMP() )  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:47:22+08:00 ] 127.0.0.1 /task.php/ClearExpireBag/clearbag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0000s ]
+SQL: SELECT `id` FROM `s_user_redenvelope` WHERE ( status = 0 and unix_timestamp(`expire_time`)< UNIX_TIMESTAMP() )  [ RunTime:0.0000s ]
+
+[ 2016-03-29T18:47:37+08:00 ] 127.0.0.1 /task.php/ClearExpireBag/clearbag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:clearbag
+
+[ 2016-03-29T18:47:41+08:00 ] 127.0.0.1 /task.php/ClearExpireBag/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0000s ]
+SQL: SELECT `id` FROM `s_user_redenvelope` WHERE ( status = 0 and unix_timestamp(`expire_time`)< UNIX_TIMESTAMP() )  [ RunTime:0.0000s ]
+

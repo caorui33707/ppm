@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <div class="FirstBuyBox01 fLe clear">
+        <div class="FirstBuyBox01Title fLe clear">
+            <p>
+                <span class="span01">购买金额：<em>{$money|number_format=2}</em> 元</span>
+                <span class="span02">产品名称：<em>{$detail.title}</em></span>
+            </p>
+        </div>
+        <div class="SecondBuyListTxt fLe clear"><span>选择支付方式：</span></div>
+        <form action="" method="post">
+            <input type="hidden" name="data" value="{$data}" />
+            <input type="hidden" name="type" value="2" />
+            <ul class="FirstBuyBox01List SecondBuyList fLe clear">
+                <gt name="detail.id" value="0"><li><label><input name="bankcard" type="radio" value="0" class="radio" checked /><span class="span01"><em><img src="{:C('STATIC_ROOT')}/v2/images/bank/wallet.png" /></em>钱包</span></label></li></gt>
+                <foreach name="bank_list" item="item">
+                    <eq name="key" value="0">
+                        <li><label><input name="bankcard" type="radio" value="{$item.id}" class="radio" checked /><span class="span01"><em><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$item.bankCode}.png" /></em>{$item.bankName}  尾号：{$item.shortBankCardNo}</span></label></li>
+                    <else/>
+                        <li><label><input name="bankcard" type="radio" value="{$item.id}" class="radio" /><span class="span01"><em><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$item.bankCode}.png" /></em>{$item.bankName}  尾号：{$item.shortBankCardNo}</span></label></li>
+                    </eq>
+                </foreach>
+                <li><a href="{:C('WEB_ROOT')}/product/pay/{$data}?act=new"><p>使用新卡支付</p></a></li>
+                <li><input type="submit" value="确认支付" class="button02" /></li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+<include file="PublicNew:footer" />
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link href=" css/style.css" rel="stylesheet" type="text/css" />
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/tabs.js"></script>
+  <title>票票喵-我的账户</title>
+
+
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+  <div class="pandect_big">
+    <div class="pandect_seat">
+      <p>您现在的位置：我的账户><span>我的账户</span></p>
+    </div>
+    <!--左-->
+    <div class="pandect_left">
+      <ul>
+        <a href="pandect.html">
+          <li>账户总览</li>
+        </a>
+        <a href="account.html">
+          <li class="on">我的账户</li>
+        </a>
+        <a href="discounts.html">
+          <li>我的投资</li>
+        </a>
+        <a href="invest.html">
+          <li>我的优惠 <span id="user_sale">0</span></li>
+        </a>
+        <a href="mycard.html">
+          <li>我的银行卡</li>
+        </a>
+      </ul>
+    </div>
+    <div class="pandect_right">
+      <div class="account_outstand">
+        <p>账户余额（元）</p>
+        <h4>100000.00</h4>
+        <a href="recharge.html">
+            <button id="account_recharge">充值</button>
+          </a>
+        <a href="withdraw.html">
+            <button id="account_withdraw">提现</button>
+          </a>
+      </div>
+      <div class="account_one">
+        <div class="pandect_property">
+          <p>收支明细</p>
+        </div>
+        <div class="account_all">
+          <div class='tabs' id="tabs">
+            <ul class='horizontal'>
+              <li rel="tab-1" class="selectActive">全部</li>
+              <li rel="tab-2" relHref="T1.html">充值</li>
+              <li rel="tab-3" relHref="T2.html">提现</li>
+              <li rel="tab-4" relHref="T2.html">购买</li>
+              <li rel="tab-5" relHref="T2.html">还款</li>
+              <div style="clear:both;"></div>
+            </ul>
+
+            <!--1-->
+            <div rel='tab-1' class="account_exceed">
+              <div class="account_square">
+                <div class="account_line">
+                  <div class="account_time1">
+                    <p>时间</p>
+                  </div>
+                  <div class="account_time2">
+                    <p>类型</p>
+                  </div>
+                  <div class="account_time3">
+                    <p>金额（元）</p>
+                  </div>
+                  <div class="account_time4">
+                    <p>状态</p>
+                  </div>
+                </div>
+                <!---数据循环-->
+                <ul class="account_record">
+                  <li class="account_time1">
+                    <p>2016/11/11 12:10:10</p>
+                  </li>
+                  <li class="account_time2">
+                    <p>充值</p>
+                  </li>
+                  <li class="account_time3 cr">
+                    <p>+1000.00</p>
+                  </li>
+                  <li class="account_time4 cr">
+                    <p>交易成功</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="account_bill">
+                <img src="images/bill.png"/>
+              </div>
+            </div>
+            <!--2-->
+            <div rel='tab-2' class="account_exceed">
+              <div class="account_square">
+                <div class="account_line">
+                  <div class="account_time1">
+                    <p>时间</p>
+                  </div>
+                  <div class="account_time2">
+                    <p>类型</p>
+                  </div>
+                  <div class="account_time3">
+                    <p>金额（元）</p>
+                  </div>
+                  <div class="account_time4">
+                    <p>状态</p>
+                  </div>
+                </div>
+                <!---数据循环-->
+                <ul class="account_record">
+                  <li class="account_time1">
+                    <p>2016/11/11 12:10:10</p>
+                  </li>
+                  <li class="account_time2">
+                    <p>充值</p>
+                  </li>
+                  <li class="account_time3 cr">
+                    <p>+1000.00</p>
+                  </li>
+                  <li class="account_time4 cr">
+                    <p>交易成功</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--3-->
+            <div rel='tab-3' class="account_exceed">
+              <div class="account_square">
+                <div class="account_line">
+                  <div class="account_time1">
+                    <p>时间</p>
+                  </div>
+                  <div class="account_time2">
+                    <p>类型</p>
+                  </div>
+                  <div class="account_time3">
+                    <p>金额（元）</p>
+                  </div>
+                  <div class="account_time4">
+                    <p>状态</p>
+                  </div>
+                </div>
+                <!---数据循环-->
+                <ul class="account_record">
+                  <li class="account_time1">
+                    <p>2016/11/11 12:10:10</p>
+                  </li>
+                  <li class="account_time2">
+                    <p>充值</p>
+                  </li>
+                  <li class="account_time3 cr">
+                    <p>+1000.00</p>
+                  </li>
+                  <li class="account_time4 cr">
+                    <p>交易成功</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--4-->
+            <div rel='tab-4' class="account_exceed">
+              <div class="account_square">
+                <div class="account_line">
+                  <div class="account_time1">
+                    <p>时间</p>
+                  </div>
+                  <div class="account_time2">
+                    <p>类型</p>
+                  </div>
+                  <div class="account_time3">
+                    <p>金额（元）</p>
+                  </div>
+                  <div class="account_time4">
+                    <p>状态</p>
+                  </div>
+                </div>
+                <!---数据循环-->
+                <ul class="account_record">
+                  <li class="account_time1">
+                    <p>2016/11/11 12:10:10</p>
+                  </li>
+                  <li class="account_time2">
+                    <p>充值</p>
+                  </li>
+                  <li class="account_time3 cr">
+                    <p>+1000.00</p>
+                  </li>
+                  <li class="account_time4 cr">
+                    <p>交易成功</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--5-->
+            <div rel='tab-5' class="account_exceed">
+              <div class="account_square">
+                <div class="account_line">
+                  <div class="account_time1">
+                    <p>时间</p>
+                  </div>
+                  <div class="account_time2">
+                    <p>类型</p>
+                  </div>
+                  <div class="account_time3">
+                    <p>金额（元）</p>
+                  </div>
+                  <div class="account_time4">
+                    <p>状态</p>
+                  </div>
+                </div>
+                <!---数据循环-->
+                <ul class="account_record">
+                  <li class="account_time1">
+                    <p>2016/11/11 12:10:10</p>
+                  </li>
+                  <li class="account_time2">
+                    <p>充值</p>
+                  </li>
+                  <li class="account_time3 cr">
+                    <p>+1000.00</p>
+                  </li>
+                  <li class="account_time4 cr">
+                    <p>交易成功</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script type="text/javascript">
+  tabs_takes.init("tabs");
+</script>

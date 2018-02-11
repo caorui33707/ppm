@@ -1,0 +1,74 @@
+﻿@charset "utf-8";
+        /* -------------------------摇奖排行榜-----------------------------------  */
+        .topRec_List dl, .maquee {
+            width: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            color: #7C7C7C;
+        }
+
+        .topRec_List dd {
+            float: left;
+            text-align: center;
+            border-bottom: 1px solid #1B96EE;
+        }
+
+        .topRec_List dl dd:nth-child(1) {
+            width: 15%;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .topRec_List dl dd:nth-child(2) {
+            width: 15%;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .topRec_List dl dd:nth-child(3) {
+            width: 35%;
+            height: 40px;
+            line-height: 40px;
+        }
+        .topRec_List dl dd:nth-child(4) {
+            width: 35%;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .maquee {
+            height: 373.3px;
+           margin-bottom:10px;
+        }
+        .maquee  li{
+            color:#862612;
+        }
+
+        .topRec_List ul {
+            width: 100%;
+            height: 650px;
+        }
+
+        .topRec_List li {
+            width: 100%;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            font-size: 13px;
+        }
+            .topRec_List li div {
+                float: left;
+            }
+
+                .topRec_List li div:nth-child(1) {
+                    width: 25%;
+                }
+
+                .topRec_List li div:nth-child(2) {
+                    width: 30%;
+                }
+
+                .topRec_List li div:nth-child(3) {
+                    width: 45%;
+                }
+                

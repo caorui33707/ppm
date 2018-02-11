@@ -1,0 +1,693 @@
+* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+.rel {
+	position: relative;
+}
+
+.abs {
+	position: absolute;
+}
+
+body {
+	overflow-x: hidden;
+	background-color: #4AAE30;
+}
+
+.dialog {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+
+.dialog-shadow {
+	background: #000;
+	opacity: 0.7;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    z-index:1001;
+}
+
+.dialog-content {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	z-index: 3000;
+}
+
+.dialog-main {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.jiangli {
+	background-image: url(../img/jiangli.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 0.78rem;
+	height: 4rem;
+	position: fixed;
+	z-index: 100;
+	right: 0;
+	top: 4rem;
+}
+.hot-pic{
+    background-image: url(../img/51.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 9rem;
+    height: 7rem;
+}
+.hot-pic2{
+    background-image: url(../img/54.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 9rem;
+    height: 7rem;
+}
+.notice-pic {
+	background-image: url(../img/not-login.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 9rem;
+	height: 4rem;
+}
+
+.notice-text {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	width: 92%;
+	margin-top: -1.2rem;
+	color: #E83333;
+	font-size: 18px;
+	left: .4rem;
+}
+
+[data-dpr="2"] .notice-text {
+	font-size: 36px;
+}
+
+[data-dpr="3"] .notice-text {
+	font-size: 54px;
+}
+
+.noticeButton {
+	position: relative;
+	width: 5rem;
+	height: 2rem;
+	top: 2rem;
+	left: 2rem;
+}
+
+.buy-pic {
+	background-image: url(../img/prize.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 9rem;
+	height: 7rem;
+}
+
+.index_now-pic {
+	background-image: url(../img/success.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 9rem;
+	height: 7rem;
+}
+
+.receive-line-pic {
+	background-image: url(../img/warning.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 9rem;
+	height: 5rem;
+}
+
+.water-pic {
+	background-image: url(../img/flower.gif);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 9rem;
+	height: 7rem;
+}
+
+.close {
+	width: 1.5rem;
+	height: 1.5rem;
+	float: right;
+}
+
+.closeWater {
+	width: 100%;
+	height: 100%;
+	float: right;
+}
+
+.bg-first {
+	background-image: url("../img/farm_01.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	position: relative;
+	margin: auto;
+}
+
+.bg-first .active-time {
+	position: relative;
+	top: 4.6rem;
+	font-size: 10px;
+}
+
+[data-dpr="2"] .bg-first .active-time {
+	font-size: 20px;
+}
+
+[data-dpr="3"] .bg-first .active-time {
+	font-size: 30px;
+}
+
+.bg-first .watering-day {
+	position: absolute;
+	left: 0;
+	right: 0;
+	color: #e8542a;
+	bottom: 0.7rem;
+	height: .9rem;
+	line-height: .9rem;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 1.5rem;
+	font-size: 11.5px;
+}
+
+[data-dpr="2"] .bg-first .watering-day {
+	font-size: 23px;
+}
+
+[data-dpr="3"] .bg-first .watering-day {
+	font-size: 34.5px;
+}
+
+.bg-first .water-point {
+	padding: 0 .1rem;
+}
+
+.bg-first .watering-time {
+	color: #ff0000;
+	padding: 0 .1rem;
+}
+
+.bg-first .checkIn {
+	float: right;
+	width: 2rem;
+	height: .9rem;
+	margin-right: 1rem;
+}
+
+.bg-first .cannot-checkIn {
+	right: 1.35rem;
+	top: 0.2rem;
+	width: 1.7rem;
+	background-image: url(../img/unwatering.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: absolute;
+	height: .55rem;
+}
+
+.bg-second {
+	background-image: url("../img/farm_02.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	position: relative;
+	margin: auto;
+	margin-top: -1px;
+}
+
+.bg-second .line {
+	height: .79rem;
+	line-height: .79rem;
+	padding-left: 3px;
+}
+
+.bg-second ul {
+	height: 100%;
+	width: 76%;
+	margin: auto;
+	position: relative;
+}
+
+.bg-second ul li {
+	float: left;
+	width: 14.28%;
+	height: 100%;
+	line-height: .7rem;
+	text-align: center;
+	color: #c85d07;
+	font-size: 14px;
+	font-weight: bold;
+	position: relative;
+}
+
+[data-dpr="2"] .bg-second ul li {
+	font-size: 28px;
+}
+
+[data-dpr="3"] .bg-second ul li {
+	font-size: 42px;
+}
+
+.bg-second ul li .uncheck-in {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: .7rem;
+	height: .7rem;
+	margin: auto;
+}
+
+.bg-second .flower {
+	background-image: url("../img/flower.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: .7rem;
+	height: .7rem;
+	margin: auto;
+}
+
+.bg-second .notice-hot {
+	color: #ff0000;
+	position: absolute;
+	width: 105%;
+	height: 0.3rem;
+	line-height: .35rem;
+	font-size: 8px;
+	background: #ffd45c;
+	margin-top: -.15rem;
+	border-radius: .1rem;
+	padding: .02rem;
+}
+
+[data-dpr="2"] .notice-hot {
+	font-size: 18px;
+}
+
+[data-dpr="3"] .notice-hot {
+	font-size: 27px;
+}
+
+.bg-second .notice4 {
+	color: #ff0000;
+	position: relative;
+	left: 5.2rem;
+	top: -.5rem;
+	font-size: 9px;
+	background: #ffd45c;
+	padding: .1rem .1rem .05rem .15rem;
+	border-radius: 5px;
+}
+
+[data-dpr="2"] .bg-second .notice4 {
+	font-size: 18px;
+}
+
+[data-dpr="3"] .bg-second .notice4 {
+	font-size: 27px;
+}
+
+.bg-second .receive-line {
+	left: 11%;
+	height: .8rem;
+	position: absolute;
+	bottom: 5.2rem;
+	margin: auto;
+	right: 10%;
+}
+
+.bg-second .receive-line div {
+	width: 25%;
+	text-align: center;
+	height: 100%;
+	line-height: .8rem;
+	float: left;
+}
+
+.bg-second .receive-line img {
+	margin-top: .1rem;
+	width: 1rem;
+}
+
+.bg-third {
+	background-image: url("../img/farm_03.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	position: relative;
+	z-index: 5;
+	margin: -1px auto 0;
+}
+
+[data-dpr="3"] .bg-third {
+	margin: -2px auto 0;
+}
+
+.bg-third .box {
+	position: relative;
+	top: .45rem;
+}
+
+.bg-third .line {
+	width: 85%;
+	height: 3.85rem;
+	margin: auto;
+}
+
+.bg-third .line .line-ground {
+	height: 100%;
+}
+
+.bg-third .line .ground {
+	width: 50%;
+	background-image: url("../img/pickingUp.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 100%;
+	float: left;
+}
+
+.bg-third .line .ground.unground {
+	background-image: url("../img/unpickingUp.png");
+	position: relative;
+	top: 0.2rem;
+}
+
+.bg-third .line .ground p {
+	color: #fff;
+	width: 100%;
+	margin: auto;
+	position: relative;
+	top: 2.7rem;
+	font-size: 9.5px;
+	font-weight: 400;
+	text-align: center;
+	margin-bottom: 1px;
+}
+
+[data-dpr="2"] .bg-third .line .ground p {
+	font-size: 19px;
+}
+
+[data-dpr="3"] .bg-third .line .ground p {
+	font-size: 28.5px;
+}
+
+.bg-third .line .ground.unground p {
+	top: 2.5rem;
+}
+
+.bg-third .personInfo {
+	text-align: center;
+	color: #af6030;
+	font-size: 13px;
+	font-weight: bold;
+	margin: .6rem auto;
+	width: 58%;
+}
+
+[data-dpr="2"] .bg-third .personInfo {
+	font-size: 26px;
+}
+
+[data-dpr="3"] .bg-third .personInfo {
+	font-size: 40px;
+}
+
+.bg-third .personInfo .info-num {
+	font-size: 15px;
+	color: #ff0000;
+}
+
+[data-dpr="2"] .bg-third .personInfo .info-num {
+	font-size: 30px;
+}
+
+[data-dpr="3"] .bg-third .personInfo .info-num {
+	font-size: 45px;
+}
+
+.bg-third .buy {
+	width: 100%;
+	height: 1rem;
+}
+
+.bg-fourth {
+	background-image: url("../img/farm_04.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	position: relative;
+	z-index: 4;
+	margin: -1px auto 0;
+}
+
+.index_number {
+	position: absolute;
+	bottom: 0.53rem;
+	left: 5.85rem;
+	color: #ff0000;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+[data-dpr="2"] .index_number {
+	font-size: 36px;
+}
+
+[data-dpr="3"] .index_number {
+	font-size: 54px;
+}
+
+.investment_f {
+	width: 100%;
+	padding-top: 0.3rem;
+	position: relative;
+}
+
+.investment_f .investment_title {
+	margin-left: 1.04rem;
+	height: 1rem;
+	position: relative;
+	z-index: 10;
+}
+
+.investment_title div {
+	width: 1.3rem;
+	/*background: url(../img/kuai_07.png)no-repeat;
+    background-size: 100%;*/
+	background-color: #e4bf94;
+	border-top-right-radius: 7px;
+	border-top-left-radius: 7px;
+	float: left;
+	display: inline;
+	font-weight: bold;
+	text-align: center;
+	color: #953000;
+	cursor: pointer;
+	height: 0.47rem;
+	border: 1px solid #953000;
+}
+
+.investment_title a, .investment_title a:link, .investment_title a:visited, .investment_title a:hover {
+	color: #555;
+	width: 1.35rem;
+	display: inline-block
+}
+
+.investment_title div.on a, .investment_title div.on a:link, .investment_title div.on a:visited, .investment_title div.on a:hover {
+	color: #f70;
+}
+
+.investment_title div.on {
+	/*background: url(../img/kuai2_09.jpg)no-repeat;
+    background-size: 100%;*/
+	background-color: #fdebbb;
+	border-top: 1px solid #953000;
+	border-left: 1px solid #953000;
+	border-right: 1px solid #953000;
+	border-bottom: 1px solid #fdebbb;
+    height:0.5rem;
+}
+
+.investment_con {
+	width: 8.158rem;
+	margin: auto;
+	clear: both;
+	border: 1px solid #953000;
+	position: absolute;
+	left: 10%;
+	right: 10%;
+	top: .8rem;
+	z-index: 5;
+    height: 4.15rem;
+}
+
+.investment_con_list {
+	display: none;
+	text-align: center;
+	position: relative;
+    height: 100%;
+}
+
+.investment_con_list img {
+	width: 2.2rem;
+	padding: 0.45rem 0 0 0;
+}
+
+.investment_con_list span {
+	color: #ff0000;
+}
+
+.investment_con_list p {
+
+}
+
+.index_now {
+	position: absolute;
+	bottom: -0.3rem;
+	left: 2.9rem;
+}
+
+.investment_title img {
+	width: 0.28rem;
+	position: relative;
+	top: .05rem;
+}
+
+.investment_white {
+	background-color: #fff;
+}
+
+.bg-fifth {
+	background-image: url("../img/farm_05.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	margin: -1px auto 0;
+}
+
+[data-dpr="3"] .bg-fifth {
+	margin: -2px auto 0;
+}
+
+.bg-sixth {
+	background-image: url("../img/farm_06.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 5.4rem;
+	margin: 0 auto;
+	margin-top: -1px;
+}
+
+
+/*fang*/
+
+.model_top {
+	font-size: 16px;
+}
+
+[data-dpr="2"] .model_top {
+	font-size: 30px;
+}
+
+[data-dpr="3"] .model_top {
+	font-size: 42px;
+}
+
+.model_number {
+	font-size: 14px;
+}
+
+[data-dpr="2"] .model_number {
+	font-size: 25px;
+}
+
+[data-dpr="3"] .model_number {
+	font-size: 42px;
+}
+
+.congratulation-pic {
+	background-image: url("../img/prize-1.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 3rem;
+	height: 3rem;
+	margin: 1rem auto 0;
+}
+
+.congratulation-text {
+	text-align: center;
+	color: #643713;
+	font-size: 15px;
+}
+
+[data-dpr="2"] .congratulation-text {
+	font-size: 30px;
+}
+
+[data-dpr="3"] .congratulation-text {
+	font-size: 45px;
+}
+.index_time{
+  position: absolute;
+  bottom:-4.4rem;
+
+}
+.index_gift{
+  width:10rem;
+  text-align: center;
+  color:#953000;
+}
+.bg-bottom{
+    background-image: url(../img/jilu_02.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5.7rem;
+}
+.model_number p {
+    padding-top: 10px;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hot_forum ul li div {
+    width: 100%;
+}
+.gift_ti ul li div {
+    width: 100%;
+}

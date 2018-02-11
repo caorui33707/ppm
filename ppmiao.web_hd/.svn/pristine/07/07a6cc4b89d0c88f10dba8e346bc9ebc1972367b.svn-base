@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script src="{:C('STATIC_ROOT')}/activity/event20170424/js/flexible.js"></script>
+	<script src="{:C('STATIC_ROOT')}/activity/event20170424/js/flexible_css.js"></script>
+	<link rel="stylesheet" href="{:C('STATIC_ROOT')}/activity/event20170424/css/style.css" />
+	<title>票票喵</title>
+	<style>
+		.index_nav {
+
+			font-size: 0px;
+			color: #333;
+			margin: auto;
+		}
+
+		.index_er {
+			width: 100%;
+			margin: auto;
+		}
+
+		.abb img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.cbb img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.index_nav .nav_pic {
+			top: -0px;
+		}
+
+		.index_nav .nav_pic img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.crude {
+			margin: 5px auto;
+			width: 80%;
+		}
+		/*奖品榜*/
+
+		.hot_pic img {
+			width: 100%;
+		}
+		/*排行榜*/
+
+		.model_bj {
+			width: 100%;
+			margin: auto;
+			border-radius: 10px;
+			padding-bottom: 10px;
+			color: #fff;
+		}
+
+		.model_top p {
+			color: #fff;
+			padding-top: 10px;
+		}
+
+		.model_number p {
+			padding-top: 10px;
+			color: #fff;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.model_number span {
+			color: #f9e500;
+		}
+
+		.cut20 {
+			width: 20%;
+		}
+
+		.cut50 {
+			width: 50%;
+		}
+
+		.cut30 {
+			width: 30%;
+		}
+
+		.cut40 {
+			width: 40%;
+		}
+
+		.fl {
+			float: left;
+		}
+
+		.rel {
+			position: relative;
+		}
+
+		.clear {
+			clear: both;
+		}
+
+		.tc {
+			text-align: center;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		.abs {
+			position: absolute;
+		}
+
+		.rules_line {
+			width: 100%;
+			height: 5px;
+			background-color: #fff;
+		}
+
+		.rules_lu1 img {
+			width: 25%;
+			padding-top: 35%;
+		}
+
+		.rules_out {
+			position: fixed;
+			top: 4rem;
+			left: 0;
+		}
+
+		.rules_out img {
+			width: 0.78rem;
+		}
+
+	</style>
+</head>
+
+<body style="background-color:#70af30;height:100%;width:100%;top:0;bottom:0;position:absolute;">
+    <div class="bg-bottom"></div>
+	<section>
+		<a href="/hd/event20170424.html?mobile={$mobile}">
+			<div class="rules_out">
+				<img id="" src="{:C('STATIC_ROOT')}/activity/event20170424/img/fh@2x.png" />
+			</div>
+		</a>
+
+		<!--导航栏-->
+		<nav>
+			<div class="index_nav">
+				<div class="index_er">
+					<div class="chunk cut50 tc fl rel" id="nav_hot" onclick="show_index()" style="border-radius: 10px 0px 0px 10px;">
+						<div class="abb">
+							<img id="hot_text" src="{:C('STATIC_ROOT')}/activity/event20170424/img/ji_13.png" />
+						</div>
+						<div class="cbb hidden" id="nav_pic1" style="width:100%;">
+							<img src="{:C('STATIC_ROOT')}/activity/event20170424/img/ji_04.png" />
+						</div>
+					</div>
+					<div class="chunk cut50 tc fl rel" id="nav_model" onclick="show_model()" style="border-radius: 0px 10px 10px 0px;">
+						<div class="abb">
+							<img id="model_text" src="{:C('STATIC_ROOT')}/activity/event20170424/img/ji_06.png" />
+						</div>
+						<div class="cbb hidden" id="nav_pic2" style="width:100%;">
+							<img src="{:C('STATIC_ROOT')}/activity/event20170424/img/ji_14.png" />
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="rules_line"></div>
+
+		</nav>
+		<!--发放-->
+		<div class="" id="hot_forum">
+            <div class="hot_forum">
+                <if condition="($prizeListCount1 gt 0)">
+    				<div>
+    					<ul class="" style="width:100%;margin:auto;">
+    						<li class="model_top cut20 fl tc">
+    							<p>编号</p>
+    						</li>
+    						<li class="model_top cut40 fl tc">
+    							<p>发放记录</p>
+    						</li>
+    						<li class="model_top cut40 fl tc">
+    							<p>发放时间</p>
+    						</li>
+
+    					</ul>
+    					<ul style="width:100%;margin:auto;">
+    						<foreach name="prizeList1" item="item">
+    							<li>
+                                    <div>
+                                        <span class="model_number cut20 fl tc">
+        									<p style="width:100%;">{$item.n}</p>
+        								</span>
+        								<span class="model_number cut40 fl tc">
+        									<p style="width:100%;"><span>{$item.name}</span></p>
+        								</span>
+        								<span class="model_number cut40 fl tc">
+        									<p style="width:100%;">{$item.add_time}</p>
+        								</span>
+                                    </div>
+    							</li>
+    							<div class="" style="clear:both;"></div>
+    						</foreach>
+    					</ul>
+    					<div class="">
+
+    					</div>
+    				</div>
+
+    			</if>
+    			<if condition="($prizeListCount1 eq 0)">
+    				<div class="rules_lu1 tc ">
+    					<img src="{:C('STATIC_ROOT')}/activity/event20170424/img/jilu_05.png" />
+    				</div>
+    			</if>
+            </div>
+
+		</div>
+	</section>
+
+	<!--兑换-->
+	<div class="gift_ti">
+		<section id="model" class="hidden" style="width:100%;margin:auto;background-color:#70af30;">
+
+			<if condition="($prizeListCount2 gt 0)">
+
+				<div class="model_bj">
+					<ul class="" style="width:100%;margin:auto;">
+						<li class="model_top cut20 fl tc">
+							<p>编号</p>
+						</li>
+						<li class="model_top cut40 fl tc">
+							<p>兑换记录</p>
+						</li>
+						<li class="model_top cut40 fl tc">
+							<p>兑换时间</p>
+						</li>
+
+					</ul>
+					<ul style="width:100%;margin:auto;">
+						<foreach name="prizeList2" item="item">
+							<li>
+                                <div>
+                                    <span class="model_number cut20 fl tc">
+    									<p  style="width:100%;">{$item.n}</p>
+    								</span>
+    								<span class="model_number cut40 fl tc">
+    									<p style="width:100%;"><span>{$item.name}</span></p>
+    								</span>
+    								<span class="model_number cut40 fl tc">
+    									<p style="width:100%;">{$item.add_time}</p>
+    								</span>
+                                </div>
+							</li>
+							<div class="" style="clear:both;"></div>
+						</foreach>
+					</ul>
+
+					<div class="clear"></div>
+				</div>
+			</if>
+
+			<if condition="($prizeListCount2 eq 0)">
+				<div class="rules_lu1 tc ">
+					<img src="{:C('STATIC_ROOT')}/activity/event20170424/img/jilu_08.png" />
+				</div>
+			</if>
+
+			<div class="clear"></div>
+		</section>
+
+	</div>
+
+
+	</section>
+</body>
+
+</html>
+<script>
+	var Ishot = false;
+	var Ismodel = false;
+	var IsCollection1 = false;
+	var IsCollection2 = false;
+	var IsGreat1 = false;
+	var IsGreat2 = false;
+	//加载调用函数
+	window.onload = function() {
+		show_index();
+	}
+	//奖品榜
+	function show_index() {
+		if (Ishot) {
+			document.getElementById("hot_forum").className = "hidden";
+			document.getElementById("nav_pic1").className = "hidden";
+			Ishot = false;
+		} else {
+			Ismodel = true;
+			show_model();
+			document.getElementById("hot_forum").className = "";
+			document.getElementById("nav_pic1").className = "abs nav_pic";
+			Ishot = false;
+		}
+	}
+	//排行榜
+	function show_model() {
+		if (Ismodel) {
+			document.getElementById("model").className = "hidden";
+			document.getElementById("nav_pic2").className = "hidden";
+			Ismodel = false;
+		} else {
+			Ishot = true;
+			show_index();
+			document.getElementById("model").className = "";
+			document.getElementById("nav_pic2").className = "abs nav_pic";
+			Ismodel = false;
+		}
+	}
+</script>

@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/layer/layer.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <include file="PublicNew:user_sidebar" />
+
+    <div class="innerRight fRi clear">
+        <div class="innerRight_user_box01 fLe clear">
+
+            <div class="innerRight_user_b_block01 fLe clear">
+                <div class="innerRight_user_title innerRight_user_title02 fLe clear">
+                    <h2>钱包</h2>
+                    <a href="{:C('WEB_ROOT')}/user/wallet">详情</a>
+                </div>
+                <h6><em>{$wallet_totle|number_format=4}</em> 元 </h6>
+                <span>
+                    <a href="javascript:;" class="button01" onclick="showWin()">充值</a>
+                    <a href="{:C('WEB_ROOT')}/user/withdrawals" class="button01 gray">提现</a>
+                </span>
+            </div>
+            <div class="innerRight_user_b_block02 fLe clear">
+                <div class="innerRight_user_title innerRight_user_title03 fLe clear">
+                    <h2>理财资本</h2>
+                    <!--<a href="#">查看交易记录</a>-->
+                </div>
+                <div class="innerRight_user_b_block02_inner fLe clear">
+                    <ul>
+                        <li>
+                            <h2>{$due_totle|number_format=2}</h2>
+                            <p>在投本金(元)</p>
+                        </li>
+                        <li style="border:none;">
+                            <h2 class="red">{$due_interest|number_format=2}</h2>
+                            <p>当前盈亏(元)</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="innerRight_user_box02 fLe clear">
+            <div class="innerRight_user_title fLe clear">
+                <h2>我的理财</h2>
+                <a href="{:C('WEB_ROOT')}/user/product">更多</a>
+            </div>
+            <div class="innerRight_user_myRecord_block01 fLe clear">
+                <ul class="innerRight_user_myRecord fLe clear">
+                    <foreach name="u_due_list" item="item">
+                        <li>
+                            <dl>
+                                <dd class="dd01">
+                                    <a href="{:C('WEB_ROOT')}/user/product/detail/{$item.id}"><h5>{$item.pinfo.title}</h5></a>
+                                    <p>
+                                        <if condition="$item['pinfo']['user_interest'] gt 0">
+                                            <em>{$item.pinfo.user_interest|number_format=2}%</em>
+                                        <elseif condition="$item['pinfo']['user_interest'] lt 0"/>
+                                            <em style="color:green;">{$item.pinfo.user_interest|number_format=2}%</em>
+                                        <else/>
+                                            <em style="color:black;">{$item.pinfo.user_interest|number_format=2}%</em>
+                                        </if>
+                                        <switch name="item.pinfo.type"><case value="104">昨日涨跌幅</case><case value="109">昨日涨跌幅</case><case value="110">昨日涨跌幅</case><case value="148">ETF昨日趋势</case><default/>年化利率</switch>
+                                    </p>
+                                </dd>
+                                <dd class="dd02"><h5>{$item.due_capital|number_format=2}</h5><p>投资金额</p></dd>
+                                <dd class="dd03">
+                                    <if condition="$item['due_interest'] gt 0">
+                                        <h5 class="red">{$item.due_interest|number_format=2}</h5>
+                                    <elseif condition="$item['due_interest'] lt 0"/>
+                                        <h5 class="green">{$item.due_interest|number_format=2}</h5>
+                                    <else/>
+                                        <h5>{$item.due_interest|number_format=2}</h5>
+                                    </if>
+                                    <p><switch name="item.pinfo.type"><case value="104">当前盈亏</case><case value="109">当前盈亏</case><case value="110">当前盈亏</case><default/>待收利息</switch></p>
+                                </dd>
+                            </dl>
+                        </li>
+                    </foreach>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="innerRight_user_box03 fLe clear">
+            <div class="innerRight_user_title fLe clear">
+                <h2>我的银行卡</h2>
+                <a href="{:C('WEB_ROOT')}/user/bank">更多</a>
+            </div>
+            <ul class="fLe">
+                <foreach name="bank_list" item="item">
+                    <li>
+                        <h6><i><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$item.bank_code}.png" /></i>{$item.bank_name}</h6>
+                        <p>{$item.bank_card_no|get_idcard_tail_number}</p>
+                    </li>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    function closeWin(){
+        $(".rechargeLayout,.bg").hide();
+    }
+    function showWin(){
+        $(".rechargeLayout,.bg").show();
+    }
+    function recharge(){
+        var _money = $.trim($("#money").val());
+        if(_money == ''){
+            layer.alert('充值金额不能为空', -1);return;
+        }
+        if(isNaN(_money)){
+            layer.alert('充值金额必须为数字', -1);return;
+        }
+        if(_money <= 0){
+            layer.alert('充值金额必须大于0', -1);return;
+        }
+        if(_money%1 != 0){
+            layer.alert('充值金额必须为整数', -1);return;
+        }
+        closeWin();
+        $("#frmMain").submit();
+    }
+</script>
+<include file="PublicNew:user_footer" />
+<div class="rechargeLayout" style="display:none;">
+    <form id="frmMain" action="" method="post" target="_blank">
+        <div class="rechargeLayoutTitle fLe clear">
+            <h5>钱包充值</h5>
+            <a href="javascript:;" onclick="closeWin()"></a>
+        </div>
+        <div class="rechargeLayoutContent fLe clear">
+            <p class="p01"><span>充值金额：</span><input type="text" id="money" name="money" placeholder="最低充值1元" class="input01" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" /></p>
+            <p class="p02"><a href="javascript:;" onclick="recharge()">确定充值</a></p>
+        </div>
+    </form>
+</div>
+<div id="bg" class="bg" style="display:none;"></div>
+</body>
+</html>

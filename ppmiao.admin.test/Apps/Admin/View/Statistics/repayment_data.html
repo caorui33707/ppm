@@ -1,0 +1,133 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/modules/exporting.js"></script>
+    <div class="content">
+        <div class="title">还款数据</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <span><input type="text" name="dt" id="dt" class="laydate-icon" placeholder="选择日期" class="medium" value="{$dt}" readonly></span>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="筛选" class="search imgButton"></div>
+                </form>
+            </div>
+        </div>
+        <div id="result" class="result none"></div>
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+<script>
+    var _plusDescr = '{$plus_descr|json_encode}';
+    _plusDescr = $.parseJSON(_plusDescr);
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '还款数据({$dt})'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: [{
+                categories: [{$categories}]
+            }],
+            yAxis: [{ // Primary yAxis
+            	min:0, // 定义最小值    
+                labels: {
+                    format: '{value}元',
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                title: {
+                    text: '还款金额',
+                    style: {
+                        color: '#89A54E'
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: '还款利息',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                labels: {
+                    format: '{value}元',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                formatter: function(){
+                    var year = this.x;
+                    var _plus = '';
+                    $.each(_plusDescr, function(i, n){
+                        if(_plusDescr[i]['datetime'] == year){
+                            _plus = _plusDescr[i]['descr'];
+                        }
+                    });
+
+                    var s = '<b>' + this.x + '</b>';
+                    $.each(this.points, function () {
+                        s += '<br/>' + this.series.name + ': ' +
+                             this.y + ' 元';
+                    });
+                    s += '<br/>' + '--------------------';
+                    s += '<br/>' + _plus;
+                    return s;
+                },
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 50,
+                floating: true,
+                backgroundColor: '#FFFFFF'
+            },
+            series: [{
+                name: '还款利息',
+                color: '#4572A7',
+                type: 'column',
+                yAxis: 1,
+                data: [{$totle_interest}]
+//                tooltip: {
+//                    valueSuffix: '元'
+//                }
+            }, {
+                name: '还款金额',
+                color: '#89A54E',
+                type: 'spline',
+                data: [{$totle_price}]
+//                tooltip: {
+//                    valueSuffix: '元'
+//                }
+            }]
+        });
+    });
+
+    var dt = {
+        elem: '#dt',
+        format: 'YYYY-MM',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+
+        }
+    };
+    laydate(dt);
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta content="telephone=no,email=no" name="format-detection">
+        <script src="flexible_css.js"></script>
+        <script src="flexible.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>爆款轰趴</title>
+        <script src="https://www.ppmiao.com/Public/activity/js/jquery-1.2.6.min.js"></script>
+        <script src="https://www.ppmiao.com/Public/activity/js/common.js"></script>  
+    </head>
+    <body>
+        <div style="font-size:0;" id="pic">
+        </div>
+        <button style="" class="button-add" onclick="go2App();"></button>
+    </body>
+</html>
+<script>
+console.log(window.devicePixelRatio);
+    if(window.devicePixelRatio == 3){
+        document.getElementById("pic").innerHTML = '<img class="first" src="img/3_01.jpg" border="0"/><img class="second" src="img/3_02.jpg"border="0"/><img class="third" src="img/3_03.jpg"/><img class="fourth" src="img/3_04.jpg"/><img class="fifth "src="img/3_05.jpg" style="margin-bottom: 1rem;" />'
+    }
+    else{
+        document.getElementById("pic").innerHTML = '<img class="first" src="img/2_01.jpg" border="0"/><img class="second" src="img/2_02.jpg"border="0"/><img class="third" src="img/2_03.jpg"/><img class="fourth" src="img/2_04.jpg"/><img class="fifth "src="img/2_05.jpg" style="margin-bottom: 1rem;"/>'
+    }
+</script>

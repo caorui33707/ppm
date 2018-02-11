@@ -1,0 +1,111 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">广告管理 - 编辑广告 [ <a href="{:C('ADMIN_ROOT')}/DynamicRate/index/p/{$params.page|default=1}">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="id" value="{$detail.id}" />
+            <input type="hidden" name="page" value="{$params.page|default=1}" />
+            <table cellpadding=3 cellspacing=3 >
+                
+                <tr>
+                    <td class="tRight">最小投资金额：</td>
+                    <td class="tLeft"><input type="text" name="min_invest" id="min_invest" value="{$detail.min_invest}" />
+                    <span style="color:#409DFE;">注 ：请写大于0的整数</span>
+                    </td>
+                </tr>
+               
+               <tr>
+                    <td class="tRight">同组排序：</td>
+                    <td class="tLeft">
+                        <select name="rank" id="rank" class="bleftrequire">
+                           	<option value="1" <eq name="detail.rank" value="1">selected</eq>>1</option>
+                            <option value="2" <eq name="detail.rank" value="2">selected</eq>>2</option>
+                            <option value="3" <eq name="detail.rank" value="3">selected</eq>>3</option>
+                            <option value="4" <eq name="detail.rank" value="4">selected</eq>>4</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">加息值：</td>
+                    <td class="tLeft"><input type="text" name="amount_value" id="amount_value" value="{$detail.amount_value}" class="huge" />
+                    <span style="color:#409DFE;">注：同组排序值为1的时候 数据类型必须是 x:x:x 英文冒号分开,其他组别的时候x</span>
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td class="tRight">状态：</td>
+                    <td class="tLeft">
+                        <select name="status" id="status" class="bleftrequire">
+                           	<option value="0" <eq name="detail.status" value="0">selected</eq>>下架</option>
+                            <option value="1" <eq name="detail.status" value="1">selected</eq>>上架</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">组别Id：</td>
+                    <td class="tLeft"><input type="text" name="group_id" id="group_id" value="{$detail.group_id}"/>
+                    <span style="color:#409DFE;">注 ：每组有4条数据，该值必须于 0 </span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">描述：</td>
+                    <td class="tLeft"><textarea id="description" name="description" class="huge bLeftRequire" maxlength="255" style="height:80px;">{$detail.description}</textarea></td>
+                </tr>
+                <!-- 
+                <tr>
+                    <td class="tRight">弹窗文案：</td>
+                    <td class="tLeft"><textarea id="popup_txt" name="popup_txt" class="huge bLeftRequire" maxlength="255" style="height:80px;"></textarea>
+                    <span style="color:#409DFE;">注 ：同组排序值为·1·的时候,该弹窗方案要填写 </span>
+                    </td>
+                </tr>
+                 -->
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    var _action = 0;
+    
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/DynamicRate/edit',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('编辑成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    
+</script>

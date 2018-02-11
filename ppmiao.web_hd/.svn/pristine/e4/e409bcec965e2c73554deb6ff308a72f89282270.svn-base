@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link href=" css/style.css" rel="stylesheet" type="text/css" />
+  <title>票票喵-我的账户</title>
+
+
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+  <div class="pandect_big">
+    <div class="pandect_seat">
+      <p>您现在的位置：我的账户><span>账户总览</span></p>
+    </div>
+    <!--左-->
+    <div class="pandect_left">
+      <ul>
+        <a href="pandect.html">
+          <li class="on">账户总览</li>
+        </a>
+        <a href="account.html">
+          <li>我的账户</li>
+        </a>
+        <a href="discounts.html">
+          <li>我的投资</li>
+        </a>
+        <a href="invest.html">
+          <li>我的优惠 <span id="user_sale">0</span></li>
+        </a>
+        <a href="mycard.html">
+          <li>我的银行卡</li>
+        </a>
+      </ul>
+    </div>
+    <div class="pandect_right">
+      <div class="pandect_head">
+        <img src="images/one_2.jpg" />
+        <p>您好，<span id="user_name">方****方</span></p>
+      </div>
+      <div class="pandect_money">
+        <div class="pandect_property">
+          <p>资产总览</p>
+        </div>
+        <div class="pandect_top">
+          <div class="pandect_earnings">
+            <h5>累计收益（元）</h5>
+            <p>6000.00</p>
+          </div>
+          <div class="pandect_earnings">
+            <h5>总资产（元）</h5>
+            <p>6000.00</p>
+          </div>
+          <div class="pandect_earnings">
+            <h5>待收本息（元）</h5>
+            <p>6000.00</p>
+          </div>
+          <div class="pandect_earnings_line">
+            <h5>账户余额（元）</h5>
+            <p>6000000.00</p>
+          </div>
+          <div class="pandect_chose">
+            <a href="recharge.html">
+              <button id="recharge">充值</button>
+            </a>
+            <a href="withdraw.html">
+              <button id="deposit" style="display:none;">提现</button>
+            </a>
+            <button id="easyui">提现</button>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="pandect_property_safe">
+          <p>账户安全</p>
+        </div>
+        <div class="pandect_top_safe">
+          <div class="pandect_number">
+            <p>手机号认证</p>
+            <p>实名认证</p>
+            <p>银行卡管理</p>
+          </div>
+          <div class="pandect_number_encrypt">
+            <p id="user_number">182****5855</p>
+            <p id="user_name">方*耀 <span id="user_card">33************22</span></p>
+            <p id="user_bank">招商银行储蓄卡（尾号3333）</p>
+          </div>
+          <div class="pandect_number_approve">
+            <p>已认证</p>
+            <p>已认证</p>
+            <a href="mycard.html">
+              <p style="color:#ff7117;">管理</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">账户总览</div>
+        <!--  功能操作区域  -->
+        <div class="operate" ></div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="14" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="5%">子账号</th>
+                    <th width="12%" align="center">余额（元）</th>
+                    <th width="10%" align="center">操作</th>
+                </tr>
+                <foreach name="data" item="item" key="key">
+                    <tr>
+                        <td>{$accountType.$key}</td>
+                        <td>{$item}</td>
+                        <td><if condition="$key eq 1">
+                            <a href="javascript:void(0)" onclick="recharge()">充值</a>
+
+                            <else />
+                            <a href="javascript:void(0)" onclick="detail({$key})">记录</a>
+                        </if>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="transfer()">转账</a>
+                        </td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td height="5" colspan="14" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+    function recharge(){ // 充值
+        window.location.href = ROOT + '/FundAccount/recharge/';
+    }
+    function transfer(){ // 充值
+        window.location.href = ROOT + '/FundAccount/transfer/';
+    }
+    function detail(type){ // 充值
+        window.location.href = ROOT + '/FundAccount/record?acc='+type;
+    }
+</script>

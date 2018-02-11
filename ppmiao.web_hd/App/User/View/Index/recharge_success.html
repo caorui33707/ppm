@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link href="{:C('STATIC_ROOT')}/web_user/css/style.css" rel="stylesheet" type="text/css" />
+  <title>票票喵-充值</title>
+
+
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+<include file="Common:header" />
+<div class="pandect_big">
+  <div class="pandect_seat">
+    <p>您现在的位置：我的账户>我的钱包><span>充值</span></p>
+  </div>
+  <!--左-->
+  <div class="pandect_left">
+
+    <include file="layouts:menu" />
+  </div>
+  <div class="pandect_right">
+    <div class="recharge_one">
+      <div class="pandect_property">
+        <p>充值</p>
+      </div>
+      <div class="recharge_success">
+        <img src="{:C('STATIC_ROOT')}/web_user/images/success.png"/>
+        <p>充值成功</p>
+        <a href="{$info.ref}">
+          <button>完成</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<include file="Common:footer" />
+</body>
+
+</html>

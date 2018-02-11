@@ -1,0 +1,166 @@
+﻿@charset "utf-8";
+
+/*index*/
+        .index_money {
+          width: 92%;
+        height: 3rem;
+        top: 2.8rem;
+        left: 1.1rem;
+        }
+        .index_yuan{
+
+        }
+        .index_yuan p{
+        color:#fff;
+        font-size:1.4rem;
+        }
+        .index_yuan span1 {
+        font-size:0.7rem;
+        }
+         .index_jie{
+               position: relative;
+    top: -0.2rem;
+        }
+        .index_jie p{
+        color:#016732;
+        font-size:0.5rem;
+        }
+        .index_friend {
+        position: relative;
+        top: -.4rem;
+        width:100%;
+        font-size:0.65rem;
+        margin-top:0.5rem;
+        }
+        .index_friend p {
+           color:#0EFF87; 
+           font-size:0.65rem;
+        }
+        .index_friend span {
+           color:#fff; 
+           font-size:0.8rem;
+        }
+        .index_friend span1{
+        font-size:0.6rem;
+        }
+        .index_gift {
+         position: fixed;
+         top:8.9rem;
+         left:0;
+        }
+        .index_gift img {
+        width:1.28rem;
+        }
+        .index_activity {
+         position: fixed;
+         top:12.8rem;
+         left:0;
+        }
+        .index_activity img {
+        width:1.28rem;
+        }
+        /*弹框2*/
+        .backgr{
+        width: 100%;
+        height: 100%;
+        background: #000;
+        position: fixed;
+        opacity: .4;
+        z-index: 11;
+        }
+        .tankuang1{
+        position: fixed;
+        width: 100%;
+        top: 5rem;
+        left:1.2rem;
+        }
+        .integral_content1 {
+        width:85%;
+        background-color:#fff;
+        border-radius:1rem;
+        border:2px solid #7f5531;
+        padding-top:1rem;
+        }
+        .integral_content1 p {
+        font-size:0.9rem;
+        color:#808080;
+        }
+        .integral_content1 span {
+        font-size:0.9rem;
+        color:#e60012;
+        }
+        .index_qrcode {
+        margin:0.3rem 0;
+        }
+        .index_cha {
+        top:105%;
+        left:38%;
+        }
+        .index_cha img {
+        width:2.2rem;
+        }
+        /*弹框1*/
+        .index_kong {
+        color: #fff;
+        text-align: center;
+        position: fixed;
+        bottom:1rem;
+        left: 0;
+        right: 0;
+        font-size: 0.6rem;
+        z-index: 10;
+        }
+        .index_share {
+        background-color: #333;
+        opacity: .7;
+        height: 8rem;
+        width: 100%;
+        position: absolute;
+        }
+        .index_logo img {
+        width:2.5rem;
+        margin-bottom:0.5rem;
+        }
+
+
+
+        /*gift*/
+                .gift_top p{
+        color:#fff;
+        font-size:0.7rem;
+        height:3rem;
+        line-height:3rem;
+        }
+        .gift_time {
+        color:#fff;
+        font-size:0.5rem;
+        padding-left:1.5rem;
+        width:100%;
+        height:1.5rem;
+        line-height:1.5rem;
+        background-color:#006231;
+        }
+        .gift_number {
+        width:100%;
+        line-height:2.5rem;
+        color:#fff;
+        }
+        .gift_no {
+        color:#fff;
+        line-height:2.5rem;
+        padding-left:1.5rem;
+        }
+        .gift_pic img {
+        width:10rem;
+        }
+
+        /*activity*/
+        .activity_world {
+        width:90%;
+        margin:auto;
+        color:#ffffff;
+        padding-top:1rem;
+        }
+        .activity_world p {
+        margin-top:1rem;
+        }

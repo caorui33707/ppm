@@ -1,0 +1,113 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/modules/exporting.js"></script>
+    <div class="content">
+        <div class="title">基金净值 - {$detail.name}({$detail.code})[ <a href="{:C('ADMIN_ROOT')}/fund/index">返回列表</a> ] <eq name="detail.type" value="1">[<a href="javascript:;" onclick="grab({$detail.id})">净值抓取</a>]&nbsp;[<a href="javascript:;" onclick="add({$detail.id})">添加净值</a>]</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <input type="hidden" name="id" value="{$detail.id}" />
+                    <div class="fLeft">
+                        <span><input type="text" name="st" id="st" class="laydate-icon" placeholder="开始日期" class="medium" value="{$params.st}" readonly></span>
+                        <span><input type="text" name="et" id="et" class="laydate-icon" placeholder="截止日期" class="medium" value="{$params.et}" readonly></span>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="筛选" class="search imgButton"></div>
+                </form>
+            </div>
+        </div>
+        <div id="result" class="result none"></div>
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+<script>
+    var _code = '{$detail.code}';
+    var _stime = '{$stime}';
+    var _etime = '{$etime}';
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '净值走势'
+            },
+            subtitle: {
+                text: '{$detail.name}({$detail.code})'
+            },
+            xAxis: [{
+                categories: [{$categories}]
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+                    format: '{value}',
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                title: {
+                    text: '净值',
+                    style: {
+                        color: '#89A54E'
+                    }
+                }
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: '#FFFFFF'
+            },
+            series: [{
+                name: '净值',
+                color: '#89A54E',
+                type: 'spline',
+                data: [{$net}],
+                tooltip: {
+                    valueSuffix: ''
+                }
+            }]
+        });
+    });
+
+    var st = {
+        elem: '#st',
+        format: 'YYYY-MM-DD',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+            et.min = datas; //开始日选好后，重置结束日的最小日期
+            et.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+    var et = {
+        elem: '#et',
+        format: 'YYYY-MM-DD',
+        min: laydate.now(), //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+            st.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+    laydate(st);
+    laydate(et);
+    function grab(_id){
+        window.open(ROOT + "/fund/net_grab/id/" + _id + "/code/" + _code + "/st/" + _stime + "/et/" + _etime, 'netGrab', 'height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    function add(_id){
+        window.open(ROOT + "/fund/net_add/id/" + _id + "/code/" + _code + "/st/" + _stime + "/et/" + _etime, 'netGrab', 'height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+</script>

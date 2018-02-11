@@ -1,0 +1,83 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">编辑管理员 [ <a href="{:C('ADMIN_ROOT')}/auth/member/p/{$params.page}<notempty name='params.uname'>/uname/{$params.uname}</notempty>">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="id" value="{$detail.id}" />
+            <input type="hidden" name="page" value="{$params.page}" />
+            <input type="hidden" name="uname" value="{$params.uname}" />
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">用户名：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="username" name="username" value="{$detail.username}" readonly></td>
+                </tr>
+                <tr>
+                    <td class="tRight">密码：</td>
+                    <td class="tLeft" ><input type="password" class="huge bLeftRequire" id="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">权限组：</td>
+                    <td class="tLeft" >
+                        <select name="group" class="bLeftRequire" datatype="*">
+                            <foreach name="auth_group" item="item">
+                                <option value="{$item.id}" <eq name="item.id" value="$detail['group_id']">selected</eq>>{$item.title}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">状态：</td>
+                    <td class="tLeft">
+                        <select name="status" class="bLeftRequire" datatype="*">
+                            <option value="0" <eq name="detail.status" value="0">selected</eq>>冻结</option>
+                            <option value="1" <eq name="detail.status" value="1">selected</eq>>正常</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _adding = false;
+    var _layerIndex = 0;
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                if(_adding) return;
+                _adding = true;
+                _layerIndex = layer.load('数据提交中...');
+                $.ajax({
+                    url: ROOT + '/auth/member_edit',
+                    data: $('#frmMain').serialize(),
+                    type: "POST",
+                    cache: false,
+                    success: function(msg) {
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('编辑成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                        _adding = false;
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>

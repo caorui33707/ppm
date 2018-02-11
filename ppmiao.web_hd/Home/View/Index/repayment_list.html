@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{:C('STATIC_ROOT')}/new_ppmiao_v4/css/index.css">
+		<script src="{:C('STATIC_ROOT')}/new_ppmiao_v4/js/jquery-1.10.2.min.js"></script>
+	
+    <title>票票喵 - 资金明细</title>
+<style>
+html, body {font: normal 13px "Microsoft YaHei";font-family: "Microsoft YaHei","微软雅黑","sans-serif";}
+.information_page{margin-left:300px;margin-bottom:200px;}
+
+/*page*/
+.page{ padding:90px 0 0px 0; text-align:center; margin-right:40px;margin-bottom:100px;}
+.page .num{margin:0 1px;}
+.page a{
+	padding:6px 13px;
+	color:#666666;
+	background:#efeeee;
+}
+.page a:hover{background:#ff580f;color:#ffffff;}
+.page a.cur{
+	color:#ffffff;
+	background:#ff580f;
+}
+
+</style>
+
+</head>
+<body style="background-color:#f4f4f4;">
+		
+		<include file="Public:ppm_menu" />
+    
+    <!--正文-->
+        <div class="person_top">
+            <div class="person_center">
+                <a href="profile.html"><p class="cut10 fl"">个人中心</p></a>
+                <a href="repayment_list.html?type=2"><p class="cut10 fl" <eq name="type" value="2">style="color:#ff6a00;"</eq>>待还款</p></a>
+                <a href="repayment_list.html?type=1"><p class="cut10 fl" <eq name="type" value="1">style="color:#ff6a00;"</eq>>已还款</p></a>
+                <a href="money_detail.html"><p class="cut10 fl">资金明细</p></a>
+                <a href="setting.html"><p class="cut10 fl">账户设置</p></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="record_big mar" style="margin: 20px auto;width: 1100px;
+    height: 600px; overflow-y: auto;">
+			<!-- 待还款 -->
+				<div class="repayment">
+					<dl>
+						<dt><eq name="type" value="1">还款日期<else/>付息日期</eq></dt>
+					</dl>
+					<dl>
+						<dt>产品名称</dt>						
+					</dl>
+					<dl>
+						<dt>总额</dt>						
+					</dl>
+					<dl>
+						<dt>支付本金</dt>						
+					</dl>
+					<dl>
+						<dt>支付利息</dt>						
+					</dl>
+					
+					<eq name="type" value="2">
+						<dl>
+							<dt>操作</dt>						
+						</dl>
+					</eq>
+					<div style="clear:both;"></div>
+					
+					<foreach name="list" item="item">
+					
+					<dl>
+						<dd>{$item.end_time}</dd>						
+					</dl>
+					<dl class="product_name">
+						<dd>{$item.title}</dd>						
+					</dl>
+					<dl class="amount">						
+						<dd>{$item.amt}</dd>						
+					</dl>
+					<dl class="amount">						
+						<dd>{$item.capital}</dd>						
+					</dl>
+					<dl class="amount">						
+						<dd>{$item.interest}</dd>						
+					</dl>
+					
+					<eq name="type" value="2">
+						<dl class="operation" prod_id="{$item.id}"><dd>还款</dd></dl>				
+					</eq>
+					<div style="clear:both;"></div>
+					</foreach>
+					
+				</div>
+				{$show}
+        </div>
+        
+        
+        <!-- 提示框 -->
+				<div class="shade">
+				    <div class="prompt1">
+				          <div class="prompt_top">
+				              还款成功！
+				          </div>
+				          <div class="prompt_bottom">
+				              <div class="prompt_confirm prompt_confirm_repayment" style="width:350px;text-align:center;">确定</div>
+				          </div>
+				    </div>
+				    
+				    <div class="prompt2">
+				          <div class="prompt_top" id="tips">
+				            可用余额不足，在途余额<br>明日10点后可用于还款
+				          </div>
+				          <div class="prompt_bottom">
+				              <div class="prompt_confirm">确定</div>
+				          </div>
+				    </div>
+				    
+				    <div class="prompt3">
+				          <div class="prompt_top">
+				            余额不足，请先充值<br>今日充值，明日10点后可用于还款
+				          </div>
+				          <div class="prompt_bottom">
+				              <div class="prompt_cancel">取消</div>
+				              <div class="prompt_confirm prompt_confirm_recharge">确定</div>
+				          </div>
+				    </div>
+				    <div class="prompt4" style="position: absolute;
+                            top: 40%;
+                            left: 50%;
+                            margin-left: -175px;
+                            width: 350px;
+                            height: 140px;
+                            background-color: #fff;
+                            border: 2px solid #9E9E9E;
+                            border-radius: 15px;
+                            text-align: center;
+                            display:none">
+				            <div class="prompt_top" style="height: 68px;
+							    line-height: 50px;
+							    font-size: 18px;
+							    padding-top: 20px;
+							    text-align: center;">
+							                确认还款?
+				            </div>
+		            <div class="prompt_bottom" style="width: 100%;
+					    height: 40px;
+					    line-height: 50px;
+					    font-size: 18px;
+					    border-top: 2px solid #F6F6F6;
+					    cursor: pointer;
+					}">
+	                <div class="prompt_cancel" style="width:174px;    border-right: 2px solid #F6F6F6;
+	    float: left;font-size:16px">取消</div>
+	                <div class="prompt_confirm" id="confirm" style="float: left;
+	    width: 174px; color: #F79C6A;line-height:50px">确定</div>
+			            </div>
+			        </div>
+				</div>
+        
+
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+    
+    <script>
+    var por_index;
+    var operation_btns = $(".operation");
+    var confirm_btns = $("#confirm");
+    var product_names = $(".product_name dd");
+    var shade = $(".shade");
+    var prod_id='';
+    // 取消
+    var prompt_cancel = $(".prompt_cancel");
+    // 去还款
+    var prompt_confirm_repayment = $(".prompt_confirm_repayment");
+    // 去充值
+    var prompt_confirm_recharge = $(".prompt_confirm_recharge");
+    
+    operation_btns.click(function(){
+    	 shade.css("display",'block').find(".prompt4").css("display",'block').siblings().css("display",'none');
+    	 prod_id = $(this).attr('prod_id');
+    });
+    
+    confirm_btns.click(function(){
+       		
+    	if(!prod_id) {
+    		alert('非法访问');
+    		return;
+    	}
+    	
+    	//1 还款成功 ，确定关闭
+    	//2还款失败，请去充值，
+    	//3在途资金不足， 确定关闭
+    	
+    	$.post("repay.html",{'prod_id':prod_id},function(result){
+    		
+        	if(result.status){
+        		var flag = result.flag;
+        		if(flag === 1){
+                    shade.css("display",'block').find(".prompt1").css("display",'block').siblings().css("display",'none');
+                } else if(flag === 2){
+                    shade.css("display",'block').find(".prompt3").css("display",'block').siblings().css("display",'none');
+                }else {
+                	$("#tips").empty().html("可用余额不足，在途余额<br>明日10点后可用于还款");
+                    shade.css("display",'block').find(".prompt2").css("display",'block').siblings().css("display",'none');
+                }
+        	} else{
+        		$("#tips").empty().html(result.info);
+        		shade.css("display",'block').find(".prompt2").css("display",'block').siblings().css("display",'none');
+        	}
+            shade.css("height","796px");
+    		$(".container").css({overflow: 'hidden', height: (window.innerHeight - 50) + 'px'}); /*-50 设置了 .container {padding-bottom: 50px;}*/
+      	});
+        
+    });
+    shade.click(function() {
+        shade.css("display",'none');
+        $(".container").css({overflow: '', height: 'auto'});
+    });
+    prompt_cancel.click(function() {
+        shade.css("display",'none');
+    });
+    prompt_confirm_repayment.click(function() {
+        
+        //location.href = "repayment_list.html?type=1";
+        location.reload();
+        shade.css("display",'none');
+    });
+    prompt_confirm_recharge.click(function() {
+        console.log("去充值")
+        location.href = "pay.html";
+    });
+
+    </script>
+</body>
+</html>         

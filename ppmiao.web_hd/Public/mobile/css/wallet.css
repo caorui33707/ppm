@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0px;padding:0px;}
+p,a,dl,dd,dt,img,span,input,select{margin:0;padding:0;border:none;}
+body{
+	margin: 0 auto;
+	font-size: 13px;
+	/* [disabled]font-family:"Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif,"STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif; */
+	color: #657282;
+	background: #ffffff;
+	-webkit-tap-highlight-color: transparent;
+}
+ul,ul li{list-style:none; padding:0; margin:0}
+a{text-decoration:none;margin:0;}
+a:hover{text-decoration:none;}
+h1,h2,h3,h4,h5,h6{font-family:"Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif,"STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;}
+.g-box{display:box; display:-moz-box; display:-o-box; display:-webkit-box;}
+.g-flex{-moz-box-flex:1;-webkit-box-flex:1; box-flex:1;}
+cite, em, i{
+	font-style:normal;}
+
+#contractBody{
+	background:#f1f1f1;}
+.wrapBox{
+	margin:0 10px;}
+.wrapBox h5{
+	font:18px/20px "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif,"STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	color:#222222;
+	text-align:center;
+	margin-top:20px;}
+.contractListBox{
+	padding:10px 0;}
+.contractList{
+	font:14px/20px "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif,"STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	color:#333333;}
+.contractList02{
+	margin-top:20px;}
+.contractList03{
+	font:16px/20px "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif,"STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	color:#333333;
+	font-weight:800;
+	margin-top:10px;}
+.contractList04{
+	margin-top:10px;}
+.contractList05 table{
+	border-collapse: collapse;
+  border-spacing: 0;}
+.contractList05 table tr{
+	border:none;}
+.contractList05 table tr td{
+	height:28px;
+	border:1px solid #999999;
+	}
+.contractList05 table tr td span{
+	float:left;
+	margin-left:5px;}
+.contractList06{
+	font-size:12px;
+	text-indent:2em;}
+.contractList08{
+	font:14px/20px "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif,"STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	color:#333333;
+	font-weight:800;
+	margin-top:10px;}
+.contractList04 a{
+	color:#048ceb;}

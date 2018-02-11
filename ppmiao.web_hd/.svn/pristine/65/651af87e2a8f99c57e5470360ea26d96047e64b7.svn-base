@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+    <script src="{:C('STATIC_ROOT')}/js/parallax.js"></script>
+    <include file="Public:baidu_script" />
+</head>
+<body>
+<div class="headerBg">
+    <div class="header">
+        <h1 class="logo"><a href="{:C('WEB_ROOT')}"><img src="{:C('STATIC_ROOT')}/images/logo.png" alt="石头理财" title="石头理财" width="58" height="58" /></a></h1>
+        <span>石头理财</span>
+        <p><img src="{:C('STATIC_ROOT')}/images/logoTxt.png" /></p>
+        <ul class="nav">
+            <li><a href="{:C('WEB_ROOT')}">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+            <li><a href="javascript:void(0)">理财产品</a></li>
+            <li><a href="javascript:void(0)">合作机构</a></li>
+            <li><a href="javascript:void(0)" class="cur">加入我们</a></li>
+            <li><a href="javascript:void(0)">联系我们</a></li>
+        </ul>
+        <script type="text/javascript">
+            $(".nav li").click(function() {
+                var index = $(this).index();
+                index = index==0 ? 0 : index+1;
+                sessionStorage.setItem("turn_and_go_index",index);
+                location.href = "{:C('WEB_ROOT')}";
+            });
+        </script>
+        <div class="tel">
+        </div>
+    </div>
+</div>
+
+<div class="bannerBox">
+</div>
+<div class="main clear">
+    <div class="left fLe clear">
+        <div class="leftTitle fLe clear">
+            <h2>招聘岗位</h2>
+        </div>
+        <div class="leftUl fLe clear">
+            <a href="javascript:viod(0);" class="active a1"><span>移动端产品经理</span></a>
+            <a href="javascript:viod(0);" class="a2"><span>运维工程师</span></a>
+            <a href="javascript:viod(0);" class="a3"><span>移动端测试工程师</span></a>
+            <a href="javascript:viod(0);" class="a4"><span>运营专员</span></a>
+            <a href="javascript:viod(0);" class="a5"><span>客服专员</span></a>
+        </div>
+    </div>
+    <div class="right fRi clear">
+        <h2 class="b1 bh2 hBs">移动端产品经理</h2>
+        <div class="rightInner fLe clear d1" style="display:block;">
+            <dl>
+                <dt><span>岗位职责<em>Job Description</em></span></dt>
+                <dd><p>1、负责石头理财移动平台（iOS或Android）的产品设计和产品规划；</p></dd>
+                <dd><p>2、协调各部门资源，推进产品迭代；</p></dd>
+                <dd><p>3、充分了解用户需求，结合移动端特性设计产品，不仅限于Web功能的延伸，需具备移动端的特色和亮点；</p></dd>
+                <dd><p>4、负责部分跨平台产品功能的调研和设计；</p></dd>
+                <dd><p>5、关注产品数据和用户反馈，提炼用户需求，指导产品设计；</p></dd>
+                <dd><p>6、完成产品迭代以及用户活跃增长等目标；</p></dd>
+            </dl>
+            <dl>
+                <dt><span>任职要求<em>Qualifications</em></span></dt>
+                <dd><p>1、相关专业大专及以上学历；</p></dd>
+                <dd><p>2、3年以上移动互联网经验，曾独立负责过产品版本的迭代；</p></dd>
+                <dd><p>3、拥有清晰的产品设计思路，对行业有全面了解和独到认识，拥有整体把握产品的能力；</p></dd>
+                <dd><p>4、优秀的逻辑思维能力和沟通表达能力，严谨负责的工作态度，优秀的学习能力；</p></dd>
+                <dd><p>5、能够输出高质量的产品原型和需求文档；</p></dd>
+                <dd><p>6、拥有互联网金融或支付类产品经验者优先，有团队管理经验者优先；</p></dd>
+            </dl>
+            <h3>请发送您的简历至hr@stlc.cn，标题请注明所申请职位。</h3>
+        </div>
+        <h2 class="b2 bh1 hBs">运维工程师</h2>
+        <div class="rightInner fLe clear d2">
+            <dl>
+                <dt><span>岗位职责<em>Job Description</em></span></dt>
+                <dd><p>1、负责石头理财平台自动化监控，发现问题及时处理；</p></dd>
+                <dd><p>2、负责石头理财网站开发测试环境的维护工作；</p></dd>
+                <dd><p>3、负责石头理财网站托管服务器及网络规划、管理、维护以及日常运维工作；</p></dd>
+                <dd><p>4、协助编写相关运维技术文档，完善运维制度和流程；</p></dd>
+                <dd><p>5、领导安排的其他工作；</p></dd>
+            </dl>
+            <dl>
+                <dt><span>任职要求<em>Qualifications</em></span></dt>
+                <dd><p>1、有1-2年大型网站系统运维相关工作经验,优秀应届生也可；</p></dd>
+                <dd><p>2、熟悉Linux基础系统管理和应用（Nginx/Tomcat/Jboss/Mysql/Oracle/Redis等）的安装、配置、优化；</p></dd>
+                <dd><p>3、熟悉shell脚本，以及掌握sed/awk工具；</p></dd>
+                <dd><p>4、熟悉SVN GIT代码控制工具的配置使用 以及持续集成工具Hudson工具的使用；</p></dd>
+                <dd><p>5、熟悉Mysql结构，掌握常用的SQL语句，具备分析造成mysql瓶颈的能力；</p></dd>
+                <dd><p>6、有均衡技术、应用集群技术、数据库高可用和读写分离、分布式存储维护经验者优先。</p></dd>
+            </dl>
+            <h3>请发送您的简历至hr@stlc.cn，标题请注明所申请职位。</h3>
+        </div>
+        <h2 class="b3 bh1 hBs">移动端测试工程师</h2>
+        <div class="rightInner fLe clear d3">
+            <dl>
+                <dt><span>岗位职责<em>Job Description</em></span></dt>
+                <dd><p>1、根据产品规范编写测试计划，设计测试数据和测试用例；</p></dd>
+                <dd><p>2、完成对产品的集成测试与系统测试，对产品的功能、性能及其他方面的测试负责；</p></dd>
+                <dd><p>3、结合项目测试需求，完成自动化脚本、工具开发；</p></dd>
+                <dd><p>4、负责项目自动化相关系统的设计和开发；</p></dd>
+            </dl>
+            <dl>
+                <dt><span>任职要求<em>Qualifications</em></span></dt>
+                <dd><p>1、相关专业大专及以上学历，计算机相关专业优先；</p></dd>
+                <dd><p>2、2年以上手机客户端测试经验，或1年以上客户端开发经验；</p></dd>
+                <dd><p>3、有手机客户端自动化测试经验优先；</p></dd>
+                <dd><p>4、熟悉java/C++/Python/Php/Perl其中一种编程语言；</p></dd>
+                <dd><p>5、具备数据库（MySQL）操作及查询语句编写经验；</p></dd>
+                <dd><p>6、熟悉各类手机系统，如Android，iOS等；</p></dd>
+                <dd><p>7、有较强的学习能力，对新技术可以快速上手，并敢于使用新方法或技术解决问题；</p></dd>
+                <dd><p>8、具有良好的沟通、团队协作、创新及一定的抗压能力。</p></dd>
+            </dl>
+            <h3>请发送您的简历至hr@stlc.cn，标题请注明所申请职位。</h3>
+        </div>
+        <h2 class="b4 bh1 hBs">运营专员</h2>
+        <div class="rightInner fLe clear d4">
+            <dl>
+                <dt><span>岗位职责<em>Job Description</em></span></dt>
+                <dd><p>1、负责石头理财平台业务的日常运营工作；</p></dd>
+                <dd><p>2、负责产品运营数据分析，根据分析结果提出产品及运营优化方案；</p></dd>
+                <dd><p>3、负责与产品、风控等部门沟通优化流程，改善用户体验；</p></dd>
+                <dd><p>4、负责网站合作机构的日常业务和对接工作；</p></dd>
+                <dd><p>5、负责关注和收集用户反馈信息，包括论坛、留言、客服电话等，并协助处理用户问题；</p></dd>
+            </dl>
+            <dl>
+                <dt><span>任职要求<em>Qualifications</em></span></dt>
+                <dd><p>1、1年以上网站运营或者平台运营从业经验者优先；</p></dd>
+                <dd><p>2、有互联网或金融行业工作经验者优先；</p></dd>
+                <dd><p>3、大专以上学历，金融、经济等相关专业者优先；</p></dd>
+                <dd><p>4、思路清晰，沟通能力强。</p></dd>
+            </dl>
+            <h3>请发送您的简历至hr@stlc.cn，标题请注明所申请职位。</h3>
+        </div>
+        <h2 class="b5 bh1 hBs">客服专员</h2>
+        <div class="rightInner fLe clear d5">
+            <dl>
+                <dt><span>岗位职责<em>Job Description</em></span></dt>
+                <dd><p>1、接受客户咨询，记录客户咨询、投诉内容，按照相应流程给予客户反馈；</p></dd>
+                <dd><p>2、发掘来电客户的需求及意见，并记录整理及汇报；</p></dd>
+                <dd><p>3、为客户提供解决方案及咨询信息，解决客户问题，提供高质量服务；</p></dd>
+                <dd><p>4、 进行客户回访，并统计、分析回访信息，进行客情维护；</p></dd>
+                <dd><p>5、进行信息共享、知识积累，协助改善客服流程；</p></dd>
+                <dd><p>6、解决客户需求，提供全方位咨询解答和客户服务；</p></dd>
+                <dd><p>7、及时做好上级领导交待的其它各项事宜；</p></dd>
+            </dl>
+            <dl>
+                <dt><span>任职要求<em>Qualifications</em></span></dt>
+                <dd><p>1、大专及以上学历，金融、经济类专业优先；</p></dd>
+                <dd><p>2、1年以上客服相关工作经验，优秀毕业生也可考虑；</p></dd>
+                <dd><p>3、普通话流利、标准，懂得消费者心理，语言表达能力强，擅于沟通，有团队合作精神；</p></dd>
+                <dd><p>4、头脑清晰，思维敏捷，有良好的团队合作和服务意识，工作耐心细致；</p></dd>
+                <dd><p>5、电脑使用熟练，打字速度每分钟50字以上，熟悉办公软件和网络工具；</p></dd>
+            </dl>
+            <h3>请发送您的简历至hr@stlc.cn，标题请注明所申请职位。</h3>
+        </div>
+    </div>
+</div>
+
+<div class="footerBg">
+    <p>©2015&nbsp;{:C('COMPANY_NAME')}&nbsp;{:C('NET_SAFE')}&nbsp;{:C('ICP')}</p>
+</div>
+
+<script type="text/javascript">
+    var _oldObj, _newObj;
+    var _sliding = false;
+    var _speed = 300;
+    var index = 0;
+    var _oldIndex = 0;
+    $(document).ready(function() {
+        _oldObj = $(".right h2").first();
+        _oldIndex = 0;
+        if(_oldObj != null) _oldObj.show();
+        $(".right h2").click(function(){
+            if(!_sliding){
+                index = $(this).index(".fRi h2");
+                doAnimation(index);
+            }
+        });
+        $(".leftUl a").click(function(){
+            if(!_sliding){
+                index = $(this).index();
+                doAnimation(index);
+            }
+        });
+    });
+    function doAnimation(_index){
+        _sliding = true;
+        _newObj = $(".b" + (index + 1));
+        if(_oldIndex != _index){
+            if(_oldObj != null) {
+                $(".leftUl a").eq(index).removeClass("active");
+                $(".a" + (index+1)).addClass("active");
+                _oldObj.removeClass('bh2').addClass('bh1');
+                _oldObj.next().slideUp(_speed);
+            }
+            $(".leftUl a").removeClass("active");
+            $(".a" + (index+1)).addClass("active");
+            _newObj.removeClass('bh1').addClass('bh2');
+            _newObj.next().slideDown(_speed, function(){
+                _oldObj = _newObj;
+                _oldIndex = _index;
+                _sliding = false;
+            });
+        }else{
+            _oldIndex = -1;
+            _oldObj = null;
+            _newObj.removeClass('bh2').addClass('bh1');
+            $(".leftUl a").eq(_index).removeClass("active");
+            _newObj.next().slideUp(_speed, function(){
+                _sliding = false;
+            });
+        }
+    }
+</script>
+</body>
+</html>

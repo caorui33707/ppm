@@ -1,0 +1,206 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">会员每周派送奖品 [ <a href="{:C('ADMIN_ROOT')}/vipWeeklyAward/index">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        
+        <form id="frmMain" method='post' action="">
+            <table cellpadding="3" cellspacing="3" >
+                <tr>
+                    <td class="tRight">选择要配置的VIP：</td>
+                    <td class="tLeft" >
+                    	<select id="level_id" name="level_id" class="bLeftRequire">
+                    		<option value="-1">请选择vip等级</option>
+                    		<foreach name="level_list" item="item">
+							<option value="{$item.level}">{$item.name}</option>
+							</foreach>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">年：</td>
+                    <td class="tLeft" >
+	                    <select id="year" name="year" class="bLeftRequire">
+								<option value="2017">2017年</option>
+	                            <option value="2018">2018年</option>
+	                            <option value="2019">2019年</option>
+	                            <option value="2020">2020年</option>
+	                            <option value="2021">2021年</option>
+	                            <option value="2022">2022年</option>
+	                            <option value="2023">2023年</option>
+	                            <option value="2024">2024年</option>
+	                            <option value="2025">2025年</option>
+	                    </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">周：</td>
+                    <td class="tLeft" >
+                    	<select id="week" name="week" class="bLeftRequire">                            
+                    	</select> &nbsp;<span style="color:#FF0000;">注：当前是  {$current_week} 周</span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">奖品名称：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="bLeftRequire" datatype="*" id="name" name="name" maxlength = '10'>
+                    	&nbsp;<span style="color:#409DFE;">注：长度 不能超 10个字符</span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight" width="150px">状态：</td>
+                    <td class="tLeft">
+                        <select id="status" name="status" class="bLeftRequire">
+							<option value="0">正常</option>
+                            <option value="1">下架</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight" width="150px">物品类型：</td>
+                    <td class="tLeft">
+                        <select id="type" name="type" class="bLeftRequire" onchange="changeType(this)" >
+							<option value="0">请选择</option>
+                            <option value="1">红包</option>
+                            <option value="2">现金券</option>
+                            <option value="3">加息券</option>
+                            <option value="4">第三方券</option>
+                            <option value="5">实物奖励</option>
+                            <option value="6">积分</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">图片：</td>
+                    <td class="tLeft" ><input type="file" class="bleftrequire" name="img" id="img" /></td>
+                </tr>
+                
+                <tr class="send_jf_val" style="display:none;">
+                    <td class="tRight">积分：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="bLeftRequire" datatype="n" id="jf_val" name="jf_val" value="0">
+                    	&nbsp;&nbsp;<span style="color:#409DFE;">注：请填写数字类型</span>
+                    </td>
+                </tr>
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">标题：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="title" name="title" value="0">
+                    </td>
+                </tr>
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">内容：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="sub_title" name="sub_title" value="0">
+                		&nbsp;<span style="color:#409DFE;">注：红包内容;券包子标题</span>
+                	</td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">金额：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="*" id="amount" name="amount" value="0"/>
+                		&nbsp;<span style="color:#409DFE;">注：红包、现金券对应金额;券包对应利率</span>
+                	</td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">最小投资金额：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="min_invest_amount" name="min_invest_amount" value="0"/>
+                    	&nbsp;<span style="color:#409DFE;">单位:元</span>
+                    </td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">最小投资期限：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="min_invest_days" name="min_invest_days" value="0"/>
+                    	&nbsp;<span style="color:#409DFE;">单位:天</span>
+                    </td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">有效天数：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="valid_days" name="valid_days" value="60" />
+                    	&nbsp;<span style="color:#409DFE;">单位:天（默认60天）</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    
+    
+    var _adding = false;
+    var _layerIndex = 0;
+    
+    
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/vipWeeklyAward/add',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('添加成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+        
+        create_week();
+    });
+    
+    function changeType(_obj) {
+    	var _type = $(_obj).val();
+    	if(_type == 1 || _type == '2' || _type == '3' ) {
+    		$('.Packet').css('display', '');
+    		$('.send_jf_val').css('display', 'none');
+    	} else if(_type == 6){
+    		$('.Packet').css('display', 'none');
+    		$('.send_jf_val').css('display', '');
+    	} else {
+    		$('.Packet').css('display', 'none');
+    		$('.send_jf_val').css('display', 'none');
+    	}
+    }
+    
+    function create_week(){
+    	var opt = [];
+    	opt.push("<option value='0'>默认</option>");
+    	for(var i=1;i<=54;i++){
+    		opt.push('<option value='+i+'>'+i+'</option>')
+    	}
+    	$('#week').empty().html(opt.join(''));
+    }
+</script>

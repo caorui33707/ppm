@@ -1,0 +1,161 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">积分兑换奖品配置 [ <a href="{:C('ADMIN_ROOT')}/exchange/index">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding="3" cellspacing="3" >
+                <tr>
+                    <td class="tRight">选择要配置的VIP：</td>
+                    <td class="tLeft" >
+                    	<select id="level_id" name="level_id" class="bLeftRequire">
+                    		<option value="-1">请选择vip等级</option>
+                    		<foreach name="level_list" item="item">
+							<option value="{$item.level}">{$item.name}</option>
+							</foreach>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">奖品名称：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="bLeftRequire" datatype="*" id="name" name="name" maxlength ='10'>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">所需积分：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="bLeftRequire" datatype="n" id="jf_val" name="jf_val" maxlength ='4'>
+                    	&nbsp;&nbsp;<span style="color:#409DFE;">注：请填写数字类型</span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight" width="150px">物品类型：</td>
+                    <td class="tLeft">
+                        <select id="type" name="type" class="bLeftRequire" onchange="changeType(this)" >
+							<option value="0">请选择</option>
+                            <option value="1">红包</option>
+                            <option value="2">现金券</option>
+                            <option value="3">加息券</option>
+                            <option value="4">第三方券</option>
+                            <option value="5">实物奖励</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight" width="150px">状态：</td>
+                    <td class="tLeft">
+                        <select id="status" name="status" class="bLeftRequire">
+							<option value="0">正常</option>
+                            <option value="1">下架</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">图片：</td>
+                    <td class="tLeft" ><input type="file" class="bleftrequire" name="img" id="img" /></td>
+                </tr>
+
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">标题：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="title" name="title" value="0">
+                    </td>
+                </tr>
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">内容：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="sub_title" name="sub_title" value="0">
+                		&nbsp;<span style="color:#409DFE;">注：红包内容;券包子标题</span>
+                	</td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">金额：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="*" id="amount" name="amount" value="0"/>
+                		&nbsp;<span style="color:#409DFE;">注：红包、现金券对应金额;券包对应利率</span>
+                	</td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">最小投资金额：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="min_invest_amount" name="min_invest_amount" value="0"/>
+                    	&nbsp;<span style="color:#409DFE;">单位:元</span>
+                    </td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">最小投资期限：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="min_invest_days" name="min_invest_days" value="0"/>
+                    	&nbsp;<span style="color:#409DFE;">单位:天</span>
+                    </td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">有效天数：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="valid_days" name="valid_days" value="60" />
+                    	&nbsp;<span style="color:#409DFE;">单位:天（默认60天）</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    
+    var _adding = false;
+    var _layerIndex = 0;
+    
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/exchange/add',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('添加成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    
+    function changeType(_obj) {
+    	var _type = $(_obj).val();
+    	if(_type == '1' || _type == '2' || _type == '3' ) {
+    		$('.Packet').css('display', '');
+    	} else {
+    		$('.Packet').css('display', 'none');
+    	}
+    }
+</script>

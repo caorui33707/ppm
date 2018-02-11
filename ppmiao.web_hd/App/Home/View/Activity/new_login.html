@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+	<script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+	<script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" href="https://image.ppmiao.com/Public/channel/20171121_channel/css/channel.css">
+	<title>票票喵</title>
+</head>
+
+<body>
+	<!-- 弹框 -->
+	<div class="pop">
+		<div class="dialog">
+			<div class="top"> 请输入验证码 </div>
+			<div class="bottom">
+				确定
+			</div>
+		</div>
+	</div>
+	<!-- 弹框 -->
+
+	<!-- 邀请注册页面 -->
+	<div class="container">
+		<div class="img00 channel4_01"></div>
+		<div class="img00 channel4_02">
+			<p class="my-phone">您的好友{$mobile2}送您</p>
+			<input type="text" class="mobile" name="invite_mobile" placeholder="请输入手机号" style="top: 3.55rem;">
+			<input type="text" class="code" name="code" placeholder="请输入验证码" style="top:5.01rem;">
+			<div class="get-code">| <span class="code-time">获取验证码</span></div>
+			<div class="invest register" style="top:6.48rem;">开始赚钱</div>
+			<span id="mobile" style="display:none;">{$mobile}</span>
+		</div>
+
+		<div id="mask"></div>
+
+		<div class="img00 channel4_03"></div>
+		<div class="img00 channel4_04">
+			<div class="invest go-top" style="bottom: 2.17rem;">真不错，开始赚钱</div>
+		</div>
+	</div>
+
+
+	<script>
+
+		var phone = "{$mobile2}"; // 这里电话号码要是 string字符串
+
+		// 获取验证码
+		$('.code-time').click(function() {
+
+			var invite_mobile = $('input[name=invite_mobile]').val();
+    		
+    		if(!checkPhone(invite_mobile)) {
+    			$('.pop').css({display:'block'});
+    			if(invite_mobile == "") {
+    				$('.pop .top').html('请输入您的手机号码！');
+    				//$("#err_info").empty().html('请输入您的手机号码！');
+    			} else {
+    				$('.pop .top').html('输入的手机号码有误！');
+    				//$("#err_info").empty().html('输入的手机号码有误！');
+    			}
+    			$('#mask').click(); 
+    			return;
+    		}
+    		
+    		$.ajax({
+    	    	url: "/?c=Activity&a=sendCode",
+    	        type: "post",
+    	        data: {'invitedMobile':invite_mobile},
+    	        success: function (json) {
+    	        	if(json.status == 1){
+    	        		Countdown();
+    	        		return;
+    	        	} else {
+    	        		$("#err_info").empty().html(json.info);
+    	        		$('#mask').click(); 
+    	        		return;
+    	        	}
+    	          }
+    	   	});
+
+			// alert(2);
+			var sleep = 60, interval = null;  //这个不知道要不要，我不懂。。。
+
+			 Countdown();
+		});
+
+		// 开始赚钱
+		$('.register').click(function() {
+			var invite_mobile = $('input[name=invite_mobile]').val();
+    		
+    		var code = $('input[name=code]').val();
+    		
+    		var mobile = $('#mobile').text();
+
+    		if(!checkPhone(invite_mobile)) {
+    			$('.pop').css({display:'block'});
+    			if(invite_mobile == "") {
+    				$('.pop .top').html('请输入您的手机号码！');
+    				//$("#err_info").empty().html('请输入您的手机号码！');
+    			} else {
+    				$('.pop .top').html('输入的手机号码有误！');
+    				//$("#err_info").empty().html('输入的手机号码有误！');
+    			}
+    			$('#mask').click(); 
+    			return;
+    		}
+
+    		
+    		if(!code) {
+    			$('.pop').css({display:'block'});
+    			$('.pop .top').html('请输入手机验证码！');
+    			//$("#err_info").empty().html('请输入手机验证码！');
+    			$('#mask').click(); 
+    			return;
+    		}
+    		$.ajax({
+    	    	url: "?c=Activity&a=login",
+    	        type: "post",
+    	        data: {'invitedMobile':invite_mobile,'code':code,'mobile':mobile},
+    	        success: function (json) {
+    	        	if(json.status == 0){
+    	        		$('.pop').css({display:'block'});
+    	        		$('.pop .top').html(json.info);
+    	        		//$("#err_info").empty().html(json.info);
+    	        		$('#mask').click(); 
+    	        		return;
+    	        	} else {
+    	        		window.location.href=json.info;
+    	        		return;
+    	        	}
+    	        }
+    	   	}) 
+		});
+		// 真不错，开始赚钱
+		$('.go-top').click(function() {
+   			$('body,html').animate({scrollTop:0},500);
+		});
+
+
+
+		//$('.my-phone').html('您的好友'+encrypt(phone)+'送您');
+
+		//  修改弹出框内容
+		//$('.pop .top').html('这里修改弹出提示');
+
+		//显示弹框
+		// $('.pop').css({display:'block'});
+		//隐藏弹框
+		$('.pop .bottom').click(function() {
+			$('.pop').css({display: "none"});
+		});
+
+
+		// 注册
+
+		// 倒计时
+		var sleep = 60, interval = null;
+        function Countdown(){
+        	if (!interval) {
+				$('.get-code').css('pointer-events', 'none');
+ 			   $('.code-time').html(sleep + " s");
+ 			   interval = setInterval(function () {
+ 				   if (sleep == 0) {
+ 					   if (!!interval) {
+ 						   clearInterval(interval);
+ 						   interval = null;
+ 						   sleep = 60;
+						   $('.get-code').css('pointer-events', 'auto');
+ 						   $(".code-time").html("获取验证码");
+ 					   }
+ 					   return false;
+ 				   }
+ 				   $('.code-time').html(sleep-- + " s");
+ 			   }, 1000);
+            }
+        }
+
+		function encrypt(obj) {
+			console.log(obj);
+			obj = obj.slice(0, 3) + 'xxxx' + obj.slice(-4, obj.length);
+			return obj;
+		}
+
+		function checkPhone(phone){ 
+			if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){ 
+				return false; 
+			} 
+			return true;
+		}
+
+	</script>
+</body>
+
+</html>

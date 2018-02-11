@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta content="telephone=no,email=no" name="format-detection">
+        <title>更新指南</title>
+        <script src="http://image.ppmiao.com/Public/js/flexible.js"></script>
+        <script src="http://image.ppmiao.com/Public/js/flexible_css.js"></script>
+        <script src="http://image.ppmiao.com/Public/js/jquery-1.9.1.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" />
+        <style>
+            .bg{
+                width: 10rem;
+                height: auto;
+                background-color: #fff;
+            }
+            .title{
+                background-color: #F55161;
+                height: 1.5rem;
+                line-height: 1.5rem;
+                width: 10rem;
+                color: #FCEB20;
+                font-weight: bold;
+                text-align: center;
+                font-size: 16px;
+            }
+            [data-dpr="2"] .title {
+                font-size: 32px;
+            }
+            [data-dpr="3"] .title {
+                font-size: 48px;
+            }
+            .tab{
+                height: 1.5rem;
+                line-height: 1.5rem;
+                width: 10rem;
+                border-bottom: 1px solid #DCDCDC;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 300;
+            }
+            [data-dpr="2"] .tab {
+                font-size: 32px;
+            }
+            [data-dpr="3"] .tab {
+                font-size: 48px;
+            }
+            .tab div{
+                float: left;
+                width: 4.9rem;
+                height: 100%;
+            }
+            .tab div.active{
+                color:#F5465F;
+                border-bottom: .04rem /* 3/75 */ solid #F5465F;
+            }
+            .tab i{
+                position: relative;
+                right: .1rem;
+            }
+            .ios{
+                width: 10rem;
+                height: 41.5rem;
+                background-image: url(http://image.ppmiao.com/H5picture/Update-act/ios.jpg);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                margin-top: .3rem;
+            }
+            .android{
+                width: 10rem;
+                height: 27rem;
+                background-image: url(http://image.ppmiao.com/H5picture/Update-act/android.jpg);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                margin-top: .1rem;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class= "bg">
+            <div class="title">
+                更新即送 2.0%加息券 150元现金红包
+            </div>
+            <div class="tab">
+                <div id="ios" class="active">
+                    <i class="fa fa-apple" aria-hidden="true"></i>ios更新指南
+                </div>
+                <div id="android">
+                    <i class="fa fa-android" aria-hidden="true"></i>安卓更新指南
+                </div>
+            </div>
+            <div class=ios></div>
+            <div class=android style="display:none"></div>
+        </div>
+    </body>
+    <script>
+    $(document).ready(function() {
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        if(isAndroid) {
+            $('#android').addClass('active');
+            $('#ios').removeClass('active');
+            $('.ios').css('display','none');
+            $('.android').css('display','block');
+        }
+        $('#ios').click(function() {
+            $('#ios').addClass('active');
+            $('#android').removeClass('active');
+            $('.android').css('display','none');
+            $('.ios').css('display','block');
+
+        });
+        $('#android').click(function() {
+            $('#android').addClass('active');
+            $('#ios').removeClass('active');
+            $('.ios').css('display','none');
+            $('.android').css('display','block');
+        });
+    });
+    </script>
+</html>

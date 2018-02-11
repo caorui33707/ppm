@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" >
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/youka/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://image.ppmiao.com/Public/activity/youka/js/jquery.min.js"></script>
+    <script src="https://image.ppmiao.com/Public/activity/youka/js/flexible.js"></script>
+    <script src="https://image.ppmiao.com/Public/activity/youka/js/flexible_css.js"></script>
+    <title>500元油卡限时抢</title>
+    <style>
+    body {
+        width: 100%;
+        background-color:#f4f4f4;
+    }
+    .register_pic {
+      background-image: url("https://image.ppmiao.com/Public/activity/youka/images/card1.jpg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 10rem;
+      height: 6rem;
+      text-align: center;
+      margin: auto;
+    }
+
+    .ppm{
+      background-image: url("https://image.ppmiao.com/Public/activity/youka/images/ppm_02.jpg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 10rem;
+      height: 1.2rem;
+      text-align: center;
+      margin:0.7rem auto;
+    }
+
+    .index_world{
+      background-image: url("https://image.ppmiao.com/Public/activity/youka/images/card04.jpg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 10rem;
+      height: 18.5rem;
+      text-align: center;
+      margin:auto;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <!--弹出层-->
+        <div class="backgr" id="integral_bj" style="display: none"></div>
+        <div class="tankuang" id="integral_window" style="display: none">
+            <div class="integral_content">
+                <p class="tc" id="err_info"></p>
+            </div>
+        </div>
+        <!--正文-->
+        <div class="register_pic"></div>
+        <div class="register_download ">
+            <div class="enter mar">
+                
+                <div class="had">
+                	<input type="text" id="mobile" name="mobile" placeholder="请输入手机号">
+                	<div class="number fl">
+                    <img src="https://image.ppmiao.com/Public/activity/youka/images/two_05.png" />
+                </div>
+                </div>
+            </div>
+            <div class="enter mar ">
+                
+                <div class="">
+                    <div class="had">
+                    	<input type="text" id="code" name="code" placeholder="请输入验证码" maxlength="6"> 
+                    	<div class="have abs bor">
+                        	<input type="button" id="btn" value="获取验证码" />
+                     	</div> 
+                    	<div class="number  fl">
+                    		<img src="https://image.ppmiao.com/Public/activity/youka/images/one_08.png" />
+                		</div>                   
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="login_read">
+              <img src="https://image.ppmiao.com/Public/activity/youka/images/x@2x.png" style="width:0.4rem;" class="wujiang_pic_size" id="caocao_pic" onClick="change_pic()"/>
+              <div class="login_already">
+                <p>已阅读并同意<a href="https://www.ppmiao.com/act/agree/index.html" style="color:#ff6905;" target="_blank">《注册协议》</a></p>
+              </div>
+            </div>
+            <div class="login_app  tc" style="cursor:pointer;" >
+                <button id="loginId">登录/注册</button>
+            </div>
+        </div>
+        <div class="ppm"></div>
+
+        <div class="index_world"></div>
+    </section>
+
+    <script type="text/javascript">
+    
+    
+    var ch = "{$ch}";
+   		
+    function mask(){
+    	$("#integral_bj").show();
+        $("#integral_window").show();
+        setTimeout(function () {
+            $("#integral_bj").hide();
+            $("#integral_window").hide();
+        }, 2000);
+        return false;
+    }
+
+    
+	$("#btn").click(function(){
+		var mobile = $('input[name=mobile]').val();
+		if(!checkPhone(mobile)) {
+			if(mobile == "") {
+				$("#err_info").empty().html('请输入您的手机号码！');
+			} else {
+				$("#err_info").empty().html('输入的手机号码有误！');
+			}
+			mask();
+			return;
+		}
+			
+		$.ajax({
+	    	url: "/hd/sendCode.html",
+	        type: "post",
+	        data: {'invitedMobile':mobile},
+	        success: function (json) {
+	        	if(json.status == 1){
+	        		Countdown();
+	        		return;
+	        	} else {
+	        		$("#err_info").empty().html(json.info);
+	        		//$('#mask').click(); 
+	        		mask();
+	        		return;
+	        	}
+	          }
+	   	})
+	})
+	
+	$("#loginId").click(function(){
+		
+		var mobile = $('input[name=mobile]').val();    		
+		var code = $('input[name=code]').val();
+		//var ch = "{$ch}";
+		if(!checkPhone(mobile)) {
+			if(mobile == "") {
+				$("#err_info").empty().html('请输入您的手机号码！');
+			} else {
+				$("#err_info").empty().html('输入的手机号码有误！');
+			}
+			//$('#mask').click(); 
+			mask();
+			return;
+		}
+		
+		if(!code) {
+			$("#err_info").empty().html('请输入手机验证码！');
+			//$('#mask').click(); 
+			mask();
+			return;
+		}
+		
+			
+		if(Flag) {
+			$("#err_info").empty().html('您没有同意用户注册协议');
+			mask();
+			return;
+		}
+		
+		
+		$.ajax({
+	    	url: "/hd/youka_login.html",
+	        type: "post",
+	        data: {'code':code,'mobile':mobile,'ch':ch},
+	        success: function (json) {
+	        	if(json.status == 0){
+	        		$("#err_info").empty().html(json.info);
+	        		mask();
+	        		return;
+	        	} else {
+	        		window.location.href=json.info;
+	        		return;
+	        	}
+	        }
+	   	})   
+	})
+	
+	function checkPhone(phone){ 
+		if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){ 
+			return false; 
+		} 
+		return true;
+	}
+	
+	var sleep = 60, interval = null;
+    function Countdown(){
+    	if (!interval) {
+    	   $("#btn").css("backgroundColor","#FFF");
+			   $("#btn").attr("disabled","disabled");
+			   $('#btn').css('cursor','wait');
+			   $('#btn').val(sleep + " S");
+			   interval = setInterval(function () {
+				   if (sleep == 0) {
+					   if (!!interval) {
+						   clearInterval(interval);
+						   interval = null;
+						   sleep = 60;
+						   $('#btn').css('cursor','pointer');
+						   $("#btn").removeAttr("disabled")
+						   
+						   $("#btn").val("获取验证码");
+						   $("#btn").css("backgroundColor","#FFF");
+					   }
+					   return false;
+				   }
+				   $('#btn').val("" + sleep-- + " S");
+			   }, 1000);
+        }
+    }
+    </script>
+    <script>
+    
+    var Flag = false;
+    function change_pic(){
+    	var imgObj = document.getElementById("caocao_pic");
+    	Flag=(imgObj.getAttribute("src",2)=="https://image.ppmiao.com/Public/activity/youka/images/x@2x.png")
+    	imgObj.src=Flag?"https://image.ppmiao.com/Public/activity/youka/images/4@2x.png":"https://image.ppmiao.com/Public/activity/youka/images/x@2x.png";
+    }
+    </script>
+</body>
+</html>

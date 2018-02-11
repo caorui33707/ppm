@@ -1,0 +1,73 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">编辑基金项目 [<a href="javascript:;" onclick="closeWin()">关闭</a>]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="id" value="{$detail.id}" />
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">产品名称：</td>
+                    <td class="tLeft">{$detail.title}</td>
+                </tr>
+                <tr>
+                    <td class="tRight">关联基金：</td>
+                    <td class="tLeft">{$detail.fund.name}({$detail.fund.code})</td>
+                </tr>
+                <tr>
+                    <td class="tRight">确认份额：</td>
+                    <td class="tLeft"><input type="text" datatype="*" id="check_money" name="check_money" value="{$detail.ext.check_money|default=0}" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">申购费率(%)：</td>
+                    <td class="tLeft"><input type="text" datatype="*" id="purchase_fee" name="purchase_fee" value="{$detail.ext.purchase_fee|default=0}" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">赎回费：</td>
+                    <td class="tLeft"><input type="text" datatype="*" id="redemption_fee" name="redemption_fee" value="{$detail.ext.redemption_fee|default=0}" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中');
+                $.ajax({
+                    url: ROOT + '/finance/fund_edit',
+                    data: $('#frmMain').serialize(),
+                    type: "POST",
+                    cache: false,
+                    success: function(msg) {
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('编辑成功~!', -1, function(){
+                                window.close();
+                            });
+                        }else{
+                            layer.alert(msg.info, -1);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    function closeWin(){
+        window.close();
+    }
+</script>

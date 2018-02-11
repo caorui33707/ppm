@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/tg_llb/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/tg_llb/css/style.css" rel="stylesheet" type="text/css" />
+    <title>票票喵</title>
+	<script src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+	
+
+</head>
+<body>
+    <section>
+    <!--弹出层-->
+        <div class="backgr1" id="integral_bj1" style="display: none"></div>
+        <div class="tankuang1 rel" id="integral_window1" style="z-index:12;display: none">
+            <div class="integral_content1 abs">
+            	<if condition="($device_type eq 'ios')"> 
+                	<img src="{:C('STATIC_ROOT')}/activity/tg_llb/images/ios_03.png" />
+                <else />
+                	<img src="{:C('STATIC_ROOT')}/activity/tg_llb/images/andrio.png" />
+                </if>
+            </div>
+        </div>
+        
+        <div class="register_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/tg_llb/images/fu_01.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/tg_llb/images/fu_02.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/tg_llb/images/fo_03.jpg" />
+        </div>
+        <div class="register_download tc" style="padding-bottom:52px;">
+            <div class="login_app  tc" style="cursor:pointer;" >
+                <if condition="($is_weixin eq 1)"> 
+					<img id="img" style="margin-top:30px;width:80%;" src="{:C('STATIC_ROOT')}/activity/tg_llb/images/button1.png" />
+				<else />				 	
+				 	<a href="{$url}"><img style="margin-top:30px;width:80%;" src="{:C('STATIC_ROOT')}/activity/tg_llb/images/button1.png" /></a>
+				</if>
+            </div>
+        </div>
+
+    </section>
+    <script>
+
+    $(function () {
+        $("#img").click(function () {
+            $("#integral_bj1").show();
+            $("#integral_window1").show();
+        });
+        $(".backgr1").click(function () {
+            $("#integral_bj1").hide();
+            $("#integral_window1").hide();
+        });
+    });
+    
+    
+    </script>
+</body>
+</html>

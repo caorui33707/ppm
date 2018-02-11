@@ -1,0 +1,99 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">ios上线配置编辑 [ <a href="{:C('ADMIN_ROOT')}/version/ios_upgrade/p/{$params.page}">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="id" value="{$detail.id}" />
+            <input type="hidden" name="page" value="{$params.page}" />
+            <table cellpadding=3 cellspacing=3 >
+                
+                <tr>
+                    <td class="tRight">渠道名称：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" value="{$detail.ios_channel}" id="ios_channel" name="ios_channel">
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                    <td class="tRight">版本名称：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" value="{$detail.version_name}" id="version_name" name="version_name">
+                    </td>
+                </tr> 
+                
+                
+                <tr>
+                    <td class="tRight">状态：</td>
+                    <td class="tLeft">
+                        <label>
+                            <input type="radio" name="config_value" value="0" <eq name="detail.config_value" value="0">checked</eq> />关
+                        </label>
+                        <label>
+                            <input type="radio" name="config_value" value="1" <eq name="detail.config_value" value="1">checked</eq>/>开
+                        </label>
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <td class="tRight">app_key：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="app_key" name="app_key" value="{$detail.app_key}">                    	
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">master_secret：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="master_secret" name="master_secret" value="{$detail.master_secret}">                    	
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _adding = false;
+    var _layerIndex = 0;
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                if(_adding) return;
+                _adding = true;
+                _layerIndex = layer.load('数据提交中...');
+                $.ajax({
+                    url: ROOT + '/version/ios_upgrade_edit',
+                    data: $('#frmMain').serialize(),
+                    type: "POST",
+                    cache: false,
+                    success: function(msg) {
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('编辑成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                        _adding = false;
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>

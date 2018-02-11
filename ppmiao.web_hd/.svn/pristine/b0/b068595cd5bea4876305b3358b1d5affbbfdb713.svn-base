@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>打新股答疑</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/css.css?v=1.7" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+    <include file="Public:mobile_forbidding" />
+</head>
+
+<body id="questionBox">
+<div class="wrap">
+    <div id="questions">
+        <ul>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>石头打新1号项目，投资资金是否安全？</h5>
+                <div class="foldContent">
+                    <p>石头打新1号项目投资本金是有保障的，首先资金安全方面，托管方是国内最大券商中信证券，产品管理人是具有基金牌照的国泰基金公司，石头理财不触碰客户资金，所有资金通过第三方支付公司流转。其次，打新股目前可以说是一种相对安全的项目，只要能打到新股，基本就能获得盈利，因为新股上市后的涨幅至少是100%以上的（投资者可以上网查一下新股上市后的情况，开盘后都是一字涨停），打新项目最终收益直接取决于能打到多少份额的新股，就是新股中签率。</p>
+                    <p>本金的安全是由我们产品的转让方承诺保障的，您购买后可以查看购买合同里相关的条款。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>为什么投资期需要7个月？</h5>
+                <div class="foldContent">
+                    <p>产品7个月的期限安排是科学合理的，因为我们预计下半年会陆续有120多只新股上市，为了让客户获得较高收益，这些陆续上市的新股我们都会参与申购。</p>
+                    <p>打新项目存续期一般都相对长一些，主要是受制于IPO的发行速度，申购时间等因素影响，一般短期限的打新项目很少，也很难获得好的收益。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>打新项目是如何获取收益的？</h5>
+                <div class="foldContent">
+                    <p>打新项目资金主要用于线下申购新股配额，新股中签后，要等到新股上市并由基金经理根据个股涨幅情况，择机高位卖出新股获得投资收益。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>购买你们的打新产品有费用吗？</h5>
+                <div class="foldContent">
+                    <p>本产品目前认购费是全免的，管理费是按照产品说明所述，当产品年化收益超过18%时，基金损益权转让方会收取超出部分的50%作为管理费；若年化低于18%，则不收取管理费；除此外，无其他任何费用。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>打新股项目最终收益能达到多少？</h5>
+                <div class="foldContent">
+                    <p>我们打新产品所投的项目，前一个月的年化收益是75%，得益于前几个月新股上市密集，产品中签率高，那么本月国泰君安项目以及后半年120只新股也将密集上市，最后的收益情况，要看7个月产品运行下来申购新股的中签率以及新股上市后的表现情况，因此产品最终收益是浮动的，无法确定，但本金是安全的。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>石头打新1号会出现亏损情况吗？</h5>
+                <div class="foldContent">
+                    <p>任何产品都有不可控因素，比如投资期间国家打新政策更改、IPO发行速度更改等导致新股申购遇到障碍，由于匹配的银行资金会产生一定的利息成本，从而导致产品出现亏损情况。为保障投资者利益，产品损益权的转让方在合同中承诺出现亏损，亏损部分全由其承担。其次，我们石头理财也以风险准备金保障客户此项目本金的安全。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>石头打新1号和自己打新股有何不同？</h5>
+                <div class="foldContent">
+                    <p>石头打新1号产品是以机构名义线下申请新股配额的，有别于个人投资者网上打新，在中签率和资金量方面都是个人投资者无法比拟的。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>投资周期是多久？</h5>
+                <div class="foldContent">
+                    <p>本次打新1号产品投资周期是7个月（213天），产品最新净值定期公布（一般30天左右），投资者可在已购买页面中查看到最新净值，以及净值走势情况。</p>
+                </div>
+            </li>
+            <li class="fold">
+                <h5><b class="arrowLeft"></b>收益盈亏如何计算？</h5>
+                <div class="foldContent">
+                    <p>当前收益率(扣除管理费前)=（最新净值-初始净值）/初始净值 *100% （初始净值为1）</p>
+                    <p>期间年化收益率=当前收益率*365/已投资天数</p>
+                    <p>当前盈亏=投资金额*当前收益率</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        $("li>h5","#questions").bind("click",function(){
+            var li=$(this).parent();
+            if(li.hasClass("fold")){
+                li.removeClass("fold");
+                $(this).find("b").removeClass("arrowLeft").addClass("arrowUp");
+                li.find(".foldContent").slideDown('fast');
+            }else{
+                li.addClass("fold");
+                $(this).find("b").removeClass("arrowUp").addClass("arrowLeft");
+                li.find(".foldContent").slideUp('fast');
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.aboutBox06Inner ul li').hover(function(){
+                $(this).addClass('cur');
+            },function(){
+                $(this).removeClass('cur');
+            })
+        });
+    </script>
+</head>
+
+<body>
+<include file="PublicNew:menu" />
+
+<div class="joinBanner">
+    <p style="background:url(Public/v2/images/aboutBanner.jpg) no-repeat scroll center top; display:block"></p>
+</div>
+
+<div class="aboutBoxBg fLe clear">
+    <div class="main w978 clear">
+        <div class="aboutBox01 fLe clear">
+            <h2>石头理财是什么</h2>
+            <p>
+                石头理财的创始人和核心管理团队均由金融、银行、法律、互联网领域的资深专业人士构成。<br />
+                凭借全球领先的金融证券交易技术、人工智能技术、计算金融学技术，<br />
+                时投开创新地研发出了公司旗下第一核心产品——石头理财（stlc.cn）”，<br />
+                即将革命性地改变中国互联网金融理财行业的发展模式。<br />
+                通过将互联网思维、金融产品更深度联结，去除中间环节，打通通道，产生聚合，让广大用户能够买到国内最优质理财产品。<br />
+                平台贯彻以安全、简单、透明、高收益的服务理念。
+            </p>
+        </div>
+    </div>
+    <div class="aboutBox02 fLe clear"></div>
+    <div class="main w978 clear">
+        <div class="aboutBox03 fLe clear">
+            <h2>为什么选择石头理财</h2>
+            <div class="p1Box">
+                <p class="p1" style="margin-left:225px; margin-top:50px;">石头理财，产品线覆盖了从大宗贸易、实物质押、股票配资、基金领域。</p>
+                <p class="p1" style="margin-left:250px;">目前石头主要产品有债券投融资类、公募基金理财产品两大类。</p>
+                <p class="p2" style="margin-top:50px;">
+                    ◆&nbsp;&nbsp;石头理财的债券投融资理财产品类上线6周消化5.84千万元资金，在石头理财整个业务体系中占主要部分。<br />
+                    同时，石头理财也引领了金融产品的创新发展，包括石头打新股、公募基金结构化产品理财产品。
+                </p>
+                <p class="p2" style="margin-top:50px;">
+                    ◆&nbsp;&nbsp;公募基金理财产品类将跨界理念融入产品设计，石头打新股项目预期年化率达20%，公募基金结构化产品收益预<br />
+                    期年化可达260%，此类产品设计初衷就是让用户得到最大化的收益和回报。
+                </p>
+                <p class="p2" style="margin-top:25px;">
+                    ◆&nbsp;&nbsp;随着人们对互联网金融理财观念逐步开放，石头理财除了一如既往给客户提供安全、透明、诚信、高收益的产品外，<br />
+                    还通过不间断的帮助用户从认识理财、消费理财，到形成理财习惯的过程转变，实现更自由的理财生活。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="aboutBox04 fLe clear"></div>
+    <div id="brand" class="aboutBox05 fLe clear">
+        <div class="main w978 clear">
+            <div class="aboutBox05Inner fLe clear">
+                <h2>品牌故事</h2>
+                <p>
+                    2014年，一群怀揣梦想的年轻人跟随互联网金融先锋张文斌创立了“石头理财”。<br />
+                    张文斌带领着”石头人“秉承着将”简单“做到极致的理念，推出首个无须注册，信息可自动关联的互联网投资理财平台。<br />“石头人”深知打造简单，是石头的生存根本；“石头人”亦知追求简单，是石头的制胜王道。<br />
+                    但追求极致简单的同时，也追求极致的不简单。<br />
+                    不简单于我们对产品的追求，将创新的跨界理念注入金融产品设计，使用户收益最大化。<br />
+                    通过不断的创新，将最简单、最透明、最大化收益的金融理财产品服务于用户。<br />
+                    “S”形LOGO寓意着无限延伸，象征着永无止境的追求。<br />
+                    不停止的迭代升级，只为打造更具创新、更具差异化的金融理财产品。<br />
+                    “石头人”的“简单”追求，永不停歇！
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="media_dynamics" class="aboutBox06 fLe clear">
+        <div class="main w1045 clear">
+            <div class="aboutBox06Inner fLe clear">
+                <h2>媒体动态</h2>
+                <ul>
+                    <li>
+                        <a href="{:C('WEB_ROOT')}/media/detail/4" target="_blank">
+                            <span class="aboutBox03Left fLe clear"><p class="p1">July</p><p class="p2">03</p></span>
+                            <span class="aboutBox03Right fLe clear">
+                                <h4>石头理财 撬动移动互联网金融</h4>
+                                <p class="p1">对于互联网金融平台这个站在“互联网＋”的风口上的行业，需要敏锐捕捉发展脉搏，顺应行业潮流，方可占得一席之地。</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:C('WEB_ROOT')}/media/detail/3" target="_blank">
+                            <span class="aboutBox03Left fLe clear"><p class="p1">July</p><p class="p2">01</p></span>
+                            <span class="aboutBox03Right fLe clear">
+                                <h4>石头理财杀入股票配置，石头分级基金击中谁的“痛点”</h4>
+                                <p class="p1">自6月正式发售，石头理财 APP“分级基金”给出一份不错的成绩单。其统计数据显示，上线1个月以来，投资用户新增87.5%</p>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:C('WEB_ROOT')}/media/detail/2" target="_blank">
+                            <span class="aboutBox03Left fLe clear"><p class="p1">June</p><p class="p2">12</p></span>
+                            <span class="aboutBox03Right fLe clear">
+                                <h4>百分之四百回报的理财，可能吗？</h4>
+                                <p class="p1">对于互联网金融行业，一个债券投融资平台涉足结构化杠杆基金业务是创新互联网金融；但作为普罗大众，对这样的“暴利理财”当然是趋之若鹜…… </p>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:C('WEB_ROOT')}/media/detail/1" target="_blank">
+                            <span class="aboutBox03Left fLe clear"><p class="p1">June</p><p class="p2">01</p></span>
+                            <span class="aboutBox03Right fLe clear">
+                                <h4>石头推出【爆款】产品，实现金融行业“淘宝体验”</h4>
+                                <p class="p1">月25日石头平台爆款“石打实第1期”项目正式上线， 石头理财接下来将采取差异化路线，从互联网用户需求出发，逐渐从传统产品直接上线，转变成设计差异化产品，进行石头理财功能场景的拓展和体验优化。</p>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="aboutBox08 fLe clear">
+        <div class="main w978 clear">
+            <div class="aboutBox08Inner fLe clear">
+                <h2>合作媒体</h2>
+                <ul>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener01.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener02.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener03.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener04.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener05.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener06.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener07.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener08.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener09.jpg" /></li>
+                    <li><img src="{:C('STATIC_ROOT')}/v2/images/img/partener10.jpg" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="culture" class="aboutBox07 fLe clear">
+        <div class="main w978 clear">
+            <div class="aboutBox07Inner fLe clear">
+                <h2>石头文化</h2>
+                <p>
+                    石头人爱简单，奉行简单，追求简单。这里是个有爱的地方，每一个石头人将“简单”的信念投入到工作和生活中。<br />
+                    石头人在工作中始终秉持“简单”的元素，高效的沟通，疯狂的执着。<br />
+                    “简单”已融入到每一个石头人的战斗细胞中，不断的将“简单”极致的产品，呈现于客户。<br />
+                    简单，我们正在干的事，是我们最想干的事，是我们愿意为之永不停歇的追求。<br />
+                </p>
+                <div class="aboutImgBox fLe clear">
+                    <ul>
+                        <li><img src="{:C('STATIC_ROOT')}/v2/images/p01.jpg" /></li>
+                        <li></li>
+                        <li><img src="{:C('STATIC_ROOT')}/v2/images/p02.jpg" /></li>
+                        <li></li>
+                        <li><img src="{:C('STATIC_ROOT')}/v2/images/p03.jpg" /></li>
+                        <li></li>
+                        <li><img src="{:C('STATIC_ROOT')}/v2/images/p04.jpg" /></li>
+                        <li></li>
+                        <li><img src="{:C('STATIC_ROOT')}/v2/images/p05.jpg" /></li>
+                    </ul>
+                </div>
+                <a href="{:C('WEB_ROOT')}/join.html" class="joinButton">加入我们</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="re_big_box07 fLe clear">
+    <div class="main w978 clear">
+        <div class="re_big_box07_b1 fLe clear">
+            <p>石头理财APP</p>
+                <span>
+                	<a href="{:C('APP_DOWNLOAD_ANDROID')}" target="_blank"><img src="{:C('STATIC_ROOT')}/v2/images/re_img10.png" /></a>
+                    <a href="{:C('APP_DOWNLOAD_IOS')}" target="_blank"><img src="{:C('STATIC_ROOT')}/v2/images/re_img11.png" /></a>
+                </span>
+        </div>
+    </div>
+</div>
+
+<include file="PublicNew:footer" />
+<include file="PublicNew:gotop" />
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <link href="https://image.ppmiao.com/Public/activity/qixi/css/basic.css" rel="stylesheet" type="text/css" />
+  <link href="https://image.ppmiao.com/Public/activity/qixi/css/style.css?1" rel="stylesheet" type="text/css" />
+  <script src="https://image.ppmiao.com/Public/activity/qixi/js/jquery.min.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+  <title>注册送888元红包</title>
+
+</head>
+
+<body>
+  <section>
+  
+  	<div class="backgr" id="integral_bj" style="display: none"></div>
+    <div class="tankuang1 rel" id="integral_window" style="z-index:12;display: none;">
+        <div class="integral_content1 abs">
+           	<if condition="($device_type eq 'ios')"> 
+               	<img src="https://image.ppmiao.com/Public/activity/qixi/images/ios_03.png" style="width:8rem;"/>
+            <else />
+               	<img src="https://image.ppmiao.com/Public/activity/qixi/images/andrio.png" style="width:8rem;"/>
+            </if>
+        </div>
+    </div>
+  
+    <div class="register_pic">
+      <div class="time1">
+        <p>活动时间：8月19日-9月1日</p>
+      </div>
+    </div>
+    <div class="register_download1 tc">
+    <if condition="($type eq 1)"> 
+      <div class="index_eight">
+        <img src="https://image.ppmiao.com/Public/activity/qixi/images/fo_03.jpg"/>
+      </div>
+   	<else />
+      <div class="index_eight" style="display:block;">
+        <img src="https://image.ppmiao.com/Public/activity/qixi/images/mo_02.jpg"/>
+      </div>
+   	</if>
+      <div class="login_app1  tc">
+      	<if condition="($is_weixin eq 1)"> 
+      		<img id="img" src="https://image.ppmiao.com/Public/activity/qixi/images/button1.png" />
+      	<else/>
+      		<a href="{$url}"><img src="https://image.ppmiao.com/Public/activity/qixi/images/button1.png" /></a>
+      	</if>
+        
+      </div>
+    </div>
+  </section>
+  <script>
+    $(function () {
+        $("#img").click(function () {
+            $("#integral_bj").show();
+            $("#integral_window").show();
+        });
+        $(".backgr").click(function () {
+            $("#integral_bj").hide();
+            $("#integral_window").hide();
+        });
+    });
+</script>
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<include file="Public:header" />
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">购买用户 - {$title}
+        	<if condition="checkAuth('Admin/project/exporttoexcel') eq true">
+        	&nbsp;&nbsp;&nbsp;<a href="{:C('ADMIN_ROOT')}/project/exporttoexcel/id/{$id}/rid/{$rid}">导出(宝付)</a>
+        	&nbsp;&nbsp;&nbsp;<a href="{:C('ADMIN_ROOT')}/project/exportToExcelRb/id/{$id}/rid/{$rid}">导出(融宝)</a>
+        	</if>
+        	
+        	
+        	</div>
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="6" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="100px" align="center">用户姓名</th>
+                    <th width="100px" align="center">购买日期</th>
+                    <th width="180px" align="center">银行卡</th>
+                    <th width="180px" align="center">发卡银行</th>
+                    <th width="150px" align="center">支付利息(元)</th>
+                    <th width="150px" align="center">支付本金(元)</th>
+                </tr>
+                <foreach name="list" item="item">
+                    <tr class="row">
+                        <td align="center">
+                        	<if condition="$item.user_id elt 0"> 
+                        		<em style="color:gray;">{$item.real_name}</em>
+                        	<else/>
+                        		{$item.real_name}
+                        	</if>
+                        </td>
+                        <td align="center">{$item.add_time}</td>
+                        <td align="center">{$item.card_no}</td>
+                        <td align="center">{$item.bank_name}</td>
+                        <td align="right">{$item.due_interest|default=0|number_format=2}</td>
+                        <td align="right">{$item.due_capital|default=0|number_format=2}</td>
+                    </tr>
+                </foreach>
+                <tr class="row">
+                    <td colspan = '4' align='center'>当页总计<if condition="C('GHOST_ACCOUNT') eq 'true'"> (不包括幽灵账号)</if></td>
+                    <td align="right">{$page_totle_interest|default=0|number_format=2}</td>
+                    <td align="right">{$page_totle_capital|default=0|number_format=2}</td>
+                </tr>
+                <tr>
+                    <td height="5" colspan="6" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">
+            <div style="float:left;">本期支付利息总计：<b>{$totle_interest|default=0|number_format=2}</b>(元); 本期支付本金总计：<b>{$totle_capital|default=0|number_format=2}</b>(元)
+            		
+            		<if condition="C('GHOST_ACCOUNT') eq 'true'"> 
+            		
+            		
+            		;本期幽灵总计：<b>{$robot_total_amount|default=0|number_format=2}</b>(元)
+            		
+            		</if>
+            </div>
+        </div>
+        
+        <div class="page">
+            <div style="float:left;">购买笔数：{$count}</div>
+            {$show}
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->

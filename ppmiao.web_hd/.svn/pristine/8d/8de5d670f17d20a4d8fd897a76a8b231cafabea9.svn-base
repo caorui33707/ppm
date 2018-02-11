@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/web_user/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="{:C('STATIC_ROOT')}/web_user/js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/web_user/js/tabs.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/web_user/js/common.js"></script>
+    <title>票票喵-我的账户</title>
+
+
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+
+<include file="Common:header" />
+<div class="pandect_big">
+    <div class="pandect_seat">
+        <p>您现在的位置：我的账户><span>我的优惠</span></p>
+    </div>
+    <!--左-->
+    <div class="pandect_left">
+
+        <include file="layouts:menu" />
+    </div>
+    <div class="pandect_right">
+        <div class="invest_money">
+            <div class="pandect_property">
+                <p>我的优惠</p>
+            </div>
+            <div class="account_all">
+                <div class='tabs' id="tabs">
+                    <ul class='horizontal'>
+                        <li rel="tab-1" class="selectActive">红包券<span>（{$info['RedEnvelopeCount']}）</span></li>
+                        <li rel="tab-2" relHref="T1.html">现金券<span>（{$info['CashCouponsCount']}）</span></li>
+                        <li rel="tab-3" relHref="T1.html">加息券<span>（{$info['InterestCouponCount']}）</span></li>
+                        <div style="clear:both;"></div>
+                    </ul>
+
+                    <!--1-->
+                    <div rel='tab-1' class="account_exceed">
+                        <div class="investment_f">
+                            <div class="investment_title">
+                                <div class="foot">未使用</div>
+                                <div>已使用</div>
+                                <div>已过期</div>
+                            </div>
+                            <div class="investment_con">
+                                <div class="investment_con_list">
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash">3000<span>元</span></p>
+                                            <p>红包券</p>
+                                        </div>
+                                        <div class="invest_time">
+                                            <p id="remit">打款中</span>
+                                            </p>
+                                            <p>有效期：2017/01/01至2017/02/02</p>
+                                        </div>
+                                    </div>
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash">3000<span>元</span></p>
+                                            <p>红包券</p>
+                                        </div>
+                                        <div class="invest_time">
+                                            <p id="remit">打款中</span>
+                                            </p>
+                                            <p>有效期：2017/01/01至2017/02/02</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="investment_con_list">
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <ul class="invest_new">
+                                            <li>10</li>
+                                            <li>新人红包</li>
+                                            <li>2017-12-12</li>
+                                            <li>2017-12-12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="investment_con_list">
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <ul class="invest_new">
+                                            <li>10</li>
+                                            <li>新人红包</li>
+                                            <li>2017-12-12</li>
+                                            <li>2017-12-12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--2-->
+                    <div rel='tab-2' class="account_exceed">
+                        <div class="investment_f">
+                            <div class="investment_title">
+                                <div class="foot">未使用</div>
+                                <div>已使用</div>
+                                <div>已过期</div>
+                            </div>
+                            <div class="investment_con">
+                                <div class="investment_con_list">
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash">3000<span>元</span></p>
+                                            <p>现金券</p>
+                                        </div>
+                                        <div class="invest_time">
+                                            <p id="remit">打款中</span>
+                                            </p>
+                                            <p>有效期：2017/01/01至2017/02/02</p>
+                                        </div>
+                                    </div>
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash">300<span>元</span></p>
+                                            <p>现金券</p>
+                                        </div>
+                                        <div class="invest_time">
+                                            <a href="account.html">
+                                                <button>点击转入账户余额</button>
+                                            </a>
+                                            <p>有效期：2017/01/01至2017/02/02</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="investment_con_list">
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <ul class="invest_new">
+                                            <li>10</li>
+                                            <li>新人红包</li>
+                                            <li>2017-12-12</li>
+                                            <li>2017-12-12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="investment_con_list">
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <ul class="invest_new">
+                                            <li>10</li>
+                                            <li>新人红包</li>
+                                            <li>2017-12-12</li>
+                                            <li>2017-12-12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--3-->
+                    <div rel='tab-3' class="account_exceed">
+                        <div class="investment_f">
+                            <div class="investment_title">
+                                <div class="foot">未使用</div>
+                                <div>已使用</div>
+                                <div>已过期</div>
+                            </div>
+                            <div class="investment_con">
+                                <div class="investment_con_list">
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash">3000<span>元</span></p>
+                                            <p>加息券</p>
+                                        </div>
+                                        <div class="invest_time">
+                                            <p id="remit">打款中</span>
+                                            </p>
+                                            <p>有效期：2017/01/01至2017/02/02</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="investment_con_list">
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <ul class="invest_new">
+                                            <li>10</li>
+                                            <li>新人红包</li>
+                                            <li>2017-12-12</li>
+                                            <li>2017-12-12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="investment_con_list">
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <ul class="invest_new">
+                                            <li>10</li>
+                                            <li>新人红包</li>
+                                            <li>2017-12-12</li>
+                                            <li>2017-12-12</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+<script type="text/javascript">
+    tabs_takes.init("tabs");
+</script>

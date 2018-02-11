@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$title}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<link href="{:C('STATIC_ROOT')}/mobile/css/css.css" rel="stylesheet" type="text/css" media="all"/>-->
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+    <include file="Public:mobile_forbidding" />
+    <style>
+        img{width: 100%!important;height:auto!important;}
+    </style>
+</head>
+
+<body>
+    {$content}
+    <script>
+        var dType = "{$device_type}";
+        $(document).ready(function(){
+            $("img").click(function(){
+                bigPic(this.src);
+            });
+        });
+        function bigPic(_url){
+            if(dType == 'android'){
+                window.stlc.open(_url);
+            }else if(dType == 'ios'){
+                document.location = 'stlc:open:' + encodeURI(_url);
+            }
+        }
+    </script>
+</body>
+</html>

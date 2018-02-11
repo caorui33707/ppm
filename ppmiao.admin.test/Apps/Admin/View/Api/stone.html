@@ -1,0 +1,86 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">石头API查询</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <table width="100%">
+            <tr>
+                <td class="tRight">连连错误码查询：</td>
+                <td class="tLeft">
+                    <input type="text" id="err_code_ll" name="err_code_ll" class="huge" placeholder="请输入连连错误码">
+                    <input type="button" class="button small" onclick="apiErrorCode(1)" value="查询">
+                </td>
+            </tr>
+            <tr>
+                <td class="tRight">易宝错误码查询：</td>
+                <td class="tLeft">
+                    <input type="text" id="err_code_yb" name="err_code_yb" class="huge" placeholder="请输入易宝错误码">
+                    <input type="button" class="button small" onclick="apiErrorCode(2)" value="查询">
+                </td>
+            </tr>
+            <tr>
+                <td class="tRight">短信错误码查询：</td>
+                <td class="tLeft">
+                    <input type="text" id="err_code_sms" name="err_code_sms" class="huge" placeholder="请输入短信错误码">
+                    <input type="button" class="button small" onclick="apiErrorCode(3)" value="查询">
+                </td>
+            </tr>
+            <tr>
+                <td class="tRight">石头订单号查询：</td>
+                <td class="tLeft">
+                    <input type="text" id="stone_order" name="stone_order" class="huge" placeholder="请输入石头订单号">
+                    <input type="button" class="button small" onclick="apiErrorCode(4)" value="查询">
+                </td>
+            </tr>
+            <tr>
+                <td class="tRight">订单状态查询：</td>
+                <td class="tLeft">
+                    <input type="text" id="stone_order_status" name="stone_order_status" class="huge" placeholder="请输入第三方支付订单号">
+                    <input type="button" class="button small" onclick="apiErrorCode(5)" value="查询">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+    var _searching = false;
+    var _layerIndex = 0;
+    var _code = '';
+    function apiErrorCode(_target){
+        if(!_searching){
+            _layerIndex = layer.load('正在查询中');
+            _searching = true;
+            switch(_target){
+                case 1:
+                    _code = $("#err_code_ll").val();
+                    break;
+                case 2:
+                    _code = $("#err_code_yb").val();
+                    break;
+                case 3:
+                    _code = $("#err_code_sms").val();
+                    break;
+                case 4:
+                    _code = $("#stone_order").val();
+                    break;
+                case 5:
+                    _code = $("#stone_order_status").val();
+                    break;
+            }
+            $.post(ROOT + "/common/stoneApi", {act: 'errorcode', code: _code, target: _target}, function(msg){
+                _searching = false;
+                layer.close(_layerIndex);
+                if(msg.status){
+                    if(_target >= 1 && _target <= 3){
+                        layer.alert("错误码：" + msg.data.code + "<br>错误信息：" + msg.data.descr + "<br>备注：" + msg.data.remark, -1);
+                    }else if(_target == 4 || _target == 5){
+                        layer.alert(msg.info, -1);
+                    }
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        }
+    }
+</script>

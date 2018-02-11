@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>无法识别设备</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/css.css?v=1.4" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+</head>
+
+<body id="wfsbBody">
+<div class="wfsbBox">
+    <img src="{:C('STATIC_ROOT')}/mobile/images/wfsbImg01.png" id="wfsb_img1">
+    <div class="wfsbBtn">
+        <?php
+            if(C('APP_DOWNLOAD_ANDROID')){
+                echo '<a href="'.C('APP_DOWNLOAD_MICRO').'"><img src="'.C('STATIC_ROOT').'/mobile/images/wfsbImgBtn01.png"></a>';
+            }else{
+                echo '<a href="'.C('WEB_ROOT').'/mobile/comingsoon.html"><img src="'.C('STATIC_ROOT').'/mobile/images/wfsbImgBtn01.png"></a>';
+            }
+            if(C('APP_DOWNLOAD_IOS')){
+                echo '<a href="'.C('APP_DOWNLOAD_MICRO').'"><img src="'.C('STATIC_ROOT').'/mobile/images/wfsbImgBtn02.png"></a>';
+            }else{
+                echo '<a href="'.C('WEB_ROOT').'/mobile/comingsoon.html"><img src="'.C('STATIC_ROOT').'/mobile/images/wfsbImgBtn02.png"></a>';
+            }
+        ?>
+    </div>
+    <img src="{:C('STATIC_ROOT')}/mobile/images/wfsbImg02.png" id="wfsb_img2">
+</div>
+<script>
+    $(window).resize(function() {
+        var heightH=window.innerHeight;
+        var widthH=window.innerWidth;
+        $("#wfsbBody").css("height",heightH);
+        $("#wfsbBody").css("width",widthH);
+    });
+    $(document).ready(function()  {
+        var heightH=window.innerHeight;
+        var widthH=window.innerWidth;
+        $("#wfsbBody").css("height",heightH);
+        $("#wfsbBody").css("width",widthH);
+    });
+</script>
+</body>
+</html>

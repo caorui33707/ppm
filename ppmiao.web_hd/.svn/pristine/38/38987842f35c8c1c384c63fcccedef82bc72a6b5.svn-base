@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/activity/event20170527/css/style.css" />
+    <script src="{:C('STATIC_ROOT')}/activity/event20170527/js/flexible.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/event20170527/js/flexible_css.js"></script>
+    <title>票票喵</title>
+
+</head>
+
+<body>
+  <div class="index_bank">
+    <div class="index_time">
+      <p>
+        活动时间：5月31号-6月1号
+      </p>
+    </div>
+  </div>
+  <div class="index_middle"></div>
+  <div class="index_foot"></div>
+  <div class="head_now tc" style="cursor:pointer;" onclick="go2App();">
+      <p>立即投资</p>
+  </div>
+  <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">意见建议详细 [ <a href="{:C('ADMIN_ROOT')}/Message/suggest/p/{$params.page}">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/auth/js/editor/kindeditor-all.js"></script>
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="type" value="1" />
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">时间：</td>
+                    <td class="tLeft" ><input type="text" value="{$detail.add_time|strtotime|date='Y-m-d H:i:s',###}" class="huge" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">设备：</td>
+                    <td class="tLeft" ><input type="text" value="<switch name='detail.device_type'><case value='1'>iPhone</case><case value='2'>Android</case></switch>" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">内容：</td>
+                    <td class="tLeft" ><textarea style="height:300px;" class="huge" readonly>{$detail.content}</textarea></td>
+                </tr>
+                <notempty name="detail.user_info">
+                    <tr>
+                        <td class="tRight">用户名：</td>
+                        <td class="tLeft"><input type="text" class="huge" value="{$detail.user_info.username}" readonly /></td>
+                    </tr>
+                    <tr>
+                        <td class="tRight">真是姓名：</td>
+                        <td class="tLeft"><input type="text" value="{$detail.user_info.real_name}" readonly /></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="tRight">上传图片：</td>
+                        <td class="tLeft">
+                        	<neq name='detail.img' velue=''>
+                    	
+                            	<volist name="detail.img" id="vo" key="k" >
+                        		<a href="{:C('OSS_STATIC_ROOT')}/Uploads/{$vo}" target="_blank">{$k}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        		</volist>
+                    </neq>
+                        </td>
+                    </tr>
+                    
+                    
+                    
+                </notempty>
+            </table>
+        </form>
+    </div>
+</div>

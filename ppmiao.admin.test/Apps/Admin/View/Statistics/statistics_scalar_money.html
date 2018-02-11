@@ -1,0 +1,100 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/modules/exporting.js"></script>
+    <div class="content">
+        <div class="title">平台存量</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='get' action="">
+                    <div class="fLeft">
+                    	<select name="channel" style="width:200px;">
+                            <option value="0">全部渠道</option>
+                            <foreach name="channel_list" item="item">
+                                <option value="{$item.id}" <eq name="item.id" value="$channel">selected</eq>>{$item.cons_value}({$item.cons_key})</option>
+                            </foreach>
+                        </select>
+                        
+                        <span><input type="text" name="dt" id="dt" class="laydate-icon" placeholder="选择日期" class="medium" value="{$dt}" readonly></span>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="筛选" class="search imgButton"></div>
+                </form>
+            </div>
+        </div>
+        <div id="result" class="result none"></div>
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '存量月数据({$dt})-平均日均存量余额:'+{$avgMoney}+'元'
+            },
+            
+            xAxis: [{
+                categories: [{$categories}]
+            }],
+            yAxis: [{ // Primary yAxis
+                min:0,
+                labels: {
+                    formatter: function(){
+                        return this.value/10000 + '万';
+                    },
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                title: {
+                    text: '存量金额',
+                    style: {
+                        color: '#89A54E'
+                    }
+                }
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: '#FFFFFF',
+                enabled: false
+            },
+            series: [ {
+                name: ' ',
+                color: '#89A54E',
+                type: 'spline',
+                data: [{$totlemoney}],
+                tooltip: {
+                    valueSuffix: '元'
+                }
+            }]
+        });
+    });
+
+    				
+
+    var dt = {
+        elem: '#dt',
+        format: 'YYYY-MM',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+
+        }
+    };
+    laydate(dt);
+</script>

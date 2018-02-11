@@ -1,0 +1,12 @@
+﻿/*登录页*/
+.cloud_login{overflow:hidden;}
+.cloud_login img{width:100%; margin-top:-50px;}
+.cloud_write {top:62%; width:100%; }
+.cloud_write .long_input{width:70%;margin-left:15%; height:30px;border:0;background-color:#DADBDA;color:#888888;text-indent:1em;}
+.cloud_write .verification{width:70%;margin-left:15%;}
+.cloud_write .verification input[type=text]{width:95%; height:30px;border:0;background-color:#DADBDA;color:#888888;text-indent:1em;}
+.cloud_write .verification input[type=button]{width:100%; height:30px;border:0;background-color:#C30D23;color:#FFF;}
+.cloud_fade{top:78%;width:70%;margin-left:15%;color:#888888;}
+.login_button{ position:fixed; bottom:0; left:0; width:100%;}
+.login_button button{height:45px;background-color:#C30D23;border:0;color:#FFF;width:100%; font-size:18px;}
+

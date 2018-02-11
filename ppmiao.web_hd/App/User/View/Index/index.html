@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link href="{:C('STATIC_ROOT')}/web_user/css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+  <title>票票喵-账户总览</title>
+
+
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+<include file="Common:header" />
+  <div class="pandect_big">
+    <div class="pandect_seat">
+      <p>您现在的位置：我的账户><span>账户总览</span></p>
+    </div>
+    <!--左-->
+    <div class="pandect_left">
+      <include file="layouts:menu" />
+    </div>
+    <div class="pandect_right">
+      <div class="pandect_head">
+        <img src="{:C('OSS_ROOT')}/Uploads/{$user['avatar']}"  onerror="javascript:this.src='{:C(\'STATIC_ROOT\')}/web_user/images/one_2.jpg';" />
+
+        <if condition="$user['real_name_auth'] eq 1">
+          <p>{$date}好，<span>{$user['real_name']}</span></p>
+        <else/>
+          <p>{$date}好，<span>{$user['username']}</span></p>
+        </if>
+      </div>
+      <div class="pandect_money">
+        <div class="pandect_property">
+          <p>资产总览</p>
+        </div>
+        <div class="pandect_top">
+          <div class="pandect_earnings">
+            <h5>累计收益（元）</h5>
+            <p>{$userInfo['totalInvestInterest']}</p>
+          </div>
+          <div class="pandect_earnings">
+            <h5>总资产（元）</h5>
+            <p>{$userInfo['accountTotal']}</p>
+          </div>
+          <div class="pandect_earnings">
+            <h5>待收本息（元）</h5>
+            <p>{$userInfo['waitCapital']+$userInfo['waitInterest']}</p>
+          </div>
+          <div class="pandect_earnings_line">
+            <h5>账户余额（元）</h5>
+            <p>{$userInfo['waitAmount']}</p>
+          </div>
+          <div class="pandect_chose">
+            <a href="javascript:void(0);" onclick="toRecharge()">
+              <button id="recharge">充值</button>
+            </a>
+            <a href="javascript:void(0);" onclick="toWithdraw()">
+              <button id="deposit">提现</button>
+            </a>
+            <!--<button id="easyui">提现</button>-->
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="pandect_property_safe">
+          <p>账户安全</p>
+        </div>
+        <div class="pandect_top_safe">
+          <div class="pandect_number">
+            <p>手机号认证</p>
+            <p>实名认证</p>
+            <p>银行卡管理</p>
+          </div>
+
+          <if condition="$user['real_name_auth'] eq 1">
+            <div class="pandect_number_encrypt">
+              <p>{$user['username']}</p>
+              <p>{$user['real_name']} <span>{$user['card_no']}</span></p>
+              <p>{$bankInfo}</p>
+            </div>
+            <div class="pandect_number_approve">
+              <p>已认证</p>
+              <p>已认证</p>
+              <a href="{:C('WEB_ROOT')}/index.php/User/index/bank">
+                <p style="color:#ff7117;">管理</p>
+              </a>
+            </div>
+          <else/>
+            <div class="pandect_number_encrypt">
+              <p>{$user['username']}</p>
+              <p>未认证</p>
+              <p>未绑卡</p>
+            </div>
+            <div class="pandect_number_approve">
+              <a href="javascript:void(0);" onclick="toMyBank()">
+                <p style="color:#ff7117;">去认证</p>
+              </a>
+              <a href="javascript:void(0);" onclick="toMyBank()">
+                <p style="color:#ff7117;">去认证</p>
+              </a>
+              <a href="javascript:void(0);" onclick="toMyBank()">
+                <p style="color:#ff7117;">去绑卡</p>
+              </a>
+            </div>
+          </if>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <include file="Common:footer" />
+</body>
+
+</html>

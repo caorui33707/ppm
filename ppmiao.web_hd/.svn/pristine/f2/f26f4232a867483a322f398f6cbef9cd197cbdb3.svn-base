@@ -1,0 +1,313 @@
+var tempid = 0;
+var showRedBagstatus = false;
+
+var redpackets = 0;
+var interestCoupon = 0;
+
+
+function selected(id,categoryId,vaule) {
+	
+	if($('#redbag' + id).css('backgroundImage').indexOf('prize.png')>0){
+	
+	    if (tempid != 0) {
+	        $('#redbag' + tempid).css('backgroundImage', 'url('+static_root+'/assets/images/prize.png)');
+	    }
+	    $('#redbag' + id).css('backgroundImage', 'url('+static_root+'/assets/images/prized.png)');
+	    tempid = id;
+	    $('#redbag').css('color', '#ff580f');
+	    
+	    buyAmount = realAmount = $("#amt").val();
+	    
+	    if(categoryId == 1) {
+	    	$("#redbag").empty().html('使用'+vaule+'%加息券');
+	    	interestCoupon = id;
+	    } else {
+	    	$("#redbag").empty().html('使用'+vaule+'元红包');
+	    	redpackets= id;
+	    	realAmount-=vaule;
+	    }
+	    
+	    $('.payfor__money').empty().html(realAmount);
+	    
+	} else {
+		
+		$('#redbag' + id).css('backgroundImage', 'url('+static_root+'/assets/images/prize.png)');
+		tempid = 0;
+		interestCoupon = 0;
+		redpackets= 0;
+		if(categoryId == 2) {
+			realAmount+=vaule;
+		}
+		$('.payfor__money').empty().html(realAmount);
+	}
+}
+
+
+function showRedBag() {
+    console.log();
+    if (showRedBagstatus) {
+        $('.discount-coupon__prize').css('display', 'none');
+        showRedBagstatus = false;
+    } else {
+        $('.discount-coupon__prize').css('display', 'flex');
+        showRedBagstatus = true;
+    }
+}
+
+
+function loadRed(){
+	
+	if(new_preferential == 1) {
+		$('#redbag').empty().html('暂无红包可用');
+		$("#choosePrize").hide();
+		return;
+	}
+	
+	var buyAmt = $("#amt").val();
+	$.ajax({
+    	url: "/product/getCouponLis.html",
+        type: "post",
+        async:false,
+        data: {'id':id,'buyAmt':buyAmt},
+        success: function (json) {
+        	
+        	var html = [];
+        	if(json.status == 1){
+        		var s = '';
+        		
+        		$("#redbag").empty().html('未选择红包('+json.couponLisOn.length+'个可用)');
+        		
+        		for(var item in json.couponLisOn) {
+        			
+        			var v = '';
+        			var u = '';
+        			if(json.couponLisOn[item].categoryId == 2){
+        				v = json.couponLisOn[item].amount;
+        				u = '元';
+        			} else {
+        				v = json.couponLisOn[item].interestRate;
+        				u = '%';
+        			}
+        			s = '<div id="redbag'+json.couponLisOn[item].id+'" class="prize" onclick="selected('+json.couponLisOn[item].id+','+json.couponLisOn[item].categoryId+','+v+')">';
+                    s += '<div class="prize__money">'+v+u+'</div><div class="prize__name">'+json.couponLisOn[item].title+'</div>';
+                    s += '<div class="prize__num ">投资金额≥'+json.couponLisOn[item].minInvest+'元</div>';
+                    s += '<div class="prize__date">投资期限≥'+json.couponLisOn[item].minDue+'天</div><div class="prize__active">'+tagToType(json.couponLisOn[item].applyTag)+'</div><div class="prize__time">有效期：'+formatDateTime(json.couponLisOn[item].valiteTime)+'至'+formatDateTime(json.couponLisOn[item].expireTime)+'</div></div>';
+                    html.push(s);
+        		}
+        		
+        		for(var item in json.couponLisOff) {
+        			
+        			var v = ''
+        			if(json.couponLisOff[item].categoryId == 2){
+        				v = json.couponLisOff[item].amount;
+        				u = '元';
+        			} else {
+        				v = json.couponLisOff[item].interestRate;
+        				u = '%';
+        			}
+        			s = '<div id="redbag'+json.couponLisOff[item].id+'" class="prize cannot">';
+                    s += '<div class="prize__money">'+v+u+'</div><div class="prize__name">'+json.couponLisOff[item].title+'</div>';
+                    s += '<div class="prize__num ">投资金额≥'+json.couponLisOff[item].minInvest+'元</div>';
+                    s += '<div class="prize__date">投资期限≥'+json.couponLisOff[item].minDue+'天</div><div class="prize__active">'+tagToType(json.couponLisOff[item].applyTag)+'</div><div class="prize__time">有效期：'+formatDateTime(json.couponLisOff[item].valiteTime)+'至'+formatDateTime(json.couponLisOff[item].expireTime)+'</div></div>';
+                    html.push(s);
+        		}
+        		$('.discount-coupon__prize').empty().html(html);
+        	} else {
+        		$("#redbag").empty().html('暂无红包可用');
+        	}
+        }
+   	})
+}
+
+var payStatus = true;
+function payfor() {
+	
+	$('.checkboxclick-warning').empty();
+	
+	var msgErr = '';
+	
+	if(realAmount>waitAmount) {
+		msgErr = '账户余额不足';
+	}
+	if(buyAmount >able) {
+		msgErr = '购买金额大于标的剩余金额';
+	}
+	
+	if(!$("input[type='checkbox']").is(':checked')) {
+		$('.checkboxclick-warning').empty().html('请阅读并同意');
+		return false;
+	}
+	
+	if(msgErr) {
+		$('.dialog-container__text').empty().html(msgErr);
+		$('.dialog').css('display','block');
+		return false;
+	} else {
+		
+		if(!payStatus) {
+			return false;
+		}
+		
+		payStatus = false;
+		
+		$.ajax({
+	    	url: "/product/pay.html",
+	        type: "post",
+	        async:false,
+	        data: {'id':id,'amount':buyAmount,'redpackets':redpackets,'interestCoupon':interestCoupon,'realAmount':realAmount},
+	        success: function (json) {
+	        	if(json.status==0 || json.status==2){
+	        		payStatus = true;
+	        		$('.dialog-container__text').empty().html(json.info);
+	        		$('.dialog').css('display','block');
+	        	} else {
+	        		location.href = json.info;
+	        	}
+	        	return false;
+	        }
+		});
+	}
+    
+}
+function closeDialog() {
+    $('.dialog').css('display','none');
+}
+
+
+
+function agreement() {
+    $('.dialog2').css('display', 'block');
+}
+function closeDialog2() {
+    $('.dialog2').css('display', 'none');
+}
+
+function formatDateTime(timeStamp) {   
+    var date = new Date();  
+    date.setTime(timeStamp);  
+    var y = date.getFullYear();      
+    var m = date.getMonth() + 1;      
+    m = m < 10 ? ('0' + m) : m;      
+    var d = date.getDate();      
+    d = d < 10 ? ('0' + d) : d;      
+    return y + '-' + m + '-' + d;      
+};    
+
+function tagToType(apply_tag){
+    var arr = new Array();
+    arr[0]= '普通';
+    arr[1]= '新手';
+    arr[2]= '爆款';
+    arr[6]= '活动';
+    arr[8]= '个人专享';
+    var res = [];
+    var apply_tag= apply_tag.split(':');    
+    for (var i=0;i<apply_tag.length;i++){
+    	res.push(arr[apply_tag[i]])
+    }
+    return "适用标签：“"+res.join(',')+"”";
+}
+
+
+
+
+
+$(document).ready(function() {
+	
+	
+	loadRed();
+	
+	$("input[type='checkbox']").change(function(){
+		if(!$("input[type='checkbox']").is(':checked')) {
+			$('.checkboxclick-warning').empty().html('请阅读并同意');
+		} else{
+			$('.checkboxclick-warning').empty();
+		}
+	})
+	
+	$("#amt").blur(function(){
+		
+		var buyAmt = parseInt($(this).val());
+		
+		if((/^(\+|-)?\d+$/.test( buyAmt ))&&buyAmt>0){  
+	           
+        }else{  
+        	
+        	$(this).val('');
+        	$("#buyAmtTip").empty().html('请输入购买的金额');
+            return false;  
+        }  
+    	
+    	if(user == "") {
+    		$("#buyAmtTip").empty().html('请先登录');
+    		return false;
+    	}
+    	
+    	if(buyAmt<buy_min_money) {
+    		$("#buyAmtTip").empty().html('不能低于该标的单次最小购买金额'+buy_min_money+'元！');
+    		$("#amt").focus();
+    		return false;
+    	}
+    	/*
+    	if(buyAmt>buy_max_money) {
+    		buyAmt = buy_max_money;
+    		if(buyAmt>waitAmount) {
+    			$(this).val(buyAmt);
+    			$("#buyAmtTip").empty().html('余额不足，<a href="/index.php/User/index/recharge"><span class="exchangeFirst">请先充值</span>');
+    			$("#amt").focus();
+    			return false;
+    		}
+    	}else {
+    		if(buyAmt>waitAmount) {
+    			$("#buyAmtTip").empty().html('余额不足，<a href="/index.php/User/index/recharge"><span class="exchangeFirst">请先充值</span>');
+    			$("#amt").focus();
+    			return false;
+    		}
+    	}
+    	*/
+    	
+    	if(buyAmt>buy_max_money) {
+    		buyAmt = buy_max_money;
+    		$(this).val(buyAmt);
+    		if(buyAmt>waitAmount) {
+    			$("#buyAmtTip").empty().html('余额不足，<a href="/index.php/User/index/recharge"><span class="exchangeFirst">请先充值</span>');
+        		return false;
+    		}
+    	}else {
+    		if(buyAmt>waitAmount) {
+    			$("#buyAmtTip").empty().html('余额不足，<a href="/index.php/User/index/recharge"><span class="exchangeFirst">请先充值</span>');
+        		return false;
+    		}
+    	}
+    	
+    	
+    	
+    	
+    	var _buy = buyAmt%100;
+    	
+    	if(_buy !=0) {
+    		$("#buyAmtTip").empty().html('请输入100的整数倍');
+    		$("#amt").focus();
+    		return false;
+    	}
+    	
+    	var income = (user_interest * days * buyAmt)/365/100;
+    	
+    	$('#income').empty().text(income.toFixed(2)+'元');
+    	
+    	$("#buyAmtTip").empty();
+    	
+    	$('.payfor__money').empty().html(buyAmt);
+    	realAmount = buyAmount =  buyAmt;
+    	 
+    	loadRed();
+		
+	});
+});
+
+function agreement() {
+    $('.dialog2').css('display', 'block');
+}
+function closeDialog2() {
+    $('.dialog2').css('display', 'none');
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170517/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170517/css/style.css" rel="stylesheet" type="text/css" />
+    <title>票票喵</title>
+    <style>
+.love img{
+    width:100%;
+}
+    </style>
+</head>
+<body>
+    <section>
+        <div class="love">
+            <img src="{:C('IMG_ROOT')}/activity/event20170517/images/520_01.jpg" />
+            <img src="{:C('IMG_ROOT')}/activity/event20170517/images/520_02.jpg" style="margin-top:-1px;"/>
+            <img src="{:C('IMG_ROOT')}/activity/event20170517/images/520_03.jpg" style="margin-top:-1px;"/>
+            <img src="{:C('IMG_ROOT')}/activity/event20170517/images/520_04.jpg" style="margin-bottom:40px;"/>
+        </div>
+
+        <div class="fu_now tc" style="cursor:pointer;margin-top:50px;z-index:1;" onclick="go2App();">
+            <p>立即投资</p>
+        </div>
+    </section>
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+    </body>
+</html>

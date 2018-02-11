@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>产品详情</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{:C('STATIC_ROOT')}/assets/js/semantic.min.js"></script>
+    <script src="{:C('STATIC_ROOT')}/assets/details/index.js?v=10"></script>
+    <link href="{:C('STATIC_ROOT')}/assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/cover.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/details/index.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<include file="Common:header" />
+    <div class="main">
+        <div class="data-container">
+            <div class="details">
+                <div class="title">
+                    <span class="title-name">{$detail.title}</span>
+                    <img class="title-bankIcon" src="{:C('STATIC_ROOT')}/assets/images/bankName.png" />
+                    <span>{$detail.accepting_bank}</span>
+                </div>
+                <div class="ui divider"></div>
+                <div class="dataDetails">
+                    <div class="data-detail__num">
+                        <div class="detail-lineheight">
+                            <div class="detail-earnings__num">
+                                                
+                            	{$detail.user_interest}
+                                <span style="font-size:14px;">%</span>
+                            
+                            </div>
+                            <div class="detail-earnings__text">
+                                预期年化收益
+                            </div>
+                        </div>
+                        <div class="detail-lineheight">
+                            <div class="detail-duration__num">
+                                {$detail.duration}<span style="font-size:14px;">天</span>
+                            </div>
+                            <div class="detail-duration__text">
+                                投资期限
+                            </div>
+                        </div>
+                        <div class="detail-lineheight">
+                            <div class="detail-duration__num">
+                                {$detail.amount|number_format=2}<span style="font-size:14px;">元</span>
+                            </div>
+                            <div class="detail-duration__text">
+                                融资金额
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-detail__num" style="border-bottom:0">
+                        <div style="padding-top:10px;">
+                            <div class="detail-content">
+                                <div>起息时间： T(成交日) + 1
+                                </div>
+                                <div>
+                                    还款方式：一次性还本付息
+                                </div>
+                            </div>
+                            <div class="detail-content">
+                                <div>
+                                    到期时间： {$detail.end_time}
+                                </div>
+                                <div>
+                                    到账时间： 1-3个工作日
+                                </div>
+                            </div>
+                            <div class="detail-content" style="padding: 20px 0;">
+                                <div class="detail-content__progress">
+                                    项目进度：
+                                </div>
+                                <div class="ui progress progress__cover" style="    margin: 8px 0px!important;width: 350px">
+                                    <div class="bar bar__cover" style="width:{$detail.progress}px"></div>
+                                </div>
+                                <div style="margin-left: 20px;">
+                                    {$detail.percent}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buy">
+                    <div style="padding:40px">
+                        <div class="buy__restMoney">
+                            剩余金额： <span style="font-size:24px">{$detail.able|number_format=2}</span><span>元</span>
+                        </div>
+                        <div class="buy__accountMoney">
+                            账户余额：
+                            	<if condition="$Think.session.USER_ONLINE_SESSION.username eq ''">
+            						<span class="buy_recharge"><a href="/user/login.html">登录后查看</a></span>
+            					<else/>
+            					 	<span style="color:#000">{$amt}元</span> <a href="/index.php/User/index/recharge"><span class="buy_recharge">充值</span></a> 
+            					</if>
+                        </div>
+                        <div>
+                            投资金额:
+                            <div class="ui icon input">
+                                <input type="text" name="amount" id="amount" placeholder="100起投，购买最高{$detail.money_max}" style="margin:0 12px;width: 260px;" maxlength="10">
+                                <label class="allin">余额全投</label>
+                            </div>
+                            <div style="margin: 5px 0 0 0;" id="tip"></span></a>
+                                
+                            </div>
+                            
+                            <div class="buy__shopping" onclick="payfor()" style="cursor: pointer;">
+                                立即购买
+                            </div>
+                            <div class="buy__up"></div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="risk">
+                    大头喵提醒您 投资有风险 理财需谨慎
+                </div>
+            </div>
+        </div>
+        <div class="details-container">
+            <div class="ui tabular menu">
+                <div class="active item" data-tab="tab-name">资金保障</div>
+                <div class="item" data-tab="tab-name2">投资记录</div>
+            </div>
+            <div class="active ui tab" data-tab="tab-name">
+                <div class="vessel">
+                    <div class="vessel-part">
+                        <div class="details-title">
+                            还款来源
+                        </div>
+                        <div class="details-text">
+                            融资方持有银行承兑汇票托管到期后，由承兑银行无条件兑付，托收款项用于偿还投资人的本金和收益。
+                        </div>
+                    </div>
+                    <div class="vessel-part">
+                        <div class="details-title">
+                            验票托管
+                        </div>
+                        <div class="details-text">
+                            票票喵票据全部由平安银行负责验票确认真伪，并托管至票据到期，票据到期后由银行负责托收清算，确保票据和资金安全
+                        </div>
+                    </div>
+                    <div class="vessel-part">
+                        <div class="details-title">
+                            承兑汇票
+                        </div>
+                        <div class="details-img">
+                            <img src="{$detail.repayment_source_descr}" onclick="showImg('{$detail.repayment_source_descr}')"/>
+                        </div>
+                    </div>
+                    <div class="vessel-part">
+                        <div class="details-title">
+                            银行托管协议
+                        </div>
+                        <div class="details-img">
+                            <img src="{:C('STATIC_ROOT')}/ppmiao/bank/pa01.jpg" onclick="showImg('{:C('STATIC_ROOT')}/ppmiao/bank/pa01.jpg')" />
+							<img src="{:C('STATIC_ROOT')}/ppmiao/bank/pa02.jpg" onclick="showImg('{:C('STATIC_ROOT')}/ppmiao/bank/pa02.jpg')" />
+                        </div>
+                    </div>
+                    <div class="vessel-part">
+                        <div class="details-title">
+                            保险协议
+                        </div>
+                        <div class="details-img">
+                            <img src="{:C('STATIC_ROOT')}/ppmiao/contract/ht01.jpeg" onclick="showImg('{:C('STATIC_ROOT')}/ppmiao/contract/ht01.jpeg')" />
+							<img src="{:C('STATIC_ROOT')}/ppmiao/contract/ht02.jpeg" onclick="showImg('{:C('STATIC_ROOT')}/ppmiao/contract/ht02.jpeg')" />
+							<img src="{:C('STATIC_ROOT')}/ppmiao/contract/ht03.jpeg" onclick="showImg('{:C('STATIC_ROOT')}/ppmiao/contract/ht03.jpeg')" />
+                        </div>
+                    </div>
+                    <div class="vessel-part">
+                        <div class="details-title">
+                            相关协议
+                        </div>
+                        <div class="details-img">
+                            <foreach name="image" item="item">
+                        		<img src="{$item}" onclick="showImg('{$item}')" />
+                    		</foreach>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui tab" data-tab="tab-name2">
+                <div class="vessel">
+                    <div style="padding: 50px 40px 200px 40px;">
+                       
+                      
+                       
+                       <if condition="$totalNum gt 0 ">
+                       
+                        <div style="
+                        	padding: 20px 0;font-size: 16px;">投资人数 <span style="font-size: 20px;color:#ff580f">{$totalNum}</span> 人
+                        </div>
+                        
+                        <div>
+                            <table class="ui celled table">
+                                <thead>
+                                    <tr>
+                                        <th>购买人</th>
+                                        <th>金额(元)</th>
+                                        <th>成交时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	
+                                	<foreach name="investLog" item="item">
+                                    <tr>
+                                        <td>{$item.username}</td>
+                                        <td>{$item.invSucc}</td>
+                                        <td>{$item.addTime}</td>
+                                    </tr>
+                                    </foreach>
+                                    
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                        
+                        <else/>
+                        	<div class="noRecord"></div>
+                        </if>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="bigPic" style="display:none">
+            <div class="bigPic-shadow" id="shadow" onclick="close()"></div>
+           <div class="img-overflow">
+                <img id="pic" class="bigPic-Pic" />
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        <div class="dialog" style="display:none">
+            <div class="dialog-shadow" onclick="closeDialog()"></div>
+            <div class="dialog-container">
+                <div class="dialog-container__text">
+                    余额不足，请充值
+                </div>
+                <div class="dialog-container__button" onclick="closeDialog()">
+                    <a href="/index.php/User/index/recharge">去充值</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Common:footer" />
+</body>
+<script>
+    $('.tabular.menu .item').tab();
+    var user_interest = {$detail.user_interest};
+    var days = {$detail.duration};
+    var id = {$detail.id};
+    var buy_max_money = {$detail.money_max};
+    var buy_min_money = {$detail.money_min};
+    var my_money = {$amt};
+    var user = '{$user}';
+    var able = {$detail.able};
+</script>
+</html>

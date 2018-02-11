@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{:C('STATIC_ROOT')}/new_ppmiao_v4/css/index.css">
+    <title>票票喵 - 企业账户设置</title>
+
+</head>
+<body style="background-color:#f4f4f4;">
+
+    <!--1-->
+    <include file="Public:ppm_menu" />
+    <!--正文-->
+        <div class="person_top">
+            <div class="person_center">
+                <a href="profile.html"><p class="cut10 fl"">个人中心</p></a>
+                <a href="repayment_list.html?type=2"><p class="cut10 fl">待还款</p></a>
+                <a href="repayment_list.html?type=1"><p class="cut10 fl">已还款</p></a>
+                <a href="money_detail.html"><p class="cut10 fl"">资金明细</p></a>
+                <a href="#"><p class="cut10 fl" style="color:#ff6a00;">账户设置</p></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="person_big">
+            <div class="recover_chong">
+                <p>账户设置</p>
+            </div>
+            <div class="setting_number">
+                <div class="cut20 fl tc">
+                    <p>手机号</p>
+                </div>
+                <div class="cut40 fl ">
+                    <p style="color:#888888;">{$detail.mobile}</p>
+                </div>
+                <div class="cut40 fl  tc">
+                    <a href="changephone.html"><button style="cursor:pointer;">修改</button></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="setting_number">
+                <div class="cut20 fl tc">
+                    <p>企业名称</p>
+                </div>
+                <div class="cut40 fl ">
+                    <p style="color:#888888;">{$detail.company_name}</p>
+                </div>
+                <div class="cut40 fl  tc">
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            
+            
+            <div class="setting_number">
+                <div class="cut20 fl tc">
+                    <p>平台客户号</p>
+                </div>
+                <div class="cut40 fl ">
+                    <p style="color:#888888;">{$info.platform_account}</p>
+                </div>
+                <div class="cut40 fl  tc">
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            
+            <div class="setting_number">
+                <div class="cut20 fl tc">
+                    <p>收款开户行</p>
+                </div>
+                <div class="cut40 fl ">
+                    <p style="color:#888888;">{$info.bank_name}</p>
+                </div>
+                <div class="cut40 fl  tc">
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            
+            <div class="setting_number">
+                <div class="cut20 fl tc">
+                    <p>收款银行卡号</p>
+                </div>
+                <div class="cut40 fl ">
+                    <p style="color:#888888;">{$info.bank_card_no}</p>
+                </div>
+                <div class="cut40 fl  tc">
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            <div class="setting_number">
+                <div class="cut20 fl tc">
+                    <p>收款人</p>
+                </div>
+                <div class="cut40 fl ">
+                    <p style="color:#888888;">{$info.acct_name}</p>
+                </div>
+                <div class="cut40 fl  tc">
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            
+            <div class="setting_number">
+                <div class="cut20 fl tc">
+                    <p>法人信息</p>
+                </div>
+                <div class="cut40 fl ">
+                    <p style="color:#888888;">{$detail.legal_person}</p>
+                </div>
+                <div class="cut40 fl  tc">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="setting_number">
+                <div class="cut20 fl tc">
+                    <p>登录密码</p>
+                </div>
+                <div class="cut40 fl ">
+                    <p style="color:#888888;">登录票票喵需要输入的密码</p>
+                </div>
+                <div class="cut40 fl  tc">
+                    <a href="modifypassword.html"><button style="cursor:pointer;">修改</button></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="money_ti">
+                <img class="fl" style="width:20px;margin-top:9px;margin-right:10px;" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/images/tan_03.jpg" />
+                <p>如需修改企业信息，请联系客服</p>
+            </div>
+        </div>
+
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+
+</body>
+</html>

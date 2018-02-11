@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coming Soon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/css.css?v=2.1" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+    <include file="Public:mobile_forbidding" />
+</head>
+
+<body id="jjsxBody">
+<div class="jjsxBox01">
+    <div class="wrap01">
+        <div class="jjsxImg01">
+            <img class="img_1" src="{:C('STATIC_ROOT')}/mobile/images/jjsxImg01.png" />
+            <img class="img_2" src="{:C('STATIC_ROOT')}/mobile/images/jjsxImg02.png" />
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(window).resize(function() {
+        var heightH=window.innerHeight;
+        var widthH=window.innerWidth;
+        $("#jjsxBody").css("height",heightH);
+        $("#jjsxBody").css("width",widthH);
+    });
+    $(document).ready(function()  {
+        var heightH=window.innerHeight;
+        var widthH=window.innerWidth;
+        $("#jjsxBody").css("height",heightH);
+        $("#jjsxBody").css("width",widthH);
+    });
+</script>
+</body>
+</html>

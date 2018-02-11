@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="css/basic.css" rel="stylesheet" type="text/css" />
+    <title>票票喵</title>
+    <style>
+        .lv_pic img {
+        width:100%;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <!--正文-->
+        <div class="lv_pic">
+            <img src="images/new_01.jpg" />
+            <img style="margin-top:-1px;" src="images/new_02.jpg" />
+            <img style="margin-top:-1px;" src="images/new_03.jpg" />
+            <img style="margin-top:-1px;" src="images/new_04.jpg" />
+            <img style="margin-top:-1px;" src="images/new_05.jpg" />
+            <img style="margin-top:-1px;" src="images/new_06.jpg" />
+            <img style="margin-top:-1px;" src="images/new_07.jpg" />
+            <img style="margin-top:-1px;" src="images/new_08.jpg" />
+        </div>
+    </section>
+    </body>
+</html>

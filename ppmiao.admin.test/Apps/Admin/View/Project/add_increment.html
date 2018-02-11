@@ -1,0 +1,285 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">添加产品 [ <a href="{:C('ADMIN_ROOT')}/Project/index">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <form id="frmMain" method='post' action="" enctype="multipart/form-data">
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="150px">类型：</td>
+                    <td class="tLeft">
+                        <select id="type" name="type" class="bLeftRequire" datatype="*" onchange="changeType(this)">
+                            <option value="">--请选择一个产品类型--</option>
+                            <foreach name="type_arr" item="item">
+                                <option value="{$item.id}" <eq name="item.id" value="$params['type']">selected</eq>>{$item.cons_value}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">期数：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" id="stage" name="stage" datatype="n" value="{$stage}" onchange="changeStage(this)" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">标题：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="title" name="title"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">购买基数：</td>
+                    <td class="tLeft"><input type="text" datatype="n" id="basecount" name="basecount" value="0" />&nbsp;<span style="color:#409DFE;">注：前端显示该项目购买数量为此基数+用户实际购买数之和</span></td>
+                </tr>
+                <tr>
+                    <td class="tRight">特殊标签：</td>
+                    <td class="tLeft">
+                        <select name="new_preferential">
+                            <option value="0">无</option>
+                            <option value="1">新人特惠</option>
+                            <option value="2">爆款</option>
+                            <option value="3">HOT</option>
+                            <option value="4">奖励</option>
+                            <option value="5">预售</option>
+                            <option value="6">活动</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">期限类型：</td>
+                    <td class="tLeft">
+                        <select name="term_type" id="term_type">
+                            <option value="1">稳一稳</option>
+                            <option value="2">搏一搏</option>
+                            <!--<option value="3">A类产品</option>-->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">融资方：</td>
+                    <td class="tLeft"><input type="text" id="financing" name="financing" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">昵称(在电子合同显示债权人名称)：</td>
+                    <td class="tLeft"><input type="text" id="nickname" name="nickname" datatype="*" class="bLeftRequire" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">身份证(在电子合同显示债权人身份证)：</td>
+                    <td class="tLeft"><input type="text" id="idcard" name="idcard" datatype="*" class="bLeftRequire" maxlength="18" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">合同编号：</td>
+                    <td class="tLeft"><input type="text" id="contract_no" name="contract_no" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">石头编号：</td>
+                    <td class="tLeft"><input type="text" id="stone_no" name="stone_no" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">以H5展示：</td>
+                    <td class="tLeft"><label><input type="checkbox" id="is_h5" name="is_h5" value="1" />H5页面</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">最低年化(%)：</td>
+                    <td class="tLeft"><input type="text" id="min_interest" name="min_interest" value="0" onchange="changeInterest(this)" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">最高年化(%)：</td>
+                    <td class="tLeft"><input type="text" id="max_interest" name="max_interest" value="0" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">可购买次数：</td>
+                    <td class="tLeft"><input type="text" id="buy_times" name="buy_times" datatype="n" value="0" />&nbsp;<span style="color:#409DFE;">注：0为不限制</span></td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">起购封顶金额(元)：</td>
+                    <td class="tLeft">
+                        <input type="text" id="money_min" name="money_min" datatype="semoney" value="0" nullmsg="请填写信息！" errormsg="必须为数字！" /> -
+                        <input type="text" id="money_max" name="money_max" datatype="semoney" value="0" nullmsg="请填写信息！" errormsg="必须为数字！" />&nbsp;<span style="color:#409DFE;">注：0为不限制</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">起止时间：</td>
+                    <td class="tLeft">
+                        <input type="text" class="bLeftRequire laydate-icon" name="start_time" id="start_time" readonly /> -
+                        <input type="text" class="bLeftRequire laydate-icon" name="end_time" id="end_time" readonly />
+                    <td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">投资天数：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" name="days" id="days" value="0" datatype="n" /><td>
+                </tr>
+                <tr>
+                    <td class="tRight">计息方式：</td>
+                    <td class="tLeft" >
+                        <select id="count_interest_type" name="count_interest_type" class="bLeftRequire" datatype="*">
+                            <option value="">--请选择计息方式--</option>
+                            <option value="1">T+0</option>
+                            <option value="2">T+1</option>
+                            <option value="3">T+2</option>
+                            <option value="4">T+3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">还款方式：</td>
+                    <td class="tLeft">
+                        <select id="repayment_type" name="repayment_type" class="bLeftRequire" datatype="*" onchange="changeRepayment(this)">
+                            <option value="">--请选择还款方式--</option>
+                            <option value="1">一次性还本付息</option>
+                            <option value="2">按月付息，到期还本</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="trRepayment" style="display:none;">
+                    <td class="tRight tTop">每月固定还款日：</td>
+                    <td class="tLeft"><input type="text" id="repayment_day" name="repayment_day" datatype="n" value="20" class="bLeftRequire" /><td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">借款金额(元)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="amount" name="amount" datatype="n" value="" onchange="count_earn()"><span id="formatAmount" style="color:green"></span></td>
+                </tr>
+                <tr>
+                    <td class="tRight">合同上的利息(%)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="contract_interest" datatype="f" errormsg="请输入数字" name="contract_interest" onchange="count_earn()"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">给用户的利息(%)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="user_interest" datatype="f" errormsg="请输入数字" name="user_interest" onchange="count_earn()"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">项目到期收益(元)：</td>
+                    <td class="tLeft">
+                        <input type="text" name="corporation_earnings" id="corporation_earnings" readonly class="fLeft" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">描述内容：</td>
+                    <td class="tLeft">
+                        <p style="color:red;">注：标题分隔符"&lt;!--title--&gt;"，内容分隔符"&lt;!--line--&gt;"</p>
+                        <textarea name="description" id="description" style="width:700px;height:500px;">
+产品结构
+<!--title-->
+产品结构内容描述
+<!--line-->
+收益计算
+<!--title-->
+收益计算内容描述
+<!--line-->
+关于结构化投资
+<!--title-->
+结构化投资内容描述
+<!--line-->
+上证50ETF介绍
+<!--title-->
+上证50ETF介绍描述
+<!--line-->
+风控说明
+<!--title-->
+风控说明内容描述
+<!--line-->
+回款说明
+<!--title-->
+回款说明内容描述
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">预售倒计时：</td>
+                    <td class="tLeft" >
+                        <select id="countdown" name="countdown">
+                            <option value="0" selected>关闭</option>
+                            <option value="1">开启</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">倒计时订阅：</td>
+                    <td class="tLeft" >
+                        <select id="can_subscribe" name="can_subscribe">
+                            <option value="0" selected>不允许</option>
+                            <option value="1">允许</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">分类置顶：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="local_top" name="local_top" value="0" datatype="n" errormsg="请输入数字">&nbsp;<span style="color:#409DFE;">注：数字越大越置顶</span></td>
+                </tr>
+                <tr>
+                    <td class="tRight">全局置顶：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="global_top" name="global_top" value="0" datatype="n" errormsg="请输入数字">&nbsp;<span style="color:#409DFE;">注：数字越大越置顶</span></td>
+                </tr>
+                <tr>
+                    <td class="tRight">支付成功结果页面：</td>
+                    <td class="tLeft" >
+                        <select name="pay_suc_by_h5">
+                            <option value="0">使用原生支付成功页面</option>
+                            <option value="1">使用H5支付成功页面</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    var _stage = {$stage};
+
+    var start = {
+        elem: '#start_time',
+        format: 'YYYY-MM-DD hh:mm',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: true,
+        istoday: true,
+        choose: function(datas){
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+            end.start = datas //将结束日的初始值设定为开始日
+            count_duration();
+        }
+    };
+    var end = {
+        elem: '#end_time',
+        format: 'YYYY-MM-DD hh:mm',
+        min: laydate.now(),
+        max: '2099-06-16 23:59:59',
+        istime: true,
+        istoday: true,
+        choose: function(datas){
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+            count_duration();
+        }
+    };
+    laydate(start);
+    laydate(end);
+    function changeInterest(_obj){
+        var _val = $(_obj).val();
+        $("#min_interest,#user_interest").val(_val);
+    }
+</script>
+<script type="application/javascript" src="__PUBLIC__/admin/js/project_increment_add.js"></script>

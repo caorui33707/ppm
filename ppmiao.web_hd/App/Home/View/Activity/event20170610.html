@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <script src="https://image.ppmiao.com/Public/activity/event20170610/js/flexible.js"></script>
+    <script src="https://image.ppmiao.com/Public/activity/event20170610/js/flexible_css.js"></script>
+    <title>票票喵</title>
+<style>
+.index_bank{
+background-image: url("https://image.ppmiao.com/Public/activity/event20170610/images/six1.jpg");
+background-repeat: no-repeat;
+background-size: 100%;
+width: 10rem;
+height: 10rem;
+text-align: center;
+margin: auto;
+position: relative;
+}
+.index_time{
+position: absolute;
+top:5.2rem;
+width:10rem;
+text-align: center;
+font-size:0.35rem;
+}
+.index_middle{
+background-image: url("https://image.ppmiao.com/Public/activity/event20170610/images/six2.jpg");
+background-repeat: no-repeat;
+background-size: 100%;
+width: 10rem;
+height: 10rem;
+text-align: center;
+margin: auto;
+}
+.index_money1{
+  color:#fddb13;
+  font-size: 0.58rem;
+}
+.index_money2{
+  color:#fddb13;
+  font-size: 0.4rem;
+	width: 62%;
+  margin-top: 1.23rem;
+}
+.index_money3{
+  position: absolute;
+  top:2rem;
+  left:5.5rem;
+  color:#fddb13;
+  font-size: 0.4rem;
+}
+.index_middle1{
+background-image: url("https://image.ppmiao.com/Public/activity/event20170610/images/six3.jpg?f=1");
+background-repeat: no-repeat;
+background-size: 100%;
+width: 10rem;
+height: 10rem;
+text-align: center;
+margin: auto;
+position: relative;
+}
+.index_foot{
+background-image: url("https://image.ppmiao.com/Public/activity/event20170610/images/six4.jpg");
+background-repeat: no-repeat;
+background-size: 100%;
+width: 10rem;
+height: 7rem;
+text-align: center;
+margin: auto;
+}
+.head_now {
+width: 100%;
+height: 1.2rem;
+line-height: 1.2rem;
+background-color: #ff5739;
+color: #fff;
+font-size: 0.4rem;
+width:100%;position:fixed;bottom:0;left:0;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+  <div class="index_bank">
+    <div class="index_time">
+      <p>
+        活动时间：6月10日10:00-6月30日
+      </p>
+    </div>
+  </div>
+  <div class="index_middle"></div>
+  <div class="index_middle1">
+    <div class="index_money1">{$income_amount}</div>
+    <div class="index_money2">{$i_invest_amount}</div>
+    <div class="index_money3">{$total_invest_money}</div>
+  </div>
+  <div class="index_foot"></div>
+  <div class="head_now tc" style="cursor:pointer;" onclick="go2App();">
+      <p>立即投资</p>
+  </div>
+   <script src="https://image.ppmiao.com/Public/activity/js/common.js"></script>
+</body>
+</html>

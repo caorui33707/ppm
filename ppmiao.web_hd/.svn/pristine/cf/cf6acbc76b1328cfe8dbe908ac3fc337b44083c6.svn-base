@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>产品列表</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link href="{:C('STATIC_ROOT')}/assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/cover.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/product_list/style.css" rel="stylesheet" type="text/css">
+    <script src="{:C('STATIC_ROOT')}/assets/product_list/index.js"></script>
+    <script src="{:C('STATIC_ROOT')}/assets/js/semantic.min.js"></script>
+</head>
+
+<body>
+    <include file="Common:header" />
+    <div class="main">
+        <div class="container">
+            <div class="ui top attached tabular menu" style="height:40px;">
+                <div class="active item">
+                    <div class="title">
+                        在售
+                    </div>
+                </div>
+            </div>
+            <div class="ui bottom attached active tab segment tab-cover__padding">
+                <div class="prefeture" id="new"></div>
+                <div class="prefecture" id="active"></div>
+                <div class="prefecture" id="terminal"></div>
+            </div>
+        </div>
+    </div>
+    <include file="Common:footer" />
+</body>
+
+</html>

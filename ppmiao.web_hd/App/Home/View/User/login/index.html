@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>票票喵 -用户登录</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link href="{:C('STATIC_ROOT')}/assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/cover.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/login/style.css" rel="stylesheet" type="text/css">
+    <script src="{:C('STATIC_ROOT')}/assets/login/index.js"></script>
+    <script src="{:C('STATIC_ROOT')}/assets/js/semantic.min.js"></script>
+</head>
+<style>
+button{
+	background-color:transparent;
+}
+</style>
+<body>
+    	<include file="Common:header" />
+    <div class="main">
+        <div class="container">
+            <div class="background">
+                <div class="form-container">
+                    <form class="ui form">
+                        <div class="title">登录票票喵理财</div>
+                        <div class="field" style="padding:0 40px;">
+                            <input type="text" name="phone" placeholder="手机号" maxlength="11">
+                            <label class="phoneError" style="height:5px;color:#ff580f"></label>
+                        </div>
+                        <div class="field" style="padding:0 40px;">
+                            <input type="text" name="graph_code" placeholder="图形验证码" style="width:200px;" maxlength="4" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+                            <img id="verifyImg" src="/common/verify" class="authCode" onclick="javascript:newgdcode(this,this.src);" border="0" ALT="点击刷新验证码" style="cursor:pointer" >
+                            <label class="graphCodeError" style="height:5px;color:#ff580f"></label>
+                        </div>
+                        <div class="field" style="padding:0 40px; position:relative">
+                            <input type="text" name="auth_code" id="auth_code" placeholder="手机验证码" maxlength="6">
+                            <input type="button" id="btn"  class="classic" value="获取验证码" onclick="getCode(this)" />
+                            <label class="authCodeError" style="color:#ff580f"></label>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox checkboxclick" style="opacity:0">
+                                <input type="checkbox" tabindex="0">
+                                <label>记住手机号</label>
+                            </div>
+                        </div>
+                        <button class="login" type="button"></button>
+                    </form>
+                    <a href="/user/reg.html"><button class="sign">注册领红包</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Common:footer" />
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/v2/css/jquery.mCustomScrollbar.css">
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script src="{:C('STATIC_ROOT')}/v2/js/jquery.mCustomScrollbar.concat.min.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <include file="PublicNew:user_sidebar" />
+
+    <div class="innerRight fRi clear">
+        <div class="WywBox01 fLe clear">
+            <div class="innerRight_user_title fLe clear">
+                <h2>{$detail.title}</h2>
+                <a href="javascript:;" onclick="showContract()">查看购买合同</a>
+            </div>
+            <div class="innerRight_user_b_block01_01 fLe clear">
+                <ul>
+                    <li><h5>{$due_detail.due_capital|number_format=2}</h5><p>投资金额(元)</p></li>
+                    <li><h5 class="red">{$ex_detail.evaluation}</h5><p>当前股价(元/股)</p></li>
+                    <li><h5 class="red">{$due_detail['due_capital']/$ex_detail['evaluation_source']}</h5><p>对应股份(股)</p></li>
+                </ul>
+            </div>
+            <div class="WywBox01BottomLine fLe clear"></div>
+            <div class="Wyw_list fLe clear">
+                <h5>项目动态</h5>
+            </div>
+            <div class="userGqzc_list fLe clear">
+                <ul>
+                    <foreach name="dynamic" item="item">
+                        <li onclick="dynamic({$item.id})"><span>({$item.add_time|strtotime|date='Y-m-d',###})<i></i></span><p>{$item.title}</p></li>
+                    </foreach>
+                </ul>
+            </div>
+            <div class="Wyw_list fLe clear">
+                <h5>资金状态<em></em></h5>
+                <eq name="due_detail.from_wallet" value="1">
+                    <h3>&nbsp;</h3>
+                <else/>
+                    <h3><i><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$bank_info.bank_code}.png"/></i>尾号{$due_detail.card_no|get_card_tail_number}</h3>
+                </eq>
+            </div>
+            <div class="Wyw_list_content fLe clear">
+                <div class="WywDetailsList01 fLe clear">
+                    <ul>
+                        <li class="li01"><span>{$due_detail.add_time|strtotime|date='Y/m/d',###}</span></li>
+                        <li class="li02"><span>{$due_detail.due_capital|number_format=2}</span></li>
+                        <li class="li03"><span>购买成功</span></li>
+                    </ul>
+                    <i class="icon01"><img src="{:C('STATIC_ROOT')}/v2/images/img/icon03.png" /></i>
+                </div>
+            </div>
+        </div>
+        <!-- 合同内容开始 -->
+        <div class="MyuserBox01 contactBigBox fLe clear" style="display:none;" id="contract_content">
+            <div class="contractTitle01 fLe clear">
+                <a href="javascript:;" class="closeButton close" onclick="closeContract()"></a>
+            </div>
+            <div class="contractTitle02 fLe clear">
+                <h2>项目转让及委托代持协议</h2>
+            </div>
+            <div>
+                <div class="contractContent content demo-y fLe clear">
+                    <p>
+                        委托方（甲方）：{$due_detail.uinfo.real_name}<br />
+                        身份证号/护照号：{$due_detail.uinfo.card_no|hide_whole_idcard}<br />
+                        电话：{$due_detail.uinfo.username}<br />
+                        受托方（乙方）：王伟军<br />
+                        身份证号码：{$detail.idcard|hide_whole_idcard}<br />
+                        信息服务方（丙方）：杭州时投信息科技有限公司<br />
+                        鉴于：<br />
+                        1、乙方系杭州云流股权投资合伙企业（有限合伙）（以下简称“云流投资”）有限合伙人，实缴出资195万元，占云流投资的3.55%。<br />
+                        2、云流投资合伙人共实缴出资5500万元，全部投资于云南祥云飞龙再生科技股份有限公司（以下简称“祥云飞龙”）；持有祥云飞龙550万股。<br />
+                        3、乙方愿意将其在云流投资的部分财产份额转让给甲方，甲方愿意受让；同时甲方委托乙方代持该部分财产份额。<br />
+                        甲乙双方经协商一致，就财产份额转让及委托代持事宜签订如下协议：<br />
+                    </p>
+                    <p>
+                        一、转让和委托标的<br /><br />
+                        1、甲方愿意将其持有的云流投资的【{$due_detail['due_capital']/20000|number_format=2}】%财产份额转让给乙方，转让价格为人民币【{$due_detail.due_capital|number_format}】元，对应祥云飞龙【{$due_detail['due_capital']/$ex_detail['evaluation_source']|number_format}】股。若祥云飞龙或云流投资增资等原因导致乙方名下财产份额比例发生变化的，则甲方出资部分对应的比例也相应调整。<br />
+                        2、甲方通过丙方使用的第三方支付平台支付转让款至乙方指定账户。<br />
+                        3、甲方委托乙方代为持有上述财产份额，乙方自愿接受甲方的委托，作为该财产份额的名义持有人，并代为行使相关有限合伙人的权利。<br /><br />
+                    </p>
+                    <p>
+                        二、委托权限<br />
+                        甲方委托乙方代为行使的权利包括：在云流投资工商登记中具名；以有限合伙人身份参与云流投资相应活动；代为收取股息或红利；以及行使合伙企业法与合伙协议约定的权利。<br /><br />
+                        三、甲方的权利与义务<br />
+                        1、知情权<br />
+                        甲方在出资额范围内，享有对云流投资的知情权，有权通过乙方了解云流投资的实际生产经营状况、财务状况、重大决策以及利润分配方案等。涉及云流投资的事项，乙方应及时告知甲方。<br />
+                        2、投资收益取得权<br />
+                        甲方基于其对云流投资的实际出资，有权根据合伙协议的约定，获得分红所得及其他收益等全部投资收益。<br />
+                        3、转让出资权<br />
+                        本协议签订后，甲方不得抽回出资但可以转让出资。即：甲方有权将本协议约定的出资额，在以乙方为名义持有人的前提下向他人转让出资，甲方与第三方签署的转让协议应向乙方备案。经向乙方备案后，甲方不再享有本协议项下的各项权利，而由受让方享有本协议项下的各项权利。<br />
+                        4、剩余财产分配权<br />
+                        在本协议有效期内，如祥云飞龙或云流投资发生解散、注销、破产、清算等行为，甲方仍委托乙方参加清算，甲方享有剩余财产分配权；乙方应按甲方实际出资额对应的比例对剩余财产进行分配，并应将获得的分配款及时交付甲方。<br />
+                        5、承担投资风险义务<br />
+                        甲方以其出资的数额为限，承担对合伙企业的投资风险，合伙企业以其出资额为限对公司承担投资风险。<br />
+                        乙方不承担甲方出资的保值增值责任，甲方不得就出资财产的盈亏，要求乙方承担补偿或赔偿责任。<br />
+                        6、合理税费承担义务<br />
+                        在乙方代持财产份额期间，因代持产生的相关税费（包括但不限于与代持股相关的投资项目的律师费、审计费、资产评估费等）以及项目结束后产生的相关税费均由甲方承担；在乙方将代持股份转为以甲方或甲方指定的任何第三人持有时，所产生的相关税费也由甲方承担。自应由甲方负担的上述费用发生之日起五日内，甲方应将该等费用划入乙方指定的银行账户。否则，乙方有权在甲方的投资收益、股权转让收益等任何收益中扣除。<br />
+                        7、支付管理费<br />
+                        当甲方投资产生投资收益时（包括但不限于股份增值、红利等其他收益），乙方有权因代持向甲方收取管理费，金额为投资收益的50%，该报酬于项目结束时由乙方扣除，若项目回购，则免收管理费。<br /><br />
+                        四、乙方的权利与义务<br />
+                        1、乙方仅得以自己名义，为甲方在其出资额范围内，根据合伙协议（包括补充协议及附件等）行使云流投资的有限合伙人权利；未经甲方同意，乙方不得擅自处置权益（包括但不限于转让、赠予、放弃或设置任何形式的担保等处置行为）上述财产份额及其有限合伙人权益，也不得实施任何可能损害甲方利益的行为。<br />
+                        未经甲方同意，乙方不得转委托第三方代甲方行使权利。<br />
+                        2、支付投资收益的义务<br />
+                        乙方承诺项目结束后所产生的投资收益（包括红利或任何其他收益分配）扣除本协议所约定的由乙方代甲方支付的所有费用和甲方应支付的报酬后，通过杭州时投信息科技有限公司所属“石头理财”平台以第三方支付方式全部转交给甲方。<br />
+                        3、协助转让义务<br />
+                        依照本协议第三条第3款“转让出资权”条款时，在不影响其他委托人、乙方、云流投资及祥云飞龙的前提下，若甲方拟将相应出资所对应的权益转移到指定的任何第三人名下时，乙方应提供必要的协助，并及时做好备案工作。<br />
+                        除依照本协议第三条第7款约定收取代持管理费外，甲方无需支付其他报酬。<br /><br />
+                        五、保密条款<br />
+                        除甲、乙、丙三方以书面方式达成共识，否则各方均不得将委托持股的相关事项向第三方透露。<br /><br />
+                        六、争议的解决<br />
+                        凡因履行本协议所发生的争议，协议三方应友好协商解决，协商不成，任何一方均有权向乙方住所所在地人民法院提起诉讼。<br /><br />
+                        七、其他事项<br />
+                        1、本协议由甲乙丙三方共同订立，自甲乙丙三方签字之日或本协议各方在杭州时投信息科技有限公司官方网站（www.stlc.cn）及其运营app”石头理财”上以在线电子签署的方式签订并同时满足下列条件后方生效：（1）甲方以实名制方式进行投资；（2）甲方按时足额支付投资款。<br />
+                        未能同时满足前述条件的，本协议自动终止，各方互不追究违约责任。<br />
+                        2、在本协议有效期内甲方以合理价格向乙方或第三方转让对云流投资的出资的，本协议将自该《转让出资协议》生效并向乙方备案后终止；或于云流投资解散并办理完毕注销手续之日终止。<br />
+                        3、本协议未尽事宜，由协议各方友好协商解决。各方协商一致的，签订补充协议，补充协议与本协议具同等法律效力。<br />
+                        4、风险提示：本协议约定的委托投资事项存在的投资风险需由甲方自行承担。<br /><br />
+                        委托方（甲方）：         {$due_detail.uinfo.real_name}<br />
+                        受托方（乙方）：        王伟军<br /><br />
+                        信息服务方（丙方）：杭州时投信息科技有限公司<br />
+                        签约日期：       {$due_detail.add_time|strtotime|date='Y年m月d日',###}<br /><br />
+                        本人已认真阅读并充分理解《“祥云飞龙”项目转让及委托代持协议》的条款与内容，<br />
+                        本人确认具有识别及承担相关风险的能力。<br />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 合同内容结束 -->
+        <!-- 动态内容开始 -->
+        <div class="MyuserBox01 contactBigBox fLe clear" style="display:none;" id="dynamic_content">
+            <div class="contractTitle01 fLe clear">
+                <a href="javascript:;" class="closeButton close" onclick="closeDynamic()"></a>
+            </div>
+            <div class="dynamicTitle contractTitle02 fLe clear">
+                <h2></h2>
+            </div>
+            <div>
+                <div class="dynamicContent contractContent content demo-y fLe clear">
+
+                </div>
+            </div>
+        </div>
+        <!-- 动态内容结束 -->
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $.mCustomScrollbar.defaults.theme="light-2";
+        $(".demo-y").mCustomScrollbar();
+        $(".demo-x").mCustomScrollbar({
+            axis:"x",
+            advanced:{autoExpandHorizontalScroll:true}
+        });
+        $(".demo-yx").mCustomScrollbar({
+            axis:"yx"
+        });
+        $(".scrollTo a").click(function(e){
+            e.preventDefault();
+            var $this=$(this),
+                    rel=$this.attr("rel"),
+                    el=rel==="content-y" ? ".demo-y" : rel==="content-x" ? ".demo-x" : ".demo-yx",
+                    data=$this.data("scroll-to"),
+                    href=$this.attr("href").split(/#(.+)/)[1],
+                    to=data ? $(el).find(".mCSB_container").find(data) : el===".demo-yx" ? eval("("+href+")") : href,
+                    output=$("#info > p code"),
+                    outputTXTdata=el===".demo-yx" ? data : "'"+data+"'",
+                    outputTXThref=el===".demo-yx" ? href : "'"+href+"'",
+                    outputTXT=data ? "$('"+el+"').find('.mCSB_container').find("+outputTXTdata+")" : outputTXThref;
+            $(el).mCustomScrollbar("scrollTo",to);
+            output.text("$('"+el+"').mCustomScrollbar('scrollTo',"+outputTXT+");");
+        });
+    });
+    function showContract(){
+        $("#contract_content").css('display', '');
+    }
+    function closeContract(){
+        $("#contract_content").css('display', 'none');
+    }
+    function showDynamic(){
+        $("#dynamic_content").css('display', '');
+    }
+    function closeDynamic(){
+        $("#dynamic_content").css('display', 'none');
+    }
+    function dynamic(_id){
+        $(".dynamicTitle h2").text('');
+        $(".dynamicContent").html('');
+        showDynamic();
+        $.post("{:C('WEB_ROOT')}/common/getProjectDynamic", {id: _id}, function(msg){
+            if(msg.status){
+                $(".dynamicTitle h2").text(msg.data.title);
+                $(".dynamicContent").html(msg.data.description);
+            }else{
+                closeDynamic();
+            }
+        });
+    }
+</script>
+<include file="PublicNew:user_footer" />
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<title>{$meta_title}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.min.js"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/tupianlunbo.js"></script>
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/tupianlunbo.css" rel="stylesheet" type="text/css"/>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.1.4.2-min.js" type="text/javascript"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/lunbo.js" type="text/javascript"></script>
+
+<style>
+body{background-color:#FFF;}
+.content{ position:absolute;z-index:3; width: 100%;}
+.about_banner{margin-top:96px;}<!--第二导航条透明度-->
+
+</style>
+<style>
+.about_banner img{display: block;width: 100%;}
+</style>
+<style>
+.service{width:1100px;height:1500px;border:solid 1px #CCC;margin-top:50px;color:#7b7b7b;margin-bottom:50px;}
+.service p{margin:0 10px;padding-top:5px;line-height:25px;}
+.service h1{color:#353535;font-weight:bold;margin-bottom:10px;padding-top:20px;}
+</style>
+<style>
+.information_middle{width:100%;height:50px;background-color:#f6f6f6;margin-top:96px;border-top:solid 1px #b0afad;}
+.information_width{width:980px;line-height:50px;}
+.information_width p{padding-left:15px;color:#515151;}
+.information_width p:hover{color:#ff580f;}
+.information_big{width:1200px;}
+.information_homepage{line-height:30px;border:solid 1px #b0afad;background-color:#f6f6f6;padding-left:20px;color:#989898;font-size:12px;}
+.index_ticket p{color:#ff580f;}
+.index_ticket img {margin-bottom:15px;}
+.index_media{width:345px;margin-left:30px;}
+.information_notice{width:345px;height:500px;margin-left:31px;border:solid 1px #CCC;overflow:hidden;}
+.information_notice div{height:4000px;position:relative;}
+.information_notice p{padding-left:20px;padding-top:10px;}
+.information_notice img{padding-left:50px;}
+
+</style>
+
+<style>
+html, body {font: normal 13px "Microsoft YaHei";font-family: "Microsoft YaHei","微软雅黑","sans-serif";}
+.information_page{margin-left:300px;margin-bottom:200px;}
+
+
+/*page*/
+.page{ padding:90px 0 0px 0; text-align:center; margin-right:40px;margin-bottom:100px;}
+.page .num{margin:0 1px;}
+.page a{
+	padding:6px 13px;
+	color:#666666;
+	background:#efeeee;
+}
+.page a:hover{background:#ff580f;color:#ffffff;}
+.page a.cur{
+	color:#ffffff;
+	background:#ff580f;
+}
+
+</style>
+
+</head>
+<body>
+	<include file="Public:menu" />
+	<div class="clear"></div>
+	<div class="clear"></div>
+	<!--第三导航条-->
+	<div class="information_middle ">
+		<div class="information_width mar ">
+			<p class="fl">
+				<a href="dynamic.html">. 企业动态</a>
+			</p>
+			<p class="fl">
+				<a href="news.html">. 行业资讯</a>
+			</p>
+			<p class="fl">
+				<a href="wiki.html" style="color: #ff580f">. 票据百科</a>
+			</p>
+			<p class="fl">
+				<a href="help.html">. 帮助中心</a>
+			</p>
+			<p class="fl">
+				<a href="join.html">. 加入我们</a>
+			</p>
+		</div>
+	</div>
+	<div class="information_banner tc">
+		<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/industry_03.jpg" />
+	</div>
+	<div class="information_big mar mtop6">
+		<div class="information_left fl cut70">
+			<div class="information_homepage">
+				<p>当前位置：<a>主页</a> > <a href="wiki.html">票据百科</a> > 票据百科 相关列</p>
+			</div>
+			<foreach name="res.list" item="item">
+				<div class="index_ticket mtop2 cut95 bodbm mar">
+					<a href="detail.html?id={$item.id}"> <img class="fl" style="width:145px;height:99px;" src="{:C('WEB_ROOT')}{$item.img}" />
+						<p>{$item.title}</p>
+						<p class="mtop">
+							<span>{$item.intro}</span>
+						</p>
+						<div class="index_time mtop3">
+							<p class="fr">
+								<span>{$item.add_time}</span>
+							</p>
+							<img class="fr" src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_15.png" />
+						</div>
+						<div class="clear"></div>
+					</a>
+				</div>
+			</foreach>
+			{$res.show}
+		</div>
+		<div class="information_right fl cut30 ">
+			<div class="index_media  fl bodb mar">
+				<img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/industry_07.png" />
+				<p class="fl">还款通知</p>
+				<img class="fr" src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_06.png" />
+			</div>
+			<div class="clear"></div>
+		    <div class="information_notice mtop2">
+              <div>
+              	<foreach name="res.help_list_5" item="item">
+                  <p>.{$item.title}</p>
+                </foreach>
+              </div>
+            </div>
+			<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/ergtm_03.png" style="margin-left: 30px;" />
+		</div>
+	</div>
+	<div class="clear"></div>
+
+	<!--底部导航-->
+	<br/>
+	<include file="Public:footer" />
+
+</body>
+
+<!--点击二维码显示隐藏-->
+<script>
+	var IsPopup = false;
+	function IsPass() {
+		if (IsPopup) {
+			document.getElementById("index_bj").className = "hidden";
+			document.getElementById("index_window").className = "hidden";
+			IsPopup = false;
+		} else {
+			document.getElementById("index_bj").className = "index_bj abs";
+			document.getElementById("index_window").className = "index_window abs";
+			IsPopup = true;
+		}
+	}
+</script>
+</html>

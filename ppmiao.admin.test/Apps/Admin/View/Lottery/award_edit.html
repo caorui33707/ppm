@@ -1,0 +1,182 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">抽奖活动奖品编辑 [ <a href="{:C('ADMIN_ROOT')}/lottery/lottery_award_index/base_id/{$detail.lottery_id}">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding="3" cellspacing="3" >
+                <input type="hidden" name="lottery_id" value="{$detail.lottery_id}">
+                <input type="hidden" name="id" value="{$detail.id}">
+                <input type="hidden" name="type" value="{$detail.type}">
+                <tr>
+                    <td class="tRight">奖品名称：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="name" name="name" value="{$detail.name}">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">中奖概率：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="bLeftRequire" datatype="n" id="probability" name="probability" value="{$detail.probability}">
+                    	&nbsp;<span style="color:#409DFE;">注：中奖概率总和是1000, 0 - 1000</span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight" width="150px">奖品类型：</td>
+                    <td class="tLeft">
+                        <select id="type" name="type" class="bLeftRequire" onchange="changeType(this)" disabled>
+							<option value="0" <eq name="detail.type" value="0">selected</eq>>请选择</option>
+                            <option value="1" <eq name="detail.type" value="1">selected</eq>>红包</option>
+                            <option value="2" <eq name="detail.type" value="2">selected</eq>>现金券</option>
+                            <option value="3" <eq name="detail.type" value="3">selected</eq>>加息券</option>
+                            <option value="4" <eq name="detail.type" value="4">selected</eq>>第三方券</option>
+                            <option value="5" <eq name="detail.type" value="5">selected</eq>>实物奖励</option>
+                        </select>
+                        &nbsp;<span style="color:#409DFE;">注：奖品类型不能修改</span>
+                    </td>
+                </tr>
+
+                <tr style="display:none;">
+                    <td class="tRight">标题：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="title" name="title" value="{$detail.title}">
+                    </td>
+                </tr>
+                <tr style="display:none;">
+                    <td class="tRight">内容：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="sub_title" name="sub_title" value="{$detail.sub_title}">
+                		&nbsp;<span style="color:#409DFE;">注：红包内容;券包子标题</span>
+                	</td>
+                </tr>
+                
+                <tr style="display:none;">
+                    <td class="tRight">金额：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="*" id="amount" name="amount" value="{$detail.amount}"/>
+                		&nbsp;<span style="color:#409DFE;">注：红包、现金券对应金额;券包对应利率</span>
+                	</td>
+                </tr>
+                
+                <tr style="display:none;">
+                    <td class="tRight">最小投资金额：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="min_invest_amount" name="min_invest_amount" value="{$detail.min_invest_amount}"/>
+                    	&nbsp;<span style="color:#409DFE;">单位:元</span>
+                    </td>
+                </tr>
+                
+                <tr style="display:none;">
+                    <td class="tRight">最小投资期限：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="min_invest_days" name="min_invest_days" value="{$detail.min_invest_days}"/>
+                    	&nbsp;<span style="color:#409DFE;">单位:天</span>
+                    </td>
+                </tr>
+                
+                <tr style="display:none;">
+                    <td class="tRight">有效天数：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="valid_days" name="valid_days" value="{$detail.valid_days}" />
+                    	&nbsp;<span style="color:#409DFE;">单位:天（默认60天）</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    
+    
+    var _adding = false;
+    var _layerIndex = 0;
+    var _titleObj, _sub_titleObj,_amountObj,_min_invest_amountObj,_min_invest_daysObj,_valid_daysObj;
+    
+    
+    var _type = {$detail.type};
+    
+    $(document).ready(function(){
+    	
+    	_titleObj  = $("#title");
+    	_sub_titleObj = $("#sub_title");
+    	_amountObj = $("#amount");
+    	_min_invest_amountObj = $("#min_invest_amount");
+    	_min_invest_daysObj = $("#min_invest_days");
+    	_valid_daysObj = $("#valid_days");
+    	
+    	
+    	if(_type == 1 || _type == 2 || _type == 3){
+    		_titleObj.parent().parent().css('display', '');
+    		_sub_titleObj.parent().parent().css('display', '');
+    		_amountObj.parent().parent().css('display', '');
+    		_min_invest_amountObj.parent().parent().css('display', '');
+    		_min_invest_daysObj.parent().parent().css('display', '');
+    		_valid_daysObj.parent().parent().css('display', '');
+    	} else {
+    		_titleObj.parent().parent().remove();
+    		_sub_titleObj.parent().parent().remove();
+    		_amountObj.parent().parent().remove();
+    		_min_invest_amountObj.parent().parent().remove();
+    		_min_invest_daysObj.parent().parent().remove();
+    		_valid_daysObj.parent().parent().remove();
+    	}
+    	
+    	
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                if(_adding) return;
+                _adding = true;
+                _layerIndex = layer.load('数据提交中...');
+                $.ajax({
+                    url: ROOT + '/lottery/lottery_award_edit',
+                    data: $('#frmMain').serialize(),
+                    type: "POST",
+                    cache: false,
+                    success: function(msg) {
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('编辑成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                        _adding = false;
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    
+    function changeType(_obj) {
+    	var _type = $(_obj).val();
+    	if(_type == '1' || _type == '2' || _type == '3' ) {
+    		_titleObj.parent().parent().css('display', '');
+    		_sub_titleObj.parent().parent().css('display', '');
+    		_amountObj.parent().parent().css('display', '');
+    		_min_invest_amountObj.parent().parent().css('display', '');
+    		_min_invest_daysObj.parent().parent().css('display', '');
+    		_valid_daysObj.parent().parent().css('display', '');
+    	} else {
+    		_titleObj.parent().parent().css('display', 'none');
+    		_sub_titleObj.parent().parent().css('display', 'none');
+    		_amountObj.parent().parent().css('display', 'none');
+    		_min_invest_amountObj.parent().parent().css('display', 'none');
+    		_min_invest_daysObj.parent().parent().css('display', 'none');
+    		_valid_daysObj.parent().parent().css('display', 'none');
+    	}
+    }
+</script>

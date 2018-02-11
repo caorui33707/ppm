@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" >
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/new_tg/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/new_tg/css/style.css?v=1.1" rel="stylesheet" type="text/css" />
+    <script src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+    <title>票票喵</title>
+
+</head>
+<body>
+    <section>
+        <!--弹出层-->
+        <div class="backgr mask" id="integral_bj" style="display: none"></div>
+        <div class="tankuang1 mask" id="integral_window" style="z-index:23;display: none">
+            <div class="integral_content">
+                <p class="tc" id="err_info"></p>
+            </div>
+        </div>
+        <!--正文-->
+        
+        <div class="register_download ">
+            <div class="register_pic1">
+                <img src="{:C('STATIC_ROOT')}/activity/new_tg/images/down_01.jpg" />
+            </div>
+            <div class="enter mar">
+                <div class="number fl">
+                    <img src="{:C('STATIC_ROOT')}/activity/new_tg/images/two_05.png" />
+                </div>
+                <input type="text" id="mobile" name="mobile" placeholder="请输入手机号">
+            </div>
+            <div class="enter mar ">
+                <div class="number  fl">
+                    <img src="{:C('STATIC_ROOT')}/activity/new_tg/images/one_08.png" />
+                </div>
+                <div class="rel">
+                    <input type="text" id="code" name="code" placeholder="请输入验证码">
+                    <div class="have abs bor">
+                        <input type="button" id="btn" value="获取验证码" style="border-left-width:1.5px;margin-top:6px;height:34px;"/>
+
+                    </div>
+                </div>
+            </div>
+            <div class="login_app  tc" style="cursor:pointer;" >
+                <button id="loginId">登录/注册</button>
+            </div>
+            <div class="login_big">
+                <div class="login_ce tc">
+                    <p class="fl" style="margin-top:3px;">查看活动详情</p>
+                    <img src="{:C('STATIC_ROOT')}/activity/new_tg/images/2.gif" style="width:20px;"/>
+                </div>
+            </div>
+        </div>
+        <div class="test"></div>
+        <div class="register_pic">
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/new_tg/images/sign_04.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/new_tg/images/sign_05.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/new_tg/images/sign_06.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/new_tg/images/sign_07.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/new_tg/images/sign_08.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/new_tg/images/sign_09.jpg" />
+        </div>
+    </section>
+
+    <script type="text/javascript">
+
+        function mask(){
+        	$("#integral_bj").show();
+            $("#integral_window").show();
+            setTimeout(function () {
+                $("#integral_bj").hide();
+                $("#integral_window").hide();
+            }, 2000);
+            
+            return false;
+        }
+
+        
+    	$("#btn").click(function(){
+    		var mobile = $('input[name=mobile]').val();
+    		if(!checkPhone(mobile)) {
+    			if(mobile == "") {
+    				$("#err_info").empty().html('请输入您的手机号码！');
+    			} else {
+    				$("#err_info").empty().html('输入的手机号码有误！');
+    			}
+    			mask();
+    			return;
+    		}
+    			
+    		$.ajax({
+    	    	url: "/?c=Activity&a=sendCode",
+    	        type: "post",
+    	        data: {'invitedMobile':mobile},
+    	        success: function (json) {
+    	        	if(json.status == 1){
+    	        		Countdown();
+    	        		return;
+    	        	} else {
+    	        		$("#err_info").empty().html(json.info);
+    	        		//$('#mask').click(); 
+    	        		mask();
+    	        		return;
+    	        	}
+    	          }
+    	   	})
+    	})
+    	
+    	$("#loginId").click(function(){
+    		
+    		var mobile = $('input[name=mobile]').val();    		
+    		var code = $('input[name=code]').val();
+			var ch = "{$ch}";
+    		if(!checkPhone(mobile)) {
+    			if(mobile == "") {
+    				$("#err_info").empty().html('请输入您的手机号码！');
+    			} else {
+    				$("#err_info").empty().html('输入的手机号码有误！');
+    			}
+    			//$('#mask').click(); 
+    			mask();
+    			return;
+    		}
+    		
+    		if(!code) {
+    			$("#err_info").empty().html('请输入手机验证码！');
+    			//$('#mask').click(); 
+    			mask();
+    			return;
+    		}
+    		$.ajax({
+    	    	url: "?c=Activity&a=newtg_login",
+    	        type: "post",
+    	        data: {'code':code,'mobile':mobile,'ch':ch},
+    	        success: function (json) {
+    	        	if(json.status == 0){
+    	        		$("#err_info").empty().html(json.info);
+    	        		mask();
+    	        		return;
+    	        	} else {
+    	        		window.location.href=json.info;
+    	        		return;
+    	        	}
+    	        }
+    	   	})   
+    	})
+    	
+    	function checkPhone(phone){ 
+			if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){ 
+				return false; 
+			} 
+			return true;
+		}
+    	
+    	var sleep = 60, interval = null;
+        function Countdown(){
+        	if (!interval) {
+        	   $("#btn").css("backgroundColor","#FFF");
+ 			   $("#btn").attr("disabled","disabled");
+ 			   $('#btn').css('cursor','wait');
+ 			   $('#btn').val(sleep + " S");
+ 			   interval = setInterval(function () {
+ 				   if (sleep == 0) {
+ 					   if (!!interval) {
+ 						   clearInterval(interval);
+ 						   interval = null;
+ 						   sleep = 60;
+ 						   $('#btn').css('cursor','pointer');
+ 						   $("#btn").removeAttr("disabled")
+ 						   
+ 						   $("#btn").val("获取验证码");
+ 						   $("#btn").css("backgroundColor","#FFF");
+ 					   }
+ 					   return false;
+ 				   }
+ 				   $('#btn').val("" + sleep-- + " S");
+ 			   }, 1000);
+            }
+        }
+    </script>
+        
+</body>
+</html>         

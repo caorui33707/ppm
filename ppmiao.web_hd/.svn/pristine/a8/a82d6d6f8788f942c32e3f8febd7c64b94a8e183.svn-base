@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <div class="FirstBuyBox01 fLe clear">
+        <div class="FirstBuyBox01Title fLe clear">
+            <p>
+                <span class="span01">购买金额：<em>{$money|number_format=2}</em> 元</span>
+                <span class="span02">产品名称：<em>{$detail.title}</em></span>
+            </p>
+        </div>
+        <form action="" method="post">
+            <input type="hidden" name="data" value="{$data}" />
+            <input type="hidden" name="type" value="3" />
+            <ul class="FirstBuyBox01List fLe clear">
+                <li><span>银行卡号：</span><input type="text" placeholder="目前仅支持储蓄卡" name="bankcard" value="{$edit_data.cardNo}" class="input02" maxlength="25" /></li>
+                <li><span>姓名：</span><input type="text" value="{$params.name}" class="input02" style="border:none;" /></li>
+                <li><span>身份证：</span><input type="text" value="{$params.iccard}" class="input02" style="border:none;" /></li>
+                <li><span>手机号：</span><input type="text" value="{$params.mobile}" class="input02" style="border:none;" /></li>
+                <li><a href="{:C('WEB_ROOT')}/product/pay/{$data}"><p>使用已绑卡支付</p></a></li>
+                <li><input type="submit" value="确认支付" class="button02" /></li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+<include file="PublicNew:footer" />
+</body>
+</html>

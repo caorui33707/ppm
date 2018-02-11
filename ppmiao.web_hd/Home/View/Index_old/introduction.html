@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/highchart/highcharts.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".re_big_box02_b2 ul li").hover(function(){
+                $(this).find('#b').show();
+                $(this).find('#a').hide();
+            },function(){
+                $(this).find('#b').hide();
+                $(this).find('#a').show();
+            });
+        });
+
+        $(function(){
+            $('.re_box01 ul li').hover(function(){
+                $(this).addClass('cur');
+            },function(){
+                $(this).removeClass('cur');
+            })
+        });
+    </script>
+</head>
+
+<body>
+<include file="PublicNew:menu" />
+
+<div class="joinBanner">
+    <p style="background:url({:C('STATIC_ROOT')}/v2/images/recommentBanner.jpg) no-repeat scroll center top; display:block"></p>
+</div>
+
+<div class="re_big_box01">
+    <div class="main w978 clear">
+        <div class="re_box01 fLe clear">
+            <ul>
+                <li>
+                    <a href="#wenyiwen" style="height: 100%;display: block;">
+                        <span class="span01">大宗贸易</span>
+                        <span class="span02">石头1号</span>
+                        <span class="span03"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#wenyiwen" style="height: 100%;display: block;">
+                        <span class="span01">实物质押</span>
+                        <span class="span02">石头2号</span>
+                        <span class="span03"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#wenyiwen" style="height: 100%;display: block;">
+                        <span class="span01">股票配资</span>
+                        <span class="span02">石头3号</span>
+                        <span class="span03"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#daxingu" style="height: 100%;display: block;">
+                        <span class="span01">稳赚不赔</span>
+                        <span class="span02">打新股</span>
+                        <span class="span03"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#abfund" style="height: 100%;display: block;">
+                        <span class="span01">疯狂过山车</span>
+                        <span class="span02">A级基金</span>
+                        <span class="span03"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#abfund" style="height: 100%;display: block;">
+                        <span class="span01">保本不保息</span>
+                        <span class="span02">B级基金</span>
+                        <span class="span03"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="re_box02 fLe clear">
+            <h1>产品结构</h1>
+            <p>石头理财证券配资类通过超高利息来重塑人们对理财产品的新认识，<br/>
+                以保本＋浮动收益、不保本不保息的最基本的产品设计点，<br/>
+                石头产品系列变得更丰富。石头坚持“移动互联网时代是用户为王”的信条，<br/>
+                竭力让石头品牌成为用户手机中的一个功能性的模块，旨在满意客户需求与帮助其成功。</p>
+        </div>
+
+        <div class="re_box03 fLe clear">
+            <img src="{:C('STATIC_ROOT')}/v2/images/re_img01.jpg" />
+        </div>
+    </div>
+</div>
+
+<div id="wenyiwen" class="re_big_box02 clear">
+    <div class="main w978 clear">
+        <div class="re_big_box02_b1 fLe clear">
+            <span><img src="{:C('STATIC_ROOT')}/v2/images/re_img02.png" /></span>
+        </div>
+        <div class="re_big_box02_b2 fLe clear">
+            <ul>
+                <li>
+                    <div id="a">
+                        <p>预期年化收益率</p>
+                        <h2>10-20<em>%</em></h2>
+                        <span><em>石头1号</em>大宗贸易</span>
+                    </div>
+                    <div id="b" style="display:none;">
+                        <span><em>石头1号</em>大宗贸易</span>
+                        <p>石头1号产品针对的投资对象主要为从事有色金属，矿产品，化工原材料等大宗商品贸易类公司。</p>
+                    </div>
+                </li>
+                <li>
+                    <div id="a">
+                        <p>预期年化收益率</p>
+                        <h2>12-16<em>%</em></h2>
+                        <span><em>石头2号</em>实物质押</span>
+                    </div>
+                    <div id="b" style="display:none;">
+                        <span><em>石头2号</em>实物质押</span>
+                        <p>石头2号产品主要针对的投资对象为实物质押的融资对象。</p>
+                    </div>
+                </li>
+                <li>
+                    <div id="a">
+                        <p>预期年化收益率</p>
+                        <h2>13-18<em>%</em></h2>
+                        <span><em>石头3号</em>股票配资</span>
+                    </div>
+                    <div id="b" style="display:none;">
+                        <span><em>石头3号</em>股票配资</span>
+                        <p>石头3号产品主要针对的投资对象为股票配资的融资对象。</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="daxingu" class="re_big_box03 fLe clear">
+    <div class="main w978 clear">
+        <div class="re_big_box03_b1">
+            <span><img src="{:C('STATIC_ROOT')}/v2/images/re_img03.png" /></span>
+            <p>明星基金，借道理财，选择灵活，暴利大PK  .  今天的你如不搭理，明天的你后悔不已 .</p>
+            <h5><img src="{:C('STATIC_ROOT')}/v2/images/re_img04.png" /></h5>
+        </div>
+    </div>
+</div>
+
+<div class="re_big_box04 fLe clear">
+    <div class="main w978 clear">
+        <div class="re_big_box04_b1 clear">
+            <div class="re_big_box04_b1_Fl fLe clear">
+                <img src="{:C('STATIC_ROOT')}/v2/images/re_img05.jpg" />
+            </div>
+            <div class="re_big_box04_b1_Fr fLe clear">
+                <span><img src="{:C('STATIC_ROOT')}/v2/images/re_img06.png" /></span>
+                <p>打新股是指投资者直接或间接通过网上申购、网下配售等方式以发行价购买股票，以期获取股票一级市场、二级市场间风险极低的差价收益。</p>
+                <a href="{:C('WEB_ROOT')}/product/daxingu.html" class="moreInfoButton"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="abfund" class="re_big_box05 fLe clear">
+    <div class="main w978 clear">
+        <div class="re_big_box05_b1 fLe clear">
+            <span><img src="{:C('STATIC_ROOT')}/v2/images/re_img07.png" /></span>
+            <p>
+                本产品作为结构化投公募项目，分石头进取级计划A，石头保守级计划B，按照1:2的比例投资于公募基金宝盈科技30（000698）。<br />
+                本进取级计划A投资期间收益率为关联基金收益率的260%，即本进取级计划A收益率=宝盈科技30公募基金收益率 × 260%。
+            </p>
+        </div>
+        <div class="re_big_box05_b2 fLe clear">
+            <div id="container" style="width:978px;"></div>
+            <a href="{:C('WEB_ROOT')}/product/abfund.html" class="moreInfoButton"></a>
+        </div>
+    </div>
+</div>
+
+<div class="re_big_box06 fLe clear">
+    <div class="main w978 clear">
+        <div class="re_big_box06_b1 fLe clear">
+            <h2>{$device_activation|number_format}</h2>
+            <p>超过{$device_activation|number_format}位忠实用户</p>
+        </div>
+        <div class="re_big_box06_b2 fLe clear">
+            <h2>15+</h2>
+            <p>15年专业历程</p>
+        </div>
+        <div class="re_big_box06_b3 fLe clear">
+            <h2>1.8亿</h2>
+            <p>母公司注册资金1.8亿 </p>
+        </div>
+        <div class="re_big_box06_b4 fLe clear">
+            <h2>超过<em>{$device_activation|number_format}</em>位小伙伴已加入石头理财</h2>
+            <p>感谢客户信任与支持，让我们从开始一直走到现在。<br />
+                石头理财，致力让优质的金融产品直接面对理财者，去除中间通道，打造一个简单好用的理财平台。</p>
+        </div>
+    </div>
+</div>
+
+<div class="re_big_box07 fLe clear">
+    <div class="main w978 clear">
+        <div class="re_big_box07_b1 fLe clear">
+            <p>石头理财APP</p>
+            <span>
+                <a href="{:C('APP_DOWNLOAD_ANDROID')}" target="_blank"><img src="{:C('STATIC_ROOT')}/v2/images/re_img10.png" /></a>
+                <a href="{:C('APP_DOWNLOAD_IOS')}" target="_blank"><img src="{:C('STATIC_ROOT')}/v2/images/re_img11.png" /></a>
+            </span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var _chart = null;
+    var _t = '{$request_verify.time}';
+    var _v = '{$request_verify.verify}';
+
+    Highcharts.setOptions({
+        lang: {
+            loading: '正在加载数据...'
+        },
+        colors: ['#7cb5ec', '#FF0000', '#B34EE9']
+    });
+    $('#container').highcharts({
+        chart: {
+            events: {
+                load: function(e) {
+                    _chart = this;
+                    getChart();
+                }
+            }
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+            shared: true,
+            formatter: function() {
+                var _dateArr = new Date(this.x).toLocaleString().split(' ');
+                return _dateArr[0].replace('年',"-").replace('月',"-").replace('日',"")+'<br><span style="color:#7cb5ec;">公募基金累计净值:'+this.points[0].y+'</span><br><span style="color:#FF0000;">A类净值:'+this.points[1].y+'</span><br><span style="color:B34EE9;">B类净值:'+this.points[2].y+'</span>';
+            }
+        },
+        legend: {
+            enabled: true,
+            align: 'left',
+            verticalAlign: 'top'
+        },
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                lineWidth: 1,
+                marker: {
+                    enabled: false
+                },
+                shadow: false,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                threshold: null
+            },
+            series: {
+                marker: {
+                    enabled: false
+                },
+                events: {
+                    legendItemClick: function(){
+                        return false;
+                    }
+                }
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                format: '{value:%m-%d}',
+                align: 'center'
+            }
+        },
+        yAxis: [{
+            lineWidth: 0,
+            title: {
+                text: null
+            }
+        }],
+        series: [{
+            type: 'line',
+            name: '公募基金累计净值',
+            data: []
+        },{
+            name: 'A类净值',
+            type: 'line',
+            data: []
+        },{
+            name: 'B类净值',
+            type: 'line',
+            data: []
+        }]
+    });
+
+    function getChart() {
+        _chart.showLoading();
+        $.post("{:C('WEB_ROOT')}/api/getFundData", {id: 4, t: _t, v: _v}, function (msg) {
+            if (msg.status) {
+                var _basedata = new Array();
+                var _adata = new Array();
+                var _bdata = new Array();
+                $.each(msg.base_arr, function(i, n){
+                    _basedata.push([n.datetime, parseFloat(n.val)]);
+                });
+                $.each(msg.a_arr, function(i, n){
+                    _adata.push([n.datetime, parseFloat(n.val)]);
+                });
+                $.each(msg.b_arr, function(i, n){
+                    _bdata.push([n.datetime, parseFloat(n.val)]);
+                });
+                _chart.series[0].setData(_basedata);
+                _chart.series[1].setData(_adata);
+                _chart.series[2].setData(_bdata);
+                _chart.hideLoading();
+            }
+        });
+    }
+</script>
+<include file="PublicNew:footer" />
+<include file="PublicNew:gotop" />
+</body>
+</html>

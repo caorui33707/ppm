@@ -1,0 +1,1840 @@
+[ 2016-04-07T16:54:27+08:00 ] 127.0.0.1 /admin.php/Finance/FinancingPayment/p/2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_contract` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_contract_project` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_project_issued` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_project` WHERE ( is_delete=0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_project` WHERE ( is_delete=0 ) ORDER BY id asc LIMIT 10,10   [ RunTime:0.0040s ]
+SQL: SELECT `add_time` FROM `s_user_due_detail` WHERE ( project_id=12 and user_id>0 ) ORDER BY add_time asc LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `add_time` FROM `s_user_due_detail` WHERE ( project_id=12 and user_id>0 ) ORDER BY add_time desc LIMIT 1   [ RunTime:0.0040s ]
+SQL: SELECT `contract_id` FROM `s_contract_project` WHERE `project_name` = '票票喵第10010期' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `interest`,`fee` FROM `s_contract` WHERE `id` = 11 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=12 and status=2 and user_id>0 and add_time>='2016-03-15 00:00:00.000000' and add_time<='2016-03-15 23:59:59.999000' )  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 12 AND `online_time` = '2016-03-15' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=12 and status=2 and user_id>0 and add_time>='2016-03-16 00:00:00.000000' and add_time<='2016-03-16 23:59:59.999000' )  [ RunTime:0.0060s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 12 AND `online_time` = '2016-03-16' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `add_time` FROM `s_user_due_detail` WHERE ( project_id=13 and user_id>0 ) ORDER BY add_time asc LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `add_time` FROM `s_user_due_detail` WHERE ( project_id=13 and user_id>0 ) ORDER BY add_time desc LIMIT 1   [ RunTime:0.0040s ]
+SQL: SELECT `contract_id` FROM `s_contract_project` WHERE `project_name` = '票票喵第10013期' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=13 and status=2 and user_id>0 and add_time>='2016-03-31 00:00:00.000000' and add_time<='2016-03-31 23:59:59.999000' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 13 AND `online_time` = '2016-03-31' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=13 and status=2 and user_id>0 and add_time>='2016-04-01 00:00:00.000000' and add_time<='2016-04-01 23:59:59.999000' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 13 AND `online_time` = '2016-04-01' LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=13 and status=2 and user_id>0 and add_time>='2016-04-02 00:00:00.000000' and add_time<='2016-04-02 23:59:59.999000' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 13 AND `online_time` = '2016-04-02' LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=13 and status=2 and user_id>0 and add_time>='2016-04-03 00:00:00.000000' and add_time<='2016-04-03 23:59:59.999000' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 13 AND `online_time` = '2016-04-03' LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=13 and status=2 and user_id>0 and add_time>='2016-04-04 00:00:00.000000' and add_time<='2016-04-04 23:59:59.999000' )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 13 AND `online_time` = '2016-04-04' LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=13 and status=2 and user_id>0 and add_time>='2016-04-05 00:00:00.000000' and add_time<='2016-04-05 23:59:59.999000' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 13 AND `online_time` = '2016-04-05' LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=13 and status=2 and user_id>0 and add_time>='2016-04-06 00:00:00.000000' and add_time<='2016-04-06 23:59:59.999000' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 13 AND `online_time` = '2016-04-06' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=13 and status=2 and user_id>0 and add_time>='2016-04-07 00:00:00.000000' and add_time<='2016-04-07 23:59:59.999000' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 13 AND `online_time` = '2016-04-07' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `add_time` FROM `s_user_due_detail` WHERE ( project_id=14 and user_id>0 ) ORDER BY add_time asc LIMIT 1   [ RunTime:0.0040s ]
+SQL: SELECT `add_time` FROM `s_user_due_detail` WHERE ( project_id=14 and user_id>0 ) ORDER BY add_time desc LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `contract_id` FROM `s_contract_project` WHERE `project_name` = '票票喵第10011期' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `interest`,`fee` FROM `s_contract` WHERE `id` = 12 LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-15 00:00:00.000000' and add_time<='2016-03-15 23:59:59.999000' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-15' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-16 00:00:00.000000' and add_time<='2016-03-16 23:59:59.999000' )  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-16' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-17 00:00:00.000000' and add_time<='2016-03-17 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-17' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-18 00:00:00.000000' and add_time<='2016-03-18 23:59:59.999000' )  [ RunTime:0.0060s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-18' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-19 00:00:00.000000' and add_time<='2016-03-19 23:59:59.999000' )  [ RunTime:0.0060s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-19' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-20 00:00:00.000000' and add_time<='2016-03-20 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-20' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-21 00:00:00.000000' and add_time<='2016-03-21 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-21' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-22 00:00:00.000000' and add_time<='2016-03-22 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-22' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-23 00:00:00.000000' and add_time<='2016-03-23 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-23' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-24 00:00:00.000000' and add_time<='2016-03-24 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-24' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-25 00:00:00.000000' and add_time<='2016-03-25 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-25' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-26 00:00:00.000000' and add_time<='2016-03-26 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-26' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-27 00:00:00.000000' and add_time<='2016-03-27 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-27' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-28 00:00:00.000000' and add_time<='2016-03-28 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-28' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-29 00:00:00.000000' and add_time<='2016-03-29 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-29' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-30 00:00:00.000000' and add_time<='2016-03-30 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-30' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`type`,`amount` FROM `s_recharge_log` WHERE ( project_id=14 and status=2 and user_id>0 and add_time>='2016-03-31 00:00:00.000000' and add_time<='2016-03-31 23:59:59.999000' )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `s_project_issued` WHERE `project_id` = 14 AND `online_time` = '2016-03-31' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:00:06+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: today_totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 34 行.
+NOTIC: [8] Undefined variable: totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 35 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:00:06+08:00 ] 127.0.0.1 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:00:06+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE `status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995924' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995892' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995895' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146763' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146682' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616141324' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'QB20160401171310109530' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614848412' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614832115' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614831888' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-04-07T17:00:06+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `s_user_wallet_records` WHERE `type` = 1 AND `pay_status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '157' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:00:06+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0020s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2016-04-07 00:00:00.000000' and add_time<='2016-04-07 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2016-04-07T17:00:07+08:00 ] 127.0.0.1 /admin.php/project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_project_push` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_project_model_fund` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0020s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `cons_key` = 'project_type' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_constant` WHERE `parent_id` = 1  [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_project` WHERE ( is_delete=0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_project` WHERE ( is_delete=0 ) ORDER BY status,start_time desc,id desc LIMIT 0,10   [ RunTime:0.0040s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '14' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '12' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '10' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '8' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '2' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '6' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:00:13+08:00 ] 127.0.0.1 /admin.php/project/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0030s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `cons_key` = 'project_type' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_constant` WHERE `parent_id` = 1  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:00:14+08:00 ] 127.0.0.1 /admin.php/project/project_type
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0030s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `cons_key` = 'project_type' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_constant` WHERE `parent_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_constant` WHERE `parent_id` = 1 ORDER BY add_time desc LIMIT 0,10   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2016-04-07T17:00:19+08:00 ] 127.0.0.1 /admin.php/project/project_type
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0040s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `cons_key` = 'project_type' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_constant` WHERE `parent_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_constant` WHERE `parent_id` = 1 ORDER BY add_time desc LIMIT 0,10   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:00:20+08:00 ] 127.0.0.1 /admin.php/project/lastestpay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:00:20+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:00:20+08:00 ] 127.0.0.1 /admin.php/project/lastestpay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_repayment_detail` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_project_model_fund` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_fund_detail` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_repayment_detail` WHERE ( (repayment_time<='2016-04-14 23:59:59.999000' and (status=1 or status=3)) or (real_time<='2016-04-14 23:59:59.999000' and status=3) ) ORDER BY status desc,repayment_time,real_time  [ RunTime:0.0020s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '2' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '2' AND `repay_id` = '2' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '2' AND `repay_id` = '2' AND `user_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_interest) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '2' AND `repay_id` = '2' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: more_interest D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3230 行.
+SQL: SELECT `id` FROM `s_user_due_detail` WHERE ( project_id=2 and (from_wallet=1 or to_wallet=1) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '3' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3' AND `repay_id` = '3' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3' AND `repay_id` = '3' AND `user_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_interest) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3' AND `repay_id` = '3' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: more_interest D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3230 行.
+SQL: SELECT `id` FROM `s_user_due_detail` WHERE ( project_id=3 and (from_wallet=1 or to_wallet=1) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '7' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '8' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '8' AND `repay_id` = '8' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '8' AND `repay_id` = '8' AND `user_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_interest) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '8' AND `repay_id` = '8' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: more_interest D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3230 行.
+SQL: SELECT `id` FROM `s_user_due_detail` WHERE ( project_id=8 and (from_wallet=1 or to_wallet=1) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '12' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '12' AND `repay_id` = '11' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '12' AND `repay_id` = '11' AND `user_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_interest) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '12' AND `repay_id` = '11' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: more_interest D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3230 行.
+SQL: SELECT `id` FROM `s_user_due_detail` WHERE ( project_id=12 and (from_wallet=1 or to_wallet=1) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '14' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '14' AND `repay_id` = '12' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '14' AND `repay_id` = '12' AND `user_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT SUM(due_interest) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '14' AND `repay_id` = '12' LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: more_interest D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3230 行.
+SQL: SELECT `id` FROM `s_user_due_detail` WHERE ( project_id=14 and (from_wallet=1 or to_wallet=1) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '11' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`status`,`duration`,`amount`,`type`,`contract_interest`,`user_interest`,`start_time`,`end_time`,`advance_end_time` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:00:20+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:00:22+08:00 ] 127.0.0.1 /admin.php/project/daysales
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_contract` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_contract_project` [ RunTime:0.0030s ]
+SQL: SELECT `project_id`,sum(due_capital) totlecapital FROM `s_user_due_detail` WHERE ( add_time>='2016-04-06 00:00:00.0000' and add_time<='2016-04-06 23:59:59.999000' ) GROUP BY project_id ORDER BY project_id  [ RunTime:0.0010s ]
+SQL: SELECT SUM(value) AS tp_sum FROM `s_user_wallet_records` WHERE ( type=1 and pay_status=2 and add_time>='2016-04-06 00:00:00.0000' and add_time<='2016-04-06 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT SUM(value) AS tp_sum FROM `s_user_wallet_records` WHERE ( type=1 and pay_status=2 and pay_type=2 and add_time>='2016-04-06 00:00:00.0000' and add_time<='2016-04-06 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: user_interest D:\www\ppmiao.admin\Runtime\Cache\Admin\780f0b203d1780eaece6817b10c2e528.php 第 79 行.
+NOTIC: [8] Undefined index: days D:\www\ppmiao.admin\Runtime\Cache\Admin\780f0b203d1780eaece6817b10c2e528.php 第 88 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:00:23+08:00 ] 127.0.0.1 /admin.php/project/bank
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_bank` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_bank` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_bank` ORDER BY add_time desc LIMIT 0,10   [ RunTime:0.0060s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:00:24+08:00 ] 127.0.0.1 /admin.php/project/errorcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_error_code` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined variable: cond D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3799 行.
+NOTIC: [2] implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3799 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `s_error_code` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_error_code` ORDER BY add_time desc,id desc LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:00:25+08:00 ] 127.0.0.1 /admin.php/project/ghostaccount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0050s ]
+SQL: SELECT `id`,`title`,`amount`,`status`,`able`,`start_time`,`end_time` FROM `s_project` WHERE ( status<=2 and is_delete=0 )  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: new_preferential D:\www\ppmiao.admin\Runtime\Cache\Admin\a8b0c365cddc2c48667074805894b11e.php 第 62 行.
+NOTIC: [8] Undefined index: new_preferential D:\www\ppmiao.admin\Runtime\Cache\Admin\a8b0c365cddc2c48667074805894b11e.php 第 62 行.
+NOTIC: [8] Undefined index: new_preferential D:\www\ppmiao.admin\Runtime\Cache\Admin\a8b0c365cddc2c48667074805894b11e.php 第 62 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:00:26+08:00 ] 127.0.0.1 /admin.php/project/errorcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_error_code` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined variable: cond D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3799 行.
+NOTIC: [2] implode() [<a href='function.implode'>function.implode</a>]: Invalid arguments passed D:\www\ppmiao.admin\Apps\Admin\Controller\ProjectController.class.php 第 3799 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `s_error_code` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `s_error_code` ORDER BY add_time desc,id desc LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:00:27+08:00 ] 127.0.0.1 /admin.php/project/errorcode_add/p/1/type/0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-04-07T17:01:48+08:00 ] 127.0.0.1 /admin.php/message/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_message_group` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_message` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_message_group` WHERE ( is_delete=0 ) LIMIT 1   [ RunTime:0.0170s ]
+SQL: SELECT * FROM `s_message_group` WHERE ( is_delete=0 ) ORDER BY status,add_time desc LIMIT 0,10   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_message` WHERE `group_id` = 2 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `s_message` WHERE `group_id` = 1 LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:01:53+08:00 ] 127.0.0.1 /admin.php/message/add/type/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:05:22+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:05:22+08:00 ] 127.0.0.1 /admin.php/Public/top
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: nodeGroupList D:\www\ppmiao.admin\Runtime\Cache\Admin\696de8d6e81ee8c9b4e4b62238b34e79.php 第 18 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:05:22+08:00 ] 127.0.0.1 /admin.php/Public/menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:05:22+08:00 ] 127.0.0.1 /admin.php/Public/drag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:05:22+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 34 行.
+NOTIC: [8] Undefined variable: totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 35 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:05:22+08:00 ] 127.0.0.1 /admin.php/Public/footer
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:05:22+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 34 行.
+NOTIC: [8] Undefined variable: totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 35 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:05:23+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2016-04-07 00:00:00.000000' and add_time<='2016-04-07 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:05:23+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `s_user_wallet_records` WHERE `type` = 1 AND `pay_status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '157' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:05:23+08:00 ] 127.0.0.1 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:05:23+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE `status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995924' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995892' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995895' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146763' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146682' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616141324' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'QB20160401171310109530' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614848412' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614832115' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614831888' LIMIT 1   [ RunTime:0.0030s ]
+
+[ 2016-04-07T17:17:05+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0080s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0050s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0020s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0050s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-04-07T17:17:07+08:00 ] 192.168.102.105 /admin.php/redenvelope/packetlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select count(*) as Cnt from (SELECT * FROM `s_user_redenvelope` WHERE ( type = 1 ) GROUP BY title ) tmp [ RunTime:0.0110s ]
+NOTIC: [8] Undefined index: Cnt D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 211 行.
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT `title`,`content`,`amount`,`create_time`,`expire_time`,`min_invest`,`min_due`,`scope` FROM `s_user_redenvelope` WHERE ( type = 1 ) GROUP BY title ORDER BY id desc LIMIT 0,15   [ RunTime:0.0070s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:17:08+08:00 ] 192.168.102.105 /admin.php/redenvelope/day_packetlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user_redenvelope` WHERE ( status = 1 AND 1459958400 <= UNIX_TIMESTAMP(`modify_time`)  AND UNIX_TIMESTAMP(`modify_time`) < 1460044800 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `user_id`,`amount`,`modify_time`,`recharge_no` FROM `s_user_redenvelope` WHERE ( status = 1 AND 1459958400 <= UNIX_TIMESTAMP(`modify_time`)  AND UNIX_TIMESTAMP(`modify_time`) < 1460044800 ) ORDER BY modify_time desc LIMIT 0,15   [ RunTime:0.0040s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: start_time D:\www\ppmiao.admin\Runtime\Cache\Admin\d650267b623c87b3d11bc8500a12eacc.php 第 127 行.
+NOTIC: [8] Undefined index: end_time D:\www\ppmiao.admin\Runtime\Cache\Admin\d650267b623c87b3d11bc8500a12eacc.php 第 128 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:17:10+08:00 ] 192.168.102.105 /admin.php/redenvelope/packetlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select count(*) as Cnt from (SELECT * FROM `s_user_redenvelope` WHERE ( type = 1 ) GROUP BY title ) tmp [ RunTime:0.0100s ]
+NOTIC: [8] Undefined index: Cnt D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 211 行.
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT `title`,`content`,`amount`,`create_time`,`expire_time`,`min_invest`,`min_due`,`scope` FROM `s_user_redenvelope` WHERE ( type = 1 ) GROUP BY title ORDER BY id desc LIMIT 0,15   [ RunTime:0.0070s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-04-07T17:19:16+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0050s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:19:38+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0050s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0030s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:19:40+08:00 ] 192.168.102.105 /admin.php/redenvelope/packetlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select count(*) as Cnt from (SELECT * FROM `s_user_redenvelope` WHERE ( type = 1 ) GROUP BY title ) tmp [ RunTime:0.0090s ]
+NOTIC: [8] Undefined index: Cnt D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 211 行.
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT `title`,`content`,`amount`,`create_time`,`expire_time`,`min_invest`,`min_due`,`scope` FROM `s_user_redenvelope` WHERE ( type = 1 ) GROUP BY title ORDER BY id desc LIMIT 0,15   [ RunTime:0.0080s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Runtime\Cache\Admin\d9f00028c82de993419392d2ffb5eba5.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-04-07T17:19:42+08:00 ] 192.168.102.105 /admin.php/redenvelope/day_packetlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0240s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user_redenvelope` WHERE ( status = 1 AND 1459958400 <= UNIX_TIMESTAMP(`modify_time`)  AND UNIX_TIMESTAMP(`modify_time`) < 1460044800 ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `user_id`,`amount`,`modify_time`,`recharge_no` FROM `s_user_redenvelope` WHERE ( status = 1 AND 1459958400 <= UNIX_TIMESTAMP(`modify_time`)  AND UNIX_TIMESTAMP(`modify_time`) < 1460044800 ) ORDER BY modify_time desc LIMIT 0,15   [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: start_time D:\www\ppmiao.admin\Runtime\Cache\Admin\d650267b623c87b3d11bc8500a12eacc.php 第 127 行.
+NOTIC: [8] Undefined index: end_time D:\www\ppmiao.admin\Runtime\Cache\Admin\d650267b623c87b3d11bc8500a12eacc.php 第 128 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:19:43+08:00 ] 192.168.102.105 /admin.php/redenvelope/day_packetlist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user_redenvelope` WHERE ( status = 1 AND 1459958400 <= UNIX_TIMESTAMP(`modify_time`)  AND UNIX_TIMESTAMP(`modify_time`) < 1460044800 ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `user_id`,`amount`,`modify_time`,`recharge_no` FROM `s_user_redenvelope` WHERE ( status = 1 AND 1459958400 <= UNIX_TIMESTAMP(`modify_time`)  AND UNIX_TIMESTAMP(`modify_time`) < 1460044800 ) ORDER BY modify_time desc LIMIT 0,15   [ RunTime:0.0040s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: start_time D:\www\ppmiao.admin\Runtime\Cache\Admin\d650267b623c87b3d11bc8500a12eacc.php 第 127 行.
+NOTIC: [8] Undefined index: end_time D:\www\ppmiao.admin\Runtime\Cache\Admin\d650267b623c87b3d11bc8500a12eacc.php 第 128 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-04-07T17:19:43+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0030s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0020s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:19:46+08:00 ] 192.168.102.105 /admin.php/redenvelope/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:19:46+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:10+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:11+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:13+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:13+08:00 ] 192.168.102.105 /admin.php/redenvelope/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SELECT SUM(amount) as redpacket_amount,COUNT(id) as total_use_cnt,create_time,project_id from s_user_redenvelope where project_id > 0 and `status`=1  GROUP BY project_id [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: rows D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+NOTIC: [8] Undefined index: n D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 41 行.
+SQL: SELECT `title`,`end_time`,`start_time`,`user_interest` FROM `s_project` WHERE `id` = '13'  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title` FROM `s_project` WHERE `is_delete` = 0  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 101 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 104 行.
+NOTIC: [8] Undefined index: status D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 105 行.
+NOTIC: [8] Undefined variable: show D:\www\ppmiao.admin\Runtime\Cache\Admin\77f27924d1feb3d6c51e041673a89319.php 第 118 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:15+08:00 ] 192.168.102.105 /admin.php/redenvelope/user_packet_list/pid/9
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user_redenvelope` WHERE `project_id` = 9 AND `status` = 1 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `id`,`title`,`amount`,`recharge_no`,`user_id`,`project_id` FROM `s_user_redenvelope` WHERE `project_id` = 9 AND `status` = 1 ORDER BY id ASC LIMIT 0,10   [ RunTime:0.0040s ]
+NOTIC: [8] Use of undefined constant n - assumed 'n' D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 123 行.
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0030s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = 'QB20160401171310109530' AND `status` = 2  [ RunTime:0.0020s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = 'QB20160401171310109530' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `s_user_bank` [ RunTime:0.0030s ]
+SQL: SELECT `bank_name` FROM `s_user_bank` WHERE `user_id` = '145' AND `bank_card_no` = '6228480328246653278'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0110s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant n - assumed 'n' D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 123 行.
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604010110000614848412' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604010110000614848412' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `bank_name` FROM `s_user_bank` WHERE `user_id` = '145' AND `bank_card_no` = '6228480328246653278'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant n - assumed 'n' D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 123 行.
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0020s ]
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604010110000614735073' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604010110000614735073' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `bank_name` FROM `s_user_bank` WHERE `user_id` = '145' AND `bank_card_no` = '6228480328246653278'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant n - assumed 'n' D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 123 行.
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = 'QB20160401115439391316' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = 'QB20160401115439391316' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `bank_name` FROM `s_user_bank` WHERE `user_id` = '145' AND `bank_card_no` = '6228480328246653278'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant n - assumed 'n' D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 123 行.
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604010110000614735908' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604010110000614735908' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `bank_name` FROM `s_user_bank` WHERE `user_id` = '145' AND `bank_card_no` = '6228480328246653278'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant n - assumed 'n' D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 123 行.
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '145'  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604050110000616146763' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604050110000616146763' AND `status` = 2  [ RunTime:0.0020s ]
+SQL: SELECT `bank_name` FROM `s_user_bank` WHERE `user_id` = '145' AND `bank_card_no` = '6228480328246653278'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant n - assumed 'n' D:\www\ppmiao.admin\Apps\Admin\Controller\RedenvelopeController.class.php 第 123 行.
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '151'  [ RunTime:0.0010s ]
+SQL: SELECT `real_name`,`username` FROM `s_user` WHERE `id` = '151'  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604060110000616528548' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `amount`,`card_no` FROM `s_recharge_log` WHERE `recharge_no` = '201604060110000616528548' AND `status` = 2  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0020s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = '9'  [ RunTime:0.0010s ]
+SQL: SELECT `status`,`end_time`,`start_time`,`user_interest`,`title` FROM `s_project` WHERE `id` = 9  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: userName D:\www\ppmiao.admin\Runtime\Cache\Admin\a666bd388752d61cc9dd003bf2ea2f34.php 第 44 行.
+NOTIC: [2] number_format() expects parameter 1 to be double, string given D:\www\ppmiao.admin\Runtime\Cache\Admin\a666bd388752d61cc9dd003bf2ea2f34.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:35+08:00 ] 192.168.102.105 /admin.php/redenvelope/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:40+08:00 ] 192.168.102.105 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: today_totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 34 行.
+NOTIC: [8] Undefined variable: totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 35 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-04-07T17:20:40+08:00 ] 192.168.102.105 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:40+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2016-04-07 00:00:00.000000' and add_time<='2016-04-07 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:20:40+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE `status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995924' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995892' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995895' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146763' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146682' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616141324' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'QB20160401171310109530' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614848412' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614832115' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614831888' LIMIT 1   [ RunTime:0.0030s ]
+
+[ 2016-04-07T17:20:41+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `s_user_wallet_records` WHERE `type` = 1 AND `pay_status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '157' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:20:42+08:00 ] 192.168.102.105 /admin.php/redenvelope/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:44+08:00 ] 192.168.102.105 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 34 行.
+NOTIC: [8] Undefined variable: totle_money D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 35 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+NOTIC: [8] Undefined variable: user_count D:\www\ppmiao.admin\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 36 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:44+08:00 ] 192.168.102.105 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:44+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0040s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2016-04-07 00:00:00.000000' and add_time<='2016-04-07 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:20:45+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE `status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0030s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995924' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995892' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995895' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146763' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146682' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616141324' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'QB20160401171310109530' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614848412' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614832115' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614831888' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2016-04-07T17:20:45+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `s_user_wallet_records` WHERE `type` = 1 AND `pay_status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '157' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:20:48+08:00 ] 192.168.102.105 /admin.php/redenvelope/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-04-07T17:20:53+08:00 ] 192.168.102.105 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-04-07T17:20:53+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2016-04-07 00:00:00.000000' and add_time<='2016-04-07 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-04-07T17:20:53+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE `status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0020s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995924' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995892' LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '158' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604070110000616995895' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146763' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616146682' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604050110000616141324' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'QB20160401171310109530' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '9' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614848412' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614832115' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '145' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '13' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = '201604010110000614831888' LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2016-04-07T17:20:53+08:00 ] 192.168.102.105 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `s_user_wallet_records` WHERE `type` = 1 AND `pay_status` = 2 ORDER BY add_time desc LIMIT 10   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '157' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '156' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '147' LIMIT 1   [ RunTime:0.0010s ]
+

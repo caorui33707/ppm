@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>票票喵</title>
+
+</head>
+<body>
+    <section>
+        <!--正文-->
+        <div class="invite_pic">
+            <img src="images/01.jpg" />
+        </div>
+        <div class="invite_square">
+            <div class="invite_world ">
+                <p>利率风暴即将来临，爆款抢购活动,将在2016年
+08月01日至2016年09月30日时间段内开启超高利率让你赚翻天。</p>
+
+            </div>
+        </div>
+        <div class="invite_pic" style="margin-top:-1px;">
+            <img src="images/02.jpg" />
+        </div>
+        <div class="invite_time">
+            <div class="invite_number">
+                <div class="invite_left cut10 fl">
+                    <img src="images/05_03.png" />
+                </div>
+                <div class="invite_right cut90 fl">
+                    <p>活动期间，每人每天限购爆款次数不设上限，
+每次投资数额不设上限，投资期限1~3个月。</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="invite_number">
+                <div class="invite_left cut10 fl">
+                    <img src="images/05_06.png" style="padding-top:20px;"/>
+                </div>
+                <div class="invite_right cut90 fl">
+                    <p style="padding-top:20px;">
+                        每天只在4个时段可参与爆款抢购活动，每次
+                        抢购时长仅为1小时，抢购时段分别为 8:30、
+                        10:00、17:00和 20:00。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="invite_footer tc" style="margin-top:-1px;">
+            <p>最终解释权归票票喵所有</p>
+            <p>如有任何疑问请拨打在线客服热线：400-992-8855 </p>
+        </div>
+
+
+		
+        <div class="invite_now tc" style="cursor:pointer;" onclick="go2App()" >
+            <p>立即抢购</p>
+        </div>
+
+    </section>
+    
+    <script type="text/javascript">
+    
+    	var u = navigator.userAgent, app = navigator.appVersion;
+    	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+    	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    	
+	    function go2App(){
+	    	if(isAndroid == true) {
+	    		ppm.toAction(2);
+	    	} else if(isiOS == true) {
+	    		loadURL('skip1');
+	    	}
+	    	return;
+	    }
+	    
+	    function loadURL(url) {
+	        var iFrame;
+	        iFrame = document.createElement("iframe");
+	        iFrame.setAttribute("src", url);
+	        iFrame.setAttribute("style", "display:none;");
+	        iFrame.setAttribute("height", "0px");
+	        iFrame.setAttribute("width", "0px");
+	        iFrame.setAttribute("frameborder", "0");
+	        document.body.appendChild(iFrame);
+	        iFrame.parentNode.removeChild(iFrame);
+	        iFrame = null;
+	    }
+	    
+    </script>
+    
+</body>
+</html>

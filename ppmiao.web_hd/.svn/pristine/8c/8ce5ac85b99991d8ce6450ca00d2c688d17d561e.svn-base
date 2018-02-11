@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>正在跳转 - 石头理财</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/css.css?v=1.2  " rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+    <include file="Public:mobile_forbidding" />
+</head>
+
+<body id="questionBox">
+<div class="wrap">
+    <div id="downLoad">
+        <div class="downLArrowBox01">
+            <span></span>
+        </div>
+        <div class="downLArrowBox02">
+            <div class="downLArrowBox02Inner">
+                <img src="{:C('STATIC_ROOT')}/mobile/images/downLoadLogo.png" width="67" height="67">
+                <div class="downLArrowBox02InnerTxt">
+                    <h5>下载应用</h5>
+                    <span>请点击右上角按钮选择</span>
+                    <p>「在浏览器中打开」</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

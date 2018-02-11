@@ -1,0 +1,128 @@
+.main {
+    background-color: #F5F5F5;
+    margin-top: 40px;
+}
+
+.container {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.container .background {
+    background-image: url(../images/loginBG.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 450px;
+}
+
+.form-container {
+    width: 395px;
+    height: 410px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    top: 20px;
+    left: 385px;
+}
+
+.form-container .title {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    padding: 30px;
+}
+
+.authCode {
+    width: 96px;
+    height: 38px;
+    margin-left: 14px;
+}
+
+.authCodeError {
+    color: #ff362c !important;
+}
+
+.login {
+    background-image: url(../images/sign.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 300px;
+    height: 54px;
+    margin: 0px 48px;
+    border: 0;
+}
+
+.sign {
+    width: 300px;
+    height: 54px;
+    margin: -5px 48px;
+    border: 0;
+    color: #ff580f;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.classic {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    height: 37px;
+    right: 37px;
+    color: #ff580f !important;
+    background: transparent !important;
+    border: 0
+}
+
+.checkboxclick {
+    position: relative;
+    left: 40px;
+}
+
+.world_voucher1 {
+    position: absolute;
+    top: 70px;
+    bottom: 0px;
+    overflow-y: auto;
+}
+
+.ui.modal>.close {
+    display: none;
+}
+
+.ui.dimmer {
+    background-color: rgba(0, 0, 0, .5) !important;
+}
+
+.signSuccess {
+    background-image: url(../images/signSuccess.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 250px;
+    height: 180px;
+    margin: 0 auto;
+    position: relative;
+    top: 30px;
+    margin-bottom: 40px;
+}
+.form-container p{
+    color: #697076;
+    font-size: 14px;
+    text-align: center;
+}
+.finish{
+    width: 120px;
+    height: 45px;
+    background: transparent!important;
+    border: 1px solid #ff580f!important;
+    color: #ff580f!important;
+}
+.open{
+    width: 120px;
+    height: 45px;
+    background: #ff580f!important;
+    border: 1px solid #ff580f!important;
+    color: #fff!important;
+}

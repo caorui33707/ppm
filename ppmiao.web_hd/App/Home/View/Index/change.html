@@ -1,0 +1,365 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.min.js"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/tupianlunbo.js"></script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.1.4.2-min.js"></script>
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/tupianlunbo.css" rel="stylesheet" type="text/css"/>
+<title>{$meta_title}</title>
+
+</head>
+<style>
+.content{ position:absolute;opacity:10;z-index:3; width: 100%;filter:alpha(opacity=70);}
+.about_banner{margin-top:-96px;}<!--第二导航条透明度-->
+body{background-color:#f4f4f4;}
+.integral_content p{font-size:14px;margin:0 10px;color:#ff580f;margin-top:10px;}
+.integral_content span{color:#ff580f;font-size:20px;}
+.integral_bj{ top:0;left:0; width:100%; height:100%; background-color:#333; opacity:0.3;filter:alpha(opacity=30);z-index:30;}
+.integral_window{top:30%;left:0; width:100%; height:100%;z-index:40; }
+.integral_window .integral_content{border-radius:5px; width:300px;background-color:#fff; height:400px;}
+</style>
+<style>
+.submit_seek{margin:0 15px;color:#333333;}
+.submit_seek span{margin-left:20px;font-size:15px;}
+.submit_seek p{font-size:19px;font-weight:bold;padding-top:20px;padding-left:20px;padding-bottom:15px;}
+.change_yuan {margin-top:30px;}
+.change_yuan img{margin-left:60px;margin-right:5px;}
+.change_yuan p{color:#999999;margin-top:2.5px;}
+.change_profit{padding-top:55px;}
+.change_profit{padding-left:60px;padding-bottom:20px;}
+.change_profit img{padding-right:10px;}
+.change_profit p{font-size:20px;color:#ff580f;}
+.change_money{padding-bottom:20px;}
+.change_money p{color:#999999;padding-left:60px;padding-top:3px;}
+.change_money input{width:250px;height:25px;border:solid 1px #999;line-height:25px;text-indent:0.5em;color:#999;}
+.change_word{color:#999999;padding-bottom:20px;}
+.change_word span{color:#ff580f;}
+.change_question{width:1200px;padding-top:30px;}
+.change_question h3{margin-left:10px;margin-right:10px;}
+.submit-slideTxtBox{background-color:#FFF;}
+.change_how{margin:10px 20px;font-size:18px;padding-bottom:3px;}
+.change_users{padding:0 20px 90px 20px;color:#000000;}
+.change_users span{color:#3e3e3e;}
+.change_dialogue{padding-left:20px;padding-bottom:200px;}
+.change_dialogue h3{color:#ff580f;margin-top:px;margin-right:5px;}
+.change_dialogue h3 span{color:#000;}
+.change_dialogue p{margin-top:13px;padding-left:5px;}
+</style>
+<body style="min-width:1200px;" bgcolor="#f4f4f4">
+	<include file="Public:menu" />
+        
+       <!--弹出层-->
+      <div  class="hidden" id="integral_bj"></div>
+      <div class="hidden" id="integral_window">
+          <div class="integral_content tc mar">
+          	  <p class="fr cup" onclick="IsPass()"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/enjoy_09.png"/></p>
+              <div class="clear"></div>
+              <p class="tc mtop"><span>扫一扫</span></p>
+              <p class="tc mtop">下载APP即可抢购</p>
+              <img class="tc mtop4" src="{:C('STATIC_ROOT')}/new_ppmiao/images/enjoy_14.png"/>
+          </div>
+      </div>
+        <div class="submit_money mar">
+        	<div class="submit_seek bodbm">
+                <p class="fl">零钱喵</p>
+                <p><span class="mtop">活期理财</span></p>
+            </div>
+            <div class="submit_speed cut60 fl mtop3">
+            	<div class="product_year cut30 fl tc">
+                    <p class="bodr">{$rate}%</p>
+                    <p class="bodr"><span>今日年化收益率</span></p>
+                </div>
+                <div class="change_yuan cut20 fl">
+                	<img class="fl " src="{:C('STATIC_ROOT')}/new_ppmiao/images/change_03.png"/>
+                    <p><span>随买随赎</span></p>
+                </div>
+                <div class="change_yuan cut20 fl">
+                	<img class="fl " src="{:C('STATIC_ROOT')}/new_ppmiao/images/change_05.png"/>
+                    <p><span>当日起息</span></p>
+                </div>
+                <div class="change_yuan cut20 fl">
+                	<img class="fl " src="{:C('STATIC_ROOT')}/new_ppmiao/images/change_07.png"/>
+                    <p><span>1元起投</span></p>
+                </div>
+                <div class="clear"></div>
+                <ul>
+                    <li class="change_one cut25 fl tc mtop2">
+                        <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/change_22.png"/>
+                        <h2 class="mtop">更灵活</h2>
+                        <p class="mtop">活期理财</p>
+                        <p>7*24小时随买随赎</p>
+                    </li>
+                    <li class="change_one cut25 fl tc mtop2">
+                        <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/change_24.png"/>
+                        <h2 class="mtop">高收益</h2>
+                        <p class="mtop">收益是余额宝的2.1倍</p>
+                        <p>是银行活期储蓄的20倍</p>
+                    </li>
+                    <li class="change_one cut25 fl tc mtop2">
+                        <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/change_16.png"/>
+                        <h2 class="mtop">起息快</h2>
+                        <p class="mtop">当日起息</p>
+                        <p>其他平台至少T+1日起息</p>
+                    </li>
+                    <li class="change_one cut25 fl tc mtop2">
+                        <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/change_19.png"/>
+                        <h2 class="mtop">超安全</h2>
+                        <p class="mtop">产品有银行承兑汇票组成</p>
+                        <p>银行承诺兑付</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="submit_calculation cut40 fl">
+            	<div class="change_profit bodl">
+                	<img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/change_10.png"/>
+                    <p>收益计算器</p>
+                </div>
+                <div class="change_money bodl">
+                	<p class="fl">金额：</p>
+                    <input class="long_input" placeholder="输入投资金额" onkeyup="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" onchange="checkField(this.value)">
+                </div>
+                <div class="change_word cut50 fl tc ">
+                    <div class="bodl">
+                        <p><span id="ppm_interest">0.00</span> 元</p>
+                        <p>预计每日可赚</p>
+                    </div>
+                </div>
+                <div class="change_word cut50 tc fl ">
+                	<p><span id="bank_interest">0.00</span> 元</p>
+                    <p>银行同期可赚</p>
+                </div>
+                <div class="clear"></div>
+                <div class="submit_key tc">
+                	<button class="cup"   onclick="IsPass()">立即转入</button>
+                </div>
+            </div>
+        </div>
+      	
+        <div class="change_question mar">
+        	<img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/industry_07.png"/>
+            <h3 class="fl">零钱喵</h3>
+            <p class="mtop5">常见问题</p>
+        </div>
+        <!---切换内容--->
+        <div class="submit-slideTxtBox">
+            <ul>
+                <li class="change_how bodbm">
+                    <p>如何赎买？</p>
+                </li>
+                <li class="change_users">
+                    <p>用户可根据零钱喵开放的额度进行购买，两种情况下将有额度开放：</p>
+                    <p class="mtop"><span>a、平台每天将不定期增开额度；</span></p>
+                    <p><span>b、当其他用户进行赎回操作后，将空出相应金额的额度供大家抢购。</span></p>
+                </li>
+                
+                <li class="change_how bodbm">
+                    <p>如何赎回？</p>
+                </li>
+                <li class="change_users">
+                    <p>用户登录后，可在票票喵产品购买页或进入个人中心，在票票喵账户中进行赎回申请：
+</p>
+                    <p class="mtop"><span>a、赎回至您绑定的银行卡（相当于提现），一般T+2个工作日即可到账 , 每人每天可申请赎回3次，且无上限额度；</span></p>
+                    <p><span>b、票票喵的账户资金也可直接用于购买票票喵，购买一次计一次赎回，当天购买2次及以上，当天不能赎回到银行卡。</span></p>
+                </li>
+                
+                <li class="change_how bodbm">
+                    <p>如何用票票喵购买其他产品？</p>
+                </li>
+                <li class="change_users">
+                    <p><span>在其他产品（票票喵）购买界面勾选“票票喵账户”，系统将在您可用余额不足的情况下，调用您投在票票喵的资金来补充完成该产品的购买。</span></p>
+                </li>
+                
+                <li class="change_how bodbm">
+                    <p>常见问题</p>
+                </li>
+                <li class="change_dialogue">
+                	<h3 class="fl">Q：</h3>
+                    <p class="mtop5">什么时候能看到收益到账？</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop"><span>A：</span></h3>
+                    <p>您好，资金转入“票票喵”当日计息，T+0日开始计息,T+1显示收益到账。。</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop">Q：</h3>
+                    <p>1元起息是什么意思？</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop"><span>A：</span></h3>
+                    <p>您好，只要零钱喵的账户满1元，就可享有收益。</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop">Q：</h3>
+                    <p>零钱喵的年化利率何时更新，收益如何计算？</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop"><span>A：</span></h3>
+                    <p>您好，“零钱喵”的当日年化利率于每日10:00更新；举例，投资者A在7月14日投资5000元至“零钱喵”，当日利率为7.0%，由于T+0日计息，所以7月15日客户端“昨日收益”显示为0.9558元；7月15日钱包当日年化利率为7.1%，则7月16日客户端“昨日收益”显示为0.9726元（数据精确到小数点后四位）。</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop">Q：</h3>
+                    <p>零钱喵提现什么时候到账？</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop"><span>A：</span></h3>
+                    <p>您好，每日15:00之前申请提现，当天受理；每日15:00之后申请提现，T+1日受理，利息结算至实际受理日。受理后资金正常情况下预计1-2个工作日内到账，注：周末及法定节假日银行不受理出款业务。</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop">Q：</h3>
+                    <p>零钱喵提现有限制吗？</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop"><span>A：</span></h3>
+                    <p>您好，用户提现到银行卡，一天可转3次，无限额。</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop">Q：</h3>
+                    <p>票票喵产品安全吗？</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop"><span>A：</span></h3>
+                    <p>票票喵产品由银行承兑汇票构成，具有银行无条件兑付的优点，风险几乎为零。票票喵作为一家中介机构，我们的每笔交易由宝付，融宝支付代扣代付，每一笔账户资金由平安保险全额承保，平台账户资金由国有银行实时监管，票票喵不碰触用户资金。</p>
+						
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop">Q：</h3>
+                    <p>票票喵收益为什么有波动？</p>
+                    <div class="clear"></div>
+                    
+                    <h3 class="fl mtop"><span>A：</span></h3>
+                    <p>票票喵的收益率会随着市场环境的变化而轻微波动，属正常市场行为，请勿担心，受国家相关政策降准降息的影响，以及借贷双方的约定，所以利率也会受此影响的哦。</p>
+						
+                    <div class="clear"></div>
+                    
+
+                </li>
+                <div class="clear"></div>
+            </ul>
+		</div>
+        <!---切换内容end--->
+		<!--底部导航栏-->
+		<include file="Public:footer" />
+
+</body>
+ 
+ <!--点击二维码显示隐藏-->
+<script>
+	var IsPopup = false;
+	function IsPass() {
+		if (IsPopup) {
+			document.getElementById("index_bj").className = "hidden";
+			document.getElementById("index_window").className = "hidden";
+			IsPopup = false;
+		} else {
+			document.getElementById("index_bj").className = "index_bj abs";
+			document.getElementById("index_window").className = "index_window abs";
+			IsPopup = true;
+		}
+	}
+</script>
+
+<script>
+        window.onload = function () {
+            ChangeNav(1);
+        }
+
+        function ChangeNav(num) {
+            $("#zijin").attr("class", "hidden");
+            $("#tuoguan").attr("class", "hidden");
+            $("#baoxian").attr("class", "hidden");
+			$("#xianguan").attr("class", "hidden");
+            for (var i = 1; i < 5; i++) {
+                $("#nav_" + i).css( "border-top:4px solid #fff","background-color", "#fff");
+            }
+            $("#nav_" + num).css("border-top:4px solid #ff580f","background-color", "#f4f4f4");
+            switch (num) {
+                case 1:
+                    $("#zijin").attr("class", "submit_topright ul li a");
+                    break;
+                case 2:
+                    $("#tuoguan").attr("class", "submit_topright ul li a ");
+                    break;
+                case 3:
+                    $("#baoxian").attr("class", "submit_topright ul li a ");
+                    break;
+				case 4:
+                    $("#xianguan").attr("class", "submit_topright ul li a ");
+                    break;
+                default:
+            }
+        }
+</script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.tabso_yeso.js"></script>
+<script type="text/javascript">
+$(document).ready(function($){
+	//淡隐淡现选项卡切换
+	$("#fadetab").tabso({
+		cntSelect:"#fadecon",
+		tabEvent:"mouseover",
+		tabStyle:"fade"
+	});
+	
+});
+</script>
+<!--弹出层-->
+<script>
+	
+;(function($){
+    $.fn.placeholder = function(options){
+        var opts = $.extend({}, $.fn.placeholder.defaults, options);
+        var isIE = document.all ? true : false;
+        return this.each(function(){
+            var _this = this,
+                placeholderValue =_this.getAttribute("placeholder"); //缓存默认的placeholder值
+            if(isIE){
+                _this.setAttribute("value",placeholderValue);
+                _this.onfocus = function(){
+                    $.trim(_this.value) == placeholderValue ? _this.value = "" : '';
+                };
+                _this.onblur = function(){
+                    $.trim(_this.value) == "" ? _this.value = placeholderValue : '';
+                };
+            }
+        });
+    };
+})(jQuery);
+
+var IsPopup = false;
+function IsPass() {
+	if (IsPopup) {
+		document.getElementById("integral_bj").className = "hidden";
+		document.getElementById("integral_window").className = "hidden";
+		IsPopup = false;
+	} else {
+		document.getElementById("integral_bj").className = "integral_bj abs";
+		document.getElementById("integral_window").className = "integral_window abs";
+		IsPopup = true;
+	}
+}
+       
+        
+        function checkField(val){
+        	
+        	var rate = {$rate};
+        	var interest = (val * rate)/365/100;
+        	interest = interest.toFixed(4);
+        	$("#ppm_interest").empty().text(interest);
+        	
+        	var bank_rate = 0.3;
+        	var bank_interest = (val * bank_rate)/365/100;
+        	bank_interest = bank_interest.toFixed(4);
+        	$("#bank_interest").empty().text(bank_interest);
+        	
+        }
+        
+        
+    </script>
+<script type="text/javascript">
+	$("input").placeholder();
+</script>
+</html>

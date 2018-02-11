@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>购买成功</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link href="{:C('STATIC_ROOT')}/assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/cover.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/pay_succ/style.css" rel="stylesheet" type="text/css">
+    <script src="{:C('STATIC_ROOT')}/assets/pay_succ/index.js"></script>
+    <script src="{:C('STATIC_ROOT')}/assets/js/semantic.min.js"></script>
+</head>
+
+<body>
+	<include file="Common:header" />
+    <div class="main">
+        <div class="container">
+            <div class="invertSuccess">
+                <div class="invertSuccess-title">
+                   {$data.title}
+                </div>
+                <img src="{:C('STATIC_ROOT')}//assets/images/success.png" style="margin:10px;" />
+                <div class="invertSuccess-money">
+                    <div class="invertSuccess__text tl">投资金额</div><div class="tr">{$data.amt}元</div>
+                </div>
+                <div class="invertSuccess-money">
+                    <div class="invertSuccess__text tl">产品利率</div><div class="tr">{$data.interest}%</div>
+                </div>
+                <div class="invertSuccess-money">
+                    <div class="invertSuccess__text tl">到期日</div> <div class="tr">{$data.duetime}</div>
+                </div>
+                <div>
+                    <a href="/index.php/User/index/dueDetail"><button class="myInvert">我的投资</button></a>
+                    <a href="/product/detail.html?id={$data.id}"><button class="finish">完成</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Common:footer" />
+</body>
+
+</html>

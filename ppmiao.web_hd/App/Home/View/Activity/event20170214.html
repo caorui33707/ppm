@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" >
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170214/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170214/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170214/css/JCheck.css" rel="stylesheet" type="text/css" >
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/activity/event20170214/js/JCheck.js"></script>
+    <title>票票喵-情人节</title>
+    <style>
+
+
+.love_pic img {
+width:100%;
+}
+.love_money {
+background: url("{:C('STATIC_ROOT')}/activity/event20170214/images/cup_04.jpg") no-repeat;
+background-size:100% 100%;
+width:100%;
+height:130px;
+}
+.love_money p {
+color:#f05a78;
+font-size:15px;
+font-weight:bold;
+padding-top:58px;
+}
+.love_money span{
+color:#000000;
+}
+.love_now {
+width: 100%;
+line-height: 50px;
+background-color: #ef395d;
+color: #ffffff;
+font-size: 17px;
+width:100%;position:fixed;bottom:0;left:0;
+text-align:center;
+}
+.love_big {
+width:100%;
+height:100%;
+background-color:#fce9ed;
+}
+.love_message {
+width:75%;
+line-height:40px;
+background-color:#ef395d;
+color:#ffffff;
+margin:auto;
+border-radius:10px;
+}
+.love_square {
+top:25%;
+left:5%;
+z-index:10;
+position:fixed;
+width:90%;
+background-color:#ffffff;
+border-radius:10px;
+padding:20px 0 15px 0;
+}
+.love_people {
+margin-left:15px;
+padding-bottom:40px;
+}
+.love_to input {
+line-height:30px;
+text-indent:1em;
+}
+.love_people p {
+margin-top: 10px;
+}
+.love_people a {
+color:#ff0000;
+margin-right:2px;
+}
+.love_gou img {
+width:17px;
+margin-top:10px;
+margin-left:5px;
+}
+
+.love_ti button{
+width:120px;
+line-height:25px;
+background-color:#f4f4f4;
+border:solid 1px #bcbcbc;
+border-radius:5px;
+}
+
+.sub button{
+width:120px;
+line-height:25px;
+background-color:#f4f4f4;
+border:solid 1px #bcbcbc;
+border-radius:5px;
+}
+
+[class*="radio-group-"],
+[class*="checkbox-group-"]{
+margin-top:10px;
+margin-bottom:10px;
+}
+.u-radio .icon,
+.u-checkbox .icon {
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    position: relative;
+    top: -2px;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.u-radio .icon {
+    background: url("{:C('STATIC_ROOT')}/activity/event20170214/images/gary_11.jpg") center no-repeat;
+    width:18px;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+.u-radio.z-checked .icon {
+    background-image: url("{:C('STATIC_ROOT')}/activity/event20170214/images/red_09.jpg");
+}
+    </style>
+</head>
+<body>
+    <section>
+        <!--弹框-->
+        <div class="opacity" style="display:none;"></div>
+       	<div class="tankuang" id="integral_window" style="z-index:10;display: none">  
+            <div class="integral_content tc">
+                <p class="tc" id="tip">亲，距离目标仅一步之遥，</p>
+                <span class="tc">再加把劲哦！</span>
+            </div>
+        </div>
+        <div class="love_square hidden" style="display:none;"><!--弹框1-->
+            <div class="love_people rel">
+                <p class="cut30 fl"><a>*</a><span>收货人：</span></p>
+                <input class="love_to cut65 fl" type="text" name="user_name" id="user_name" maxlength='5'  placeholder="请输入姓名" style="border: 1px solid rgb(170, 170, 170);">
+            </div>
+            <div class="clear"></div>
+            <div class="love_people ">
+                <p class="cut30 fl"><a>*</a><span>所在地：</span></p>
+                <input class="love_to cut65 fl" type="text" name="address" id="address" maxlength='40' placeholder="请输入地址" style="border: 1px solid rgb(170, 170, 170);">
+            </div>
+            <div class="clear"></div>
+            <div class="love_people ">
+                <p class="cut30 fl"><a>*</a><span>详细地址：</span></p>
+                <input class=" love_to cut65 fl" type="text" name="address2" id="address2" maxlength='50' placeholder="请输入姓名" style="border: 1px solid rgb(170, 170, 170);">
+            </div>
+            <div class="clear"></div>
+            <div class="love_people ">
+                <p class="cut30 fl"><a>*</a><span>手机号码：</span></p>
+                <input class="love_to cut65 fl" type="text" name="mobile" id="mobile" maxlength='11' placeholder="请输入手机号码" style="border: 1px solid rgb(170, 170, 170);">
+            </div>
+            <div class="love_people">
+                <p class="cut30 fl"><a>*</a><span>选择礼品：</span></p>
+                <div class="cut65 fl">
+                    <div class="radio-group-1">
+                        <label class="u-radio" data-name="radio1">
+                            <input name="radio1" type="radio" value='0' id="type1">
+                            <i class="icon"></i>
+                            <span class="text">永生花</span>
+                        </label>
+                        <label class="u-radio" data-name="radio1">
+                            <input name="radio1" type="radio" value='1' id="type2">
+                            <i class="icon"></i>
+                            <span class="text">永生树</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="tc" style="color:#ef395d;font-size:14px;margin-bottom:10px;" >
+            	<p id='err'></p>
+            </div>
+        	<div class="clear"></div>        
+            <div class="sub tc fl cut50">
+                <button id="sub1">提交收货信息</button>
+            </div>
+            <div class="love_ti tc fl cut50">
+                <button >关闭</button>
+            </div>
+        </div>
+        
+        <!--正文-->
+        <div class="love_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_01.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_02.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_03.jpg" />
+        </div>
+        <div class="love_money tc" style="margin-top:-1px;">
+            <p>您当前累计投资：<span>{$invest_amount}元</span></p>
+        </div>
+        <div class="love_pic">
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_05.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_06.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_07.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_08.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_09.jpg" />
+        </div>
+        <div class="love_big">
+            <div class="love_message tc">
+                <p>填写收货信息</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="love_pic" style="margin-bottom:50px;">
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170214/images/cup_11.jpg" />
+        </div>
+        <!--footer-->
+        <div class="love_now tc" style="cursor:pointer;margin-top:50px;z-index:1;" onclick="go2App();">
+            <p>立即投资</p>
+        </div>
+    </section>
+    
+    <script>
+	    $(function () {
+	    	$('.u-radio').jRadio();
+	    	$('.u-checkbox').jCheckbox();
+	    });
+    </script>
+    
+    <script type="text/javascript">
+	    var invest_amount = {$invest_amount};
+	    var uid = {$uid};
+	    
+	    $(function () {
+	        $(".love_message").click(function () {	        	
+	        	if(uid > 0 && invest_amount > 99999) {	        		
+	        		$('#type1').click();	 
+	        		
+		            $.ajax({
+	        	    	url: "?c=Activity&a=get_evt20170214",
+	        	        type: "post",
+	        	        data: {'user_id':uid}, 
+	        	        success: function (json) {
+	        	        	if(json.status == 1){
+	        	        		$("#user_name").val(json.info.user_name);	        	        		
+	        	        		$("#address").val(json.info.address);
+	        	        		$("#address2").val(json.info.address2);
+	        	        		$("#mobile").val(json.info.mobile);
+	        	        		$("#radio").val(json.info.user_name);		        	
+	        	        		
+	        	        		if(json.info.type == 0) {
+	        	        			$('#type1').click();
+	        	        		} else {
+	        	        			$('#type2').click();
+	        	        		}
+	        	        	} 	    
+	        	        	$("#err").empty().html();
+	        	        	$(".love_square").fadeIn();
+	    		            $(".love_people").fadeIn();
+	    		            $(".opacity").fadeIn();
+	        	        }
+	        	   	})
+		            
+	        	} else {	        		
+	        		var s = '您还没有登录 ，请先登陆';
+	        		if(uid<=0) {
+	        			s = '您还没有登录 ，请先登陆';
+	        		} else {
+	        			s = '亲，距离目标仅一步之遥，';
+	        		}
+	        		$('#tip').empty().html(s);
+	        		$("#integral_window").fadeIn();
+		            setTimeout(function () {
+		                $("#integral_window").fadeOut();
+		                $(".backgr").fadeOut();		                
+		                $("#err").empty().html();
+		            }, 1800);
+	        	}
+	        });        
+	        
+	        $(".love_ti").click(function () {
+	            $(this).parent().fadeOut();
+	            $(".opacity").fadeOut();
+	            $(".love_square").css("display", "none");
+	        })
+	        
+	        $('#sub1').click(function () {
+	        	var user_name  = $("input[name='user_name']").val();
+	        	var address  = $("input[name='address']").val();
+	        	var address2  = $("input[name='address2']").val();
+	        	var mobile  = $("input[name='mobile']").val();	
+	        	var type = $("input[type='radio']:checked").val();
+	        		        	
+	        	if(user_name && address && address2 && mobile ) {	        		
+	        		if(!checkPhone(mobile)) {
+	        			$("#err").empty().html('输入的手机号码有误！');
+	        			return;
+	        		}	        		
+	        		$.ajax({
+	        	    	url: "?c=Activity&a=add_evt20170214",
+	        	        type: "post",
+	        	        data: {'user_id':uid,'mobile':mobile,'user_name':user_name,'address':address,'address2':address2,'type':type},
+	        	        success: function (json) {
+	        	        	$("#err").empty().html(json.info);
+	        	        }
+	        	   	})
+	        		
+	        	} else {
+	        		if(!user_name) {
+	        			$("#err").empty().html('请填写收货人');
+	        			return;
+	        		}else if(!address){
+	        			$("#err").empty().html('请填写所在地');
+	        			return;
+	        		}else if(!address2) {
+	        			$("#err").empty().html('请填写详细地址');
+	        			return;
+	        		}else if(!mobile){
+	        			$("#err").empty().html('请填写手机号码');
+	        			return;
+	        		}
+	        	}	        	
+	        });
+	    });		
+		
+	    function checkPhone(phone){ 
+			if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){ 
+				return false; 
+			} 
+			return true;
+		}
+    </script>
+    
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+    </body>
+</html>

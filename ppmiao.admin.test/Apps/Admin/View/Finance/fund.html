@@ -1,0 +1,124 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<load href='__PUBLIC__/admin/css/autocomplete.css' />
+<script type="text/javascript" src="__PUBLIC__/admin/js/jquery.autocomplete.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">结构化公募基金</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <span><input type="text" id="key" name="key" placeholder="输入产品名称" class="medium" value="{$params.key}"></span>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="搜索" class="search imgButton"></div>
+                </form>
+            </div>
+            <!-- 高级查询区域 -->
+            <div  id="searchM" class=" none search cBoth" >
+            </div>
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="21" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="8px"><input type="checkbox" id="check" onclick="CheckAll(this, 'checkList')"></th>
+                    <th width="50px" align="center">编号</th>
+                    <th width="150px" align="center">产品名称</th>
+                    <th width="80px" align="center">基金代码</th>
+                    <th width="100px" align="center">进入日期</th>
+                    <th width="100px" align="center">预计结束日期</th>
+                    <th width="100px" align="center">实际结束日期</th>
+                    <th width="100px" align="center">是否提前赎回</th>
+                    <th width="70px" align="center">进入净值</th>
+                    <th width="70px" align="center">最新净值</th>
+                    <th width="80px" align="center">平仓线净值</th>
+                    <th width="80px" align="center">结束净值</th>
+                    <th width="80px" align="center">金额</th>
+                    <th width="80px" align="center">确认份额</th>
+                    <th width="80px" align="center">申购费</th>
+                    <th width="80px" align="center">赎回费</th>
+                    <th width="80px" align="center">目前收益</th>
+                    <th width="80px" align="center">整体盈利</th>
+                    <th width="90px" align="center">平台获利分成</th>
+                    <th width="90px" align="center">平台收益</th>
+                    <th width="*">操作</th>
+                </tr>
+                <foreach name="list" item="item">
+                    <tr class="row">
+                        <td><input type="checkbox" id="check_{$item.id}" alt="{$item.id}"></td>
+                        <td align="center">{$item.id}</td>
+                        <td>{$item.title}</td>
+                        <td align="center">{$item.fund_code}</td>
+                        <td align="center">{$item.ext.enter_time|strtotime|date='Y/m/d',###}</td>
+                        <td align="center">{$item.end_time|strtotime|date='Y/m/d',###}</td>
+                        <td align="center"><notempty name="item.advance_end_time">{$item.advance_end_time|strtotime|date='Y/m/d',###}<else/>-</notempty></td>
+                        <td align="center"><eq name="item.ext.is_open" value="1"><span style="color:orange;">平仓</span><else/><span style="color:green;">安全</span></eq></td>
+                        <td align="center">{$item.ext.start_net}</td>
+                        <td align="center">{$item.fund_last_val}</td>
+                        <td align="center">{$item['ext']['start_net']*7/10}</td>
+                        <td align="center"><notempty name="item.advance_end_time">{$item.finish_code}<else/>-</notempty></td>
+                        <td align="right">{$item.amount|number_format}</td>
+                        <td align="right">{$item.ext.check_money|number_format}</td>
+                        <td align="right">{$item['amount']*$item['ext']['purchase_fee']/100|number_format=2}</td>
+                        <td align="right">{$item.ext.redemption_fee|number_format=2}</td>
+                        <td align="right"><if condition="$item['income'] lt 0"><span style="color:green;">{$item.income|number_format=2}%</span><elseif condition="$item['income'] gt 0" /><span style="color:red;">{$item.income|number_format=2}%</span><else/>0</if></td>
+                        <td align="right">{$item.profit|number_format=2}</td>
+                        <td align="right">{$item.divided_into|number_format=2}</td>
+                        <td align="right">{$item.platform_revenue|number_format=2}</td>
+                        <td>
+                            <if condition="checkAuth('Admin/finance/fund_edit') eq true"><a href="javascript:;" onclick="edit({$item.id})">编辑</a>&nbsp;&nbsp;</if>
+                        </td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td height="5" colspan="21" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">{$show}</div>
+        <!-- 列表显示区域结束 -->
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+    var _layerIndex = 0;
+    var _page = "{$params.page}";
+    var _s = "{$params.key}";
+    $(document).ready(function(){
+
+    });
+    function edit(_id){
+        window.open(ROOT + "/finance/fund_edit/id/" + _id, 'editfund', 'height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    function refresh(){
+        window.location.reload();
+    }
+</script>

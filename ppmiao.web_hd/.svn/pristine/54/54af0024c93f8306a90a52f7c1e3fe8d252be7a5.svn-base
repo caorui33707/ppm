@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/highchart/highcharts.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/layer/layer.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <include file="PublicNew:user_sidebar" />
+
+    <div class="innerRight fRi clear">
+        <div class="walletDetailsBigBox fLe clear">
+            <div class="walletDetailsBox01 fLe clear">
+                <div class="walletDetailsBox01Fle fLe clear">
+                    <h2>钱包</h2>
+                    <h3>昨日收益(元)</h3>
+                    <h4>{$yestoday_interest|number_format=4}</h4>
+                    <h3>总金额(元)</h3>
+                    <h5>{$user_account.wallet_totle|number_format=4}</h5>
+                    <span>
+                        <a href="javascript:;" class="button01" onclick="showWin()">充值</a>
+                        <a href="{:C('WEB_ROOT')}/user/withdrawals" class="button01 gray">提现</a>
+                    </span>
+                </div>
+                <div class="walletDetailsBox01Fri fRi clear">
+                    <h6>七日年化收益率(%)</h6>
+                    <div class="walletDetailsBox01FriInner fLe clear">
+                        <div id="container" style="width:400px;height:185px;"></div>
+                    </div>
+                    <div class="walletDetailsBox02FriInner fLe clear">
+                        <ul>
+                            <li><h2>累计收益 </h2><h3>{$user_account.wallet_interest_totle|number_format=4}</h3></li>
+                            <li><h2>近一月收益</h2><h3>{$month_sum|number_format=4}</h3></li>
+                            <li><h2>年化收益率</h2><h3>{$today_rate|number_format=2}%</h3></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="walletDetailsBox02 fLe clear">
+                <dl>
+                    <dt class="itemheader"><span class="span01">日期</span><span class="span02">充值/提现(元)</span><span class="span03">支付方式</span><span class="span04">状态</span></dt>
+                </dl>
+            </div>
+            <div class="page fRi clear"></div>
+        </div>
+    </div>
+</div>
+<script>
+    var _root = "{:C('WEB_ROOT')}";
+    var _chart = null;
+    var _yearList = '{$seven_year_list|json_encode}';
+
+    $(document).ready(function(){
+        loadWalletRecord(1);
+    });
+    Highcharts.setOptions({
+        lang: {
+            loading: '正在加载数据...'
+        },
+        colors: ['#FF4A4A']
+    });
+    $('#container').highcharts({
+        chart: {
+            type: 'area',
+            events: {
+                load: function(e) {
+                    _chart = this;
+                }
+            }
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+            shared: true,
+            formatter: function() {
+                return this.y + ' %';
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                lineWidth: 1,
+                marker: {
+                    enabled: false
+                },
+                shadow: false,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                threshold: null
+            },
+            series: {
+                marker: {
+                    enabled: false
+                },
+                events: {
+                    legendItemClick: function(){
+                        return false;
+                    }
+                }
+            }
+        },
+        xAxis: {
+            labels: {
+                align: 'center',
+                style:{
+                    color:'#D3D3D3'
+                }
+            },
+            lineColor: '#D3D3D3',
+            gridLineWidth:1,
+            categories:[{$xLabel}]
+        },
+        yAxis: [{
+            title: {
+                text: null
+            },
+            labels: {
+                align: 'right',
+                x: 10,
+                style:{
+                    color:'#D3D3D3'
+                }
+            },
+            lineColor: '#D3D3D3'
+        }],
+        series: [{
+            name: '年化利率',
+            data: [{$yLabel}]
+        }]
+    });
+    function closeWin(){
+        $(".rechargeLayout,.bg").hide();
+    }
+    function showWin(){
+        $(".rechargeLayout,.bg").show();
+    }
+    function recharge(){
+        var _money = $.trim($("#money").val());
+        if(_money == ''){
+            layer.alert('充值金额不能为空', -1);return;
+        }
+        if(isNaN(_money)){
+            layer.alert('充值金额必须为数字', -1);return;
+        }
+        if(_money <= 0){
+            layer.alert('充值金额必须大于0', -1);return;
+        }
+        if(_money%1 != 0){
+            layer.alert('充值金额必须为整数', -1);return;
+        }
+        closeWin();
+        $("#frmMain").submit();
+    }
+</script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/user.js"></script>
+<include file="PublicNew:user_footer" />
+<div class="rechargeLayout" style="display:none;">
+    <form id="frmMain" action="" method="post">
+        <div class="rechargeLayoutTitle fLe clear">
+            <h5>钱包充值</h5>
+            <a href="javascript:;" onclick="closeWin()"></a>
+        </div>
+        <div class="rechargeLayoutContent fLe clear">
+            <p class="p01"><span>充值金额：</span><input type="text" id="money" name="money" placeholder="最低充值1元" class="input01" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" /></p>
+            <p class="p02"><a href="javascript:;" onclick="recharge()">确定充值</a></p>
+        </div>
+    </form>
+</div>
+<div id="bg" class="bg" style="display:none;"></div>
+</body>
+</html>

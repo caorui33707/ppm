@@ -1,0 +1,149 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">融资方协议利率添加/编辑<a href="{:C('ADMIN_ROOT')}/project/project_protocol_rate" style="float:right">返回列表</a> </div>
+        <!--  功能操作区域开始 -->
+        <div class="list" >
+            <form  method='post' action="">
+                <input type="hidden" name="id"  value="{$id}" />
+                <table cellpadding=3 cellspacing=3 >
+                    <tr>
+                        <td class="tRight" width="150px">日期：</td>
+                        <td class="tLeft">
+                            <input type="text" class="bLeftRequire" id="_rate_date" name="add_time" datatype="n" value="{$add_time}" readonly />
+                        </td>
+                    </tr>
+                    
+					<tr>
+                        <td class="tRight">协议利率：</td>
+                        <td class="tLeft"><input  type="text" class="bLeftRequire" name="rate" datatype="n" value="{$rate}" /></td>
+                    </tr>
+
+					<tr>
+                        <td class="tRight">融资方：</td>
+                        <td class="tLeft">
+                        	<select name="financing" id="financingId">
+                        		<option value="0">请选择融资方</option>
+                        		<foreach name="financing_list" item="item">
+                            		<option value="{$item.id}" <eq name='id' value="$item['id']">selected</eq> >{$item.name}</option>
+                            	</foreach>
+                        	</select>
+						</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="center">
+                            <div style="width:100%;margin:5px">
+                                <input type="button" value="保 存" id="savedata" class="button small">
+                                <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <!-- 功能操作区域结束 -->
+        <div style="clear: both;"></div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+    var _date = {
+        elem: '#_rate_date',
+        format: 'YYYY-MM-DD',
+        max: '2099-06-16',
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+    laydate(_date);
+    
+    
+    var _adding = false;
+    var _layerIndex = 0;
+    
+    $("#savedata").click(function(){
+    	
+    	var id = $("input[name='id']").val();  
+    	var add_time = $("input[name='add_time']").val();  
+    	var rate = $("input[name='rate']").val();  
+    	var financing = $("#financingId").val();
+    	
+    	if(!add_time || add_time == "") {
+    		layer.alert('请选择日期');
+    		return;
+    	}	
+    	
+    	if(!rate || rate == "") {
+    		layer.alert('请输入协议利率');
+    		return;
+    	} else if(isNaN(rate)) {
+    		$("input[name='rate']").val('');
+    		layer.alert('请输入协议利率,只能是数字，可以包括小数点');
+    		return;
+    	}
+    	
+    	if(financing == 0) {
+    		layer.alert('请选择融资方');
+    		return;
+    	}
+    	
+    	$.ajax({
+            url: ROOT + '/project/project_protocol_rate_edit',
+            type: "POST",
+            data: {'id':id,'add_time':add_time,'rate':rate,'financing':financing}, 
+            cache: false,
+            success: function(msg) {
+                layer.close(_layerIndex);
+                if(msg.status == 1){
+                    layer.confirm('添加成功~!是否继续添加?', function(){
+                        window.location.reload();
+                    }, function(){
+                        window.location.href = msg.info;
+                    });
+                }else if(msg.status == 2){
+                	                	
+                    layer.alert('修改成功！', -1, function(){
+                    	window.location.href = msg.info;
+                    });
+                	
+                }else{
+                    layer.alert(msg.info);
+                }
+                _adding = false;
+            }
+        });
+    });
+	
+    
+
+	function isNumber(val) {
+		if (!isNaN(val)) {
+			return true;
+		} else {
+			return false
+		}
+	}
+</script>

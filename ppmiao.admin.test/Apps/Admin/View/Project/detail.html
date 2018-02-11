@@ -1,0 +1,263 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">产品详细 [ <a href="{:C('ADMIN_ROOT')}/Project/index/p/{$params.page}/status/{$params.status}<notempty name='params.search'>/s/{$params.search}</notempty>">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/auth/js/editor/kindeditor-all.js"></script>
+        <form id="frmMain" method='post' action="" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$detail.id}" />
+            <input type="hidden" name="p" value="{$params.page}" />
+            <input type="hidden" name="s" value="{$params.search}" />
+            <input type="hidden" name="_status" value="{$params.status}" />
+            <table cellpadding=3 cellspacing=3 >
+                
+                <tr>
+                    <td class="tRight" width="150px">产品类型：</td>
+                    <td class="tLeft">
+                       		<span>票票喵</span> 
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">期数：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" id="stage" name="stage" datatype="n" value="{$detail.stage}" onchange="changeStage(this)" disabled /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">标题：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="title" name="title" value="{$detail.title}" readonly></td>
+                </tr>
+                <tr>
+                    <td class="tRight">购买基数：</td>
+                    <td class="tLeft"><input type="text" datatype="n" id="basecount" name="basecount" value="{$detail.buy_base}" readonly />&nbsp;<span style="color:#409DFE;">注：前端显示该项目购买数量为此基数+用户实际购买数之和</span></td>
+                </tr>
+                
+                
+                <tr>
+                    <td class="tRight">显示分组：</td>
+                    <td class="tLeft">
+                        <select name="show_region" id="show_region" disabled>
+                            <option value="0" <eq name="detail.show_region" value="0">selected</eq>>定期专区</option>
+                            <option value="1" <eq name="detail.show_region" value="1">selected</eq>>活动专区</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">特殊标签：</td>
+                    <td class="tLeft">
+                        <!--<select name="new_preferential" disabled>-->
+                            <!--<option value="0" <eq name="detail.new_preferential" value="0">selected</eq>>普通标</option> -->
+                            <!--<option value="1" <eq name="detail.new_preferential" value="1">selected</eq>>新人特惠</option> -->
+                            <!--<option value="2" <eq name="detail.new_preferential" value="2">selected</eq>>爆款</option> -->
+                            <!--<option value="3" <eq name="detail.new_preferential" value="3">selected</eq>>HOT</option>-->
+                            <!--<option value="6" <eq name="detail.new_preferential" value="6">selected</eq>>活动</option> -->
+                            <!--<option value="8" <eq name="detail.new_preferential" value="8">selected</eq>>私人专享</option> -->
+                            <!--<option value="9" <eq name="detail.new_preferential" value="9">selected</eq>>月月加薪标</option>-->
+                        <!--</select>-->
+                        <select name="new_preferential" disabled>
+                            <foreach name="special_tags" item="t">
+                                <option value="{$t.id}" <eq name="detail.new_preferential" value="$t.id">selected</eq>  >{$t.tag_title}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">融资方：</td>
+                    <td class="tLeft"><input type="text" id="financing" name="financing" value="{$detail.financing}" readonly /></td>
+                </tr>
+                
+                
+                <tr>
+                    <td class="tRight">自定义标签：</td>
+                    <td class="tLeft"><input type="text" id="custom_label" name="custom_label" value="{$detail.custom_label}" readonly/></td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">自定义权重值：</td>
+                    <td class="tLeft">
+                    	<input type="text" datatype="n" id="custom_weight" name="custom_weight" value="{$detail.custom_weight}" readonly/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">权重值：</td>
+                    <td class="tLeft">
+                    	{$detail.weight}
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">产品期限：</td>
+					 <td class="tLeft">
+                    	<switch name="detail.duration_type">
+                        		<case value="1">1周新手标</case> 
+                        		<case value="2">1月标</case> 
+                        		<case value="3">2月标</case> 
+                        		<case value="4">3月标</case> 
+                        		<case value="5">6月标</case> 
+                       	</switch>
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                    <td class="tRight">合同编号：</td>
+                    <td class="tLeft"><input type="text" id="contract_no" name="contract_no" value="{$detail.contract_no}" readonly /></td>
+                </tr>
+
+                <tr>
+                    <td class="tRight">承兑银行：</td>
+                    <td class="tLeft"><input type="text" id="accepting_bank" name="accepting_bank" value="{$detail.accepting_bank}" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">验票托管：</td>
+                    <td class="tLeft">                    	
+                    	<textarea name="ticket_checking" id="ticket_checking" style="width:600px;height:70px;">{$detail.ticket_checking}</textarea>
+                    </td>
+                </tr>
+                 
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">可购买次数：</td>
+                    <td class="tLeft"><input type="text" id="buy_times" name="buy_times" datatype="n" value="{$detail.buy_times|default=0}" readonly />&nbsp;<span style="color:#409DFE;">注：0为不限制</span></td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">起购封顶金额(元)：</td>
+                    <td class="tLeft">
+                        <input type="text" id="money_min" name="money_min" datatype="semoney" value="{$detail.money_min}" nullmsg="请填写信息！" errormsg="必须为数字！" readonly /> -
+                        <input type="text" id="money_max" name="money_max" datatype="semoney" value="{$detail.money_max}" nullmsg="请填写信息！" errormsg="必须为数字！" readonly />&nbsp;<span style="color:#409DFE;">注：0为不限制</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">购买方式：</td>
+                    <td class="tLeft">
+                        <label>
+                            <input type="radio" disabled name="money_type" value="0" <eq name="detail.money_type" value="0">checked</eq> />起购金额的倍数购买
+                        </label>
+                        <label>
+                            <input type="radio" disabled name="money_type" value="1" <eq name="detail.money_type" value="1">checked</eq> />大于起购金额且是100的倍数购买
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">起止时间：</td>
+                    <td class="tLeft">
+                        <input type="text" class="bLeftRequire laydate-icon" name="start_time" id="start_time" value="{$detail.start_time|strtotime|date='Y-m-d H:i',###}" readonly /> -
+                        <input type="text" class="bLeftRequire laydate-icon" name="end_time" id="end_time" value="{$detail.end_time|strtotime|date='Y-m-d H:i',###}" readonly />
+                    <td>
+                </tr>
+                <tr>
+                    <td class="tRight">计息方式：</td>
+                    <td class="tLeft">
+                        <select id="count_interest_type" name="count_interest_type" class="bLeftRequire" datatype="*" disabled>
+                            <option value="">--请选择计息方式--</option>
+                            <option value="1" <eq name="detail.count_interest_type" value="1">selected</eq>>T+0</option>
+                            <option value="2" <eq name="detail.count_interest_type" value="2">selected</eq>>T+1</option>
+                            <option value="3" <eq name="detail.count_interest_type" value="3">selected</eq>>T+2</option>
+                            <option value="4" <eq name="detail.count_interest_type" value="4">selected</eq>>T+3</option>
+                            <option value="5" <eq name="detail.count_interest_type" value="5">selected</eq> >满标起息</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">还款方式：</td>
+                    <td class="tLeft">
+                        <select id="repayment_type" name="repayment_type" class="bLeftRequire" datatype="*" onchange="changeRepayment(this)" disabled>
+                            <option value="">--请选择还款方式--</option>
+                            <option value="1" <eq name="detail.repayment_type" value="1">selected</eq>>一次性还本付息</option>
+                            <option value="2" <eq name="detail.repayment_type" value="2">selected</eq>>按月付息，到期还本</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="trRepayment" style="display:none;">
+                    <td class="tRight tTop">每月固定还款日：</td>
+                    <td class="tLeft"><input type="text" id="repayment_day" name="repayment_day" readonly datatype="n" value="{$detail.repayment_day|default=20}" class="bLeftRequire" disabled /><td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">借款金额(元)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="amount" name="amount" readonly value="<?php echo (int)$detail['amount']; ?>" datatype="n" onchange="count_earn()" disabled><span id="formatAmount" style="color:green"></span></td>
+                </tr>
+                <tr>
+                    <td class="tRight">合同上的利息(%)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="contract_interest" value="{$detail.contract_interest}" readonly datatype="f" errormsg="请输入数字" name="contract_interest" onchange="count_earn()" disabled></td>
+                </tr>
+                <tr>
+                    <td class="tRight">给用户的利息(%)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="user_interest" value="{$detail.user_interest}" readonly datatype="f" errormsg="请输入数字" name="user_interest" onchange="count_earn()" disabled></td>
+                </tr>
+                
+                
+                <tr>
+                    <td class="tRight">梯度加息：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="user_interest" value="{$detail.monthly_increase_group}" disabled></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">投资方向：</td>
+                    <td class="tLeft">
+                        <input type="text" id="invest_direction_title" name="invest_direction_title" value="{$detail.invest_direction_title}" style="width:700px;margin-bottom:5px;" readonly />
+                        <textarea id="invest_direction" name="invest_direction" style="width:700px;height:300px;" readonly>{$detail.invest_direction}</textarea>
+                    <td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">还款来源：</td>
+                    <td class="tLeft">
+                        <input type="text" id="repayment_source_title" name="repayment_source_title" value="{$detail.repayment_source_title}" readonly style="width:700px;margin-bottom:5px;" />
+                        <textarea id="repayment_source" name="repayment_source" style="width:700px;height:300px;" readonly>{$detail.repayment_source}</textarea>
+                    <td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        KindEditor.ready(function(K){
+            _investDirectionEditor = K.create('#invest_direction', {
+                uploadJson : ROOT + '/Common/uploadImageForEditor',
+                fileManagerJson : ROOT + '/Common/fileManagerForEditor',
+                allowFileManager : true,
+                urlType : 'domain',
+                items : [
+                    'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'cut', 'copy', 'paste',
+                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                    'superscript', 'clearhtml', 'selectall', '|', 'fullscreen', '/',
+                    'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                    'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
+                    'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                    'anchor', 'link', 'unlink', '|', 'about'
+                ],
+                afterBlur: function(){this.sync();}
+            });
+            _repaymentSourceEditor = K.create('#repayment_source', {
+                uploadJson : ROOT + '/Common/uploadImageForEditor',
+                fileManagerJson : ROOT + '/Common/fileManagerForEditor',
+                allowFileManager : true,
+                urlType : 'domain',
+                items : [
+                    'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'cut', 'copy', 'paste',
+                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                    'superscript', 'clearhtml', 'selectall', '|', 'fullscreen', '/',
+                    'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                    'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
+                    'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                    'anchor', 'link', 'unlink', '|', 'about'
+                ],
+                afterBlur: function(){this.sync();}
+            });
+        });
+    });
+</script>

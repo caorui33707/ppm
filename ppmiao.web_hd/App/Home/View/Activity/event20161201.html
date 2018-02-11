@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20161201/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20161201/css/style.css" rel="stylesheet" type="text/css" />
+    <title>票票喵</title>
+    <style>
+        .gift_people {
+        width:100%;
+        height:155px;
+        background: url("{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_03.jpg") no-repeat;
+        background-size:100% 100%;
+        }
+
+    </style>
+    <script src="{:C('STATIC_ROOT')}/activity/js/jquery.min.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+</head>
+<body>
+    <section>
+        <!--头部-->
+        <div class="gift_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_01.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_02.jpg" />
+        </div>
+        <div class="gift_people tc">
+            <div class="cut50 fl">
+                <img src="{:C('STATIC_ROOT')}/activity/event20161201/images/one_08.png" />
+                <p>{$total_invest_amount}</p>
+            </div>
+            <div class="cut50 fl">
+                <img src="{:C('STATIC_ROOT')}/activity/event20161201/images/two_05.png" />
+                <p>{$current_rank}</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--导航栏-->
+        <nav style="background-color:#ffde5d;">
+            <div class="index_nav">
+                <div class="chunk cut50 tc fl rel" id="nav_hot" onclick="show_index()" style="border-radius: 10px 0px 0px 10px;">
+                    <div class="abb">
+                        <img id="hot_text" src="{:C('STATIC_ROOT')}/activity/event20161201/images/own_13.png" />
+                    </div>
+                    <div class="cbb hidden" id="nav_pic1">
+                        <img src="{:C('STATIC_ROOT')}/activity/event20161201/images/two2_13.png" />
+                    </div>
+                </div>
+                <div class="chunk cut50 tc fl rel" id="nav_model" onclick="show_model()" style="border-radius: 0px 10px 10px 0px;">
+                        <div class="abb">
+                             <img id="model_text" src="{:C('STATIC_ROOT')}/activity/event20161201/images/three_14.png" />
+                        </div>
+                        <div class="cbb hidden" id="nav_pic2">
+                            <img src="{:C('STATIC_ROOT')}/activity/event20161201/images/one2_14.png" />
+                        </div>
+                    </div>
+                <div class="clear"></div>
+            </div>
+        </nav>
+        <!--奖品榜-->
+        <section id="hot_forum" class="" style="background-color:#ffde5d;padding-top:10px;">
+            <div class="hot_pic">
+                <img src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_05.jpg" />
+                <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_06.jpg" />
+                <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_07.jpg" />
+                <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_08.jpg" />
+                <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_09.jpg" />
+                <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_10.jpg" />
+                <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_11.jpg" />
+                <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_12.jpg" />
+                <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_13.jpg" />
+            </div>
+        </section>
+
+        <!--排行榜-->
+        <section id="model" class="hidden" style="background-color:#ffde5d;padding-top:25px;">
+            <div class="model_bj">
+                <ul class="" style="width:95%;margin:auto;">
+                    <li class="model_top cut15 fl tc">
+                        <p>排名</p>
+                    </li>
+                    <li class="model_top cut20 fl tc">
+                        <p>用户名</p>
+                    </li>
+                    <li class="model_top cut30 fl tc">
+                        <p>手机号码</p>
+                    </li>
+                    <li class="model_top cut35 fl tc">
+                        <p>投资金额</p>
+                    </li>
+                </ul>
+                <ul class="" style="width:95%;margin:auto;">
+	                <volist name="list" id="vo" key="k">
+	                
+	                	<if condition="$k elt 100 ">
+	                
+	                    <li class="model_number cut15 fl tc">
+	                        <p>{$vo.rank}</p>
+	                    </li>
+	                    <li class="model_number cut20 fl tc">
+	                        <p>{$vo.real_name}</p>
+	                    </li>
+	                    <li class="model_number cut30 fl tc">
+	                        <p>{$vo.user_name}</p>
+	                    </li>
+	                    <li class="model_number cut35 fl tc">
+	                        <p>{$vo.amount}元</p>
+	                    </li>
+	                    </if>
+	                </volist>
+                </ul>
+                
+                <div class="clear"></div>  
+            </div>
+            <div class="clear"></div>
+        </section>
+
+        <!--footer-->
+        <div class="gift_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_14.jpg" />
+            <img style="margin-bottom:40px;" src="{:C('STATIC_ROOT')}/activity/event20161201/images/prenst_15.jpg" />
+        </div>
+        <div class="gift_now tc" style="cursor:pointer;" onclick="go2App();">
+            <p>立即投资</p>
+        </div>
+
+    </section>
+</body>
+</html>
+
+<script>
+    var Ishot = false;
+    var Ismodel = false;
+    var IsCollection1 = false;
+    var IsCollection2 = false;
+    var IsGreat1 = false;
+    var IsGreat2 = false;
+    //加载调用函数
+    window.onload = function () {
+        show_index();
+    }
+    //奖品榜
+    function show_index() {
+        if (Ishot) {
+            document.getElementById("hot_forum").className = "hidden";
+            document.getElementById("nav_hot").style.backgroundColor = "#e8b900";
+            document.getElementById("hot_text").style.color = "#333";
+            document.getElementById("nav_pic1").className = "hidden";
+            Ishot = false;
+        } else {
+            Ismodel = true;
+            show_model();
+            document.getElementById("hot_forum").className = "";
+            document.getElementById("nav_hot").style.backgroundColor = "#f04044";
+            document.getElementById("hot_text").style.color = "#3BD9D0";
+            document.getElementById("nav_pic1").className = "abs nav_pic";
+            Ishot = true;
+        }
+    }
+    //排行榜
+    function show_model() {
+        if (Ismodel) {
+            document.getElementById("model").className = "hidden";
+            document.getElementById("nav_model").style.backgroundColor = "#e8b900";
+            document.getElementById("model_text").style.color = "#333";
+            document.getElementById("nav_pic2").className = "hidden";
+            Ismodel = false;
+        } else {
+            Ishot = true;
+            show_index();
+            document.getElementById("model").className = "";
+            document.getElementById("nav_model").style.backgroundColor = "#f04044";
+            document.getElementById("model_text").style.color = "#3BD9D0";
+            document.getElementById("nav_pic2").className = "abs nav_pic";
+            Ismodel = true;
+        }
+    }
+
+
+
+</script>

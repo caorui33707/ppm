@@ -1,0 +1,283 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">会员每周派送奖品 [ <a href="{:C('ADMIN_ROOT')}/vipWeeklyAward/index">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding="3" cellspacing="3" >
+                <input type="hidden" name="id" value="{$detail.id}">
+                <input type="hidden" name="type" value="{$detail.type}">
+                <tr>
+                    <td class="tRight">选择要配置的VIP：</td>
+                    <td class="tLeft" >
+                    	<select id="level_id" name="level_id" class="bLeftRequire" disabled>
+                    		<option value="-1">请选择vip等级</option>
+                    		<foreach name="level_list" item="item">
+                            	<option value="{$item.level}" <eq name="detail.vip_id" value="$item['level']">selected</eq>>{$item.name}</option>
+							</foreach> 
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">年：</td>
+                    <td class="tLeft" >
+	                    <select id="year" name="year" class="bLeftRequire">
+								<option value="2017" <eq name="detail.year" value="2017">selected</eq>>2017年</option>
+	                            <option value="2018" <eq name="detail.year" value="2018">selected</eq>>2018年</option>
+	                            <option value="2019" <eq name="detail.year" value="2019">selected</eq>>2019年</option>
+	                            <option value="2020" <eq name="detail.year" value="2020">selected</eq>>2020年</option>
+	                            <option value="2021" <eq name="detail.year" value="2021">selected</eq>>2021年</option>
+	                            <option value="2022" <eq name="detail.year" value="2022">selected</eq>>2022年</option>
+	                            <option value="2023" <eq name="detail.year" value="2023">selected</eq>>2023年</option>
+	                            <option value="2024" <eq name="detail.year" value="2024">selected</eq>>2024年</option>
+	                            <option value="2025" <eq name="detail.year" value="2025">selected</eq>>2025年</option>
+	                    </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">周：</td>
+                    <td class="tLeft" >                    	   
+                    	<select id="week" name="week" class="bLeftRequire">
+                    	<option value="0" <eq name="detail.week" value="0">selected</eq>>默认</option>
+                    	<option value="1" <eq name="detail.week" value="1">selected</eq>>1</option>
+                    	<option value="2" <eq name="detail.week" value="2">selected</eq>>2</option>
+                    	<option value="3" <eq name="detail.week" value="3">selected</eq>>3</option>
+                    	<option value="4" <eq name="detail.week" value="4">selected</eq>>4</option>
+                    	<option value="5" <eq name="detail.week" value="5">selected</eq>>5</option>
+                    	<option value="6" <eq name="detail.week" value="6">selected</eq>>6</option>
+                    	<option value="7" <eq name="detail.week" value="7">selected</eq>>7</option>
+                    	<option value="8" <eq name="detail.week" value="8">selected</eq>>8</option>
+                    	<option value="9" <eq name="detail.week" value="9">selected</eq>>9</option>
+                    	<option value="10" <eq name="detail.week" value="10">selected</eq>>10</option>
+                    	<option value="11" <eq name="detail.week" value="11">selected</eq>>11</option>
+                    	<option value="12" <eq name="detail.week" value="12">selected</eq>>12</option>
+                    	<option value="13" <eq name="detail.week" value="13">selected</eq>>13</option>
+                    	<option value="14" <eq name="detail.week" value="14">selected</eq>>14</option>
+                    	<option value="15" <eq name="detail.week" value="15">selected</eq>>15</option>
+                    	<option value="16" <eq name="detail.week" value="16">selected</eq>>16</option>
+                    	<option value="17" <eq name="detail.week" value="17">selected</eq>>17</option>
+                    	<option value="18" <eq name="detail.week" value="18">selected</eq>>18</option>
+                    	<option value="19" <eq name="detail.week" value="19">selected</eq>>19</option>
+                    	<option value="20" <eq name="detail.week" value="20">selected</eq>>20</option>
+                    	<option value="21" <eq name="detail.week" value="21">selected</eq>>21</option>
+                    	<option value="22" <eq name="detail.week" value="22">selected</eq>>22</option>
+                    	<option value="23" <eq name="detail.week" value="23">selected</eq>>23</option>
+                    	<option value="24" <eq name="detail.week" value="24">selected</eq>>24</option>
+                    	<option value="25" <eq name="detail.week" value="25">selected</eq>>25</option>
+                    	<option value="26" <eq name="detail.week" value="26">selected</eq>>26</option>
+                    	<option value="27" <eq name="detail.week" value="27">selected</eq>>27</option>
+                    	<option value="28" <eq name="detail.week" value="28">selected</eq>>28</option>
+                    	<option value="29" <eq name="detail.week" value="29">selected</eq>>29</option>
+                    	<option value="30" <eq name="detail.week" value="30">selected</eq>>30</option>
+                    	<option value="31" <eq name="detail.week" value="31">selected</eq>>31</option>
+                    	<option value="32" <eq name="detail.week" value="32">selected</eq>>32</option>
+                    	<option value="33" <eq name="detail.week" value="33">selected</eq>>33</option>
+                    	<option value="34" <eq name="detail.week" value="34">selected</eq>>34</option>
+                    	<option value="35" <eq name="detail.week" value="35">selected</eq>>35</option>
+                    	<option value="36" <eq name="detail.week" value="36">selected</eq>>36</option>
+                    	<option value="37" <eq name="detail.week" value="37">selected</eq>>37</option>
+                    	<option value="38" <eq name="detail.week" value="38">selected</eq>>38</option>
+                    	<option value="39" <eq name="detail.week" value="39">selected</eq>>39</option>
+                    	<option value="40" <eq name="detail.week" value="40">selected</eq>>40</option>
+                    	<option value="41" <eq name="detail.week" value="41">selected</eq>>41</option>
+                    	<option value="42" <eq name="detail.week" value="42">selected</eq>>42</option>
+                    	<option value="43" <eq name="detail.week" value="43">selected</eq>>43</option>
+                    	<option value="44" <eq name="detail.week" value="44">selected</eq>>44</option>
+                    	<option value="45" <eq name="detail.week" value="45">selected</eq>>45</option>
+                    	<option value="46" <eq name="detail.week" value="46">selected</eq>>46</option>
+                    	<option value="47" <eq name="detail.week" value="47">selected</eq>>47</option>
+                    	<option value="48" <eq name="detail.week" value="48">selected</eq>>48</option>
+                    	<option value="49" <eq name="detail.week" value="49">selected</eq>>49</option>
+                    	<option value="50" <eq name="detail.week" value="50">selected</eq>>50</option>
+                    	<option value="51" <eq name="detail.week" value="51">selected</eq>>51</option>
+                    	<option value="52" <eq name="detail.week" value="52">selected</eq>>52</option>
+                    	<option value="53" <eq name="detail.week" value="53">selected</eq>>53</option>
+                    	<option value="54" <eq name="detail.week" value="54">selected</eq>>54</option>
+                    	</select>                         
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">奖品名称：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" datatype="*" id="name" name="name" value="{$detail.name}" maxlength = '10'>
+                    </td>
+                </tr>
+                                
+                <tr>
+                    <td class="tRight" width="150px">奖品类型：</td>
+                    <td class="tLeft">
+                        <select id="type" name="type" class="bLeftRequire" onchange="changeType(this)" disabled>
+							<option value="0" <eq name="detail.type" value="0">selected</eq>>请选择</option>
+                            <option value="1" <eq name="detail.type" value="1">selected</eq>>红包</option>
+                            <option value="2" <eq name="detail.type" value="2">selected</eq>>现金券</option>
+                            <option value="3" <eq name="detail.type" value="3">selected</eq>>加息券</option>
+                            <option value="4" <eq name="detail.type" value="4">selected</eq>>第三方券</option>
+                            <option value="5" <eq name="detail.type" value="5">selected</eq>>实物奖励</option>
+                            <option value="6" <eq name="detail.type" value="6">selected</eq>>积分</option>
+                        </select>
+                        &nbsp;<span style="color:#409DFE;">注：奖品类型不能修改</span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight" width="150px">状态：</td>
+                    <td class="tLeft">
+                        <select id="status" name="status" class="bLeftRequire">
+							<option value="0" <eq name="detail.status" value="0">selected</eq>>正常</option>
+                            <option value="1" <eq name="detail.status" value="1">selected</eq>>下架</option>
+                        </select>
+                    </td>
+                </tr>
+				
+				<tr>
+                    <td class="tRight">图片：</td>
+                    <td class="tLeft" >
+                        <input type="hidden" name="image" value="{$detail.img}" />
+                        <img src="{:C('SITE_ROOT')}/Uploads/focus/{$detail.img}" style="max-width: 100px;" /><br>
+                        <input type="file" class="bleftrequire" name="img" id="img" />
+                    </td>
+                </tr>
+				
+				<tr class="send_jf_val" style="display:none;">
+                    <td class="tRight">积分：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="bLeftRequire" datatype="n" id="jf_val" name="jf_val" value="{$detail.jf_val}">
+                    	&nbsp;&nbsp;<span style="color:#409DFE;">注：请填写数字类型</span>
+                    </td>
+                </tr>
+				
+
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">标题：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire"  id="title" name="title" value="{$detail.title}">
+                    </td>
+                </tr>
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">内容：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="huge bLeftRequire" id="sub_title" name="sub_title" value="{$detail.sub_title}">
+                		&nbsp;<span style="color:#409DFE;">注：红包内容;券包子标题</span>
+                	</td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">金额：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire"  id="amount" name="amount" value="{$detail.amount}"/>
+                		&nbsp;<span style="color:#409DFE;">注：红包、现金券对应金额;券包对应利率</span>
+                	</td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">最小投资金额：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="min_invest_amount" name="min_invest_amount" value="{$detail.min_invest_amount}"/>
+                    	&nbsp;<span style="color:#409DFE;">单位:元</span>
+                    </td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">最小投资期限：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="min_invest_days" name="min_invest_days" value="{$detail.min_invest_days}"/>
+                    	&nbsp;<span style="color:#409DFE;">单位:天</span>
+                    </td>
+                </tr>
+                
+                <tr class="Packet" style="display:none;">
+                    <td class="tRight">有效天数：</td>
+                    <td class="tLeft">
+                    	<input type="text" class="bLeftRequire" datatype="n" id="valid_days" name="valid_days" value="{$detail.valid_days}" />
+                    	&nbsp;<span style="color:#409DFE;">单位:天（默认60天）</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    
+    
+    var _adding = false;
+    var _layerIndex = 0;
+    
+    var _type = {$detail.type};
+    var _week = {$detail.week};
+    
+    $(document).ready(function(){
+    	
+    	if(_type == 1 || _type == '2' || _type == '3' ) {
+    		$('.Packet').css('display', '');
+    		$('.send_jf_val').css('display', 'none');
+    	} else if(_type == 6){
+    		$('.Packet').css('display', 'none');
+    		$('.send_jf_val').css('display', '');
+    	} else {
+    		$('.Packet').css('display', 'none');
+    		$('.send_jf_val').css('display', 'none');
+    	}
+    	
+        
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/vipWeeklyAward/edit',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('编辑成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+        
+    });
+    
+    function changeType(_obj) {
+    	var _type = $(_obj).val();
+    	if(_type == 1 || _type == '2' || _type == '3' ) {
+    		$('.Packet').css('display', '');
+    		$('.send_jf_val').css('display', 'none');
+    	} else if(_type == 6){
+    		$('.Packet').css('display', 'none');
+    		$('.send_jf_val').css('display', '');
+    	} else {
+    		$('.Packet').css('display', 'none');
+    		$('.send_jf_val').css('display', 'none');
+    	}
+    }
+    
+    function create_week(){
+    	var opt = [];
+    	opt.push("<option value='0'>默认</option>");
+    	for(var i=1;i<=54;i++){
+    		opt.push('<option value='+i+'>'+i+'</option>')
+    	}
+    	$('#week').empty().html(opt.join(''));
+    }
+    
+</script>

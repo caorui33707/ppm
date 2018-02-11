@@ -1,0 +1,14 @@
+﻿@charset "utf-8";
+        .th_pic img {
+            width: 100%;
+        }
+
+        .one_now {
+            width: 100%;
+            line-height: 50px;
+            background-color: #f94851;
+            color: #ffffff;
+            font-size: 17px;
+            width:100%;position:fixed;bottom:0;left:0;
+            text-align:center;
+        }

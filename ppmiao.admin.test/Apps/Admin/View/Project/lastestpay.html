@@ -1,0 +1,117 @@
+<include file="Public:header" />
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">付息列表&nbsp;({$days}天内)&nbsp;&nbsp;<label style="color:blue;"><input type="checkbox" value="1" onchange="changeLL(this)" <eq name="force" value="1t">checked</eq> />强制1%手续费</label></div>
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td height="5" colspan="10" class="topTd"></td>
+                    </tr>
+                    <tr class="row">
+                        <th width="200px" align="center">产品名称</th>
+                        <th width="100px" align="center">付息时间</th>
+                        <th width="100px" align="center">支付利息</th>
+                        <th width="100px" align="center">超出利息</th>
+                        <th width="150px" align="center">支付本金</th>
+                        <th width="100px" align="center" style="color:green;">超出部分</th>
+                        <th width="100px" align="center">幽灵账户</th>
+                        <th width="100px" align="center">手续费</th>
+                        <th width="100px" align="center">状态</th>
+                        <th width="*" align="center">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td height="5" colspan="10" class="bottomTd"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<script>
+    var _layerIndex = 0;
+    var _force = "{$force}";
+    $(document).ready(function(){
+        loadData();
+    });
+    function loadData(){
+        _layerIndex = layer.load('正在加载数据...');
+        $.post(ROOT + "/project/lastestpay", {force: _force}, function(msg){
+            layer.close(_layerIndex);
+            if(msg.status){
+                $("#checkList tbody").html(msg.info);
+            }else{
+                layer.alert(msg.info, -1);
+            }
+        });
+    }
+    function pay(_pid, _rid, _status2, _action){
+        layer.confirm('确定执行『' + _action + '』操作吗?', function(){
+            _layerIndex = layer.load('数据提交中...');
+            $.post('{:C("ADMIN_ROOT")}/project/repay', {id: _pid, rid: _rid, status: _status2}, function(msg){
+                layer.close(_layerIndex);
+                if(msg.status){
+                    if(msg.info){
+                        layer.alert("『" + _action + "』操作成功~!<br>" + msg.info, -1, function(){
+                            loadData();
+                        });
+                    }else{
+                        layer.alert('『' + _action + '』操作成功~!', -1, function(){
+                            loadData();
+                        });
+                    }
+                }else{
+                    layer.alert(msg.info);
+                }
+            });
+        });
+    }
+    function towalletlist(_pid, _rid){
+        window.open(ROOT + "/project/paylisttowallet/id/" + _pid + '/rid/' + _rid, 'paylisttowallet', 'height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    function buylist(_pid, _rid){
+        window.open(ROOT + "/project/paylist/id/" + _pid + '/rid/' + _rid, 'buylist', 'height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    function changeLL(_obj){
+        if($(_obj).is(':checked')){
+            window.location.href = '{:C("ADMIN_ROOT")}/project/lastestpay/force/1';
+        }else{
+            window.location.href = '{:C("ADMIN_ROOT")}/project/lastestpay/force/0';
+        }
+    }
+    function paysms(_id, _obj){
+        layer.confirm('确定执行『短信通知』操作吗?', function(){
+            _layerIndex = layer.load('数据提交中...');
+            $.post('{:C("ADMIN_ROOT")}/project/paysms', {id: _id}, function(msg){
+                layer.close(_layerIndex);
+                if(msg.status){
+                    $(_obj).remove();
+                    if(msg.info){
+                        layer.msg(msg.info, 2, -1);
+                    }else{
+                        layer.msg('『短信通知』操作成功~!', 2, -1);
+                    }
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        });
+    }
+    function checksms(_id){
+        window.open(ROOT + "/project/checksms/id/" + _id, 'checksms', 'height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+</script>

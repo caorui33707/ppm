@@ -1,0 +1,129 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">用户钱包补记录操作 - [ <a href="{:C('ADMIN_ROOT')}/statistics/user_search/key/{$key}">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>       
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="id" value="{$user_id}" />
+            <input type="hidden" name="key" value="{$key}"/>
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">充值编码：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire"  name="recharge_no"></td>
+                </tr>                
+                <tr>
+                    <td class="tRight">充值金额：</td>
+                    <td class="tLeft"><input type="text" class="huge bLeftRequire" datatype="*"  name="amount"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">支付方式：</td>
+                    <td class="tLeft">
+                        <select name="pay_type">
+                            <option value="0">还本付息</option>
+                            <option value="1">连连支付</option>
+                            <option value="2">易宝支付</option>
+                            <option value="3">系统支付</option>
+                        </select>
+                    </td>
+                </tr>
+				<tr>
+                    <td class="tRight">转入/转出类型：</td>
+                    <td class="tLeft" >
+                        <select name="type">
+                            <option value="1">转入</option>
+                            <option value="2">转出</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">支付成功与否：</td>
+                    <td class="tLeft" >
+                        <select name="pay_status">
+                            <option value="1">未支付</option>
+                            <option value="2">已支付</option>
+                            <option value="3">支付失败</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">是否计息：</td>
+                    <td class="tLeft" >
+                        <select name="enable_interest">
+                            <option value="0">未计息</option>
+                            <option value="1">已计息</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">操作时间：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" name="now_time"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">备注：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" name="remark">&nbsp;&nbsp;如：系统回滚,送红包</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="添 加"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _adding = false;
+    var _layerIndex = 0;
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                if(_adding) return;
+                _adding = true;
+                _layerIndex = layer.load('录入中...');
+                $.ajax({
+                    url: ROOT + '/Statistics/userWalletAddRecords',
+                    data: $('#frmMain').serialize(),
+                    type: "POST",
+                    cache: false,
+                    success: function(msg) {
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('录入成功~!', -1, function(){
+                                window.location.href = msg.link;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                        _adding = false;
+                    }
+                });
+                return false;
+            }
+        });
+        KindEditor.ready(function(K){
+            K.create('#description', {
+                uploadJson : ROOT + '/Common/uploadImageForEditor',
+                fileManagerJson : ROOT + '/Common/fileManagerForEditor',
+                allowFileManager : true,
+                urlType : 'domain',
+                items : [
+                    'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'cut', 'copy', 'paste',
+                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                    'superscript', 'clearhtml', 'selectall', '|', 'fullscreen', '/',
+                    'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                    'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
+                    'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                    'anchor', 'link', 'unlink', '|', 'about'
+                ],
+                afterBlur: function(){this.sync();}
+            });
+        });
+    });
+</script>

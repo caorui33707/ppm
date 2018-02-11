@@ -1,0 +1,273 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">用户查询</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <span><input type="text" name="key" placeholder="输入用户名字/手机号码/身份证" class="medium" value="{$key}"></span>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" id="" name="search" value="查询" onclick="" class="search imgButton"></div>
+                </form>
+            </div>
+            <!-- 高级查询区域 -->
+            <div id="addPlus" class="none search cBoth" style="display: none;width:auto;">
+            </div>
+        </div>
+
+        <div class="list" >
+            <notempty name="user_info">
+                <foreach name="user_info" item="item">
+                    <TABLE id="checkList" class="list" cellpadding=0 cellspacing=0 >
+                        <tr><td height="3" colspan="4" class="topTd" ></td></tr>
+                        <tr class="row" ><th colspan="4" class="space">用户基本信息</th></tr>
+                        <tr class="row">
+                            <td width="20%" align="right">UID\存管账号</td><td width="25%">{$item.id} \ {$item.platcust}</td>
+                            <td width="15%" align="right">RegistrationID</td><td>{$item.registration_id}</td>
+                        </tr>
+                        <tr class="row">
+                            <td width="15%" align="right">真实姓名</td><td width="15%">{$item.real_name}&nbsp;<eq name="item.real_name_auth" value="1"><span style="color:green;">[已实名]</span><else/><span style="color:red;">[未实名]</span></eq></td>
+                            <td width="15%" align="right">账户状态</td>
+                            <td>
+                                <if condition="$item['status'] eq 0 ">
+                                        <span style="color:red">已锁定</span>
+                                    <elseif condition="$item['status'] eq 1"/>
+                                        <span style="color:red">未激活</span>
+                                    <elseif condition="$item['status'] eq 2" />
+                                        正常
+                                    <else />
+                                        <span style="color:red">异常</span>
+                                </if>
+                            </td>
+                        </tr>
+                        <tr class="row">
+                            <td width="15%" align="right">手机号码</td><td width="15%">{$item.username}<if condition="checkAuth('Admin/statistics/user_update') eq true">&nbsp;[<a href="javascript:;" onclick="alertPhone({$item.id}, '{$item.username}')">修改</a>]</if></td>
+                            <td width="15%" align="right">来源渠道</td><td><if condition="$item.channelStr eq '点入'">{$item.channelStr}(注:AppStore)<else/>{$item.channelStr}</if></td>
+                        </tr>
+                        <tr class="row">
+                            <td width="15%" align="right">身份证</td><td width="15%">{$item.card_no}</td>
+                            <td width="15%" align="right">系统版本</td><td>{$item.phone_system_version}</td>
+                        </tr>
+                        <tr class="row">
+                            <td width="15%" align="right">年龄</td><td width="15%">{$item.year}&nbsp({$item.sex})</td>
+                            <td width="15%" align="right">序列号</td><td>{$item.device_serial_id}</td>
+                        </tr>
+                        <tr class="row">
+                            <td width="15%" align="right">注册时间</td><td width="15%">{$item.register_time}</td>
+                            <td width="15%" align="right">票票币</td><td>{$item.money_stone|number_format}<if condition="checkAuth('Admin/statistics/user_update') eq true">&nbsp;[<a href="javascript:;" onclick="giveStoneMoney({$item.id})">赠送</a>]</if></td>
+                        </tr>
+                        <tr class="row">
+                            <td width="15%" align="right">账户金额</td>
+                            <td width="15%">{$item.wallet_totle|number_format=4}&nbsp;
+                            	<a href="javascript:;" onclick="withdrawals({$item.id})">提现记录</a>&nbsp;
+                            	<a href="javascript:;" onclick="recharge({$item.id})">充值记录</a>&nbsp;
+                            	<!-- 
+                            	<a href="javascript:;" onclick="userInterestList({$item.id})">用户利息列表</a>&nbsp;
+                            	<a href="javascript:;" onclick="supplyWalletRecords({$item.id},'{$item.key}')">钱包补记录</a>
+                            	 -->
+                            </td>
+
+                            <td width="15%" align="right">APP版本号</td>
+                            <td>{$item.app_version}</td>
+                        </tr>
+                        <tr class="row" >
+                            <th colspan="4" class="space">购买记录
+                            	<if condition="checkAuth('Admin/statistics/history_order') eq true">&nbsp;&nbsp;
+                            		<a href="javascript:;" onclick="history({$item.id})">历史下单记录</a>
+                            	</if> 
+                            	<if condition="checkAuth('Admin/statistics/bank_list') eq true">&nbsp;&nbsp;
+                            		<a href="javascript:;" onclick="bank_list({$item.id})">用户银行卡信息</a>
+                            	</if>
+                            	<if condition="checkAuth('Admin/statistics/due_search') eq true">&nbsp;&nbsp;
+                            		<a href="javascript:;" onclick="due_search({$item.id},'going')">用户在投项目</a>
+                            	</if>
+                            	<if condition="checkAuth('Admin/statistics/due_search') eq true">&nbsp;&nbsp;
+                            		<a href="javascript:;" onclick="due_search({$item.id},'history')">用户累计投资项目</a>
+                            	</if> 
+                            	<if condition="checkAuth('Admin/statistics/user_track') eq true">&nbsp;&nbsp;
+                            		<a href="javascript:;" onclick="user_address({$item.id})">收货地址</a>
+                            	</if>
+                            </th>
+                        </tr>
+                        
+                        
+                        <tr class="row">
+                            <td colspan="4">
+                                <table cellpadding=0 cellspacing=0 width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th>产品名称</th>
+                                        <th>投资金额(元)</th>
+                                        <th>充值编码</th>
+                                        <th>产品期限(天)</th>
+                                        <th>产品利率(%)</th>
+                                        <th>加息券(%)</th>
+                                        <th>产品利息</th>
+                                        <th>投资卡号</th>
+                                        <th>所属银行</th>
+                                        <th>支行</th>
+                                        <th>持有人名称</th>
+                                        <th>投资时间</th>
+                                        <th>到期时间</th>
+										<th>后台补单操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <foreach name="item.recharge_log_list" item="sub">
+                                        <tr class="row">
+                                            <td>{$sub.project_info.title}(编号:{$sub.project_id})</td>
+                                            <td >{$sub.amount|number_format=2}</td>
+                                            <td>{$sub.recharge_no}</td>
+                                            <td>{$sub.duration_day}</td>
+                                            <td>{$sub.project_info.user_interest}</td>
+                                            <td>{$sub.interest_coupon}</td>
+                                            <td>{$sub.due_interest}</td>
+                                            <eq name="sub.type" value="3">
+                                                <td>零钱包</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                            <else/>
+                                                <td>{$sub.card_no}</td>
+                                                <td>{$sub.card_from}</td>
+                                                <td>{$sub.card_area}&nbsp;{$sub.card_address}<if condition="checkAuth('Admin/statistics/user_bank_update') eq true"><a href="javascript:;" onclick="update_bank({$sub.card_id}, '{$sub.card_address}')">[更新]</a></if></td>
+                                                <td>{$sub.card_uname}</td>
+                                            </eq>
+                                            <td width="180px">{$sub.add_time|strtotime|date='Y-m-d H:i:s',###}</td>
+                                            <td>{$sub.project_info.end_time|strtotime|date='Y-m-d H:i:s',###}</td>
+											<eq name="sub.type" value="3">
+											<td>禁止操作</td>
+											<else/>
+											<td><a href="javascript:;" onclick="checkSingleOut('{$sub.recharge_id}')">[核实是否掉单]</a> | <a href="javascript:;" onclick="supplySingle('{$sub.recharge_id}')">[补单]</a></td>
+											</eq>
+                                        </tr>
+                                    </foreach>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr><td height="3" colspan="4" class="bottomTd"></td></tr>
+                    </TABLE>
+                </foreach>
+            </notempty>
+        </div>
+    </div>
+<script>
+    var _layerIndex = 0;
+    function alertPhone(_uid, _phone){
+        var _newPhone = prompt('请输入正确的手机号码:', _phone);
+        if(_newPhone != '' && _newPhone != null){
+            _layerIndex = layer.load('正在修改中...');
+            $.post("{:C('ADMIN_ROOT')}/statistics/user_update", {uid: _uid, phone: _newPhone, act: 'alert_phone'}, function(msg){
+                layer.close(_layerIndex);
+                if(msg.status){
+                    layer.alert('修改成功~!', -1, function(){
+                       window.location.reload();
+                    });
+                }else{
+                    layer.msg(msg.info, 1, -1);
+                }
+            });
+        }
+    }
+    function giveStoneMoney(_uid){ // 赠送票票币
+        var _stoneMoney = prompt('请输入要赠送的票票币数量:', 0);
+        if(_stoneMoney != null && _stoneMoney != 0){
+            _layerIndex = layer.load('正在赠送中...');
+            $.post("{:C('ADMIN_ROOT')}/statistics/user_update", {uid: _uid, money: _stoneMoney, act: 'stone_money'}, function(msg){
+                layer.close(_layerIndex);
+                if(msg.status){
+                    layer.alert('赠送成功~!', -1, function(){
+                        window.location.reload();
+                    });
+                }else{
+                    layer.msg(msg.info, 1, -1);
+                }
+            });
+        }
+    }
+    function update_bank(_bank_id, _default){
+        var _bank_info = prompt('请输入支行信息:', _default);
+        if(_bank_info != '' && _bank_info != null){
+            _layerIndex = layer.load('修改中...');
+            $.post(ROOT + "/statistics/user_bank_update", {bid: _bank_id, binfo: _bank_info}, function(msg){
+                layer.close(_layerIndex);
+                if(msg.status){
+                    layer.alert('更新银行支行信息成功~', -1, function(){
+                        window.location.reload();
+                    });
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        }
+    }
+    function history(_uid){
+        window.open(ROOT + "/statistics/history_order/uid/" + _uid, 'historyOrder', 'height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    function withdrawals(_uid){
+        window.open(ROOT + "/statistics/withdrawals_order/uid/" + _uid, 'withdrawalsOrder', 'height=500,width=950,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    function recharge(_uid){
+        window.open(ROOT + "/statistics/recharge_order/uid/" + _uid, 'rechargeOrder', 'height=500,width=950,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    function bank_list(_uid){
+        window.open(ROOT + "/statistics/bank_list/uid/" + _uid, 'bankList', 'height=500,width=960,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+	 function due_search(_uid,_type){
+        window.open(ROOT + "/statistics/due_search/user_id/" + _uid+"/type/"+_type, 'dueSearch', 'height=500,width=960,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+	//核实是否掉单
+	function checkSingleOut(_id){
+        _layerIndex = layer.load('正在核查中...');
+		$.post(ROOT + "/statistics/checkSingleOut", {id: _id}, function(msg){
+			layer.close(_layerIndex);
+			if(msg.status){
+				layer.alert(msg.info, -1, function(){
+					window.location.reload();
+				});
+			}else{
+				layer.alert(msg.info, -1);
+			}
+		});
+    }
+	//核实了，确实需要补单
+	function supplySingle(_id){
+        layer.confirm('确定要补单吗?', function(){
+                _layerIndex = layer.load('正在补单中...');
+                $.post(ROOT + "/statistics/supplySingle", {id: _id}, function(msg){
+                    layer.close(_layerIndex);
+                    if(msg.status){
+                        layer.alert(msg.info, -1, function(){
+                            window.location.reload();
+                        });
+                    }else{
+                        layer.alert(msg.info, -1);
+                    }
+                });
+		})
+    }
+    //用户利息列表
+    function userInterestList(_uid){
+        window.open(ROOT + "/statistics/userInterestList/uid/" + _uid, 'rechargeOrder', 'height=500,width=950,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    //补记录
+    function  supplyWalletRecords(_uid,_key){
+        window.location.href = ROOT + "/statistics/userWalletAddRecords/user_id/"+_uid+"/key/"+_key;
+    }
+    
+    
+  	//用户收货地址
+    function user_address(_uid){
+        window.open(ROOT + "/statistics/get_user_address/uid/" + _uid, 'rechargeOrder', 'height=500,width=950,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+
+</script>
+<!-- 主页面结束 -->
+{// 加载尾部公共文件 }

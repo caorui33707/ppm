@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="http://image.test.ppmiao.com/Public/func/assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="http://image.test.ppmiao.com/Public/func/assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="http://image.test.ppmiao.com/Public/func/assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="http://image.test.ppmiao.com/Public/func/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="http://image.test.ppmiao.com/Public/func/assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="http://image.test.ppmiao.com/Public/func/assets/js/Lightweight-Chart/cssCharts.css">
+    <style>
+        pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+        .string { color: green; }
+        .number { color: darkorange; }
+        .boolean { color: blue; }
+        .null { color: magenta; }
+        .key { color: red; }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand waves-effect waves-dark" href="#"><i class="large material-icons">insert_chart</i> <strong></strong></a>
+
+            <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+        </div>
+
+        <ul class="nav navbar-top-links navbar-right"></ul>
+    </nav>
+    <!--/. NAV TOP  -->
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu"></ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper" >
+        <div class="header">
+            <h1 class="page-header">
+                解绑卡功能
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">解绑卡功能</a></li>
+            </ol>
+
+        </div>
+
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="客户编号" id="platcust1" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="预留手机号" id="mobile1" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="原卡号" id="card_no_old1" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="姓名" id="name1" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <a class="waves-effect waves-light btn" onclick="due_select()">解绑</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="clearBoth"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!--   Kitchen Sink -->
+                    <div class="card">
+                        <div class="card-action">
+                            操作结果
+                        </div>
+                        <div class="card-content">
+                            <div id="result1"></div>
+                        </div>
+                    </div>
+                    <!-- End  Kitchen Sink -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="客户编号" id="platcust2" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="姓名" id="name2" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="身份证号" id="id_code2" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="银行卡号" id="card_no2" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="银行预留手机号" id="pre_mobile2" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="银行编码" id="open_branch2" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <a class="waves-effect waves-light btn" onclick="bindRequest()">绑卡申请</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="clearBoth"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!--   Kitchen Sink -->
+                    <div class="card">
+                        <div class="card-action">
+                            操作结果
+                        </div>
+                        <div class="card-content">
+                            <div id="result2"></div>
+                        </div>
+                    </div>
+                    <!-- End  Kitchen Sink -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="短信验证码" id="identifying_code3" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="原绑卡申请订单号" id="origin_order_no3" type="text" class="validate">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <a class="waves-effect waves-light btn" onclick="bindConfirm()">绑卡确认</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="clearBoth"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!--   Kitchen Sink -->
+                    <div class="card">
+                        <div class="card-action">
+                            操作结果
+                        </div>
+                        <div class="card-content">
+                            <div id="result3"></div>
+                        </div>
+                    </div>
+                    <!-- End  Kitchen Sink -->
+                </div>
+            </div>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<!-- JS Scripts-->
+<!-- jQuery Js -->
+<script src="http://image.test.ppmiao.com/Public/func/assets/js/jquery-1.10.2.js"></script>
+<script src="http://ppmiao-image-test.oss-cn-hangzhou.aliyuncs.com/Public/jquery.jsontotable.min.js?v=1"></script>
+<script src="http://ppmiao-image-test.oss-cn-hangzhou.aliyuncs.com/Public/layer.js"></script>
+
+<script>
+    var _layerIndex = 0;
+    var domain = "http://cg.pro.ppmiao.cn"
+
+    function bindRequest() {
+        var platcust2 = $('#platcust2').val();
+        var pre_mobile2 = $('#pre_mobile2').val();
+        var name2 = $('#name2').val();
+        var id_code2 = $('#id_code2').val();
+        var card_no2 = $('#card_no2').val();
+        var open_branch2 = $('#open_branch2').val();
+        _layerIndex = layer.load('正在加载数据...');
+        $.post(domain+'/sms.php?s=Bind/bindRequest',{ pre_mobile:pre_mobile2,platcust:platcust2,name:name2,id_code:id_code2,card_no:card_no2,open_branch:open_branch2},function(data){
+            var obj = data;
+
+
+            $('#result2').html(syntaxHighlight(obj));
+
+            layer.close(_layerIndex);
+        })
+
+
+
+    }
+    function due_select() {
+        var platcust1 = $('#platcust1').val();
+        var mobile1 = $('#mobile1').val();
+        var card_no_old1 = $('#card_no_old1').val();
+        var name1 = $('#name1').val();
+        _layerIndex = layer.load('正在加载数据...');
+        $.post(domain+'/sms.php?s=Bind/unbind',{ mobile:mobile1,platcust:platcust1,card_no_old:card_no_old1,name:name1},function(data){
+            var obj = data;
+
+
+            $('#result1').html(syntaxHighlight(obj));
+
+            layer.close(_layerIndex);
+        })
+
+
+
+    }
+
+    function bindConfirm() {
+        var platcust3 = $('#platcust2').val();
+        var pre_mobile3 = $('#pre_mobile2').val();
+        var name3 = $('#name2').val();
+        var id_code3 = $('#id_code2').val();
+        var card_no3 = $('#card_no2').val();
+        var open_branch3 = $('#open_branch2').val();
+        var identifying_code3 = $('#identifying_code3').val();
+        var origin_order_no3 = $('#origin_order_no3').val();
+        _layerIndex = layer.load('正在加载数据...');
+        $.post(domain+'/sms.php?s=Bind/bindConfirm',{ origin_order_no:origin_order_no3,identifying_code:identifying_code3,pre_mobile:pre_mobile3,platcust:platcust3,name:name3,id_code:id_code3,card_no:card_no3,open_branch:open_branch3},function(data){
+            var obj = data;
+
+
+            $('#result3').html(syntaxHighlight(obj));
+
+            layer.close(_layerIndex);
+        })
+
+
+
+    }
+
+
+
+
+    function syntaxHighlight(json) {
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+</script>
+</body>
+
+</html>

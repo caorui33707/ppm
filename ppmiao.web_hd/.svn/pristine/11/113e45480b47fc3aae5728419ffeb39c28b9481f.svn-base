@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+	<script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+	<script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" href="https://image.ppmiao.com/Public/channel/20171121_channel/css/channel.css">
+	<title>票票喵</title>
+</head>
+
+<body>
+
+	<!-- 未注册 -->
+	<div class="container new_user"  id="ok" >
+		<div class="img00 channel2_01"></div>
+		<div class="img00 channel2_02">
+			<a href="{$url}">
+				<div class="download">
+					下载APP
+				</div>
+			</a>
+		</div>
+	</div>
+
+
+	<script>
+		var wxurl = 'http://wechat.ppmiao.com/login/projects';
+		// 下载APP
+		// $('.download').click(function() {
+		// 	alert(1);
+		// })
+
+
+	    $(function () {
+	        $(".login_app>button ").click(function () {
+	            $("#integral_bj").show();
+	            $("#integral_success").show();
+	        });
+	        $("#ok").click(function () {
+	        	if (isiOS == true) {
+	        		if(isWeiXin()) {
+	        		} else {
+	        			$("#new_user").hide();
+	        		}
+	        	}
+	        });
+	    });
+
+	</script>
+</body>
+
+</html>

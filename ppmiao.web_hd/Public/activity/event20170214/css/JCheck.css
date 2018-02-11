@@ -1,0 +1,16 @@
+.u-radio, .u-checkbox {
+    position: relative;
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+}
+
+.u-radio input[type="radio"],
+.u-checkbox input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}

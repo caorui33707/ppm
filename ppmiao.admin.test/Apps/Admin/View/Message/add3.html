@@ -1,0 +1,183 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">发布消息 - 活动消息(多条) [ <a href="{:C('ADMIN_ROOT')}/Message/index/p/{$params.page}/type/{$params.type}<notempty name='params.search'>/s/{$params.search}</notempty>">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/auth/js/editor/kindeditor-all.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td height="5" colspan="4" class="topTd"></td>
+                    </tr>
+                    <tr class="row">
+                        <th width="50px">编号</th>
+                        <th width="400px">标题</th>
+                        <th width="150px">发表时间</th>
+                        <th width="*">操作</th>
+                    </tr>
+                    <foreach name="list" item="item">
+                        <tr class="row">
+                            <td>{$item.id}</td>
+                            <td><eq name="item.top" value="1"><span style="color:red;">[置顶]</span></eq>{$item.title}</td>
+                            <td>{$item.add_time|strtotime|date='Y-m-d H:i:s',###}</td>
+                            <td>
+                                <if condition="checkAuth('Admin/message/top') eq true"><a href="javascript:;" onclick="toTop({$item.group_id},{$item.id})"><eq name="item.top" value="1">取消置顶<else/>置顶</eq></a>&nbsp;</if>
+                                <if condition="checkAuth('Admin/message/edit') eq true"><a href="javascript:;" onclick="edit({$item.group_id},{$item.id})">编辑</a>&nbsp;</if>
+                                <if condition="checkAuth('Admin/message/delete') eq true"><a href="javascript:;" style="color:red;" onclick="del2({$item.id})">删除</a>&nbsp;</if>
+                            </td>
+                        </tr>
+                    </foreach>
+                    <tr>
+                        <td height="5" colspan="4" class="bottomTd"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <form id="frmMain" method='post' action="" enctype="multipart/form-data">
+            <input type="hidden" name="type" value="3" />
+            <input type="hidden" name="gid" value="{$gid|default=0}" />
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">消息标题：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="title" name="title"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">消息类型：</td>
+                    <td class="tleft">
+                        <select name="type2">
+                            <option value="0">无</option>
+                            <option value="1">专题活动</option>
+                            <option value="2">理财知识</option>
+                            <option value="3">官方公告</option>
+                            <option value="4">活动结束</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">图片：</td>
+                    <td class="tLeft" >
+                        <input type="hidden" name="hidden_img" id="hidden_img" value="" />
+                        <input type="file" name="img" id="img" />&nbsp;<span style="color:#409DFE;">注：二级标题图片尺寸(200*200),一级封面图片尺寸(900*500)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">作者：</td>
+                    <td class="tLeft" ><input type="text" id="author" name="author" value="<?php echo $_SESSION[ADMIN_SESSION]['username']; ?>" maxlength="50"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">外部地址：</td>
+                    <td class="tLeft" ><input type="text" class="huge" id="url" name="url" placeholder="请以http://开头" value=""></td>
+                </tr>
+                <tr>
+                    <td class="tRight">消息摘要：</td>
+                    <td class="tLeft"><textarea id="summary" name="summary" class="huge" maxlength="255" style="height:80px;"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="tRight">周边留空：</td>
+                    <td class="tLeft"><label><input type="checkbox" name="is_padding" value="1" />是</label>&nbsp;<span style="color:red;">(纯图片内容请勾上)</span></td>
+                </tr>
+                <tr>
+                    <td class="tRight">详细内容：</td>
+                    <td class="tLeft"><textarea id="description" name="description" class="huge bLeftRequire" style="height:450px;"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _adding = false;
+    var _layerIndex = 0;
+    var _page = "{$params.page}";
+    var _s = "{$params.search}";
+    var _type = "{$params.type}";
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                if(_adding) return;
+                _adding = true;
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/message/add',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('添加成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                        _adding = false;
+                    }
+                });
+                return false;
+            }
+        });
+        KindEditor.ready(function(K){
+            K.create('#description', {
+                uploadJson : ROOT + '/Common/uploadImageForEditor',
+                fileManagerJson : ROOT + '/Common/fileManagerForEditor',
+                allowFileManager : true,
+                urlType : 'domain',
+                items : [
+                    'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'cut', 'copy', 'paste',
+                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                    'superscript', 'clearhtml', 'selectall', '|', 'fullscreen', '/',
+                    'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                    'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
+                    'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                    'anchor', 'link', 'unlink', '|', 'about'
+                ],
+                afterBlur: function(){this.sync();}
+            });
+        });
+    });
+    function edit(_gid, _id){
+        window.location.href = ROOT + "/message/edit/gid/" + _gid + "/id/" + _id + '/p/' + _page + '/type/' + _type + '/s/' + _s;
+    }
+    function del2(_id){
+        layer.confirm('确定删除该条信息吗?', function(){
+            layer.load('数据删除中...');
+            $.post(ROOT + '/message/delete', {id: _id}, function(msg){
+                layer.close(_layerIndex);
+                if(msg.status){
+                    layer.alert('删除成功~!', -1, function(){
+                        window.location.reload();
+                    });
+                }else{
+                    layer.alert(msg.info);
+                }
+            });
+        })
+    }
+    function toTop(_gid, _id){ // 置顶/取消置顶
+        _layerIndex = layer.load('数据提交中...');
+        $.post('{:C("ADMIN_ROOT")}/message/top', {id: _id, gid: _gid}, function(msg){
+            layer.close(_layerIndex);
+            if(msg.status){
+                layer.alert('置顶成功~!', -1, function(){
+                    window.location.reload();
+                });
+            }else{
+                layer.alert(msg.info);
+            }
+        });
+    }
+</script>

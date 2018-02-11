@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,em{margin:0;padding:0;border:0}
+ul,ol,li{list-style:none}
+input,button{margin:0;font-size:12px;vertical-align:middle}
+body{font-size:12px;font-family:Arial, Helvetica, sans-serif; color:#333; margin:0 auto; }
+table{border-collapse:collapse;border-spacing:0}
+a{color:#333; text-decoration:none}
+a:hover{text-decoration:none}
+
+
+/* focus */
+#focus{width:1003px}
+.mb-wrapper{margin:0 auto 20px;position:relative; height:330px;left:0;top:0}
+.mb-slider,.mb-scroll{
+	width:100%;
+	height:380px;overflow:hidden;margin:0 auto;padding:0;position:relative;left:0;top:0}
+.mb-active-slider{border-color:#333}
+.mb-slider .mb-panel{display:block;cursor:pointer;float:left;list-style:none}
+.mb-panel a{outline:0}
+.mb-slider .mb-panel.current{
+	cursor:auto;
+	width: 330px;
+	height: 330px;
+}
+

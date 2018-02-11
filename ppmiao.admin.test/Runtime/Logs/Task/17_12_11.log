@@ -1,0 +1,757 @@
+[ 2017-12-11T14:00:23+08:00 ] 127.0.0.1 /task.php/Profit/run_profit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0100s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE ( user_id>0 and status=1 and add_time<'2017-12-11' ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `s_statistics_netprofit` [ RunTime:0.0090s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`money`,`add_time`,`stat_date`,`channel_id`) VALUES ('7845790.02','1512972023','2017-12-10','0') [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0080s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `cons_key` = 'channel' AND `parent_id` = 0 LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `parent_id` = 4  [ RunTime:0.0090s ]
+NOTIC: [8] Undefined index: cons_value E:\wamp\www\ppmiao.admin.test\Apps\Task\Controller\ProfitController.class.php 第 38 行.
+
+[ 2017-12-11T14:02:17+08:00 ] 127.0.0.1 /task.php/Profit/run_profit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0110s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE ( user_id>0 and status=1 and add_time<'2017-12-11' ) LIMIT 1   [ RunTime:0.0120s ]
+SQL: SHOW COLUMNS FROM `s_statistics_netprofit` [ RunTime:0.0100s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`money`,`add_time`,`stat_date`,`channel_id`) VALUES ('7845790.02','1512972137','2017-12-10','0') [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0100s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `cons_key` = 'channel' AND `parent_id` = 0 LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `parent_id` = 4  [ RunTime:0.0100s ]
+NOTIC: [8] Undefined index: cons_value E:\wamp\www\ppmiao.admin.test\Apps\Task\Controller\ProfitController.class.php 第 40 行.
+
+[ 2017-12-11T14:02:35+08:00 ] 127.0.0.1 /task.php/Profit/run_profit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0090s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE ( user_id>0 and status=1 and add_time<'2017-12-11' ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_statistics_netprofit` [ RunTime:0.0090s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`money`,`add_time`,`stat_date`,`channel_id`) VALUES ('7845790.02','1512972155','2017-12-10','0') [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0090s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `cons_key` = 'channel' AND `parent_id` = 0 LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `id`,`cons_value` FROM `s_constant` WHERE `parent_id` = 4  [ RunTime:0.0090s ]
+
+[ 2017-12-11T14:03:56+08:00 ] 127.0.0.1 /task.php/Profit/run_profit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0100s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE ( user_id>0 and status=1 and add_time<'2017-12-11' ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_statistics_netprofit` [ RunTime:0.0090s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`money`,`add_time`,`stat_date`,`channel_id`) VALUES ('7845790.02','1512972230','2017-12-10','0') [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0090s ]
+SQL: SELECT `id` FROM `s_constant` WHERE `cons_key` = 'channel' AND `parent_id` = 0 LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `id`,`cons_value` FROM `s_constant` WHERE `parent_id` = 4  [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 5
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '360手机助手%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','5',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 6
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '91手机助手%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','6',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 7
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度移动应用中心%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','7',NULL) [ RunTime:0.0150s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 8
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安卓市场%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','8',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 9
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '小米应用%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','9','128700.00') [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 10
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '豌豆荚%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','10',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 11
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安智市场%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','11',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 12
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '腾讯手机应用商店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','12',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 13
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '搜狗手机助手%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','13',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 14
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '淘宝手机助手%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','14',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 15
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '应用汇%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','15',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 16
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '金立应用商店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','16',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 17
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '华为开发者联盟%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','17',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 18
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '魅族应用商店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','18',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 19
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '联想乐商店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','19',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 20
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'OPPO应用商店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','20',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 21
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'vivo%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','21',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 22
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '酷派%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','22',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 23
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'N多市场%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','23',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 24
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '木蚂蚁市场%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','24',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 25
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '网易应用中心%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','25',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 26
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安卓园%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','26',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 27
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '刷机大师/应用酷%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','27',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 28
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '历趣%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','28',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 29
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '宝瓶网%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','29',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 30
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'UC应用商店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','30',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 31
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '比克尔%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','31',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 32
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '锋潮网（3G门户）%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','32',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 33
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安贝市场%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','33',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 34
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安卓在线%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','34',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 35
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '蘑菇市场%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','35',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 36
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '十字猫手机软件店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','36',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 37
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '网讯安卓%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','37',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 38
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安卓软件园%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','38',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 39
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '绿色软件站%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','39',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 40
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '西西软件园%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','40',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 41
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '手机乐园%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','41',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 42
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'Android软件网%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','42',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 43
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'APK3%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','43',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 44
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安卓地带%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','44',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 45
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安卓之家%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','45',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 46
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '豆豆网%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','46',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 47
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '机锋市场%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','47',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 48
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '机客应用%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','48',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 49
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '机器猫%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','49',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 50
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '乐玩中国%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','50',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 51
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '泡椒网%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','51',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 52
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '七匣子%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','52',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 53
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '软吧手机软件%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','53',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 54
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '软件下吧%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','54',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 55
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '手机酷狗%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','55',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 56
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '手机软件%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','56',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 57
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '手机中国（酷软网）%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','57',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 58
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '苏宁应用商店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','58',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 59
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '腾讯手机软件下载%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','59',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 60
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '天极网%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0320s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','60',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 61
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '无忧智能%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','61',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 62
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '移动MM应用商店%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','62',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 63
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '应用搜%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','63',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 64
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '优亿市场%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','64',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 65
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '游戏狗%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','65',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 66
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '卓乐网%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','66',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 67
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '石头理财%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0280s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','67',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 71
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'AppStore%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0300s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','71',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 72
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '点开平台1%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','72',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 73
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '点开平台2%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','73',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 74
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '点开平台3%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','74',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 75
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'EDM1%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','75',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 76
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'EDM2%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','76',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 77
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '电信渠道1%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','77',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 78
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '果盟平台1%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','78',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 79
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '果盟平台2%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','79',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 80
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '果盟平台3%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','80',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 81
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '聚享游%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','81',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 82
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '惠锁屏%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','82',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 83
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '省钱助手%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','83',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 84
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '米赚%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','84',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 85
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '财神锁屏%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','85',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 86
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '酷划%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','86',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 87
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'wap%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','87',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 88
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '微信%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','88',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 89
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '巨鲨联盟1%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','89',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 90
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '巨鲨联盟2%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','90',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 91
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '晨酷4%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','91',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 92
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '电信渠道2%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','92',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 93
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '酷米%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','93',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 94
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '赛红包%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','94',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 95
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '拉风锁屏%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','95',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 96
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '锁屏高手%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','96',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 97
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '推荐墙%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','97',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 98
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-电信%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','98',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 101
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '安卓圈推荐%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','101',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 102
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩CPL%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','102',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 103
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '酷划CPC%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','103',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 105
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '米赚CPL%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','105',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 106
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '红包锁屏%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','106',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 111
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '趣米%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','111',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 112
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '快感锁屏%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','112',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 113
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '晨酷%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','113',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 114
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-安卓圈%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','114',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 115
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-狐狸手机助手%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','115',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 116
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-点盟%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','116',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 117
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '电信-清北岩1%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','117',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 118
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'IOS-点入%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0270s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','118',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 119
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-随玩%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','119',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 120
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-移动冲浪%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','120',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 121
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥29%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','121',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 122
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'IOS点乐%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','122',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 123
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-电信-30%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','123',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 124
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '哆发咪-wap-31%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','124',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 125
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '哆发咪-panda-32%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','125',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 126
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-宜推-33%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','126',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 127
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-资盟平台-34%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','127',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 128
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-易用汇-35%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','128',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 129
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-分分钟-36%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','129',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 130
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '牛哥-37%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','130',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 132
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-财神-39%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','132',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 133
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '慕尚-订单-40%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','133',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 134
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '薏米互动-41%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0290s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','134',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 135
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '薏米互动-42%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','135',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 136
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '薏米互动-43%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','136',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 137
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'PC%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','137',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 138
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '薏米互动-44%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','138',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 140
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-云端市场-45%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','140',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 141
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-易时光-46%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','141',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 142
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-哇麦信息-47%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','142',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 143
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-谷乔-48%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','143',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 144
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-49%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','144',NULL) [ RunTime:0.0100s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 145
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-50%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','145',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 146
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-51%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','146',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 147
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '清北岩-52%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','147',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 150
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-53%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','150',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 151
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-54%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','151',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 152
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-55%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','152',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 153
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-56%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','153',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 154
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-57%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','154',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 155
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-58%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','155',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 156
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-59%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','156',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 157
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-60%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','157',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 158
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-61%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','158',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 159
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '百度SEM-62%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','159',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 161
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '爱米AM_1%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','161',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 162
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '爱米AM_2%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','162',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 163
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '爱米AM_3%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','163',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 164
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '点击%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','164',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 165
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '酷划2%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','165',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 166
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '联通沃%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','166',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 167
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '点入%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','167',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 168
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '蛋蛋赚%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','168',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 169
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '今日头条%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','169',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 170
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '360优惠券%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','170',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 171
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '360搜索%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','171',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 172
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '360活动和其它%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','172',NULL) [ RunTime:0.0110s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 182
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '推荐好友%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','182',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 183
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '332%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','183',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 186
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'danlan%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','186','18900.00') [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 187
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'diantai%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','187','71000.00') [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 188
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'fcjn%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','188','12000.00') [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 189
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'jrtt2%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','189','16200.00') [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 199
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '112%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','199',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 200
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '1.2.5个人版%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','200',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 201
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '1.2.3个人版%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','201',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 202
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '1.2.4个人版%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','202',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 203
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '个人版%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','203',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 204
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'AppStore_qhjwPPM%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','204',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 205
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'AppStore_qhjwPPM%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','205',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 206
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '_360zs%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','206',NULL) [ RunTime:0.0080s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 207
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'AppStore_qqjrFinance%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0260s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','207','2394500.00') [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 215
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'AppStore_qqjrSpecial%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0250s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','215',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 217
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'shenma1232%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0230s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','217',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 219
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '测试渠道%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','219',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 220
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE '测试123%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','220',NULL) [ RunTime:0.0090s ]
+SQL: SELECT sum(due_capital) as amt from s_user_due_detail WHERE user_id in(
+                        SELECT id from s_user WHERE real_name_auth = 1 and channel_id = 221
+                                union SELECT user_id FROM s_user_channel WHERE channel LIKE 'www%' ) and `status` = 1 and add_time<'2017-12-11' [ RunTime:0.0240s ]
+SQL: INSERT INTO `s_statistics_netprofit` (`add_time`,`stat_date`,`channel_id`,`money`) VALUES ('1512972230','2017-12-10','221',NULL) [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

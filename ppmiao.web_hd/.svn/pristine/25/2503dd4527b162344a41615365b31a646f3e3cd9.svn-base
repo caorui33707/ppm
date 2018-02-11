@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="" rel="stylesheet" type="text/css"/>
+<title>票票喵</title>
+<style>
+.shangxian img{width:100%;}
+</style>
+</head>
+
+<body>
+<section>
+	<div class="shangxian">
+    	<img src="images/pppp_01.png"/>
+        <img src="images/pppp_02.png"/>
+        <img src="images/pppp_03.png"/>
+        <img src="images/pppp_04.png"/>
+        <img src="images/pppp_05.png"/>
+        <img src="images/pppp_06.png"/>
+        <img src="images/pppp_07.png"/>
+        <img src="images/pppp_08.png"/>
+        <img src="images/pppp_09.png"/>
+        <img src="images/pppp_10.png"/>
+        <img src="images/pppp_11.png"/>
+        <img src="images/pppp_12.png"/>
+        <img src="images/pppp_13.png"/>
+        <img src="images/pppp_14.png"/>
+        <img src="images/pppp_15.png"/>
+    </div>
+</section>
+</body>
+</html>

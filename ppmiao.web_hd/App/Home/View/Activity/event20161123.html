@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20161123/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20161123/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20161123/css/index.css" rel="stylesheet" type="text/css" />
+    <script src="{:C('STATIC_ROOT')}/activity/js/jquery.min.js"></script>
+    <title>票票喵</title>
+
+</head>
+<body>
+    <section>
+        <!--弹框-->
+        <div class="hidden" id="square_bj"></div>
+        <div class="hidden" id="square_window">
+            <div class="invite_back rel">
+                <div class="invite_detailed mar ">
+                    <div class="invite_line tc">
+                        <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/card_03.jpg" style="width:60%;margin-bottom:15px;" />
+                        <div class="clear"></div>
+                        <div class="invite_number cut20 tc fl bodb">
+                            <p>序号</p>
+                        </div>
+                        <div class="invite_investment cut40 tc fl bodb">
+                            <p>手机号</p>
+                        </div>
+                        <div class="invite_reward cut40 tc fl bodb">
+                            <p>是否投资成功</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="topRec_List" style="" id="had">
+                        <div class="maquee">
+                            <ul id="iu">
+                            	<volist name="list" id="vo" key="k" >
+                                <li>
+                                    <div>{$k}</div>
+                                    <div>{$vo.invited_phone}</div>
+                                    <if condition="$vo.amount gt 1 ">
+                                    	<div id="yes" style="color:#ff0000;">成功</div>
+                                    <else />
+                                    	<div id="no" style="color:#999999;">未成功</div>
+                                    </if>
+                                </li>
+                                </volist>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="invite_write" style="display:none;color:#929292;font-size:14px;text-align:center;margin-top:15px;" id="none">
+                        <p>暂无记录。快去邀请好友拿现金奖励！</p>
+                    </div>
+                </div>
+                <div class="yes tc abs">
+                    <img onclick="Pass()" src="{:C('STATIC_ROOT')}/activity/event20161123/images/cha.png" />
+                </div>
+            </div>
+        </div>
+
+		<!--静态弹框-->
+        <div class="hidden" id="integral_window">
+            <div class="integral_content">
+                <div class="now bodb tc">
+                    <p>登录后立即邀请</p>
+                </div>
+                <div class="listen tc">
+                    <p onclick="IsPass()">知道了</p>
+                </div>
+            </div>
+        </div>
+
+        <!--正文-->
+        <div class="invite_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_01.jpg" />
+        </div>
+        <div class="invite_time tc" style="margin-top:-1px;padding-bottom:20px;">
+            <p>活动起止时间：2016年11月25日-2017年06月30日</p>
+        </div>
+        <div class="invite_pic" style="margin-top:-1px;">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_03.jpg" />
+        </div>
+        <div class="invite_big" style="margin-top:-1px;">
+            <div class="invite_have tc">
+                <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_06.jpg" />
+                <p>{$award_amount}元</p>
+            </div>
+            <div class="invite_square">
+                <div class="invite_people tc fl ">
+                    <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_10.jpg" style="width:95%;" />
+                    <p>{$invite_num}人</p>
+                </div>
+                <div class="invite_people tc fl " style="margin-left:1%;">
+                    <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_12.jpg" style="width:70%;" />
+                    <p>{$total_invest_amount}元</p>
+                </div>
+                <img class="fr" onclick="Pass()" src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_17.jpg" style="width:100px;" />
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="invite_pic" style="margin-top:-1px;">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_25.jpg" style="margin-top:-1px;" />
+        </div>
+
+        <div class="invite_pic" style="margin-top:-1px;">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/5_02.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite-1.jpg" style="margin-top:-1px;" />
+        </div>
+        <!--黄色列表-->
+        <div class="invite_bigger" style="padding-bottom:20px;" >
+            <div class="invite_wis" style="background-color:#ffe800;">
+                <div class="invite_friend tc bodb4">
+                    <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_32.jpg" style="width:50%;" />
+                </div>
+                <div class="invite_money bodb4 tc">
+                    <p class="cut33 fl">累计投资</p>
+                    <p class="cut33 fl">奖励金额</p>
+                    <p class="cut33 fl">完成状态</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="invite_bg bodb4 tc">
+                    <p class="cut33 fl">10000元</p>
+                    <p class="cut33 fl">15元</p>
+                    <if condition="$total_invest_amount egt 10000 ">
+                   		<img id="red" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/red_32.png" />
+                    <else />
+ 						<img id="white" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/white_41.png"/>
+                    </if>
+                    <div class="clear"></div>
+                </div>
+                <div class="invite_bg bodb4 tc">
+                    <p class="cut33 fl">50000元</p>
+                    <p class="cut33 fl">50元</p>
+                    <if condition="$total_invest_amount egt 50000 ">
+                   		<img id="red" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/red_32.png" />
+                    <else />
+ 						<img id="white" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/white_41.png"/>
+                    </if>
+                    <div class="clear"></div>
+                </div>
+                <div class="invite_bg bodb4 tc">
+                    <p class="cut33 fl">100000元</p>
+                    <p class="cut33 fl">100元</p>
+                    <if condition="$total_invest_amount egt 100000 ">
+                   		<img id="red" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/red_32.png" />
+                    <else />
+ 						<img id="white" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/white_41.png"/>
+                    </if>
+                    <div class="clear"></div>
+                </div>
+                <div class="invite_bg bodb4 tc">
+                    <p class="cut33 fl">200000元</p>
+                    <p class="cut33 fl">200元</p>
+                    <if condition="$total_invest_amount egt 200000 ">
+                   		<img id="red" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/red_32.png" />
+                    <else />
+ 						<img id="white" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/white_41.png"/>
+                    </if>
+                    <div class="clear"></div>
+                </div>
+                <div class="invite_bg bodb4 tc">
+                    <p class="cut33 fl">500000元</p>
+                    <p class="cut33 fl">500元</p>
+                    <if condition="$total_invest_amount egt 500000 ">
+                   		<img id="red" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/red_32.png" />
+                    <else />
+ 						<img id="white" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/white_41.png"/>
+                    </if>
+                    <div class="clear"></div>
+                </div>
+                <div class="invite_bg  tc">
+                    <p class="cut33 fl">1000000元</p>
+                    <p class="cut33 fl">1000元</p>
+                    <if condition="$total_invest_amount egt 1000000 ">
+                   		<img id="red" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/red_32.png" />
+                    <else />
+ 						<img id="white" class="cut33 fl mar" src="{:C('STATIC_ROOT')}/activity/event20161123/images/white_41.png"/>
+                    </if><div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--活动规则-->
+        <div class="invite_pic" style="margin-top:-1px;">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite_20.jpg" />
+        </div>
+        <div class="invite_world" style="margin-top:-3px;">
+            <div class="invite_more">
+                <p>
+                    1.	活动期间，邀请越多，收益越多，上不封顶。邀请好友成功投资理财产品且首单投资达到1000元（零钱喵除外），即可获得每位<span>15元“好友人数邀请奖励”</span>。
+                    “邀请好友投资奖励”仅计算好友首次投资金额，复投金额不计入累计投资金额总数。奖励以现金券的形式发放至账户-【我的券包】-【现金券】中。
+                </p>
+                <img class="fl" src="{:C('STATIC_ROOT')}/activity/event20161123/images/kuai_24.png" style="width:15px;margin:2px 3px 0 4px;" />
+                <p><span>奖励总金额=邀请人数*15元+好友累计投资奖励；</span></p>
+                <div class="clear"></div>
+                <div class="invite_exmple">
+                    <div class="invite_wid">
+                        <img class="fl" src="{:C('STATIC_ROOT')}/activity/event20161123/images/kuai_23.png" style="width:15px;margin:2px 3px 0 0;" />
+                        <p>例如：</p>
+                        <p>
+                            活动期间，小强邀请10名好友完成注册，且好友累计投资
+                            金额为50000元，则小强的奖励金额为：
+                            <span>人数奖励（10*15）+投资奖励（15+50）=215元</span>
+                        </p>
+                    </div>
+                </div>
+                <p style="margin-top:5px;">
+                    2. 为保证活动的公平性，邀请用户必须为真实用户，如遇
+作弊行为，将取消奖励资格；
+                </p>
+                <p style="margin-top:5px;">
+                    3. 若出现冒（盗）用他人信息进行虚假交易等行为，以骗取
+活动奖励，票票喵有权撤销违规交易，活动奖励不予发放。
+                </p>
+            </div>
+        </div>
+        <div class="invite_pic" style="margin-top:-1px;">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/invite-1.jpg" style="margin-top:-1px;" />
+        </div>
+
+
+
+        <div class="invite_pic" style="margin-bottom:40px;margin-top:-3px;">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161123/images/footer_31.jpg" />
+        </div>
+        <div class="invite_now tc" style="cursor:pointer;" onclick="share();">
+            <p>立即邀请</p>
+        </div>
+	<!--滚动-->
+        <script type="text/javascript">
+
+        	var mobile = "{$mobile}";
+        	var IsPopup = false;
+
+		    function autoScroll(obj) {
+		        $(obj).find("ul").animate({
+		            marginTop: "-39px"
+		        }, 500, function () {
+		            $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+		        })
+		    }
+		    $(function () {
+		        var len = $("#iu li").length;
+		        if (len >= 8) {
+		            setInterval('autoScroll(".maquee")', 1500);
+		        }
+		    });
+
+            function Pass() {
+                if (IsPopup) {
+                    document.getElementById("square_bj").className = "hidden";
+                    document.getElementById("square_window").className = "hidden";
+                    IsPopup = false;
+                } else {
+                    document.getElementById("square_bj").className = "square_bj abs";
+                    document.getElementById("square_window").className = "square_window abs";
+                    IsPopup = true;
+                }
+            }
+
+            function IsPass() {
+                if (IsPopup) {
+                    document.getElementById("square_bj").className = "hidden";
+                    document.getElementById("integral_window").className = "hidden";
+                    IsPopup = false;
+                } else {
+                    document.getElementById("square_bj").className = "square_bj abs";
+                    document.getElementById("integral_window").className = "integral_window abs";
+                    IsPopup = true;
+                }
+            }
+
+    	    function share(){
+    	    	var device_type = '{$device_type}';
+    	    	if(mobile && mobile !="") {
+	    	    	var url = "https://ppmiao.com/?c=Activity&a=invite";
+	    	    	if(device_type == 'ios') {
+	    	    		firstClick(url);
+	    	    		return;
+	    	    	}
+	    	    	var str = '{ "content": "票据理财专业平台，银行托管多重保障。新手红包+邀请奖励，更有15%利率产品等你来体验！", "url": "'+url+'","imageUrl":"","mobile":"'+mobile+'"}';
+	    	    	ppm.share(str);
+    	    	} else {
+    	    		IsPass();
+    	    	}
+    	    }
+
+    	    function loadURL(url) {
+    	        var iFrame;
+    	        iFrame = document.createElement("iframe");
+    	        iFrame.setAttribute("src", url);
+    	        iFrame.setAttribute("style", "display:none;");
+    	        iFrame.setAttribute("height", "0px");
+    	        iFrame.setAttribute("width", "0px");
+    	        iFrame.setAttribute("frameborder", "0");
+    	        document.body.appendChild(iFrame);
+    	        iFrame.parentNode.removeChild(iFrame);
+    	        iFrame = null;
+    	    }
+
+    	    function firstClick(url) {
+    	        loadURL('share,'+url+",票据理财专业平台，银行托管多重保障。新手红包+邀请奖励，更有15%利率产品等你来体验！,"+mobile);
+    	    }
+        </script>
+    </section>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+﻿@charset "utf-8";
+        .fu_pic img {
+            width: 100%;
+        }
+
+        .fu_now {
+            width: 100%;
+            line-height: 45px;
+            background-color: #fbc40f;
+            color: #fff;
+            font-size: 16px;
+            width:100%;position:fixed;bottom:0;left:0;
+            text-align:center;
+        }

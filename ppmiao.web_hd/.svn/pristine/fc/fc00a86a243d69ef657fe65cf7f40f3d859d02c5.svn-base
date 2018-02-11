@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <script src="{:C('STATIC_ROOT')}/activity/event20170424/js/flexible.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/event20170424/js/flexible_css.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/event20170424/js/jquery.min.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/event20170424/js/farm.js?v=122"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/activity/event20170424/css/style.css" />
+    <title>魔法农场</title>
+
+</head>
+
+<body>
+  <!--弹框-->
+          <div class="backgr" id="integral_bj" style="display: none"></div>
+          <div class="tankuang rel" id="integral_window" style="z-index:12;display: none">
+              <div class="integral_content abs">
+                  <img src="{:C('STATIC_ROOT')}/activity/event20170424/img/prize.png" />
+              </div>
+          </div>
+
+    <div class="dialog" id="dialog" style="display:none">
+        <div class="dialog-shadow"></div>
+        <div class="dialog-content" id="dialog-content">
+        </div>
+    </div>
+    <if condition="($mobile neq  '')">
+    	<a class="jiangli" href="/hd/event20170424Prize.html?mobile={$mobile}"></a>
+    </if>
+    <div class="bg-first">
+        <div class="active-time">
+            活动时间：4月27日10: 00 — 5月11日
+        </div>
+        <div class="watering-day">
+            <span class="water-point">●</span>您已累计浇水<span class="watering-time"></span>天
+            <div class="checkIn"></div>
+
+            <!-- <div class="cannot-checkIn"></div> -->
+            <notempty name="data.isSign">
+				<div class="cannot-checkIn"></div>
+			</notempty>
+
+
+        </div>
+    </div>
+    <div class="bg-second">
+        <div class="line" style="margin-top:-.1rem">
+            <ul>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li>
+                    <div></div>
+                </li>
+                <li id="1">
+                    <div>27</div>
+                </li>
+                <li id="2">
+                    <div>28</div>
+                </li>
+                <li id="3">
+                    <div>29</div>
+                </li>
+            </ul>
+        </div>
+        <div class="line">
+            <ul>
+                <li id="4">
+                    <div>30</div>
+                </li>
+                <li id="5">
+                    <div style="color:#ff0000">1</div>
+                    <div class="notice-hot" id="51">爆款预告</div>
+                </li>
+                <li id="6">
+                    <div>2</div>
+                </li>
+                <li id="7">
+                    <div>3
+                    </div>
+                </li>
+                <li id="8">
+                    <div style="color:#ff0000">4</div>
+                    <div class="notice-hot" id="54">爆款预告</div>
+                </li>
+                <li id="9">
+                    <div>5</div>
+                </li>
+                <li id="10">
+                    <div>6</div>
+                </li>
+            </ul>
+        </div>
+        <div class="line">
+            <ul>
+                <li id="11">
+                    <div>7</div>
+                </li>
+                <li id="12">
+                    <div>8</div>
+                </li>
+                <li id="13">
+                    <div>9</div>
+                </li>
+                <li id="14">
+                    <div>10</div>
+                </li>
+                <li id="15"><div>11</div></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="receive-line">
+        	<foreach name="data.signInAwardsList" item="item">
+        		<div>
+        			<switch name="item.isCompelete">
+                    	<case value="0"><img id="award_{$item.id}" class='award' data="{$item.id}" status="{$item.isCompelete}" src="{:C('STATIC_ROOT')}/activity/event20170424/img/cannotreceive.png" /></case>
+                     	<case value="1"><img id="award_{$item.id}" class='award' data="{$item.id}" status="{$item.isCompelete}" src="{:C('STATIC_ROOT')}/activity/event20170424/img/unreceive.png" /></case>
+                     	<case value="2"><img id="award_{$item.id}" class='award' data="{$item.id}" status="{$item.isCompelete}" src="{:C('STATIC_ROOT')}/activity/event20170424/img/receive.png" /></case>
+                     </switch>
+            	</div>
+        	</foreach>
+        </div>
+    </div>
+    <div class="bg-third">
+        <div class="box">
+            <div class="line">
+                <div class="ground <if condition="($data.ground_1 eq 0)">unground</if>">
+                    <p>
+                        5000元≤投资总额＜1万元
+                    </p>
+                    <p style="margin-top:-0.08rem">
+                        现金券: 5元    标兵勋章: ×1
+                    </p>
+                </div>
+                <div class="ground <if condition="($data.ground_2 eq 0)">unground</if>">
+                    <p>
+                        1万元≤投资总额＜3万元
+                    </p>
+                    <p style="margin-top:-0.08rem">
+                        现金券: 10元    标兵勋章: ×2
+                    </p>
+                </div>
+            </div>
+            <div class="line" style="position: relative;top: -.2rem;">
+                <div class="ground <if condition="($data.ground_3 eq 0)">unground</if>">
+                    <p>
+                        3万元≤投资总额＜5万元
+                    </p>
+                    <p style="margin-top:-0.08rem">
+                        现金券: 20元    标兵勋章: ×5
+                    </p>
+                </div>
+                <div class="ground <if condition="($data.ground_4 eq 0)">unground</if>">
+                    <p>
+                        5万元≤投资总额＜10万元
+                    </p>
+                    <p style="margin-top:-0.08rem">
+                        现金券: 30元    标兵勋章: ×8
+                    </p>
+                </div>
+            </div>
+            <div class="line" style="position: relative;top: -.4rem;">
+                <div class="ground <if condition="($data.ground_5 eq 0)">unground</if>">
+                    <p>
+                        10万元≤投资总额＜20万元
+                    </p>
+                    <p style="margin-top:-0.08rem">
+                        现金券: 50元    标兵勋章: ×18
+                    </p>
+                </div>
+                <div class="ground <if condition="($data.ground_6 eq 0)">unground</if>">
+                    <p>
+                        投资总额≥20万元
+                    </p>
+                    <p style="margin-top:-0.08rem">
+                        现金券: 100元    标兵勋章: ×38
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="personInfo">
+            <div>
+                您的累计投资金额：<span class="info-num" id="investTotal">{$data.investTotal}</span><span style="color:#ff0000">元</span>
+            </div>
+            <div>
+                您的返现奖励：<span class="info-num" id="cashCouponTotal">{$data.cashCouponTotal}</span><span style="color:#ff0000">元</span>
+            </div>
+
+            <div class="buy">
+
+            </div>
+        </div>
+    </div>
+    <div class="bg-fourth">
+        <div class="index_number">
+            <p id="medalValTotal" style="width:0.7rem;text-align:center">0</P>
+        </div>
+    </div>
+    <div class="bg-fifth">
+        <div class="investment_f">
+            <div class="investment_title">
+                <div class="on"><img src="{:C('STATIC_ROOT')}/activity/event20170424/img/hua_07.png" />×3</div>
+                <div><img src="{:C('STATIC_ROOT')}/activity/event20170424/img/hua_07.png" />×10</div>
+                <div><img src="{:C('STATIC_ROOT')}/activity/event20170424/img/hua_07.png" />×20</div>
+                <div><img src="{:C('STATIC_ROOT')}/activity/event20170424/img/hua_07.png" />×25</div>
+                <div><img src="{:C('STATIC_ROOT')}/activity/event20170424/img/hua_07.png" />×35</div>
+                <div><img src="{:C('STATIC_ROOT')}/activity/event20170424/img/hua_07.png" />×70</div>
+            </div>
+            <div class="index_time">
+                      <div class="index_gift">
+                        <p>
+                          奖品兑换时间截止至2017年5月14号
+                        </p>
+                      </div>
+                    </div>
+            <div class="investment_con" id="medalAwardsList">
+            </div>
+        </div>
+    </div>
+    <div class="bg-sixth">
+
+    </div>
+</body>
+
+</html>
+
+
+
+<script type="text/javascript">
+
+var login = "{$mobile}";
+var static_url = "{:C('STATIC_ROOT')}/activity/event20170424/img/";
+
+var date = [{$data.signInAwardsStr}];
+var currenDay = {$data.currentDay};
+var hdStatus = {$data.hdStatus};
+
+$(document).ready(function(){
+	init();
+    investTotalInit();
+	function init(){
+		var v = Math.random();
+		$.ajax({
+	        type: "post",
+	        async: false,
+	        data:{'mobile':login},
+	        url: "/hd/getEvent20170424Data.html?v="+v,
+	        dataType: "json",
+	        success: function (json) {
+	            if(json.status == 0) {
+
+		        	$('#medalValTotal').empty().html(json.info.medalValTotal);
+		        	$('.watering-time').empty().html(json.info.signInTotal);
+
+		        	if(json.info.medalAwardsList) {
+		        		var arr = [];
+		        		var i=1;
+		        		var s = '';
+	   		        	for(var item in json.info.medalAwardsList) {
+
+	   		        		if(i == 1){
+	   		        			s = '<div class="investment_con_list" style="display:block">';
+	   		        		} else{
+	   		        			s = '<div class="investment_con_list">';
+	   		        		}
+	   		        		s+= '<img src="{:C('STATIC_ROOT')}/activity/event20170424/img/prize-'+i+'.png" />';
+	   		        		s+= '<p>'+json.info.medalAwardsList[item]['name']+'</p>';
+	   		        		if(json.info.medalAwardsList[item]['id']>=60 && json.info.medalAwardsList[item]['id']<63 ) {
+	   		        			s+= '<p style="padding-bottom:0.55rem;">剩余<span id="prize_total_'+json.info.medalAwardsList[item]['id']+'">'+json.info.medalAwardsList[item]['total']+'</span>份</p>'
+	   		        		}
+	   		        		s+='<div class="index_now">';
+	   		        		s+='<img src="{:C('STATIC_ROOT')}/activity/event20170424/img/number1.jpg" data="'+json.info.medalAwardsList[item]['id']+'" title="'+json.info.medalAwardsList[item]['name']+'" class="exchange" />';
+   	                    	s+='</div>';
+   	                 		s+='</div>';
+	   		        		arr.push(s);
+	   		        		i++;
+	   		        	}
+	   		        	$('#medalAwardsList').empty().html(arr.join(''));
+		        	}
+	            } else {
+	            	alert(json.info);
+	            }
+	        }
+		});
+	}
+
+	var exchangeFlag = true;
+	$('.exchange').click(function(){
+		if(!login){
+			notLogin();
+			return false;
+		} else{
+
+			if(!exchangeFlag)return false;
+			exchangeFlag = false;
+
+			var id = $(this).attr('data');
+			var title = $(this).attr('title');
+
+			$.ajax({
+		        type: "post",
+		        async: false,
+		        data:{'mobile':login,'lotteryAwardId':id},
+		        url: "/hd/exchangeLaborDayAward.html",
+		        dataType: "json",
+		        success: function (json) {
+		        	exchangeFlag = true;
+		        	if(json.status == 0){
+		        		notLogin();
+		        	} else if(json.status == 2){
+		        		if(id>=60 && id<63){
+		        			var total = $('#prize_total_'+id).text() - 1;
+		        			$('#prize_total_'+id).empty().html(total);
+		        		}
+		        		setExchangeShow(id,title);
+		        	} else{
+		        		dialogNotice(json.info);
+		        	}
+		        	return false;
+		        }
+			});
+		}
+	});
+
+	//领取
+	var awardFlag = true;
+	$('.award').click(function(){
+		if(!login){
+			notLogin();
+			return false;
+		} else {
+			var id = $(this).attr('data');
+			var status = $(this).attr('status');
+			if(status == 1){
+				dialogNotice('您已经领取过了');
+				return false;
+			} else{
+				if(!awardFlag)return false;
+				awardFlag = false;
+
+				$.ajax({
+			        type: "post",
+			        async: false,
+			        data:{'mobile':login,'lotteryAwardId':id},
+			        url: "/hd/receiveLaborDayAward.html",
+			        dataType: "json",
+			        success: function (json) {
+			        	awardFlag = true;
+			        	if(json.status == 0){
+			        		notLogin();
+			        	} else if(json.status == 2){
+			        		$("#award_"+id).attr('status','1');
+			        		$("#award_"+id).attr('src',static_url+'unreceive.png');
+			        		var currentVal = parseInt($("#medalValTotal").text());
+			        		if(id == 66 || id == 68 || id == 69){
+			        			$('#medalValTotal').empty().html(parseInt(currentVal+1));
+			        		} else if(id == 67){
+			        			$('#medalValTotal').empty().html(parseInt(currentVal+2));
+			        		}
+			        		setId(id);
+			        	} else{
+			        		dialogNotice(json.info);
+			        	}
+			        	return false;
+			        }
+				});
+			}
+		}
+	});
+
+});
+
+function investTotalInit(){
+
+    $.ajax({
+        type: "post",
+        async: false,
+        data:{'mobile':login},
+        url: "?c=Activity&a=get_investTotal&time=<php>echo time();</php>",
+        dataType: "json",
+        success: function (json) {
+            $("#investTotal").html(json.investTotal);
+            $("#cashCouponTotal").html(json.cashCouponTotal);
+        }
+    });
+}
+function setId(id){
+
+   	var content = '<div class="buy-pic dialog-main"><div class="close" id="closeBuy"></div></div>';
+   	var img="reve-1.png";
+   	if(id == 66){
+   		img="receive-1.png";
+   	}else if(id == 67){
+   		img="receive-2.png";
+   	}else if(id ==68){
+   		img="receive-1.png";
+   	}else{
+   		img="receive-1.png";
+   	}
+   	openDialog(content);
+   	$(".buy-pic").css('background-image',"url("+static_url+img+")");
+}
+
+function setExchangeShow(id,title){
+        var content = '<div class="index_now-pic dialog-main"><div class="close" id="index_now"></div><div class="congratulation-pic"></div><div class="congratulation-text">'+title+'</div></div>'
+        var img = '';
+        var count = 0;
+        if(id == 63 ){
+        	img = 'prize-1.png';
+        	count = 3;
+        }else if(id == 64){
+        	img = 'prize-2.png';
+        	count = 10;
+        }else if(id == 65){
+        	img = 'prize-3.png';
+        	count = 20;
+        }else if(id == 60){
+        	img = 'prize-4.png';
+        	count = 25;
+        }else if(id == 61){
+        	img = 'prize-5.png';
+        	count = 35;
+        }else if(id == 62){
+        	img = 'prize-6.png';
+        	count = 70;
+        }
+
+        var currentVal = parseInt($("#medalValTotal").text()) - count;
+        if(currentVal<0)currentVal=0;
+		$('#medalValTotal').empty().html(parseInt(currentVal));
+
+        openDialog(content);
+        $(".congratulation-pic").css('background-image','url('+static_url+img+')');
+}
+
+</script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    wx.config({$jssdk});
+</script>
+<script>
+    wx.ready(function () {
+
+
+
+        // 2. 分享接口
+        // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+        var dataForWeixin = {
+            img     : "http://7xkf8c.com1.z0.glb.clouddn.com/500.jpg",
+            linkurl : "https://www.ppmiao.com/hd/event20170424.html",
+            title   : "魔法农场神秘开启",
+            desc   : "魔法农场开垦忙，百万现金大派发，滚滚财富种出来！",
+
+        };
+        wx.onMenuShareAppMessage({
+            title: dataForWeixin.title,
+            desc: dataForWeixin.desc,
+            link: dataForWeixin.linkurl,
+            imgUrl: dataForWeixin.img,
+            trigger: function (res) {
+
+            },
+            success: function (res) {
+                //alert('已分享');
+//                share();
+            },
+            cancel: function (res) {
+                //alert('已取消');
+            },
+            fail: function (res) {
+                //alert(JSON.stringify(res));
+            }
+        });
+
+
+        // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+        wx.onMenuShareTimeline({
+            title: dataForWeixin.desc,
+            link: dataForWeixin.linkurl,
+            imgUrl: dataForWeixin.img,
+            trigger: function (res) {
+                // alert('用户点击分享到朋友圈');
+            },
+            success: function (res) {
+                //alert('已分享');
+//                share()
+
+            },
+            cancel: function (res) {
+                //alert('已取消');
+            },
+            fail: function (res) {
+                //alert(JSON.stringify(res));
+            }
+        });
+
+        wx.onMenuShareQQ({
+            title: dataForWeixin.title,
+            desc: dataForWeixin.desc,
+            link: dataForWeixin.linkurl,
+            imgUrl: dataForWeixin.img,
+            trigger: function (res) {
+                //alert('用户点击分享到QQ');
+            },
+            complete: function (res) {
+                //alert(JSON.stringify(res));
+            },
+            success: function (res) {
+                //alert('已分享');
+            },
+            cancel: function (res) {
+                //alert('已取消');
+            },
+            fail: function (res) {
+                //alert(JSON.stringify(res));
+            }
+        });
+
+
+
+
+    });
+</script>

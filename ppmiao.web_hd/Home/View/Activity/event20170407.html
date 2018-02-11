@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>新手训练营</title>
+    <link rel="stylesheet" type="text/css" href="{:C('STATIC_ROOT')}/activity/event20170407/css/htmleaf-demo.css">
+    <link rel="stylesheet" type="text/css" href="{:C('STATIC_ROOT')}/activity/event20170407/css/style.css">
+</head>
+<style>
+
+</style>
+
+<body>
+    <div class="fixedTime">
+        <div style="background-color: #333;opacity: .7;height: 3rem; width: 100%;position: absolute;"></div>
+        <div style="position:relative">
+            距离活动结束还有<span style="color:#ffed00;font-size:1.5rem;" id="expiryDates">65</span>天
+        </div>
+    </div>
+    <div class="background">
+        <div class="list">
+        </div>
+        <div class="progress">
+            <div class="progress-white"></div>
+            <div class="progress-bar" style="width: 0%; background: linear-gradient(to right, #f4e15c 35%, #f5a55b 68%);border-radius:40px;height: 1.5rem;position: relative;z-index: 9;box-shadow: inset -2px 0px 10px #e47d55;">
+                <div class="progress-value"></div>
+                <div class="progress-circle"></div>
+            </div>
+            <div class="borderLine" style="border-left:0"></div>
+            <div class="borderLine"></div>
+            <div class="borderLine"></div>
+            <div class="borderLine"></div>
+            <div class="borderLine" style="border-right:0"></div>
+        </div>
+        <div class="money">
+            现金券
+        </div>
+        <div class="money paper20 paper10 grey" style="left:4.4rem"></div>
+        <div class="money paper20 paper30 grey" style="left:7.8rem"></div>
+        <div class="money paper20 paper40 grey" style="left:11rem"></div>
+        <div class="money paper20 paper50 grey" style="left:14.3rem"></div>
+        <div class="money paper20 paper60 grey" style="left:17.5rem"></div>
+        <div class="dataShow">
+            <div>
+                已投资的新手标：<span id="compeleteCount">个</span>
+            </div>
+            <div>
+                我的累积投资金额：<span id="intTotal">元</span>
+            </div>
+            <div>
+                我的返现奖励：<span id="awardCash">元</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{:C('STATIC_ROOT')}/activity/js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript">
+var mobile = "{$mobile}";
+var u = navigator.userAgent, app = navigator.appVersion;
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+var wxurl = 'http://wechat.ppmiao.com/projects/show/';
+
+$(document).ready(function(){
+
+	init();
+
+	function init(){
+		var v = Math.random();
+		$.ajax({
+	        type: "post",
+	        async: false,
+	        data:{'mobile':mobile},
+	        url: "/hd/getEvent20170407Data.html?v="+v,
+	        dataType: "json",
+	        success: function (json) {
+	            if(json.status == 0) {
+		        	$("#compeleteCount").empty().html(json.info.compeleteCount+'次');
+		        	$("#intTotal").empty().html(json.info.intTotal+'元');
+		        	$("#awardCash").empty().html(json.info.awardCash+'元');
+		        	$('.progress-bar').css('width',json.info.progress+'%');
+		        	$("#expiryDates").empty().html(json.info.expiryDates);
+
+		        	if(json.info.progress == 100){
+		        		$(".paper20").removeClass('grey');
+		        	} else if(json.info.progress == 80){
+		        		$(".paper50,.paper40,.paper30,.paper10").removeClass('grey');
+		        	} else if(json.info.progress == 60){
+		        		$(".paper40,.paper30,.paper10").removeClass('grey');
+		        	} else if(json.info.progress == 40){
+		        		$(".paper30,.paper10").removeClass('grey');
+		        	}else if(json.info.progress == 20){
+		        		$(".paper10").removeClass('grey');
+		        	}
+
+		        	if(json.info.list) {
+		        		var arr = [];
+	   		        	for(var item in json.info.list) {
+	   		        		var _style = '';
+	   		        		if(json.info.list[item]['status'] == 0){
+	   		        			_style = 'rate-button-finish';
+	   		        		}else if(json.info.list[item]['status'] == 1){
+	   		        			_style = 'rate-button-done';
+	   		        		}else if(json.info.list[item]['status'] == 2){
+	   		        			_style = 'rate-button';
+	   		        		} else {
+	   		        			_style = 'rate-button-sell';
+	   		        		}
+
+							var interest = Number(json.info.list[item]['userInterest'])-Number(json.info.list[item]['userPlatformSubsidy']);
+	   		        		var s = '<div class="oneline">';
+	   		        		s+='<span class="mark"></span>';
+	   		        		s+='<div class="rate">';
+	   		        		s+='<div class="rate-num">'+interest+'%<span style="font-size:0.9rem">+'+json.info.list[item]['userPlatformSubsidy']+'%</span></div>';
+	   		        		s+='<div class="rate-text">年化收益率</div></div>';
+	   		        		s+='<div class="rate rate2" style="left:7.5rem"><div class="rate-num">'+json.info.list[item]['duration']+'<span>天</span></div><div class="rate-text">投资期限</div></div>';
+	   		        		s+='<div class="toInvest '+_style+'" data="'+json.info.list[item]['id']+'" status="'+json.info.list[item]['status']+'"></div></div>';
+	   		        		arr.push(s);
+	   		        	}
+	   		        	$('.list').empty().html(arr.join(''));
+		        	}
+	            } else {
+	            	alert(json.info);
+	            }
+	        }
+		});
+	}
+	var flag = true;
+	$(".toInvest").click(function(){
+
+		var status = $(this).attr('status');
+		if(status==2){
+
+			if(!flag)return false;
+			flag = false;
+
+			var id = $(this).attr('data');
+			if (isAndroid == true) {
+				if(isWeiXin()) {
+					location.href = wxurl+id;
+				}else{
+					ppm.toDeatil(id);
+				}
+			} else if (isiOS == true) {
+				if(isWeiXin()) {
+					location.href = wxurl+id;
+				}else{
+					loadURL('skip9/id/'+id);
+				}
+			} else if(isWeiXin()){
+				location.href = wxurl+id;
+			}
+
+			$.ajax({
+		        type: "post",
+		        async: false,
+		        url: "/hd/testAjax.html",
+		        dataType: "json",
+		        success: function (json) {
+		        	flag = true;
+		        }
+			});
+		}
+
+	})
+
+	function loadURL(url) {
+		var iFrame;
+		iFrame = document.createElement("iframe");
+		iFrame.setAttribute("src", url);
+		iFrame.setAttribute("style", "display:none;");
+		iFrame.setAttribute("height", "0px");
+		iFrame.setAttribute("width", "0px");
+		iFrame.setAttribute("frameborder", "0");
+		document.body.appendChild(iFrame);
+		iFrame.parentNode.removeChild(iFrame);
+		iFrame = null;
+	}
+
+	function isWeiXin(){
+	    var ua = window.navigator.userAgent.toLowerCase();
+	    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+	        return true;
+	    }else{
+	        return false;
+	    }
+	}
+
+});
+</script>
+</html>

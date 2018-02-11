@@ -1,0 +1,204 @@
+/*
+* @Author: by
+* @Date:   2017-06-19 15:24:16
+* @Last Modified by:   by
+* @Last Modified time: 2017-06-19 18:01:49
+*/
+
+body {
+	background-color: #fff;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+.container {
+	width: 10.0rem;
+	overflow: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+.olympics-00 {
+	width: 10rem;
+	height: 10rem;
+}
+
+.olympics-01 {
+	background: url("https://image.ppmiao.com/Public/activity/event20170620/images/%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E6%97%A5_01.jpg") no-repeat;
+	background-size: 100%;
+	position: relative;
+}
+
+.event-date {
+	width: 10.0rem;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	margin-top: -1rem;
+}
+
+[data-dpr="1"] .event-date {
+    font-size: 12px;
+}
+
+[data-dpr="2"] .event-date {
+    font-size: 28px;
+}
+
+[data-dpr="3"] .event-date {
+    font-size: 42px;
+}
+
+.olympics-02 {
+	background: url("https://image.ppmiao.com/Public/activity/event20170620/images/%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E6%97%A5_02.jpg") no-repeat;
+	background-size: 100%;
+}
+
+.olympics-03 {
+	background: url("https://image.ppmiao.com/Public/activity/event20170620/images/%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E6%97%A5_03.jpg") no-repeat;
+	background-size: 100%;
+}
+
+.olympics-04 {
+	background: url("https://image.ppmiao.com/Public/activity/event20170620/images/%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E6%97%A5_04.jpg") no-repeat;
+	background-size: 100%;
+	position: relative;
+}
+
+.king {
+	width: 9.466667rem;
+	height: 4.6rem;
+	border: 2px solid #c4712d;
+	position: absolute;
+	top: 0.7rem;
+	left: 50%;
+	margin-left: -4.733333rem;
+}
+
+.king-nav {
+	text-align: center;
+	display: flex;
+	height: 1.066667rem;
+	line-height: 1.066667rem;
+	color: #fff1a2;
+	background-color: #c4712d;
+	font-weight: 700;
+}
+
+[data-dpr="1"] .king-nav {
+    font-size: 14px;
+}
+
+[data-dpr="2"] .king-nav {
+    font-size: 28px;
+}
+
+[data-dpr="3"] .king-nav {
+    font-size: 42px;
+}
+
+.yesterday {
+	float: left;
+	flex: 1;
+}
+
+.today {
+	float: right;
+	flex: 1;
+	color: #c4712d;
+	background-color: #fff1a2;
+}
+
+.king-content ul {
+	display: flex;
+	text-align: center;
+	font-weight: 700;
+	color: #000;
+	height: 1.0rem;
+	line-height: 1.0rem;
+}
+
+.king-content li {
+	flex: 1;
+	display: inline-block;
+}
+
+.king-list ul {
+	font-weight: normal;
+	color: #c4712d;
+	height: 0.8rem;
+	line-height: 0.8rem;
+}
+.king-content li:nth-child(2),
+.king-list li:nth-child(2) {
+	flex: 0.7;
+}
+
+.king-content li:nth-child(-1),
+.king-list li:nth-child(-1) {
+	flex: 1.3;
+}
+
+.king-content-before,
+.king-content-when {
+	text-align: center;
+	color: #d39400;
+	margin-top: 1rem;
+}
+
+[data-dpr="1"] .king-content-before,
+[data-dpr="1"] .king-content-when {
+    font-size: 16px;
+}
+
+[data-dpr="2"] .king-content-before,
+[data-dpr="2"] .king-content-when {
+    font-size: 32px;
+}
+
+[data-dpr="3"] .king-content-before,
+[data-dpr="3"] .king-content-when {
+    font-size: 48px;
+}
+
+.olympics-05 {
+	height: 2.5rem;
+	background: url("http://ppmiao-image.oss-cn-hangzhou.aliyuncs.com/Public/activity/event20170620/images/%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E6%97%A5_05.jpg") no-repeat;
+	background-size: 100%;
+}
+
+.buying {
+	width: 10rem;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	background-color: #fcc601;
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+
+[data-dpr="1"] .buying {
+    font-size: 16px;
+}
+
+[data-dpr="2"] .buying {
+    font-size: 32px;
+}
+
+[data-dpr="3"] .buying {
+    font-size: 48px;
+}

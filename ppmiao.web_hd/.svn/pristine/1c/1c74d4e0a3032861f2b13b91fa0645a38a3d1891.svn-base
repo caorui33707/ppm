@@ -1,0 +1,21 @@
+<div class="innerLeft fLe clear">
+    <div class="innerLeft_user fLe clear">
+        <img src="{:C('STATIC_ROOT')}/v2/images/img/user_img01.png" />
+        <p>{$user_info.mobile|hide_whole_phone}</p>
+    </div>
+    <div class="innerLeft_list fLe clear">
+        <ul>
+            <li <eq name="Think.ACTION_NAME" value="index">class="selected"</eq>><a href="{:C('WEB_ROOT')}/user/">资产总览</a></li>
+            <li <eq name="Think.ACTION_NAME" value="wallet">class="selected"</eq>><a href="{:C('WEB_ROOT')}/user/wallet">我的钱包</a></li>
+            <li <if condition="ACTION_NAME eq 'product' or ACTION_NAME eq 'product_detail'">class="selected"</if>><a href="{:C('WEB_ROOT')}/user/product">我的理财</a></li>
+            <li <eq name="Think.ACTION_NAME" value="bank">class="selected"</eq>><a href="{:C('WEB_ROOT')}/user/bank">银行卡管理</a></li>
+            <li <eq name="Think.ACTION_NAME" value="profile">class="selected"</eq>><a href="{:C('WEB_ROOT')}/user/profile">个人中心</a></li>
+            <li <eq name="Think.ACTION_NAME" value="message">class="selected"</eq>><a href="{:C('WEB_ROOT')}/user/message">消息中心</a></li>
+        </ul>
+    </div>
+    <div class="innerLeft_slogn fLe clear">
+        <img src="{:C('STATIC_ROOT')}/v2/images/img/user_img02.png" />
+        <h3>石头理财</h3>
+        <p>理财就这么简单！</p>
+    </div>
+</div>

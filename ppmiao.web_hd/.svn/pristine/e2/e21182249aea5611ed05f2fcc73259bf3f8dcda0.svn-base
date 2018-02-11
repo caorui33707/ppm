@@ -1,0 +1,1536 @@
+﻿    @charset "utf-8";
+    /*security*/
+
+    body {
+        font-family: PingFangSC-Regular, "方正兰亭细黑", "微软雅黑", "宋体", "楷体", "仿宋", Tahoma, Geneva, sans-serif;
+    }
+    /*导航条*/
+
+    .middle {
+        width: 1100px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .header {
+        width: 100%;
+        height: 40px;
+        background-color: #141d26;
+    }
+
+    .header_left {
+        width: auto;
+        height: auto;
+        float: left;
+    }
+
+    .header_left img {
+        vertical-align: middle;
+    }
+
+    .header_left span {
+        display: inline-block;
+        font-size: 14px;
+        color: #fff;
+        line-height: 40px;
+    }
+
+    .header_right {
+        width: auto;
+        height: auto;
+        float: right;
+        z-index: 999;
+    }
+
+    .header_right img {
+        vertical-align: middle;
+    }
+
+    .index_code {
+        top: 1px;
+        left: 0;
+    }
+
+    .header_right a {
+        display: inline-block;
+        font-size: 14px;
+        color: #fff;
+        line-height: 18px;
+        text-decoration: none;
+    }
+
+    .help {
+        border-left: 1px solid #fff;
+        height: 16px;
+        margin-top: 12px;
+        margin-left: 10px;
+    }
+
+    .help span {
+        margin-left: 8px;
+    }
+
+    .content {
+        opacity: 0.8;
+        z-index: 3;
+        width: 100%;
+        filter: alpha(opacity=70);
+    }
+
+    .about_banner {
+        margin-top: -96px;
+    }
+    /*第二导航条透明度*/
+
+    .top {
+        width: 100%;
+        height: 96px;
+        background-color: #fff;
+    }
+
+    .topleft {
+        width: auto;
+        height: auto;
+        float: left;
+        color: #000;
+    }
+
+    .top1 img {
+        padding-top: 20px;
+    }
+
+    .top2 img {
+        padding-top: 20px;
+        margin-left: 10px;
+    }
+
+    .top3 img {
+        padding-top: 25px;
+        padding-left: 10px;
+    }
+
+    .top big {
+        display: inline-block;
+        font-size: 18px;
+        color: #333;
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+
+    .top small {
+        display: inline-block;
+        font-size: 12px;
+        color: #666;
+        margin-left: 20px;
+    }
+
+    .topright {
+        width: auto;
+        height: auto;
+        float: right;
+    }
+
+    .topright ul li {
+        float: left;
+        list-style: none;
+        margin-top: 27px;
+        text-align: center;
+        margin-right: 10px;
+    }
+
+    .topright ul li a {
+        display: inline-block;
+        font-size: 16px;
+        width: 100px;
+        height: 35px;
+        line-height: 30px;
+        color: #000;
+        text-decoration: none;
+    }
+
+    .topright ul li a:hover {
+        border-bottom: 2px solid #ff580f;
+    }
+
+    .index_hot {
+        right: 30.5%;
+    }
+
+    .index_mount {
+        width: 1200px;
+        height: 221px;
+        border: solid 1px #aaaaaa;
+        margin-top: 60px;
+    }
+
+    .index_platform img {
+        width: 100%;
+        margin-top: 70px;
+    }
+
+    .index_week p {
+        margin-top: 60px;
+        padding-bottom: 10px;
+    }
+
+    .index_interest img {
+        padding-left: 35%;
+        padding-top: 5px;
+        padding-right: 10px;
+    }
+
+    .index_money span {
+        font-size: 25px;
+        color: #ff580f;
+    }
+
+    .index_money p {
+        font-size: 10px;
+    }
+
+    .index_lineright {
+        border-right: solid 1px #CCC;
+    }
+
+    .index_register {
+        margin-top: 50px;
+    }
+
+    .index_register span {
+        font-size: 25px;
+        color: #ff580f;
+    }
+
+    .index_new {
+        width: 130px;
+        line-height: 25px;
+        background-color: #898686;
+        color: #FFF;
+        margin-top: 20px;
+    }
+
+    .index_footer {
+        width: 100%;
+        height: 460px;
+        background-color: #141d26;
+        color: #a7a8aa;
+    }
+
+    .index_download {
+        width: 1000px;
+    }
+
+    .index_iphone {
+        width: 285px;
+        padding-top: 70px;
+    }
+
+    .index_iphone p {
+        line-height: 25px;
+    }
+
+    .index_p img {
+        padding-bottom: 10px;
+    }
+
+    .index_android img {
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+
+    .rightcompany {
+        padding-top: 70px;
+    }
+
+    .index_brief {
+        width: 100px;
+    }
+
+    .index_brief.border-right {
+        border-right: 1px solid;
+        padding-right: 30px;
+    }
+
+    .index_brief p {
+        padding-bottom: 40px;
+        padding-left: 30px;
+    }
+    /*.index_brief span {
+    color: #4f5358;
+}*/
+
+    .index_connect {
+        width: 400px;
+        border-right: 1px solid;
+        margin-top: 70px;
+    }
+
+    .index_number p {
+        padding-top: 20px;
+        padding-left: 40px;
+    }
+
+    .index_number img {
+        padding-top: 27px;
+        padding-left: 40px;
+        padding-right: 10px;
+    }
+
+    .index_number a {
+        color: #4f5358;
+    }
+
+    .index_number span {
+        font-size: 30px;
+        color: #FFF;
+    }
+
+    .about_banner img {
+        width: 100%;
+    }
+
+    .about_us {
+        width: 1000px;
+    }
+
+    .about_we p {
+        font-size: 30px;
+        color: #ff580f;
+        padding-top: 60px;
+    }
+
+    .about_born p {
+        color: #000;
+        font-size: 15px;
+        text-indent: 2em;
+    }
+
+    .about_line {
+        width: 200px;
+        height: 2px;
+        background-color: #ff580f;
+    }
+
+    .about_what {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .about_born img {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .business3 img {
+        padding-left: 0px;
+        width: 213px;
+    }
+
+    .business p {
+        padding-bottom: 20px;
+        padding-left: 0px;
+    }
+
+    .zero p {
+        font-size: 30px;
+        font-weight: bold;
+        padding-top: 120px;
+        margin-bottom: 10px;
+    }
+
+    .security_guarantee {
+        width: 800px;
+    }
+
+    .security_guarantee img {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 50px;
+    }
+
+    .company p {
+        font-size: 13px;
+        color: #898686;
+    }
+
+    .bank {
+        width: 150px;
+        line-height: 25px;
+        border-radius: 50px;
+        border: solid 1px #000;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 100px;
+    }
+
+    .security_trusteeship {
+        width: 1100px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .security_trusteeship img {
+        padding-bottom: 40px;
+    }
+
+    .security_have {
+        padding-left: 90px;
+        padding-top: 25px;
+    }
+    /*index*/
+
+    .index_frame {
+        width: 100%;
+    }
+
+    .index_zu {
+        top: 47%;
+        left: 40%;
+    }
+
+    .index_percent {
+        top: 46%;
+        left: 57%;
+    }
+
+    .index_percent span {
+        font-size: 50px;
+        font-weight: bold;
+        color: #ff6600;
+    }
+
+    .index_percent p {
+        font-size: 20px;
+        color: #ff6600;
+    }
+
+    .index_percent1 {
+        top: 63%;
+        left: 57%;
+        border: solid 2px #fff;
+        border-radius: 5px;
+        width: 9%;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .index_bigger {
+        width: 100%;
+        background-color: #F4F4F4;
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+
+    .index_outer {
+        width: 1100px;
+    }
+
+    .index_annual img {
+        width: 100%;
+        margin-top: 70px;
+    }
+
+    .index_grey {
+        width: 50px;
+        height: 5px;
+        background-color: #898686;
+    }
+
+    .index_regular p {
+        font-size: 30px;
+        margin-top: 7px;
+        color: #898686;
+        margin-bottom: 30px;
+    }
+
+    .index_regular span {
+        font-weight: bold;
+    }
+
+    .index_frame {
+        width: 100%;
+    }
+
+    .index_proportion {
+        width: 100%;
+        height: 400px;
+        border-radius: 5px;
+        border: solid 1px #CCC;
+        background-color: #FFF;
+    }
+
+    .index_proportion span {
+        color: #ff5813;
+        font-size: 25px;
+    }
+
+    .index_proportion p {
+        font-size: 11px;
+        color: #999999;
+    }
+
+    .index_proportion p2 {
+        font-size: 15px;
+        color: #484848;
+    }
+
+    .box {
+        width: 250px;
+        margin: auto;
+        background: #fff;
+        /*box-shadow: 3px 3px 5px #666;*/
+        position: relative;
+        margin-left: 20px;
+        border: solid 2px #e3e3e3;
+        border-radius: 15px;
+    }
+
+    .box2 {
+        width: 250px;
+        margin: auto;
+        background: #fff;
+        /*box-shadow: 3px 3px 5px #666;*/
+        position: relative;
+        margin-left: 20px;
+        border: solid 2px #e3e3e3;
+        border-radius: 15px;
+    }
+
+    .box3 {
+        width: 250px;
+        margin: auto;
+        background: #fff;
+        /*box-shadow: 3px 3px 5px #666;*/
+        position: relative;
+        margin-left: 20px;
+        border: solid 2px #e3e3e3;
+        border-radius: 15px;
+    }
+
+    .box:hover {
+        border: solid 2px #ff580f;
+    }
+
+    .box2:hover {
+        border: solid 2px #42a8fd;
+    }
+
+    .box_o {
+        height: 50px;
+    }
+
+    .box_o .box_fl {
+        position: absolute;
+        margin-left: -12px;
+        margin-top: 10px;
+    }
+
+    .box_o .box_fr {
+        float: right;
+        margin-right: 10px;
+        margin-top: 20px;
+        color: #ff712b;
+        width: 100px;
+        height: 20px;
+        border-radius: 15px;
+        border: solid 1px #F00;
+    }
+
+    .box1_o {
+        height: 50px;
+    }
+
+    .box1_o .box_fl {
+        position: absolute;
+        margin-left: -12px;
+        margin-top: 10px;
+    }
+
+    .box1_o .box_fr {
+        float: right;
+        margin-right: 10px;
+        margin-top: 20px;
+        color: #c8cdcc;
+        width: 100px;
+        height: 20px;
+        border-radius: 15px;
+        border: solid 1px #c8cdcc;
+    }
+
+    .box_tw {
+        width: 250px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .box_year {
+        color: #999;
+        text-align: center;
+    }
+
+    .box_tr {
+        width: 250px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #595959;
+    }
+
+    .box_f {
+        background: #FAFAFA;
+    }
+
+    .box_f .box_li1 {
+        width: 250px;
+        height: 50px;
+    }
+
+    .box_f .box_li1 .box_p1 {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        float: left;
+        color: #595959
+    }
+
+    .box_f .box_li1 .box_p2 {
+        width: 250px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .box_f .box_li1 .box_sp1 {
+        width: 120px;
+        height: 50px;
+        line-height: 50px;
+        float: right;
+        text-align: right;
+        margin-right: 20px;
+    }
+
+    .box_fi .box_p3 {
+        width: 250px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        margin-bottom30px;
+    }
+
+    .index_china {
+        width: 1200px;
+    }
+
+    .index_baidu img {
+        margin-left: 15px;
+        padding-bottom: 60px;
+    }
+
+    .index_report {
+        width: 1200px;
+        margin-bottom: 40px;
+    }
+
+    .index_media img {
+        padding-bottom: 5px;
+    }
+
+    .index_media p {
+        margin-left: 10px;
+    }
+
+    .index_ticket img {
+        margin-right: 10px;
+    }
+
+    .index_ticket span {
+        font-size: 11px;
+        color: #949494;
+    }
+
+    .index_ticket p {
+        color: #676767;
+    }
+
+    .index_time img {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .index_le {
+        margin-left: 9%;
+    }
+
+    .index_spot p {
+        color: #676767;
+        padding-bottom: 15px;
+    }
+
+    .index_spot img {
+        padding-top: 10px;
+        margin-right: 10px;
+    }
+
+    .index_cooperation {
+        width: 100%;
+        background-color: #f4f4f4;
+        padding-top: 10px;
+        margin-top: 60px;
+    }
+
+    .slides .img {}
+
+    .slides .img>a.btn {
+        display: inline-block;
+        position: absolute;
+        border: 1px solid #fff;
+        width: 6%;
+        height: 21px;
+        color: #FFF;
+        line-height: ;
+    }
+
+    .slides .img>a.btn.btn_1 {
+        top: 83.8%;
+        left: 27.5%;
+    }
+
+    .slides .img>a.btn.btn_2 {
+        top: 83.8%;
+        left: 47%;
+    }
+
+    .slides .img>a.btn.btn_3 {
+        top: 83.8%;
+        left: 66%;
+    }
+
+    .header-login {
+        background-color: #ff712b;
+        outline: none;
+        border: 0;
+        padding: 3px 4px 4px 4px;
+        color: white;
+        border-radius: 4px;
+        margin-left: 10px;
+    }
+
+    .index_footer .appdownload {
+        background-image: url('../images/appdownload.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 100px;
+        width: 100px;
+        float: left;
+        margin: 5px 0 0 30px;
+    }
+
+    .index_footer .weixinfollow {
+        background-image: url(../images/weixinfollow.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 100px;
+        width: 100px;
+        float: left;
+        margin-top: 2px;
+        margin: 7px 0 0 20px;
+    }
+
+    .index_footer .information {
+        width: 100%;
+        height: 40px;
+        padding-top: 340px;
+        text-align: center;
+    }
+
+    .sign {
+        background-color: #f4f4f4;
+        width: 100%;
+        height: 900px;
+    }
+
+    .sign .content-main {
+        background-color: white;
+        height: 810px;
+        width: 1000px;
+        margin: auto;
+        position: relative;
+        top: 40px;
+        border: 1px solid #d9d9d9;
+    }
+
+    .sign .content-mainl {
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+
+    .sign .content-mainr {
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+
+    .sign .content-main-pic {
+        background-image: url(../images/signpic.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 250px;
+        height: 55%;
+        margin: 150px auto;
+    }
+
+    .sign .formRange {
+        width: 60%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .sign input {
+        background-color: #fcfbfb;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        margin: 30px 0 0 0;
+        outline: 0;
+        border: 1px solid #d2d2d2;
+        text-indent: 1em;
+        border-radius: 2px;
+        color: #a5a5a5;
+    }
+
+    .sign .first-next-step {
+        background: #ff712b;
+        border: 0;
+        border-bottom: 1px solid #fff;
+        width: 100%;
+        height: 40px;
+        border-radius: 30px;
+        color: white;
+        font-size: 20px;
+        margin: 20px 14px 0 0;
+        box-shadow: 0px 3px 27px -5px #ff712b;
+    }
+
+    .sign .agree-checkbox {
+        width: 15px;
+        margin-top: 5px;
+        float: left;
+    }
+
+    .sign_three img {
+        width: 100%;
+        height: 40px;
+        padding-left: 20px;
+        margin-top: 30px;
+    }
+
+    .sign_foure {
+        width: 318px;
+        top: 30px;
+        left: 10px;
+        color: #ff712b;
+    }
+
+    .sign_three input {
+        width: 100%;
+        height: 40px;
+        background-color: #ff712b;
+        color: #fff;
+        border: 0;
+        text-indent: -0.2em;
+        margin-top: 30px;
+    }
+
+    .sign_five {
+        margin-top: 1px;
+        padding-left: 10px;
+    }
+
+    .sign p {
+        text-indent: 1em;
+        color: #ff712b;
+        margin-top: 10px;
+    }
+    /*登录*/
+
+    .enter_one {
+        background: url("../images/one_03.jpg") no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 350px;
+    }
+
+    .enter_two {
+        width: 370px;
+        height: 310px;
+        background-color: #dde4eb;
+        border-radius: 10px;
+        opacity: 0.9;
+        margin-top: 20px;
+        margin-right: 20px;
+        position: relative;
+    }
+
+    .enter_three p {
+        padding: 25px 0 0 0;
+        font-size: 16px;
+    }
+
+    .enter_write input {
+        width: 70%;
+        line-height: 30px;
+        background-color: #fff;
+        text-indent: 1em;
+        font-size: 13px;
+        color: #888888;
+        margin-top: 15px;
+    }
+
+    .enter_in button {
+        width: 70%;
+        border: 0;
+        line-height: 35px;
+        border-radius: 20px;
+        background-color: #ff6a00;
+        color: #fff;
+        margin-top: 30px;
+        box-shadow: 1px 1px 5px #ff712b;
+    }
+
+    .enter_forget {
+        width: 100%;
+    }
+
+    .enter_free {
+        font-size: 12px;
+        margin-top: 15px;
+        width: 140px;
+        color: #575757;
+    }
+
+    .enter_free p {
+        padding: 0 10px;
+    }
+
+    .signNext-title {
+        font-size: 22px;
+        color: #ed6d3b;
+        border-bottom: 1px solid #f4f4f4;
+        padding-bottom: 30px;
+    }
+
+    .formRange.signNext {
+        width: 100%;
+    }
+
+    .signNext-1-l {
+        position: absolute;
+        left: 0;
+        top: 62px;
+        bottom: 0;
+        width: 200px;
+    }
+
+    .signNext-1-l div {
+        font-size: 16px;
+        margin-top: 40px;
+        text-align: right;
+        height: 40px;
+        color: #333;
+    }
+
+    .signNext-1-r {
+        position: absolute;
+        left: 220px;
+        top: 52px;
+        bottom: 0;
+        right: 0;
+    }
+
+    .signNext-1-r div {
+        margin-top: 39px;
+        float: left;
+        width: 100%;
+    }
+
+    .signNext-1-r span {
+        color: #c3c3c3;
+    }
+
+    .signNext-1-r button {
+        height: 40px;
+        color: #ea581f;
+        border: 1px solid #ea581f;
+        background-color: #fff;
+        margin-right: 10px;
+        outline: none;
+        padding: 10px 15px;
+        border-radius: 2px;
+    }
+
+    .signNext-1-r input {
+        margin: 0px;
+        background-color: #fff;
+    }
+
+    .sign .content-main.signNext-1 {
+        height: 740px;
+    }
+
+    .sign .content-main.signNext-1.signNext2 {
+        height: 450px;
+    }
+
+    .signNext-1.signNext-2 {
+        margin-top: 40px;
+        height: 673px!important;
+    }
+
+    .sign.signNext {
+        height: 1520px;
+    }
+
+    .sign.signNext.signNext2 {
+        height: 1250px;
+    }
+
+    .first-next-step.signNext {
+        margin: 84px 0 0 111px;
+        height: 45px;
+        width: 43%;
+    }
+
+    .signNext-prompt {
+        position: absolute;
+        background: #f8f8f8;
+        color: #d6d6d6;
+        width: 50%!important;
+        left: 280px;
+        top: 243px;
+        padding: 10px 10px 74px 10px;
+    }
+
+    .signNext-operation {
+        color: #ef8d71!important;
+        position: relative;
+        top: 10px;
+    }
+
+    .sign.review {
+        height: 600px;
+    }
+
+    .sign .content-main.review {
+        height: 500px;
+    }
+
+    .review-info {
+        border: 1px solid #d2d2d2;
+        width: 56%;
+        margin: 180px auto;
+        padding: 20px;
+        font-size: 16px;
+        color: #333;
+        -webkit-box-shadow: 2px 4px 5px #e6e6e6;
+        ;
+        -moz-box-shadow: 2px 4px 5px #e6e6e6;
+        ;
+        box-shadow: 2px 4px 5px #e6e6e6;
+    }
+
+    .review-button {
+        background: #ff712b;
+        border: 0;
+        border-radius: 4px;
+        padding: 5px 10px;
+        color: #fff;
+        position: relative;
+        left: 210px;
+    }
+    /* 去掉默认样式，设置新的样式 */
+
+    #select {
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background: none;
+        border: 1px solid #a9a9a9;
+        outline: none;
+        -webkit-appearance: none;
+        line-height: inherit;
+        color: inherit;
+        cursor: default;
+        font-size: 14px;
+        position: relative;
+        z-index: 3;
+        color: #c3c3c3;
+        height: 42px;
+        text-indent: 1em;
+    }
+
+    #select option {
+        color: #222;
+    }
+
+    #select option:hover {
+        color: #fff;
+    }
+
+    #select option:checked {
+        background: #535353;
+        color: #fff;
+    }
+
+    #selectStyle {
+        display: block;
+        overflow: hidden;
+        height: 42px;
+        width: 352px;
+        border-radius: 0;
+        background: #fff url("") right center no-repeat;
+        background-size: auto 80%;
+        color: #fff;
+        line-height: 2;
+        /* 如果不想加图片，
+       则可以设置一个自己的三角形样式，
+       如下的自定义方式，
+       见代码1 */
+        position: relative;
+        z-index: 1;
+    }
+    /* 代码1 */
+
+    #selectStyle:before {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: 10px;
+        margin-top: -2.5px;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 5px 0 5px;
+        border-color: #fff transparent transparent transparent;
+        content: "";
+    }
+    /* 代码1 */
+
+    #selectStyle:after {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: 10px;
+        margin-top: -3.5px;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 5px 0 5px;
+        border-color: #535353 transparent transparent transparent;
+        content: "";
+    }
+    /*个人中心*/
+
+    .person_top {
+        width: 1100px;
+        margin: auto;
+    }
+
+    .person_center {
+        margin: auto;
+        margin: 20px 0 20px 0;
+        font-size: 13px;
+    }
+
+    .person_big {
+        width: 1100px;
+        height: 600px;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        margin: 20px auto;
+    }
+
+    .person_big img {
+        width: 80px;
+    }
+
+    .person_big ul {
+        padding-top: 50px;
+    }
+
+    .person_big p {
+        line-height: 80px;
+    }
+
+    .person_big button {
+        width: 100px;
+        line-height: 40px;
+        background-color: #ff6a00;
+        border-radius: 20px;
+        border: 0;
+        color: #fff;
+        margin-top: 20px;
+    }
+    /*充值第三方账户*/
+
+    .money_chong p {
+        color: #ff712b;
+        padding-left: 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    .money_zhi {
+        width: 500px;
+        margin: auto;
+        height: 90px;
+    	margin-top:50px;
+    }
+
+    .money_ti {
+        margin: 130px 70px 0 60px;
+    }
+
+    .money_zhi p {
+        font-size: 16px;
+    }
+
+    .money_kuan input {
+        width: 300px;
+        height: 40px;
+        line-height: 40px;
+        text-indent: 1em;
+        border: 0;
+        color: #898686;
+        font-size: 15px;
+    }
+
+    .money_kuan {
+        width: 340px;
+        height: 40px;
+    	margin-top:20px;
+        border: 1px solid #898686;
+    }
+
+    .money_kuan p {
+        line-height: 40px;
+    }
+
+    .money_next {
+        text-align: center;
+    }
+
+    .money_next button {
+        width: 350px;
+        height: 45px;
+        line-height: 45px;
+        background-color: #ff580f;
+        color: #fff;
+        font-size: 15px;
+        border: 0;
+        border-bottom: 1px solid #fff;;
+        border-radius: 20px;
+        margin-top: 50px;
+        box-shadow: 0px 3px 27px -5px #ff580f;
+    }
+
+    .money_erro p {
+        margin-top: 5px;
+        color: #ff712b;
+        font-size: 13px;
+        position: absolute;
+    }
+
+    .money_ti p {
+        line-height: 35px;
+        font-size: 16px;
+        margin-left: 20px;
+    }
+
+    .money_ti span {
+        color: #898686;
+    }
+    /*交易记录*/
+
+    .record_big {
+        width: 1100px;
+        height: 700px;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        margin-bottom: 20px;
+    }
+
+    .record_ji {
+        font-size: 16px;
+        color: #ff712b;
+        line-height: 80px;
+        border-bottom: #d9d9d9 1px solid;
+        margin-bottom: 40px;
+    }
+
+    .record_cut {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .record_cut p {
+        padding: 10px 0 10px 0;
+    }
+    /*营业执照认证*/
+
+    .recover {
+        width: 1100px;
+        border: 1px solid #d9d9d9;
+        background-color: #fff;
+        margin: auto;
+        padding-bottom: 40px;
+    }
+
+    .recover_chong {
+        border-bottom: 1px solid #d9d9d9;
+        line-height: 80px;
+        color: #ff712b;
+        font-size: 16px;
+    }
+
+    .recover_chong p {
+        margin-left: 20px;
+    }
+
+    .recover_qi p {
+        font-size: 15px;
+    }
+
+    .recover_xie input {
+        width: 350px;
+        height: 40px;
+    }
+
+    .apply_return_input {
+        left: 0;
+        top: 0;
+    }
+
+    .apply_return_input input[type=file] {
+        width: 210px;
+        height: 40px;
+        opacity: 1;
+    }
+
+    .recover_chuan {
+        width: 100px;
+        line-height: 40px;
+        height: 40px;
+        border: 1px solid #ff712b;
+        color: #ff712b;
+    }
+
+    .apply_return_input p {
+        color: #A9A9A9;
+        margin: 10px 0 0 10px;
+    }
+
+    .recover_rember {
+        top: -95px;
+        left: 360px;
+        width: 400px;
+        height: 140px;
+        background-color: #F8F8F8;
+    }
+
+    .recover_rember p {
+        margin: 20px 10px 0 10px;
+        line-height: 30px;
+        color: #898686;
+    }
+
+    .recover_world {
+        top: 57px;
+        left: 16px;
+        color: #ff712b;
+        font-size: 13px;
+    }
+
+    .recover_pic {
+        float: left;
+        margin-left: 10px;
+    }
+    /*账户设置*/
+
+    .setting_number p {
+        font-size: 15px;
+    }
+
+    .setting_number {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    .changePassword .content-background {
+        height: 800px;
+        width: 100%;
+        background: #f4f4f4;
+        position: relative;
+    }
+
+    .changePassword .content1 {
+        background-color: white;
+        height: 700px;
+        width: 1000px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border: 1px solid #d9d9d9;
+    }
+
+    .changePassword .title {
+        border-bottom: 1px solid #d9d9d9;
+        line-height: 80px;
+        color: #ff712b;
+        font-size: 16px;
+        padding-left: 40px;
+    }
+
+    .changePassword .changePassword-content {
+        position: absolute;
+        top: 81px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        height: 500px;
+        width: 400px;
+        text-align: center;
+    }
+
+    .changePassword input {
+        background-color: #fcfbfb;
+        width: 80%;
+        height: 40px;
+        line-height: 40px;
+        margin: 30px 0 0 0;
+        outline: 0;
+        border: 1px solid #d2d2d2;
+        text-indent: 1em;
+        border-radius: 2px;
+        color: #a5a5a5;
+    }
+
+    .changePassword-text {
+        margin: 20px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .changePassword .next-step {
+        background: #ff580f;
+        border: 0;
+        border-bottom: 1px solid #fff;;
+        width: 80%;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 30px;
+        color: white;
+        font-size: 20px;
+        margin: 60px auto;
+        text-align: center;
+        box-shadow: 0px 3px 27px -5px #ff580f;
+    }
+
+    .changePassword p {
+        text-align: left;
+        color: #ff712b;
+        width: 80%;
+    }
+
+    .changePassword .remove-float {
+        position: absolute;
+        left: 40px;
+    }
+
+    .changePassword .forgetPassword {
+        position: absolute;
+        width: 73px;
+        font-size: 16px;
+        color: #3366cc;
+        top: 104px;
+        left: 378px;
+    }
+
+    .changePassword .change-info {
+        border: 1px solid #d2d2d2;
+        width: 600px;
+        margin: 180px auto;
+        padding: 20px;
+        font-size: 16px;
+        color: #333;
+        position: relative;
+        text-align: center;
+    }
+
+    .changePassword .change-text {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 5px 0;
+    }
+
+    .changePassword .change-info-button {
+        background: transparent;
+        border: 0;
+        border-radius: 4px;
+        padding: 5px 10px;
+        color: #ff712b;
+        position: relative;
+        top: 22px;
+        left: 250px;
+        cursor: pointer;
+    }
+
+    .changePassword .change-pic {
+        position: relative;
+        top: 5px;
+        right: 3px;
+    }
+
+    .money_sure {
+        width: 350px;
+        height: 45px;
+        line-height: 45px;
+        background-color: #ff580f;
+        color: #fff;
+        font-size: 15px;
+        border: 0;
+        border-radius: 20px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        margin: auto;
+    }
+
+    .money_content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 200px;
+        width: 500px;
+    }
+
+.footer_img a img{
+    width: 103px;
+    height: 38px;
+}

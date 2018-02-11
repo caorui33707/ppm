@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20160921/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20160921/css/style1.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20160921/css/index.css" rel="stylesheet" type="text/css" />
+    <script src="{:C('STATIC_ROOT')}/activity/event20160921/js/jquery.min.js"></script>
+    <title>票票喵</title>
+
+
+
+</head>
+    
+
+<body>
+    <section>
+        <div class="top5_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_01.jpg" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_02.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_03.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_04.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_05.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_06.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_07.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_08.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_09.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_10.jpg" style="margin-top:-1px;" />
+        </div>
+        <div class="top5_kuang" style="margin-top:-1px;">
+            <div class="top5_left fl cut50 tc">
+                <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_13.jpg" />
+                <p>{$amount}</p>
+            </div>
+            <div class="top5_right fl cut50 tc">
+                <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_15.jpg" />
+                <p>{$rank}</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+
+
+        <div class="preferential_bigsquare rel" style="margin-top:-1px;margin-bottom:0px;">
+            <div class="preferential_square">
+                
+                <div class="clear"></div>
+                <div class="preferential_number tc">
+                    <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_20.jpg"/>
+                </div>
+                <div class="invite_detailed mar" style="margin-top:-1px;">
+                    <div class="invite_line">
+                        <div class="invite_number cut15 tc fl ">
+                            <p>排名</p>
+                        </div>
+                        <div class="invite_number cut15 tc fl ">
+                            <p>用户名</p>
+                        </div>
+                        <div class="invite_investment cut35 tc fl ">
+                            <p>手机号码</p>
+                        </div>
+                        <div class="invite_reward cut35 tc fl ">
+                            <p>投资金额</p>
+                        </div>
+                    </div>
+                    <div class="topRec_List">
+                        <div class="maquee">
+                            <ul id="iu">
+                            <volist name="list" id="vo" offset="0" length='20'>
+                                <li>
+                                    <div>{$vo.rank}</div>
+                                    <div>{$vo.real_name}</div>
+                                    <div>{$vo.username}</div>
+                                    <div>{$vo.amount}元</div>
+                                </li>
+                            </volist>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="top5_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20160921/images/top5_23.jpg" style="margin-bottom:40px;" />
+        </div>
+
+
+        <div class="top5_bg tc" style="cursor:pointer;">
+            <p onclick="go2App()">立即投资</p>
+        </div>
+        
+    </section>
+    <div style="display:none">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1259566159&web_id=1259566159" language="JavaScript"></script>
+    </div>
+    <script type="text/javascript">
+	    function autoScroll(obj) {
+	        $(obj).find("ul").animate({
+	            marginTop: "-39px"
+	        }, 500, function () {
+	            $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+	        })
+	    }
+	    $(function () {
+	
+	        var len = $("#iu li").length;
+	        if (len >= 8) {
+	            setInterval('autoScroll(".maquee")', 1500);
+	        }
+	    });
+	    
+	    
+	    var u = navigator.userAgent, app = navigator.appVersion;
+		var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		
+	    function go2App(){
+	    	if(isAndroid == true) {
+	    		ppm.toAction(2);
+	    	} else if(isiOS == true) {
+	    		loadURL('skip2');
+	    	}
+	    	return;
+	    }
+	    
+	    function loadURL(url) {
+	        var iFrame;
+	        iFrame = document.createElement("iframe");
+	        iFrame.setAttribute("src", url);
+	        iFrame.setAttribute("style", "display:none;");
+	        iFrame.setAttribute("height", "0px");
+	        iFrame.setAttribute("width", "0px");
+	        iFrame.setAttribute("frameborder", "0");
+	        document.body.appendChild(iFrame);
+	        iFrame.parentNode.removeChild(iFrame);
+	        iFrame = null;
+	    }
+	</script>
+</body>
+</html>

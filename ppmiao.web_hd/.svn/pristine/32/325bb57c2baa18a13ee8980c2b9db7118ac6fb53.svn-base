@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body>
+<include file="PublicNew:menu" />
+
+<div class="joinBanner">
+    <p style="background:url({:C('STATIC_ROOT')}/v2/images/innerBanner01.jpg) no-repeat scroll center top; display:block"></p>
+</div>
+
+<div class="main w978 clear">
+    <div class="messageBox fLe clear">
+        <h2>您的意见对我们很重要</h2>
+        <p>所有的努力只为您的满意</p>
+        <div class="messageBoxInner fLe clear">
+            <form action="" method="post">
+                <div class="messageBoxTextarea">
+                    <textarea name="content" placeholder="有什么建议意见请跟我们吐槽吧~"></textarea>
+                </div>
+                <input name="contact" type="text" placeholder="请输入您的联系方式" />
+                <input type="submit" class="submitButton" value="立即提交" />
+            </form>
+        </div>
+    </div>
+</div>
+
+<include file="PublicNew:footer" />
+<include file="PublicNew:gotop" />
+</body>
+</html>

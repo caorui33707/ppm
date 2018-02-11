@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    <title>票票喵 - 充值</title>
+
+</head>
+<body style="background-color:#f4f4f4;">
+	
+	<include file="Public:ppm_menu" />
+    
+    <!--正文-->
+        <div class="person_top">
+            <div class="person_center">
+                <a href="profile.html"><p class="cut10 fl">个人中心</p></a>
+                <a href="repayment_list.html?type=2"><p class="cut10 fl">待还款</p></a>
+                <a href="repayment_list.html?type=1"><p class="cut10 fl">已还款</p></a>
+                <a href="money_detail.html"><p class="cut10 fl">资金明细</p></a>
+                <a href="setting.html"><p class="cut10 fl">账户设置</p></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="person_big">
+            <div class="money_chong">
+                <p>充值到票票喵指定第三方账户</p>
+            </div>
+            <form name=rongpayment onSubmit="return CheckForm();" action="pay_to.html" method="post" target="_blank">
+            <div class="money_zhi">
+                <div class="cut25 fl tc">
+                    <p>充值金额</p>
+                </div>
+                <div class="money_kuan cut75 fl ">
+                    <input class="fl" type="text" name="amount" placeholder="请输入充值金额" maxlength="15"/>
+                    <p class="tc">元</p>
+                    <div class="clear"></div>
+                    <div class="money_erro">
+                        <p id="err"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="money_next tc" style="cursor:pointer;">
+                <button id="pay">充 值</button>
+            </div>
+            </form>
+            
+            <!-- 
+            <div class="money_ti">
+               <p style="margin-top:30px;">常见问题：</p>
+                <p>充值后几天到账？<span>充值后一般3-5个工作日到账</span></p>
+            </div>
+             -->
+        </div>
+
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+    <script>		
+    
+    function CheckForm()
+	{
+    	var amount = $("input[name='amount']").val();
+    	var reg	= new RegExp(/^\d*\.?\d{0,2}$/);
+		if (!reg.test(amount) || !amount){	
+			$("#err").empty().html('请输入正确金额,小数点部分只允许两位');
+	        $("input[name='amount']").focus();
+			return false;
+		}
+		/*
+		if(amount<1){
+			$("#err").empty().html('请输入正确金额,小数点部分只允许两位');
+	        $("input[name='amount']").focus();
+			return false;
+		}*/
+	} 
+    
+		$(function () {	
+			/*
+		    $("#pay").click(function () {		    	
+		    	var amount = $("input[name='amount']").val();
+		    	var reg	= new RegExp(/^\d*\.?\d{0,2}$/);
+				if (!reg.test(amount) || !amount){	
+					$("#err").empty().html('请输入正确金额');
+			        $("input[name='amount']").focus();
+					return false;
+				}
+				
+				location.href = "http://114.55.85.42:8089/recharge?companyId={$uid}&amount="+amount;
+				$("#err").empty().html();
+				
+		    });
+		    */
+		    
+		    
+		})
+    </script>
+</body>
+</html>         

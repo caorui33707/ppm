@@ -1,0 +1,425 @@
+<?php
+
+
+// 检测输入的验证码是否正确，$code为用户输入的验证码字符串
+function check_verify($code, $id = ''){
+    $verify = new \Think\Verify();
+    return $verify->check($code, $id);
+}
+
+
+function check_mobile($mobile) {
+    if (!is_numeric($mobile)) {
+        return false;
+    }
+    return preg_match('#^13[\d]{9}$|^14[5,7]{1}\d{8}$|^15[^4]{1}\d{8}$|^17[0,1,3,6,7,8]{1}\d{8}$|^18[\d]{9}$#', $mobile) ? true : false;
+}
+
+
+
+/**
+ * 获得访问的IP
+ * Enter description here ...
+ */
+function getIP() {
+    return isset($_SERVER["HTTP_X_FORWARDED_FOR"])?$_SERVER["HTTP_X_FORWARDED_FOR"]
+        :(isset($_SERVER["HTTP_CLIENT_IP"])?$_SERVER["HTTP_CLIENT_IP"]
+            :$_SERVER["REMOTE_ADDR"]);
+}
+
+
+
+/**
+ * 判断是否是有手机浏览
+ */
+function isMobile(){
+    // 如果有HTTP_X_WAP_PROFILE则一定是移动设备
+    if (isset ($_SERVER['HTTP_X_WAP_PROFILE'])) {
+        return true;
+    }
+    // 如果via信息含有wap则一定是移动设备,部分服务商会屏蔽该信息
+    if (isset ($_SERVER['HTTP_VIA'])) {
+        // 找不到为flase,否则为true
+        return stristr($_SERVER['HTTP_VIA'], "wap") ? true : false;
+    }
+    // 脑残法，判断手机发送的客户端标志,兼容性有待提高
+    if (isset ($_SERVER['HTTP_USER_AGENT'])) {
+        $clientkeywords = array ('nokia',
+            'sony',
+            'ericsson',
+            'mot',
+            'samsung',
+            'htc',
+            'sgh',
+            'lg',
+            'sharp',
+            'sie-',
+            'philips',
+            'panasonic',
+            'alcatel',
+            'lenovo',
+            'iphone',
+            'ipod',
+            'blackberry',
+            'meizu',
+            'android',
+            'netfront',
+            'symbian',
+            'ucweb',
+            'windowsce',
+            'palm',
+            'operamini',
+            'operamobi',
+            'openwave',
+            'nexusone',
+            'cldc',
+            'midp',
+            'wap',
+            'mobile'
+        );
+        // 从HTTP_USER_AGENT中查找手机浏览器的关键字
+        if (preg_match("/(" . implode('|', $clientkeywords) . ")/i", strtolower($_SERVER['HTTP_USER_AGENT']))) {
+            return true;
+        }
+    }
+    // 协议法，因为有可能不准确，放到最后判断
+    if (isset ($_SERVER['HTTP_ACCEPT'])) {
+        // 如果只支持wml并且不支持html那一定是移动设备
+        // 如果支持wml和html但是wml在html之前则是移动设备
+        if ((strpos($_SERVER['HTTP_ACCEPT'], 'vnd.wap.wml') !== false) && (strpos($_SERVER['HTTP_ACCEPT'], 'text/html') === false || (strpos($_SERVER['HTTP_ACCEPT'], 'vnd.wap.wml') < strpos($_SERVER['HTTP_ACCEPT'], 'text/html')))) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * 消息推送
+ * @param $content 推送内容
+ * @param string $reg_id 指定推送设备注册ID
+ * @param string $platform 指定推送设备(ios,android)
+ * @return string
+ */
+function pushMsg($content, $reg_id='', $_platform='', $extra = array(),$app=0){
+    require_once("vendor/autoload.php");
+    $timeout = 3600; // 推送消息延时时间
+    
+    switch ($app){
+        case 0:
+            $appKey = C('AppStore_pushtest.APP_KEY');
+            $masterSecret = C('AppStore_pushtest.MASTER_SECRET');
+            break;
+    }
+    
+    /*
+    switch ($app) {
+        case 0:
+            $appKey = C('JPUSH.APP_KEY');
+            $masterSecret = C('JPUSH.MASTER_SECRET');
+            break;
+        case 1:
+            $appKey = C('AppStore_personal_JPUSH.APP_KEY');
+            $masterSecret = C('AppStore_personal_JPUSH.MASTER_SECRET');
+            break;
+        case 2:
+            $appKey = C('AppStore_pro_JPUSH.APP_KEY');
+            $masterSecret = C('AppStore_pro_JPUSH.MASTER_SECRET');
+            break;
+        case 3:
+            $appKey = C('AppStore_honorable.APP_KEY');
+            $masterSecret = C('AppStore_honorable.MASTER_SECRET');
+            break;
+        case 4:
+            $appKey = C('AppStore_feedback.APP_KEY');
+            $masterSecret = C('AppStore_feedback.MASTER_SECRET');
+            break;
+        case 5:
+            $appKey = C('AppStore_welfare.APP_KEY');
+            $masterSecret = C('AppStore_welfare.MASTER_SECRET');
+            break;
+        case 6:
+            $appKey = C('AppStore_flagship.APP_KEY');
+            $masterSecret = C('AppStore_flagship.MASTER_SECRET');
+            break;
+        case 7:
+            $appKey = C('AppStore_Anniversary.APP_KEY');
+            $masterSecret = C('AppStore_Anniversary.MASTER_SECRET');
+            break;
+        case 8:
+            $appKey = C('AppStore_Professional.APP_KEY');
+            $masterSecret = C('AppStore_Professional.MASTER_SECRET');
+            break;
+        case 9:
+            $appKey = C('AppStore_VIP.APP_KEY');
+            $masterSecret = C('AppStore_VIP.MASTER_SECRET');
+            break;
+        case 10:
+            $appKey = C('AppStore_classical.APP_KEY');
+            $masterSecret = C('AppStore_classical.MASTER_SECRET');
+            break;
+        case 11:
+            $appKey = C('AppStore_Financing.APP_KEY');
+            $masterSecret = C('AppStore_Financing.MASTER_SECRET');
+            break;
+        case 12:
+            $appKey = C('AppStore_Investment.APP_KEY');
+            $masterSecret = C('AppStore_Investment.MASTER_SECRET');
+            break;
+        case 13:
+            $appKey = C('AppStore_qqjrFinance.APP_KEY');
+            $masterSecret = C('AppStore_qqjrFinance.MASTER_SECRET');
+            break;
+        case 14:
+            $appKey = C('AppStore_qqjrSpecial.APP_KEY');
+            $masterSecret = C('AppStore_qqjrSpecial.MASTER_SECRET');
+            break;
+        case 15:
+            $appKey = C('AppStore_PPMFeedback.APP_KEY');
+            $masterSecret = C('AppStore_PPMFeedback.MASTER_SECRET');
+            break;
+        case 16:
+            $appKey = C('AppStore_PPMLuxury.APP_KEY');
+            $masterSecret = C('AppStore_PPMLuxury.MASTER_SECRET');
+            break;
+        case 17:
+            $appKey = C('AppStore_qqjwFinance.APP_KEY');
+            $masterSecret = C('AppStore_qqjwFinance.MASTER_SECRET');
+            break;
+        case 18:
+            $appKey = C('AppStore_miaodppmFinancial.APP_KEY');
+            $masterSecret = C('AppStore_miaodppmFinancial.MASTER_SECRET');
+            break;
+                
+    }
+    */
+    
+    $client = new \JPush\JPushClient($appKey, $masterSecret);
+    try{
+        if($reg_id){
+            $reg = \JPush\Model\registration_id(explode(',', $reg_id));
+        }else{
+            $reg = \JPush\Model\all;
+        }
+        if($_platform){
+            $platform = \JPush\Model\platform($_platform);
+            if($_platform == 'android'){
+                $notification = \JPush\Model\notification($content, \JPush\Model\android($content, null, null, $extra));
+            }else if($_platform == 'ios'){
+                $notification = \JPush\Model\notification($content, \JPush\Model\ios($content, null, null, true, $extra, null));
+            }
+        }else{
+            $platform = \JPush\Model\all;
+            $notification = \JPush\Model\notification($content,
+                \JPush\Model\android($content, null, null, $extra),
+                \JPush\Model\ios($content, null, null, null, $extra, null));
+        }
+        $result = $client->push()
+            ->setOptions(\JPush\Model\options(null, $timeout, null, true, 0))
+            ->setPlatform($platform)
+            ->setAudience($reg)
+            ->setNotification($notification)
+            ->send();
+        return $result;
+    }catch(APIRequestException $e){
+        return $e->getMessage();
+    }catch(APIConnectionException $e){
+        return $e->getMessage();
+    }
+}
+
+/**
+ * 记录管理员登录日志
+ */
+function loginLog($uid, $username, $status = 0){
+    $time = time();
+    $ip = get_client_ip();
+    $ipObj = new Org\Net\IpLocation('UTFWry.dat');
+    $location = $ipObj->getlocation($ip);
+    if($location['country'] != '局域网'){
+        $locationStr = $location['country'].$location['area'];
+    }else{
+        $locationStr = '局域网';
+    }
+
+    $adminLogLoginObj = M('AdminLogLogin');
+    $rows = array(
+        'uid' => $uid,
+        'username' => $username,
+        'ip' => $ip,
+        'location' => $locationStr,
+        'status' => $status,
+        'time_add' => $time,
+    );
+    $adminLogLoginObj->add($rows);
+}
+
+/**
+ * 数字钱转化成大写金额
+ * @param $money
+ * @return mixed
+ */
+function money($money){
+    static $cnums = array("零","壹","贰","叁","肆","伍","陆","柒","捌","玖"),
+    $cnyunits = array("圆","角","分"),
+    $grees = array("拾","佰","仟","万","拾","佰","仟","亿");
+    list($ns1, $ns2) = explode(".", $money, 2);
+    $ns2 = array($ns2[1], $ns2[0]);
+    $ret = array_merge($ns2, array(implode("", _money_unit(str_split($ns1), $grees)), ""));
+    $ret = implode("", array_reverse(_money_unit($ret, $cnyunits)));
+    return str_replace(array_keys($cnums), $cnums, $ret);
+}
+
+/**
+ * 函数主要是格式化数字为中文大写
+ * @param $list
+ * @param $units
+ * @return array
+ */
+function _money_unit($list,$units){
+    $ul=count($units);
+    $xs=array();
+    foreach (array_reverse($list) as $x){
+        $l=count($xs);
+        if ($x!="0" || !($l%4)){
+            $n= ($x=='0'?'':$x).($units[($l-1)%$ul]);
+        }
+        else{
+            $n = is_numeric($xs[0][0]) ? $x : '';
+        }
+        array_unshift($xs,$n);
+    }
+    return $xs;
+}
+
+/**
+ * 格式化新版项目内容描述
+ */
+function format_project_descr($descr){
+    $arr = explode('<!--line-->', $descr);
+    foreach($arr as $key => $val){
+        $arr[$key] = explode('<!--title-->', $val);
+    }
+    return $arr;
+}
+
+/**
+ * 格式化新版项目图片链接
+ * @param $image
+ */
+function format_project_image($image){
+    return explode("\r\n", $image);
+}
+
+/**
+ * 隐藏银行卡部分号码
+ */
+function hide_whole_cardno($cardNo){
+    return substr($cardNo, 0, 4).'******'.substr($cardNo, strlen($cardNo) - 4);
+}
+
+/**
+ * 隐藏身份证部分号码
+ */
+function hide_whole_idcard($idcard){
+    return substr($idcard, 0, 4).'**********'.substr($idcard, strlen($idcard) - 4);
+}
+
+/**
+ * 获取每月第一天与最后一天
+ * @param $date
+ * @return array
+ */
+function get_the_month($date){
+    $firstday = date('Y-m-01', strtotime($date));
+    $lastday = date('Y-m-d', strtotime("$firstday +1 month -1 day"));
+    return array($firstday,$lastday);
+}
+
+/**
+ * 计算两个日期之间的天数差
+ * @param $a
+ * @param $b
+ * @return float
+ */
+function count_days($a, $b){
+    return floor(abs(strtotime($a)-strtotime($b))/86400);
+}
+
+/**
+ * 检查代付订单状态(连连支付)
+ * @param $paybill 支付单号(连连支付支付单号)
+ * @return 连连支付处理结果
+ */
+function check_order_pay_status_by_ll($order){
+    require_once ("include/ll_cash_pay/lib/llpay_apipost_submit.class.php");
+    //构造要请求的参数数组，无需改动
+    $parameter = array (
+        "oid_partner" => trim(C('llpay_config.oid_partner')),
+        "sign_type" => trim(C('llpay_config.sign_type')),
+        "no_order" => $order,
+        "oid_paybill" => '',
+        "type_dc" => 1, //收付标识
+    );
+    //建立请求
+    $url = "https://yintong.com.cn/traderapi/orderquery.htm";
+    $llpaySubmit = new LLpaySubmit(C('llpay_config'));
+    $ret = $llpaySubmit->buildRequestJSON($parameter, $url);
+    return $ret;
+}
+
+
+
+/**
+ * 自动生成一个幽灵账户的手机号码
+ */
+function auto_create_phone_for_ghost(){
+    $qz = array(134,135,136,137,138,139,150,151,152,157,158,159,182,187,188,147,130,131,132,155,156,186,145,133,153,189); // 运营商手机号码前缀
+    $middle = rand(0, 9999); // 中段号码(4位)
+    $last = rand(0, 9999); // 尾号(4位)
+    for($i = 3-strlen($middle); $i >= 0 ; $i--){
+        $middle = '0'.$middle;
+    }
+    for($i = 3-strlen($last); $i >= 0; $i--){
+        $last = '0'.$last;
+    }
+    return $qz[rand(0, count($qz)-1)].$middle.$last;
+}
+
+
+
+/**
+ * 判断是否是日期格式
+ * @param $str
+ */
+function isDateFormat($str){
+    return strtotime($str) !== false && strlen($str) == 10;
+}
+/**判断当前日期是星期几 */
+function getWeek($date){
+    $week = date("w",$date);
+    switch($week){
+        case 1:
+            return "星期一";
+            break;
+        case 2:
+            return "星期二";
+            break;
+        case 3:
+            return "星期三";
+            break;
+        case 4:
+            return "星期四";
+            break;
+        case 5:
+            return "星期五";
+            break;
+        case 6:
+            return "星期六";
+            break;
+        case 0:
+            return "星期日";
+            break;
+    }
+}
+
+

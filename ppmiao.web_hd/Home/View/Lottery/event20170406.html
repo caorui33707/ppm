@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>砸金蛋</title>
+    <link rel="stylesheet" type="text/css" href="{:C('STATIC_ROOT')}/lottery/event20170406/css/style.css">
+</head>
+<script type="text/javascript">
+	var static_url = "{:C('STATIC_ROOT')}/lottery/event20170406/";
+	var lotteryId = "{$params.lottery_id}";
+	var userId = "{$params.user_id}"; 
+	var userName = "{$params.user_name}";
+	var flag = true;
+	
+    var canvas, context;
+    var canvasWidth, canvasHeight;
+    var shapes = new Array();
+    function init() {
+        canvas = document.getElementById("myCanvas");
+        context = canvas.getContext("2d");
+        canvasWidth = canvas.width;
+        canvasHeight = canvas.height;
+        shapes.push(new Shape(320, 120, 200, 5));
+        animate();
+    }
+
+    var Shape = function(x, y, radius, angle) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.angle = angle;
+    };
+    var pattern = new Image();
+    pattern.src = static_url +'img/egg.png';
+    var lastTs = Date.now();
+    function animate() {
+        var delta = Date.now() - lastTs;
+         lastTs = Date.now();
+        context.clearRect(0, 0, canvasWidth, canvasHeight);
+        var shapesLength = shapes.length;
+        for (var i = 0; i < shapesLength; i++) {
+            var tmpShape = shapes[i];
+            var x2 = tmpShape.x + (tmpShape.radius * Math.cos((tmpShape.angle - 270) * (Math.PI / 180)));
+            var y2 = tmpShape.y + (tmpShape.radius / 3 * Math.sin((tmpShape.angle - 270) * (Math.PI / 180)));
+            var x3 = tmpShape.x + (tmpShape.radius * Math.cos((tmpShape.angle - 180) * (Math.PI / 180)));
+            var y3 = tmpShape.y + (tmpShape.radius / 3 * Math.sin((tmpShape.angle - 180) * (Math.PI / 180)));
+            var x4 = tmpShape.x + (tmpShape.radius * Math.cos((tmpShape.angle - 90) * (Math.PI / 180)));
+            var y4 = tmpShape.y + (tmpShape.radius / 3 * Math.sin((tmpShape.angle - 90) * (Math.PI / 180)));
+            var x = tmpShape.x + (tmpShape.radius * Math.cos(tmpShape.angle * (Math.PI / 180)));
+            var y = tmpShape.y + (tmpShape.radius / 3 * Math.sin(tmpShape.angle * (Math.PI / 180)));
+            tmpShape.angle += 50 * delta / 1000;;
+
+            if (tmpShape.angle > 360) {
+                tmpShape.angle = 0;
+            };
+            if (tmpShape.angle > 90) {
+                tmpShape.angle = 0;
+                context.globalCompositeOperation = "source-over";
+            };
+            var picHeight = 250;
+            var picWidth = 150;
+            context.drawImage(pattern, x4, y4, picWidth, picHeight);
+            context.drawImage(pattern, x3, y3, picWidth, picHeight);
+            context.drawImage(pattern, x2, y2, picWidth, picHeight);
+            context.drawImage(pattern, x, y, picWidth, picHeight);
+        }
+        requestAnimationFrame(animate);
+    }
+</script>
+
+<body onload="init();">
+    <div class="dialog" id="dialog" style="display:none">
+        <div class="dialog-shadow"></div>
+        <div class="dialog-content" id="dialog-content">
+        </div>
+    </div>
+    <div class="rules"></div>
+    <div class="Overflow">
+	    <div class="guide-bg">
+	        <div class="times">
+	            您还有<span style="color:#af1c42" class="lottery_cnt">{$params.lottery_cnt}</span>次机会
+	        </div>
+	        <div class="guide-btn"></div>
+	    </div>
+    </div>
+    <div class="main-bg">
+        <div class="led-light">
+            用力砸哦~~IPHONE7等着你
+        </div>
+        <div class="times">
+            您还有<span class="lottery_cnt" id="lotteryCnt2">{$params.lottery_cnt}</span>次机会
+        </div>
+        <div class="prizes">
+            查看我的奖品
+        </div>
+        <div class="talk"></div>
+        <div class="hammer"></div>
+        <div class="post-demo-content">
+            <div class="mnc-demo-container mnc-demo-container-inline">
+                <canvas id="myCanvas" width="900" height="450" style="background-color: transparent;
+                    position: absolute;
+                    top: 14rem;
+                    left: 0rem;
+                    height: 12rem;
+                    right: 0;">
+                </canvas>
+
+                <div id="pot1" class="mnc-demo-dot"></div>
+                <div id="mnc-demo-dot2" class="mnc-demo-dot2" style="left:10rem"></div>
+                <div id="pot3" class="mnc-demo-dot3"></div>
+                <div id="mnc-demo-dot4" class="mnc-demo-dot4" style="left:6rem"></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<div style="display:none" id="record">
+
+</div>
+
+<div style="display:none" id="record2">
+
+</div>
+
+
+
+
+<script src="{:C('STATIC_ROOT')}/lottery/event20170406/js/jquery.min.js"></script>
+<script src="{:C('STATIC_ROOT')}/lottery/event20170406/js/zajindan.js?v=20170407121"></script>
+
+</html>

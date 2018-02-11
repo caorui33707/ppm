@@ -1,0 +1,99 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/modules/exporting.js"></script>
+    <div class="content">
+        <div class="title">销售图表 -
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/daily">日数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/monthly">月数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/year">年数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/bk">爆款数据</a>&nbsp;&nbsp;
+            还本付息再次投资率&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/xsectz">购买新手标二次投资</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/cumulative">销售增量(产品)</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/cumulative_wallet">销售增量</a>&nbsp;&nbsp;
+        </div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <input type="hidden" name="target" value="hbfxztl" />
+                    <div class="fLeft">
+                        <span><input type="text" name="dt" id="dt" class="laydate-icon" placeholder="选择日期" class="medium" value="{$dt}" readonly></span>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="筛选" class="search imgButton"></div>
+                </form>
+            </div>
+        </div>
+        <div id="result" class="result none"></div>
+        <div id="container" style="min-width: 310px; height: 800px; margin: 0 auto"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '还本付息再次投资率 ({$dt})'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: [{
+                categories: [{$categories}]
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+                    format: '{value}%',
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                title: {
+                    text: '投资率',
+                    style: {
+                        color: '#89A54E'
+                    }
+                }
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: '#FFFFFF'
+            },
+            series: [{
+                name: '投资率',
+                color: '#89A54E',
+                type: 'spline',
+                data: [{$percent}],
+                tooltip: {
+                    valueSuffix: '%'
+                }
+            }]
+        });
+    });
+
+    var dt = {
+        elem: '#dt',
+        format: 'YYYY-MM',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+
+        }
+    };
+    laydate(dt);
+</script>

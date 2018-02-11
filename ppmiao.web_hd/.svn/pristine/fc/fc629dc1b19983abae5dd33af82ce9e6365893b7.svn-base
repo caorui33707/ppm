@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body style="overflow-x:hidden;">
+<include file="PublicNew:menu" />
+
+<div class="joinBanner" style="height:217px;">
+    <p style="background:url({:C('STATIC_ROOT')}/v2/images/img/user_img06.jpg) no-repeat scroll center top; height:217px; display:block"></p>
+</div>
+
+<div class="mediaNewsBox fLe clear">
+    <div class="mediaNews w980 clear">
+        <div class="privacyProtectTitle fLe clear">
+            <h5>隐私保护</h5>
+        </div>
+        <div class="privacyProtectContent fLe clear">
+            <p>       石头理财严格遵守国家相关法律法规，对用户的隐私信息进行严格的保护。<br />
+                对用户的注册信息、账户收支信息都进行高强度的加密处理，杜绝被不法份子窃取信息。<br />
+                石头理财平台设有严格的安全管理系统，未经允许任何人不可获取您的相关信息，否则按照国家相关<br />法规执行。石头理财绝不会将您的账户信息、银行信息以任何形式透露给第三方。<br />
+                石头理财官方在此声明：在任何情况下，绝对不会使用邮件、短信、QQ、电话等任何方式套取<br />客户的账号、密码和身份证等相关信息。如果您需更改您的账户信息，请通过登陆石头理财用户中心<br />来更改您的所有账户信息和个人相关资料，或请致电客服电话咨询操作。<br />
+                用户在平台上交流的过程中，也要时刻注意保护个人隐私，截图注意覆盖个人信息，不要透露真<br />实姓名与住址等，以防个人信息被盗取造成损失。<br />
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<include file="PublicNew:footer" />
+</body>
+</html>

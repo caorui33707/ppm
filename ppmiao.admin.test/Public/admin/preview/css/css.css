@@ -1,0 +1,213 @@
+/* CSS Document */
+body{ font-size:15px; font-family:"微软雅黑",Arial, Helvetica, sans-serif;color:#7f7f7f; margin:0px;
+    padding:0px;background-image:url(about:blank);background-attachment:fixed; background:#ffffff;}
+ul li,li{ list-style:none;}
+ul,li,dl,dt,dd,span,p,cite,em,i,h1,h2,h3,h4,h5,h6,b{margin:0px; padding:0px;}
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+cite,em,i{ font-style:normal;}
+a{color:#7f7f7f; text-decoration:none; outline:none;}
+a:hover{ text-decoration:none;}
+a:hover,a:active, input, :focus { outline:none;}
+input{border: none;}
+img{ border:none;}
+
+/*==============产品详情页01=====================*/
+.proDetails01{
+	margin:0 15px;}
+.proDetails01 p{
+	font: "微软雅黑";
+	color:#999999;
+	margin-top:35px;}
+.proDetails01 .proDetails01Txt01 h2{
+	font: "Arial";
+	color:#ff0000;
+	float:left;}
+.proDetails01 .proDetails01Txt01{
+	display:inline-block;}
+.proDetails01 .proDetails01Txt01 em{
+	font-size:;}
+.proDetails01 .proDetails01Txt01 span{
+	height:20px;
+	border:#ff6666 1px solid;
+	padding:0 8px;
+	border-radius:10px;
+	font: "微软雅黑";
+	color:#ff6666;
+	float:right;
+	margin-top:30px;
+	}
+.proDetails01 .proDetails01Txt02{
+	width:100%;
+	display:inline-block;}
+.proDetails01Txt02 .rateBox{
+	height:6px;
+	background:#e9e7e7;
+	width:100%;
+	border-radius:5px;
+	position:relative;}
+.proDetails01Txt02 .rateInner{
+	position:absolute;
+	left:0;
+	top:0;
+	height:6px;
+	border-radius:5px;
+	background:#ff6666;}
+.proDetails01Txt02 .span01{
+	font:"微软雅黑";
+	color:#333333;
+	float:left;
+	margin-top:6px;
+	margin-left:13px;}
+.proDetails01Txt02 .span02{
+	font: "微软雅黑";
+	color:#333333;
+	float:right;
+	margin-top:6px;
+	margin-right:13px;}
+.proDetails01Txt02 .span02 em{
+	font-size:;}
+	
+.proDetails02{}
+.proDetails02Title{
+	width:100%;
+	height:24px;
+	border-bottom:#f0ecec 1px solid;
+	border-top:#f0ecec 1px solid;
+	margin-top:15px;}
+.proDetails02Title ul li{
+	float:left;
+	height:24px;}
+.proDetails02Title ul .li01{
+	width:25%;	text-align:right;
+	}
+.proDetails02Title ul .li02{
+	width:25%;
+	text-align:center;
+	}
+.proDetails02Title ul .li03{
+	width:25%;
+	text-align:left;}
+.proDetails02Title ul .li04{
+	width:25%;
+	text-align:left;}
+.proDetails02Title ul .li01 span{
+	font: "微软雅黑";
+	color:#666666;
+	padding-right:6px;
+	border-right:#f0ecec 1px solid;
+	margin-top:4px;
+	float:right;
+	}
+.proDetails02Title ul .li02 span{
+	font:"微软雅黑";
+	color:#666666;
+	width:100%;
+	float:left;
+	margin-top:4px;
+	}
+.proDetails02Title ul .li03 span{
+	font: "微软雅黑";
+	color:#666666;
+	padding-left:6px;
+	border-left:#f0ecec 1px solid;
+	margin-top:4px;
+	float:left;
+	}
+.proDetails02Content{
+	width:100%;
+	background:#fdfdfd;
+	border-bottom:#dedddd 1px solid;
+	}
+.proDetails02Content{
+	padding-bottom:15px;
+	padding-top:20px;}
+.proDetails02ContentPList{
+	margin-left:25px;
+	display:inline-block;}
+.proDetails02ContentPList p{
+	font: "微软雅黑";
+	color:#999999;
+	float:left;
+	width:100%;
+	}
+.proDetails02ContentPList p em{
+	margin-right:4px;
+	margin-top:3px;
+	float:left;}
+.proDetails03{
+	border-bottom:#dedddd 1px solid;}
+.proDetails03 ul li{
+	height:34px;
+	margin-left:32px;
+	border-bottom:#dedddd 1px solid;}
+.proDetails03 ul li p{
+	float:left;
+	font: "微软雅黑";
+	color:#999999;}
+.proDetails03 ul li span{
+	float:right;
+	font: "微软雅黑";
+	color:#666666;
+	background:url(../images/arrow01.png) no-repeat right center;
+	background-size:7px 11px;
+	margin-right:24px;
+	padding-right:30px;}
+.proDetails04{
+	width:100%;
+	padding-top:45px;
+	padding-bottom:50px;}
+.proDetails04 p{
+	    font: 12px/20px "微软雅黑";
+	color:#cccccc;
+	background:url(../images/proDetailsIcon01.png) no-repeat left center;
+	background-size:12px 12px;
+	padding-left:20px;}
+.proDetails04Inner{
+	width:220px;
+	display:block;
+	margin:0px auto;}
+
+/**===========================资产介绍====================*/
+.proIntroTitle{
+	width:100%;
+	height:30px;
+	background:#f5f5f5;}
+.proIntroTitle h2{
+	font: "微软雅黑";
+	color:#666666;
+	margin-left:20px;}
+.proIntroTxt{
+	margin:0 20px;
+	padding:10px 0;}
+.proIntroTxt p{
+	font: "微软雅黑";
+	color:#999999;}
+.proIntroImg{
+	margin:0 37px;}
+.proIntroImg img{
+	width:100%;}
+
+/*=============================
+	hkfx02
+================================================*/
+#hkfx02{
+    background:#f0f0f0;}
+.hkfxListBox{}
+.hkfxListTitle{
+    width:100%;
+    height:35px;
+    background:#e0dcdc;}
+.hkfxListTitle h3{
+    font:"微软雅黑";
+    color:#000;
+    margin:0 10px;}
+.hkfxListTxt{
+    padding:8px 0px;
+    margin:0 10px;}
+.hkfxListTxt p{
+    font: "微软雅黑";
+    color:#333;
+    text-indent:2em;}
+.hkfxListTxt img{
+    width:100%;
+    margin-top:5px;}

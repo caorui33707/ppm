@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    <title>票票喵 - 订单记录</title>
+
+<style>
+html, body {font: normal 13px "Microsoft YaHei";font-family: "Microsoft YaHei","微软雅黑","sans-serif";}
+.information_page{margin-left:300px;margin-bottom:200px;}
+
+/*page*/
+.page{ padding:90px 0 0px 0; text-align:center; margin-right:40px;margin-bottom:100px;}
+.page .num{margin:0 1px;}
+.page a{
+	padding:6px 13px;
+	color:#666666;
+	background:#efeeee;
+}
+.page a:hover{background:#ff580f;color:#ffffff;}
+.page a.cur{
+	color:#ffffff;
+	background:#ff580f;
+}
+
+</style>
+
+</head>
+<body style="background-color:#f4f4f4;">
+		
+		<include file="Public:ppm_menu" />
+    
+    <!--正文-->
+        <div class="person_top">
+            <div class="person_center">
+                <a href="profile.html"><p class="cut10 fl" style="">个人中心</p></a>
+                <a href="#"><p class="cut10 fl" style="margin:0 30px 0 30px;color:#ff6a00;">交易记录</p></a>
+                <a href="setting.html"><p class="cut80 ">账户设置</p></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="record_big mar">
+            <div class="record_ji">
+                <p style="margin-left:20px;">交易记录 - 累计成功充值金额：{$total_amount}元</p>
+            </div>
+            <div class="record_cut tc">
+                <ul>
+                    <li class="cut20 fl">
+                        <span>创建时间</span>
+                    </li>
+                    <li class="cut25 fl">
+                        <span>订单号</span>
+                    </li>
+                    <li class="cut20 fl">
+                        <span>流水号</span>
+                    </li>
+                    <li class="cut15 fl">
+                        <span>金额</span>
+                    </li>
+                    <li class="cut10 fl">
+                        <span>状态</span>
+                    </li>
+                    <li class="record_zuo cut10 fl">
+                        <span>操作</span>
+                    </li>
+                </ul> 
+                <ul>
+                	<foreach name="list" item="item">
+	                    <li class="cut20 fl">
+	                        <p>{$item.create_time}</p>
+	                    </li>
+	                    <li class="cut25 fl">
+	                        <p>{$item.recharge_no}</p>
+	                    </li>
+	                    <li class="cut20 fl">
+	                        <p>{$item.trade_no}</p>
+	                    </li>
+	                    <li class="cut15 fl">
+	                        <p style="color:#ff6a00;">{$item.amount}</p>
+	                    </li>
+	                    <li class="cut10 fl">
+	                        <p>
+	                        <switch name="item.status">
+                       			<case value="0">未支付</case>
+                       			<case value="1">成功</case>
+                       			<case value="2">失败</case>
+                       		</switch>
+                       		</p>
+	                    </li>
+	                    <li class="record_zuo cut10 fl">
+	                        <p style="color:#ff6a00;">
+	                        <switch name="item.status">
+                       			<case value="0"><a href="pay_to.html?recharge_no={$item.recharge_no}&amount={$item.amount}" target="_blank">去支付</a></case>
+                       			<case value="1"><a href="pay_to.html?recharge_no={$item.recharge_no}&amount={$item.amount}" target="_blank">&nbsp;&nbsp;&nbsp;</a></case>
+                       		</switch>
+	                        </p>
+	                    </li>
+                    </foreach>
+                </ul>
+                
+                <div class="clear">
+                	{$show}
+                </div>
+            </div>
+        </div>
+        
+
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+</body>
+</html>         

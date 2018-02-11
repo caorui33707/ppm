@@ -1,0 +1,254 @@
+<include file="Public:header" />
+
+<style>
+    a {
+        text-decoration: none;
+        color: #174B73;
+        border-bottom: 0px dashed gray;
+    }
+    .hButton{
+    }
+
+    .btnSelect {
+        background-color: #999999!important;
+    }
+
+    .imgInput{
+        width: 90px;
+        height: 28px;
+        margin-top: 10px;
+        margin-right: 50px;
+        margin-bottom: 10px;
+        border: 0;
+        font-size: 15px;
+        padding-top: 1px !important;
+        padding-top: 5px;
+        letter-spacing: 4px;
+        font-weight: bold;
+        border: 1px solid #393939;
+        background-color: #F0F0FF;
+        background-position: 5px 40%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        text-align: center;
+    }
+</style>
+
+<!-- 菜单区域  -->
+<script type="text/javascript" src="/Public/admin/auth/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">掉单管理列表</div>
+        <!--<div class="title">日销售额 <a href="{:C('ADMIN_ROOT')}/project/daysales_export/dt/{$datetime}" target="_blank">导出Excel</a>&nbsp;&nbsp;日销售额宝付对账 <a href="{:C('ADMIN_ROOT')}/project/daysales_lianlian_export/dt/{$datetime}" target="_blank">导出Excel</a></div>-->
+        <!--&lt;!&ndash;  功能操作区域  &ndash;&gt;-->
+        <div class="operate" >
+
+            <!-- tab 切换 -->
+            <div class="impBtn hButton shadow" >
+                <a href="{:C('ADMIN_ROOT')}/order/depository_index" >
+                    <input type="button"  class='search imgInput <eq name="type" value="1" > btnSelect </eq>' value="待处理">
+                </a>
+                <input type="button"  class='search imgInput btnSelect '  value="已处理">
+            </div>
+            <!-- tab 切换 end -->
+
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <label for="st">开始时间：<input type="text" class="laydate-icon" name="st" id="st" value="{$startTime}" readonly /></label>
+                        <label for="dt">结束时间：<input type="text" class="laydate-icon" name="dt" id="dt" value="{$datetime}" readonly /></label>
+                        <!--<label for="flushcache"><input type="checkbox" id="flushcache" name="flushcache" value="1" />更新缓存</label>-->
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="搜索" class="search imgButton"></div>
+                </form>
+            </div>
+            <!-- 高级查询区域 -->
+            <div  id="searchM" class=" none search cBoth" >
+            </div>
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="14" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="8px"><input type="checkbox" id="check" onclick="CheckAll(this, 'checkList')"></th>
+                    <th width="100px" align="center">编号</th>
+                    <th width="100px" align="center">订单号</th>
+                    <th width="100px" align="center">订单类型</th>
+                    <th width="100px" align="center">本地状态</th>
+                    <th width="100px" align="center">银行状态</th>
+                    <th width="100px" align="center">客户编号</th>
+                    <th width="150px" align="center">手机号码</th>
+                    <th width="200px" align="center">错误信息</th>
+                    <th width="150px" align="center">添加时间</th>
+                    <th width="150px" align="center">修复时间</th>
+                </tr>
+
+
+                <foreach name="list" item="item">
+                    <tr class="row">
+                        <td>
+                            <!--<input type="checkbox" id="check_{$item.id}" alt="{$item.id}">-->
+                        </td>
+                        <td>{$item.id}</td>
+                        <td align="left">{$item.order_no}</td>
+                        <td align="left">
+                            <switch name="item.order_type">
+                                <case value="6">充值</case>
+                                <case value="7">提现</case>
+                            </switch>
+                        </td>
+                        <td align="left">
+                            <switch name="item.order_status">
+                                <case value="1">成功</case>
+                                <case value="2">失败</case>
+                                <case value="3">掉单失败</case>
+                            </switch>
+                        </td>
+                        <td align="center">
+                            成功
+                            <switch name="item.order_bank_status">
+                                <case value="0">处理中</case>
+                                <case value="21">确认成功</case>
+                                <case value="22">确认失败</case>
+                            </switch>
+                        </td>
+
+                        <td align="center">{$item.platcust} </td>
+
+                        </td>
+                        <td align="center">
+                            {$item.mobile}
+                        </td>
+
+                        <td align="left">
+                            {$item.error_msg}
+                        </td>
+                        <td align="center">
+                            {$item.add_time|strtotime|date='Y-m-d H:i:s',###}
+                        </td>
+
+                        <td>{$item.modify_time|strtotime|date='Y-m-d H:i:s',###}</td>
+
+                    </tr>
+                </foreach>
+
+                <tr>
+                    <td height="5" colspan="14" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">{$show}</div>
+        <!-- 列表显示区域结束 -->
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<script>
+    var _layerIndex = 0;
+    var _st = "{$startTime}";
+    var _dt = "{$datetime}";
+
+    var starttime = {
+        elem: '#st',
+        format: 'YYYY-MM-DD',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+            datetime.min = datas; //开始日选好后，重置结束日的最小日期
+            datetime.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+
+    var datetime = {
+        elem: '#dt',
+        format: 'YYYY-MM-DD',
+        min: _st, //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true
+    };
+
+    laydate(starttime);
+    laydate(datetime);
+
+    function update_remark(_id){
+        var _remark = prompt('请输入备注信息:');
+        if(_remark != '' && _remark != null){
+            _layerIndex = layer.load('操作中...');
+            $.post(ROOT + "/project/update_project_remark", {id: _id, dt: _dt, remark: _remark}, function(msg){
+                if(msg.status){
+                    $("#remark_" + _id).text(_remark);
+                    layer.msg('更新成功~', 1, -1);
+
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        }
+    }
+
+    function save(_obj){ // 单个修复
+        var id = _obj.attr('data-id');
+        var idArr = new Array(id);
+        _layerIndex = layer.load('操作中...');
+        $.post(ROOT + '/order/depository_save',{idArr:idArr},function(msg){
+            if(msg.status){
+                //$("#remark_" + _id).text(_remark);
+                layer.msg('更新成功~', 1, -1);
+
+                window.location.href=location.href;
+            }else{
+                layer.alert(msg.info, -1);
+                return false;
+            }
+        });
+    }
+
+    function save_all(){ // 批量修复
+        var items = $("#checkList tbody").find("input[type=checkbox]:checked").not("#check");
+        if(items.length > 0){
+            layer.confirm('确定要修复选择的数据吗?', function(){
+                var _ids = '';
+                var _idsArr = new Array();
+
+                $.each(items, function(i, n){
+                    //_ids += ',' + $(n).attr('alt');
+                    _idsArr[i] = $(n).attr('alt');
+                });
+                //if(_ids) _ids = _ids.substr(1);
+
+                //alert(_ids);
+
+                _layerIndex = layer.load('操作中...');
+                $.post(ROOT + '/order/depository_save', {idArr: _idsArr}, function(msg){
+                    layer.close(_layerIndex);
+                    if(msg.status){
+                        layer.alert('更新成功~!', -1, function(){
+                            window.location.reload();
+                        });
+                    }else{
+                        layer.alert(msg.info);
+                    }
+                });
+            });
+        }else{
+            layer.alert('请选择要修复的项');
+        }
+    }
+
+</script>

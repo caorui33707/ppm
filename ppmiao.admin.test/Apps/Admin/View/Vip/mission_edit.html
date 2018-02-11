@@ -1,0 +1,210 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">会员vip等级配置 - [ <a href="{:C('ADMIN_ROOT')}/vip/mission_index/level_id/{$detail.level_id}">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding="3" cellspacing="3" >
+                <input type="hidden" name="id" value="{$detail.id}">
+                <input type="hidden" name="level_id" value="{$detail.level_id}">
+                <input type="hidden" name="page" value="{$params.page|default=1}" />
+                <tr>
+                    <td class="tRight">任务标题：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" id="title" name="title" maxlength="45" value="{$detail.title}">&nbsp;<span style="color:#409DFE;"></span></td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">任务说明：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" id="intro" name="intro" maxlength="45" value="{$detail.intro}">&nbsp;<span style="color:#409DFE;"></span></td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">任务类型：</td>
+                    <td class="tLeft" >
+						<select name="mission_type" id="mission_type" onchange="changeMissionType(this,1)">
+                            <foreach name="params.mission_type_list" item="item">
+                                <option value="{$item.id}" <eq name="detail.mission_type" value="$item['id']">selected</eq>>{$item.name}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr class="signIn_mission" style="display:none;">
+                    <td class="tRight"><b>累计签到天数：</b></td>
+                    <td class="tLeft"><input type="text" id="signin_day" name="signin_day" value="{$detail.signin_day}"/><span style="color:#409DFE;">&nbsp;&nbsp;请填写>0的数字</span></td>
+                </tr>
+    
+                <tr class="wallet_mission" style="display:none;">
+                    <td class="tRight"><b>钱包金额大于：</b></td>
+                    <td class="tLeft"><input type="text" id="wallet_amount" name="wallet_amount" value="{$detail.wallet_amount}"/><span style="color:#409DFE;">&nbsp;&nbsp;请填写>0的数字</span></td>
+                </tr>
+                <tr class="wallet_mission" style="display:none;">
+                    <td class="tRight"><b>钱包天数大于：</b></td>
+                    <td class="tLeft"><input type="text" id="wallet_day" name="wallet_day" value="{$detail.wallet_day}" /><span style="color:#409DFE;">&nbsp;&nbsp;请填写>0的数字</span></td>
+                </tr>
+               
+               <tr class="wallet_mission" style="display:none;">
+                    <td class="tRight"><b>天数限制：</b></td>
+                    <td class="tLeft">
+                    	<select name="wallet_type" id="wallet_type">
+                        	<option value="1" <eq name="detail.wallet_type" value="1">selected</eq>>累计</option>
+                        	<option value="2" <eq name="detail.wallet_type" value="2">selected</eq>>连续</option>
+                        </select>
+					</td>
+                </tr>
+               
+               
+                <tr class="invest_mission" style="display:none;">
+                    <td class="tRight"><b>投资金额大于：</b></td>
+                    <td class="tLeft"><input type="text" id="invest_amount" name="invest_amount" value="{$detail.invest_amount}"/><span style="color:#409DFE;">&nbsp;&nbsp;请填写>0的数字</span></td>
+                </tr>
+                <tr class="invest_mission" style="display:none;">
+                    <td class="tRight"><b>投资天数大于：</b></td>
+                    <td class="tLeft"><input type="text" id="invest_day" name="invest_day" value="{$detail.invest_day}" /><span style="color:#409DFE;">&nbsp;&nbsp;请填写>0的数字</span></td>
+                </tr>
+          
+                <tr class="invite_mission" style="display:none;"> 
+                    <td class="tRight"><b>邀请人数：</b></td>
+                    <td class="tLeft"><input type="text" id="invite_num" name="invite_num" value="{$detail.invite_num}" /><span style="color:#409DFE;">&nbsp;&nbsp;请填写>0的数字</span></td>
+                </tr>
+
+				<tr>
+                    <td class="tRight">给予积分值：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" id="jf_val" name="jf_val" value="{$detail.jf_val}"/>&nbsp;<span style="color:#409DFE;">&nbsp;&nbsp;请填写>0的数字</span></td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">给予成长值：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" id="grow_val" name="grow_val" value="{$detail.grow_val}"/>&nbsp;<span style="color:#409DFE;">&nbsp;&nbsp;请填写>0的数字</span></td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">跳转选项：</td>
+                    <td class="tLeft">
+                    	<select name="jump" id="jump" onchange="changejump(this,1)">
+                        	<option value="1" <eq name="detail.jump" value="1">selected</eq>>首页</option>
+                        	<option value="2" <eq name="detail.jump" value="2">selected</eq>>理财产品</option>
+                        	<option value="3" <eq name="detail.jump" value="3">selected</eq>>我的奖励</option>
+                        	<option value="4" <eq name="detail.jump" value="4">selected</eq>>收益详情</option>
+                        	<option value="5" <eq name="detail.jump" value="5">selected</eq>>邀请好友</option>
+                        	<option value="6" <eq name="detail.jump" value="6">selected</eq>>积分兑换</option>
+                        	<option value="7" <eq name="detail.jump" value="7">selected</eq>>零钱喵钱包</option>
+                        	<option value="8" <eq name="detail.jump" value="8">selected</eq>>H5</option>
+                        </select>
+					</td>
+                </tr>
+                
+                <tr class="_jumpUrl" style="display:none;">
+                    <td class="tRight">H5地址</td>
+                    <td class="tLeft"><input type="text" class="huge" id="jump_url" name="jump_url" value="{$detail.jump_url}"/><span style="color:#409DFE;"></span></td>
+                </tr>
+				
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    var _action = 0;
+	var _mission_type = '{$detail.mission_type}';
+	var _go_type = '{$detail.jump}'; 
+	
+	
+    $(document).ready(function(){
+
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/vip/mission_edit',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('编辑成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+        
+        changeMissionType(null,2);
+        changejump(_go_type,2)
+    });
+    
+    function changeMissionType(_obj,y){
+    	
+    	var _action;
+    	if(y == 1) {
+    		_action = $(_obj).val();
+    	} else {
+    		_action = _mission_type;
+    	}
+    	
+    	if(_action == 2 || _action == 3 || _action == 4 || _action == 6){
+    		if(_action == 2) {
+    			$(".signIn_mission").css('display', ''); 
+    			$(".wallet_mission").css('display', 'none');
+        		$(".invest_mission").css('display', 'none');
+        		$(".invite_mission").css('display', 'none');
+    		} else if(_action == 3) {
+    			$(".signIn_mission").css('display', 'none');
+    			$(".wallet_mission").css('display', '');
+        		$(".invest_mission").css('display', 'none');
+        		$(".invite_mission").css('display', 'none');
+    		} else if(_action == 4){
+    			$(".signIn_mission").css('display', 'none');
+    			$(".wallet_mission").css('display', 'none');
+        		$(".invest_mission").css('display', '');
+        		$(".invite_mission").css('display', 'none');
+    		} else if(_action == 6){
+    			$(".signIn_mission").css('display', 'none');
+    			$(".wallet_mission").css('display', 'none');
+        		$(".invest_mission").css('display', 'none');
+        		$(".invite_mission").css('display', '');
+    		}
+    		
+    	} else {
+    		$(".signIn_mission").css('display', 'none');
+    		$(".wallet_mission").css('display', 'none');
+    		$(".invest_mission").css('display', 'none');
+    		$(".invite_mission").css('display', 'none');
+    	}
+    }
+    
+    function changejump(obj,pos) {
+    	
+    	var g;
+    	if(pos ==1) {
+    		g = $(obj).val();
+    	} else {
+    		g = obj;
+    	}
+    	
+    	if(g == 8) {
+    		$("._jumpUrl").css('display', '');
+    	} else {
+    		$("._jumpUrl").css('display', 'none');
+    	}
+    }
+    
+</script>

@@ -1,0 +1,470 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20170107/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20170107/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/lottery/event20170107/css/marquee.css">
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/lottery/event20170107/js/marquee.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/lottery/event20170107/js/jquery-1.9.1.js"></script>
+    <title>票票喵</title>
+    <style>
+        .bg {
+        background: url("{:C('STATIC_ROOT')}/lottery/event20170107/images/111.jpg") no-repeat;
+        background-size:100% 100%;
+        width:100%;
+        height:100%;
+        margin-top:-1px;
+        }
+
+         .square_window .square_content {
+            top: 15%;
+                margin: auto;
+                width: 100%;
+                height: 420px;
+                background: url("{:C('STATIC_ROOT')}/lottery/event20170107/images/activity_03.png") no-repeat;
+                background-size: 100% 100%;
+                z-index:10;
+                position: fixed;
+            }
+          .square2_content {
+            top: 18%;
+                margin: auto;
+                width: 100%;
+                height: 380px;
+                background: url("{:C('STATIC_ROOT')}/lottery/event20170107/images/gifts_03.png") no-repeat;
+                background-size: 100% 100%;
+                z-index:10;
+                position: fixed;
+            }
+.has p{font-size:14px;padding:40px 0 40px 0;color:#fff;}
+.integral_bj{ top:0;left:0; width:100%; height:100%; background-color:#333; opacity:0.3;}
+.integral_window{top:0;left:0; width:100%; height:100%;z-index:99;}
+.integral_window .integral_content{border-radius:5px; width:70%; margin-left:15%;background-color:#dd4747; position: fixed;top:40%;z-index:1;border:solid 1px #fff;}
+    </style>
+</head>
+<body style="width:100%;">
+    <section>
+        <!--消息滚动-->
+        <div class="content">
+            <div class="container">
+                <div class="marquee-sibling tc">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20170107/images/fu_03.jpg" style="width:50%;" />
+                </div>
+                <div class="marquee">
+                    <ul class="marquee-content-items">
+                    	<foreach name="params.history_log" item="item">
+                        <li>
+                        <if condition="$item.lottery_award_id eq 34"> 
+                        {$item.user_name} 集齐“恭贺新春” 获得了 {$item.lottery_award_name}</li>
+                        <else/>
+                        {$item.user_name} 获得了 {$item.lottery_award_name}</li>
+                        </if>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--规则弹框-->
+        <div class="hidden" id="square_bj"></div>
+        <div class="hidden" id="square1_window">
+            <div class="square_content rel">
+                <div class="success  ">
+                    <div class="center_html">
+                        <ul>
+                            <li>
+                                1.活动期间，投资带“活动标签”的定期理财产品，单笔投资满3000元即可获得一次“幸运刮刮乐”的机会，多投多得，上不封顶。新老用户均有一次免费刮奖机会，未使用的刮奖次数将在活动结束后自动失效。
+                            </li>
+                            <li>
+                                <span style="color:#df4c4f;">（例如：票小喵投资了带“活动标签”的定期理财产品，单笔投资金额为6000元，则票小喵可以获得2次“幸运刮刮乐”的机会；若小喵单笔投资金额为8000元，也仅有2次“幸运刮刮乐”的机会哦。）</span>
+                            </li>
+                            <li>
+                                2.集齐<span style="color:#df4c4f;"> “恭” “贺” “新” “春” </span>四字，即可获得一份666元现金红包大礼，不限次数。活动结束后，如果未集齐四字，每一个字可相应兑换一张30元红包现金券，您可在【账户】- 【我的奖励】-【可领取】中查看。
+                            </li>
+                            <li>
+                                3.券包类奖品（返现券、加息券、红包券）将实时发放至您的''券包''中，您可在【账户】- 【我的奖励】 中查看。
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="yes tc abs">
+                    <img onclick="closePop()" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/cha.png" />
+                </div>
+            </div>
+        </div>
+        <!--我的奖品弹框-->
+        <div class="hidden" id="square2_window">
+            <div class="square2_content rel">
+                <div class="success2  tc">
+                    <div class="must cut30 fl">
+                        <p>时间</p>
+                    </div>
+                    <div class="must cut40 fl">
+                        <p>奖品名称</p>
+                    </div>
+                    <div class="must cut30 fl">
+                        <p>兑换方式</p>
+                    </div>
+                    <div class="center2_html">
+                        <ul id="iu">
+                            <li>
+                                <div class="cut30 fl">2016-11-11</div>
+                                <div class="cut40 fl">150元红包奖励</div>
+                                <div class="cut30 fl">客服联系</div>
+                            </li>
+                         </ul>
+                    </div>
+                </div>
+                <div class="yes2 tc abs">
+                    <img onclick="closePop()" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/cha.png" />
+                </div>
+            </div>
+        </div>
+        <!--无抽奖机会弹框-->
+        <div class="hidden" id="integral_window">
+            <div class="integral_content">
+                <div class="has  tc">
+                    <p id="error">您已没有刮奖机会！</p>
+                </div>
+                <div class="yes2 tc abs">
+                    <img onclick="closePop()" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/cha.png" />
+                </div>
+            </div>
+        </div>
+        <!--正文-->
+        <div class="fu_pic">
+            <img src="{:C('STATIC_ROOT')}/lottery/event20170107/images/fu_06.jpg" />
+        </div>
+        <div class="bg abs">
+            <!--活动规则-->
+            <div class="jian tc ">
+                <img src="{:C('STATIC_ROOT')}/lottery/event20170107/images/fu_09.gif" onclick="rule()" />
+            </div>
+            <!--恭贺新春-->
+            <div class="world">
+                <div class="gong tc cut25 fl">
+                	<if condition="$params.g lt 1"> 
+                    <img class="gong1" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/gong.png" style="width:55px;margin-bottom:8px;" />
+                    <else />
+                    <img class="gong11" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/gong1.png" style="width:55px;margin-bottom:8px;" />
+                	</if>
+                    <div class="number tc">
+                        <p id="gong">{$params.g}</p>
+                    </div>
+                </div>
+                <div class="gong tc cut25 fl">
+                	<if condition="$params.h lt 1">
+                    <img class="he" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/he.png" style="width:59px;margin-bottom:14px;" />
+                    <else/>
+                    <img class="he1" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/he1.png" style="width:59px;margin-bottom:14px;" />
+                    </if>
+                    <div class="number tc">
+                        <p id="he">{$params.h}</p>
+                    </div>
+                </div>
+                <div class="gong tc cut25 fl">
+                	<if condition="$params.x lt 1">
+                    <img class="xin" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/xin.png" style="width:45px;margin-bottom:9px;" />
+                    <else/>
+                    <img class="xin1" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/xin1.png" style="width:45px;margin-bottom:9px;" />
+                    </if>
+                    <div class="number tc">
+                        <p id="xin">{$params.x}</p>
+                    </div>
+                </div>
+                <div class="gong tc cut25 fl">
+                	<if condition="$params.c lt 1">
+                    <img class="chun" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/chun.png" style="width:55px;margin-bottom:9px;" />
+                    <else/>
+                    <img class="chun1" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/chun1.png" style="width:55px;margin-bottom:9px;" />
+                    </if>
+                    <div class="number tc">
+                        <p id="chun">{$params.c}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="new tc">
+                <p>集齐 “恭 贺 新 春” 四字</p>
+                <p>即享666元现金红包</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+       <!--footer-->
+        <div class="fu_now tc" style="cursor:pointer;margin-top:50px;z-index:1;" onclick="go2App();">
+            <p>立即投资</p>
+        </div>
+    </section>
+
+    <!--刮刮乐-->
+        <div class="er  tc" >
+            <img id="gua1_images" src="{:C('STATIC_ROOT')}/lottery/event20170107/images/fu_13.jpg" style="position: absolute;width:210px;height:120px;" />
+            <div class="sa" style="position: absolute; margin-top:7px;margin-left:10%;width:43%; height: 106px; background-color:#dd4747;">
+                <p id="show"></p>
+                <span><span id="bian"></span></span>
+            </div>
+            <canvas style="position: relative;margin-top:5px;margin-left:4px;margin-right:20%;" id="gglc" width="200" height="109"></canvas>
+        </div>
+    <!--刮奖次数-->
+    <div class="times tc rel">
+        <p><span style="margin-left:4%;margin-right:1%;"><u id="partdiv">再来一次 </u></span>您还有<span id="me_cnt">{$params.cnt}</span>次机会<span><u onclick="show_lottery_log()" style="margin-left:2%;">查看奖品</u></span></p><!--再来一次刷新-->
+    </div>
+    <!--刮刮乐-->
+        <script type="text/javascript">
+        	
+		var lotteryId = "{$params.lottery_id}";
+		var userId = "{$params.user_id}"; 
+		var userName = "{$params.user_name}";
+		var flag = true;
+        
+        
+            window.onload = function() {
+                   init();
+              CanvasRenderingContext2D.prototype.clearArc=function(x,y,radius,startAngle, endAngle, counterclockwise){
+                var distance = function(x0,y0,x1,y1){
+                  var dis = Math.sqrt(Math.pow(x0-x1,2)+Math.pow(y0-y1,2));
+                  //return Math.ceil(dis*10000)/10000;
+                  return Math.round(dis*10000)/10000;
+                };
+                //首先获得矩形
+                var diameter = radius*2;
+                var startX = x-radius;
+                var cx = radius-(0-startX);
+                startX = startX<0?0:startX;
+                cx = cx-startX;
+                var startY = y-radius;
+                var cy = radius-(0-startY);
+                startY = startY<0?0:startY;
+                cy = cy-startY;
+                var imgData = this.getImageData(startX,startY,diameter,diameter);//需要处理的矩形
+                for (var i=0;i<imgData.data.length;i+=4){
+                  //矩阵内的坐标
+                  var ii = i/4;
+                  var ix = Math.floor(ii/imgData.width);
+                  var iy = ii%imgData.height;
+                  var dis = distance(ix,iy,cx,cy);
+                  //var dis = 0;
+                  if(dis<=radius){//此点在圆内
+                    /*
+                	imgData.data[i+0]=0;
+                    imgData.data[i+1]=0;
+                    imgData.data[i+2]=0;
+                    imgData.data[i+3]=0;
+                    continue;*/
+                  }
+                  
+                  
+                  if(radius){
+                	  imgData.data[i+0]=0;
+                      imgData.data[i+1]=0;
+                      imgData.data[i+2]=0;
+                      imgData.data[i+3]=0;
+                      //continue;
+                  }
+                  
+                  var dr = dis-radius;
+                  if(dr<Math.SQRT2){
+                    var n = Math.sqrt(Math.pow(dr, 2)/2)*256;//新
+                    var o = imgData.data[i+3];
+                    imgData.data[i+3]=n<o?n:o;
+                    continue;
+                  }
+                }
+                this.putImageData(imgData,startX,startY);
+                //console.log(this);
+              };
+			function init() {
+				$("#show").html('');
+				flag = true;
+				
+				$('#bian').empty().html('');
+				var imageWidth = 218;
+                var imageHeight =116;
+                var gglc = document.getElementById("gglc");
+                var gglc2D = gglc.getContext("2d");
+                gglc2D.fillStyle = '#cccccc'; //设置覆盖层的颜色
+                gglc2D.fillRect(2, 2, imageWidth, imageHeight); //设置覆盖的区域
+
+                gglc.addEventListener("touchmove", function(event) {
+                  event.preventDefault();
+                  [].map.call(event.targetTouches,function(v){
+                            var touch = v;
+                            gglc2D.clearArc(touch.pageX-gglc.offsetLeft, touch.pageY-gglc.offsetTop, 20);
+                        })
+                }, false);
+                
+                gglc.addEventListener("touchend", function(event) {
+                  event.preventDefault();
+                  [].map.call(event.targetTouches,function(v){
+                            var touch = v;
+                            gglc2D.clearArc(touch.pageX-gglc.offsetLeft, touch.pageY-gglc.offsetTop, 20);
+                        })
+                        
+                        if(!userId || !userName) {
+                			$("#show").html('');
+                			$('#bian').empty().html('请先登录');
+                        }else{
+                        	
+                        	if(flag) {
+                        	
+                        	$.ajax({
+    	        		        type: "post",
+    	        		        async: false,
+    	        		        data:{'lotteryId':lotteryId,'userId':userId,'userName':userName},
+    	        		        url: "?c=Lottery&a=do_lottery", 
+    	        		        dataType: "json",
+    	        		        success: function (json) {
+    	        		        	
+    	        		        	flag = false;
+    	        		        	
+    	        		        	if(json.status == 1) {
+    	        		        		
+    	        		        		$("#show").html('恭喜您获得了');
+    	        		        		$('#bian').empty().html(json.info.name);
+    	        		        		
+    	        		        		if(json.info.id == 30){    	       
+    	        	                        $(".gong1").attr('src',"{:C('STATIC_ROOT')}/lottery/event20170107/images/gong1.png"); 
+    	        	                        $("#gong").html(parseInt($("#gong").text()) + 1);
+    	        	                    }else if(json.info.id==31){
+    	        	                        $(".he").attr('src',"{:C('STATIC_ROOT')}/lottery/event20170107/images/he1.png"); 
+    	        	                        $("#he").html(parseInt($("#he").text()) + 1);
+    	        	                    }else if(json.info.id==32){
+    	        	                        $(".xin").attr('src',"{:C('STATIC_ROOT')}/lottery/event20170107/images/xin1.png");
+    	        	                        $("#xin").html(parseInt($("#xin").text()) + 1);
+    	        	                    }else if(json.info.id==33) {
+    	        	                        $(".chun").attr('src',"{:C('STATIC_ROOT')}/lottery/event20170107/images/chun1.png");
+    	        	                        $("#chun").html(parseInt($("#chun").text()) + 1);
+    	        	                    }
+    	        		        		
+    	        		            	var _cnt = parseInt($("#me_cnt").text()) - 1;
+    	                            	if(_cnt<0){
+    	                            		_cnt = 0;
+    	                            	}
+    	                            	$("#me_cnt").html(_cnt);
+    	                            	
+    	                            	if(json.info.dj == 1) {
+    	                            		$('#square_bj').show();
+											$('#square_bj').attr('class','square_bj abs');
+    	                            		$("#error").empty().html('恭喜您集齐“恭贺新春”，获得666元现金红包');
+    	                    				$('#integral_window').attr('class','integral_window abs');
+    	                    				$('#integral_window').show();
+    	                            	}
+    	                            	
+    	        		        	} else{
+    	        		        		$("#show").html('');
+    	        		        		$('#bian').html(json.info);
+    	        		        	}
+    	        		        }
+                			});	
+                        	}
+                		}
+                        
+                    //获取msg数组，判断包含’恭贺新春‘，追加样式
+                    
+                }, false);
+
+              }
+                //当点击再来一次是重新加载画布
+                $("#partdiv").click(function(){
+                    init();
+                })
+            }
+
+        </script>
+    <!--消息框滚动-->
+    <script>
+        $(function () {
+            createMarquee({
+            });
+        });
+    </script>
+
+    <!--我的奖品弹框-->
+    <script>
+
+        function show_lottery_log() {
+			$('#square_bj').show();
+			$('#square_bj').attr('class','square_bj abs');
+			if(userId == '0' || userName ==""){
+				$("#error").empty().html('请先登录 ');
+				$('#integral_window').attr('class','integral_window abs');
+				$('#integral_window').show();
+   	    	} else {
+   	    		$.ajax({
+           			type: "post",
+           		    async: false,
+           		    data:{'lotteryId':lotteryId,'userId':userId,'userName':userName},
+           		    url: "?c=Lottery&a=get_lottery_log", 
+           		    dataType: "json",
+           		    success: function (json) {
+           		        if(json.status == 1) {
+           		        	var arr = [];
+           		        	for(var item in json.info) {
+           		        		var type = '系统派发';
+               		        	if(json.info[item]['type'] >= 4) {
+               		        		type = '客服联系';
+               		        	}
+           		        		var s = "<li><div class='cut30 fl'>"+json.info[item]['create_time']+"</div><div class='cut40 fl'>"+json.info[item]['prize_name']+"</div><div class='cut30 fl'>"+type+"</div></li>";
+           		        		arr.push(s);
+           		        	}
+           		        	$('#iu').empty().html(arr.join(''));
+           		         	$('#square2_window').attr('class','square_window abs');
+         					$('#square2_window').show();
+           		        } else {
+        	            	$("#error").empty().html(json.info);
+        					$('#integral_window').attr('class','integral_window abs');
+        					$('#integral_window').show();
+        		    		return false;
+           		        }
+           		    }
+           		});
+   	    	}
+        }
+        
+        function rule() {
+        	$('#square_bj').attr('class','square_bj abs');
+            $('#square1_window').attr('class','square_window abs');
+            $('#square_bj').show();
+			$('#square1_window').show();
+        }
+        
+        function closePop(){
+        	$('#square_bj').hide();
+        	$('#square2_window').hide();
+        	$('#integral_window').hide();
+        	$('#square1_window').hide();
+        }
+        
+        var u = navigator.userAgent, app = navigator.appVersion;
+		var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+		var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		
+		function go2App(){
+			if(isAndroid == true) {
+				ppm.toAction(2);
+			} else if(isiOS == true) {
+				loadURL('skip2');
+			}
+			return;
+		}
+		
+		function loadURL(url) {
+			var iFrame;
+			iFrame = document.createElement("iframe");
+			iFrame.setAttribute("src", url);
+			iFrame.setAttribute("style", "display:none;");
+			iFrame.setAttribute("height", "0px");
+			iFrame.setAttribute("width", "0px");
+			iFrame.setAttribute("frameborder", "0");
+			document.body.appendChild(iFrame);
+			iFrame.parentNode.removeChild(iFrame);
+			iFrame = null;
+		}
+        
+    </script>
+    <!--无抽奖机会弹框-->
+
+    </body>
+</html>

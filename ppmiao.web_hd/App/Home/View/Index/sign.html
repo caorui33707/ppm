@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    <title>票票喵 - 注册</title>
+</head>
+
+<body style="background-color:#f4f4f4;">
+    
+    <include file="Public:ppm_menu" />
+    
+    <div class="sign">
+        <div class="content-main">
+            <div class="content-mainl">
+                <form id="form" name="form1" class="formRange">
+                    <div class="tc" style="font-size: 22px; color: #333; margin-top: 30px;">
+                        	注册
+                    </div>
+                    <div class="sign_one">
+                        <input type="text" id="userName" name="userName" maxlength="21"  placeholder="请输入营业执照号">
+                        <p class="form_tip"></p>
+                    </div>
+                    <!-- 
+                    <div class="sign_two">
+                        <div class="cut70 fl">
+                            <input type="text" id="checkCode" name="checkCode" maxlength="5" placeholder="请输入图中验证码">
+                            <p class="form_tip"></p>
+                        </div>
+                        <div class="sign_three cut30 fl rel">
+                            <img class="" onclick="IsPass()" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/images/ma_03.jpg" />
+                            <div class="sign_foure abs tc">
+                                <p class="">看不清楚，换一张</p>
+                            </div>
+                        </div>
+                    </div>
+                     -->
+                    <div class="sign_one">
+                        <input type="password" id="passWord" name="passWord" maxlength="20"  placeholder="请输入密码(6-20字符，支持数字、字母)">
+                        <p class="form_tip"></p>
+                    </div>
+                    <div class="sign_one">
+                        <input type="password" id="passWord2" name="passWord2" maxlength="20" placeholder="请确认密码(6-20字符，支持数字、字母)">
+                        <p class="form_tip"></p>
+                    </div>
+                    <div class="sign_one">
+                        <input type="text" id="mobile" name="mobile" maxlength="11" placeholder="请输入手机号码">
+                        <p class="form_tip"></p>
+                    </div>
+                    <div class="sign_two">
+                        <div class="cut70 fl">
+                            <input type="text" id="mobileCode" name="mobileCode" maxlength="5" placeholder="请输入短信验证码">
+                            <p class="form_tip"></p>
+                        </div>
+                        <div class="sign_three cut30 fl ">
+                            <div class="sign_five">
+                                <input type="button" id="getCode" value="获取验证码" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <input class="agree-checkbox" type="checkbox" name="formCheck" id="formCheck" style="margin-top:15px;" />
+                    <span class="tc" style="position: relative; top: 25px; right: -9px;">同意票票喵<a href="https://www.ppmiao.com/act/agree/index.html" style="color:#ff712b">【注册协议】</a></span>
+                    <div class="" style="color:#red;margin:32px 0 10px 0;">
+                    	<p id="err_tip"></p>
+                    </div>
+                    <input type="button" class="first-next-step" style="cursor:pointer;" value="下一步"/>
+                </form>
+            </div>
+            <div class="content-mainr">
+                <div class="content-main-pic">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+    
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+	
+	
+	<script type="text/javascript">
+	$(function () {
+	    $('#userName').blur(function(){
+	    	checkUserName();
+	   	});
+	    $('#passWord').blur(function(){ 
+	    	checkPwd();
+	   	});
+	    $('#passWord2').blur(function(){
+	    	checkPwd2();
+	   	});
+	    $('#mobile').blur(function(){
+	    	checkMobile();
+	   	});
+	    $(".first-next-step").click(function () { 
+	    	if(!checkUserName()) {
+	    		return false;	
+	    	}
+	    	if(!checkPwd()){
+	    		return false;
+	    	} 
+	    	if(!checkPwd2()){
+	    		return false;
+	    	}
+	    	if(!checkMobile()){
+	    		return false;
+	    	}
+
+	    	if(!checkMobieCode()){
+	    		return false;
+	    	}
+	    	if (!checkUserAgreement()) {
+	            return false;
+	        }
+
+	    	var userName = $.trim($("input[name='userName']").val());
+	    	var passWord = $.trim($("input[name='passWord']").val());
+	    	var passWord2 = $.trim($("input[name='passWord2']").val());
+	    	var mobile = $.trim($("input[name='mobile']").val());
+	    	var code = $.trim($("input[name='mobileCode']").val());
+    		
+	    	$.ajax({     
+    		    url:'sign.html',
+    		    type:'post',     
+    		    data : {'username':userName,'password':passWord,'password2':passWord2,'mobile':mobile,'code':code},
+    		    success:function(data){  
+     		    	if(data.status==1){     		    		
+     		    		location.href = data.info; 
+     		    	} else{
+     		    		$('#err_tip').empty().html(data.info);
+     		    	} 
+     		    },
+    		    error:function(){     
+    		    	$("#err_tip").empty().html('系统异常');  
+    		    }     
+    		});  
+	    });
+	    
+	    $('#getCode').click(function(){
+	    	var mobile = $.trim($("input[name='mobile']").val());	    	
+	    	if (mobile.length != 11) {
+            	showTips($('#mobile'), '请输入正确的手机号码');
+            	return false
+        	}	    	
+	    	if(!isMobileNo(mobile)){
+	    		showTips($('#mobile'), '请输入正确的手机号码');
+            	return false
+	    	}	
+
+			$.ajax({
+		    	url: "/common/getcode",
+		        type: "post",
+		        data: {'mobile':mobile},
+		        success: function (json) {
+		        	if(json.status == 1){
+		        		Countdown();
+		        		return;
+		        	} else {
+		        		$("#err_info").empty().html(json.info);
+		        		$('#mask').click(); 
+		        		return;
+		        	}
+		          }
+		   	})
+	    });
+	});
+	
+	
+	function showTips(target, message, isOk) {
+		target.nextAll(".form_tip").html(message);
+    }
+	
+	function checkUserName(){
+        var _userName = $.trim($("input[name='userName']").val());
+        if ( _userName.length<6 || _userName.length>21) {
+            showTips($('#userName'), '请输入正确位数的营业执照号');
+            return false
+        }
+        if (!/^[0-9a-zA-Z]*$/g.test(_userName)) { 
+            showTips($('#userName'), '营业执照号格式错误，由数字字母组成');
+            return false
+        }
+        showTips($('#userName'), '',true);
+        return true
+    }	
+	
+	function checkCode(){
+		var _code = $.trim($("input[name='checkCode']").val());
+        if (_code.length != 5) {
+            showTips($('#checkCode'), '请输入5位数字的验证码');
+            return false
+        }        
+        showTips($('#checkCode'), '',true);
+        return true
+	}
+	
+	
+	function checkPwd() {
+		var pwd = $.trim($("input[name='passWord']").val());
+        if (pwd.length == 0) {
+            showTips($('#passWord'), '请输入密码');
+            return false
+        }
+        if (pwd.length < 6 || pwd.length > 20) {
+        	showTips($('#passWord'), '密码的长度由6-20字符，支持数字、字母');
+            return false
+        }                
+        showTips($('#passWord'), '',true);
+        return true
+    }
+    function checkPwd2() {
+    	var pwd = $.trim($("input[name='passWord']").val());
+    	var pwd2 = $.trim($("input[name='passWord2']").val());
+        if (pwd2.length == 0) {
+            showTips($('#passWord2'), '请输入确认密码');
+            return false
+        }
+        if (pwd != pwd2) {
+        	showTips($('#passWord2'), '两次密码不一致');
+            return false
+        }                
+        showTips($('#passWord2'), '');
+        return true
+    }
+	
+    function checkMobile(){
+    	//(^\d{15}$)|(^\d{17}([0-9]|X)$)
+    	var mobile = $.trim($("input[name='mobile']").val());
+        if (mobile.length != 11) {
+            showTips($('#mobile'), '请输入正确的手机号码');
+            return false
+        }
+        
+        if(!isMobileNo(mobile)){
+    		showTips($('#mobile'), '请输入正确的手机号码');
+        	return false
+    	}	
+        
+        showTips($('#mobile'), '',true);
+        return true
+    }
+    
+    function checkMobieCode(){
+    	var mobileCode = $.trim($("input[name='mobileCode']").val());
+    	if(!mobileCode) {
+    		showTips($('#mobileCode'), '请输入手机验证码');
+            return false
+    	}
+    	showTips($('#mobileCode'), '',true);
+        return true
+    }
+	
+    function checkUserAgreement() {
+        if (!$('#formCheck').is(":checked")) {
+        	$('#err_tip').empty().html('您还没有同意票票喵注册协议');
+            return false
+        }
+        return true
+    }
+    
+    
+    var sleep = 60, interval = null;
+    function Countdown(){
+    	if (!interval) {    		
+    	   $("#getCode").css("backgroundColor","#ff712b");
+		   $("#getCode").attr("disabled","disabled");
+		   $("#getCode").css('cursor','wait');
+		   $("#getCode").val(sleep + " S");
+		   interval = setInterval(function () {
+			   if (sleep == 0) {
+				   if (!!interval) {
+					   clearInterval(interval);
+					   interval = null;
+					   sleep = 60;
+					   $('#getCode').css('cursor','pointer');
+					   $("#getCode").removeAttr("disabled")
+					   $("#getCode").val("获取验证码");
+					   $("#getCode").css("backgroundColor","#ff712b");
+				   }
+				   return false;
+			   }
+			   $('#getCode').val("" + sleep-- + " S");
+		   }, 1000);
+        }
+    }
+    
+	</script>	
+    
+</body>
+</html>

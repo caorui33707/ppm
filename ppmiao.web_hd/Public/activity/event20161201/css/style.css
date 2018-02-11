@@ -1,0 +1,86 @@
+﻿@charset "utf-8";
+
+.gift_pic img {
+    width: 100%;
+}
+
+.gift_now {
+    width: 100%;
+    line-height: 50px;
+    background-color: #0699e6;
+    color: #fff;
+    font-size: 17px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+.gift_people img {
+    width: 75%;
+    margin-top: 45px;
+}
+
+.gift_people p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #956a0a;
+}
+/*导航*/
+.index_nav {
+    width: 94%;
+    border-radius: 10px;
+    background-color: #e8b900;
+    font-size: 15px;
+    color: #333;
+    margin: auto;
+}
+
+.abb img {
+    width: 100%;
+}
+
+.cbb img {
+    width: 100%;
+}
+
+.index_nav .nav_pic {
+    top: -0px;
+}
+
+    .index_nav .nav_pic img {
+        width: 100%;
+        margin-left: px;
+    }
+
+.crude {
+    margin: 5px auto;
+    width: 80%;
+}
+
+/*奖品榜*/
+.hot_pic img {
+    width: 100%;
+}
+
+/*排行榜*/
+.model_bj {
+    width: 91%;
+    margin: auto;
+    margin-top: 4px;
+    border: 5px solid #f04044;
+    background-color: #fdf2db;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+.model_top p {
+    color: #956a0a;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.model_number p {
+    padding-top: 10px;
+}

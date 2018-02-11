@@ -1,0 +1,94 @@
+﻿@charset "utf-8";
+
+       .phone_pic img {
+        width:100%;
+        }
+        .phone_times {
+        width:96.6%;
+        background-color:#ea2c48;
+        margin:auto;
+        }
+        .phone_times p{
+        color:#fff100;
+        font-size:18px;
+        padding-bottom:10px;
+        }
+        .phone_times span{
+        color:#fff;
+        font-size:16px;
+        }
+       .phone_now img {
+       width:70%;
+       padding-top:30px;
+       }
+
+      /*底部立即投资*/
+
+      .phone_bg {
+       width: 100%;
+       line-height: 50px;
+       background-color: #5115ac;
+       color: #ffffff;
+       font-size: 17px;
+       width:100%;position:fixed;bottom:0;left:0;
+        }
+
+      /*弹框*/
+       .integral_content {
+        width:70%;
+        margin-left:auto;
+        margin-right:auto;
+        background-color:#ffffff;
+        color:#353535;
+        border-radius: 12px;
+        padding-top:30px;
+        padding-bottom:30px;
+        }
+
+        .integral_content p {
+            font-size: 14px;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .integral_content span {
+            font-size: 14px;
+             text-align: center;
+        }
+        .integral_bj{
+             top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            opacity: 0.3;
+            position: fixed;}
+        .integral_window{
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed; }
+        .integral_window .integral_content{    border-radius: 5px;
+            width: 70%;
+            margin-left: 15%;
+            background-color: #fff;
+            height: 220px;
+            position: fixed;
+            margin-top: 671px;}
+        .integral_refer select{width:97%;height:40px;background-color:#fff;border:0;color:#787878;color:#000;font-size:13.5px;}
+
+        .tankuang{
+            position: fixed;
+            width: 80%;
+            top: 300px;
+            left: 10%;
+            color: #fff;
+        }
+        .backgr{
+            width: 100%;
+            height: 100%;
+            background: #000;
+            position: fixed;
+            opacity: .5;
+            z-index: 1;
+        }

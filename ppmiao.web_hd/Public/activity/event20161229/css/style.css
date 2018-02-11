@@ -1,0 +1,14 @@
+﻿@charset "utf-8";
+        .news_pic img {
+            width: 100%;
+        }
+
+        .news_now {
+            width: 100%;
+            line-height: 50px;
+            background-color: #fdea2b;
+            color: #b91315;
+            font-size: 17px;
+            width:100%;position:fixed;bottom:0;left:0;
+            text-align:center;
+        }

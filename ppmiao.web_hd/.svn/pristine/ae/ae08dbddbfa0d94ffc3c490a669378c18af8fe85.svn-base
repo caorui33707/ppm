@@ -1,0 +1,160 @@
+
+
+
+$(document).ready(function() {
+    $("#shadow").click(function(){
+        $('.bigPic').css('display','none');
+    });
+    
+    
+    $(":input").blur(function(){
+    	
+    	$("#tip").empty();
+    	$('.buy__up').empty();
+    	
+    	var amount = parseInt($(this).val());
+    	
+    	if((/^(\+|-)?\d+$/.test( amount ))&&amount>0){  
+           
+        }else{  
+        	
+        	$(this).val('');
+        	$("#tip").empty().html('请输入购买的金额');
+            return false;  
+        }  
+    	
+    	if(user == "") {
+    		$("#tip").empty().html('请先登录');
+    		return false;
+    	}
+    	
+    	if(amount<buy_min_money) {
+    		$("#tip").empty().html('不能低于该标的单次最小购买金额'+buy_min_money+'元！');
+    		return false;
+    	}
+    	
+    	if(amount>buy_max_money) {
+    		amount = buy_max_money;
+    		if(amount>my_money) {
+    			$("#tip").empty().html('余额不足，<a href="/index.php/User/index/recharge"><span class="exchangeFirst">请先充值</span>');
+        		return false;
+    		}
+    		
+    		if(amount>able) {
+    			amount = able;
+    		}
+    		$(this).val(amount);
+    	}
+    	
+    	var _buy = amount%100;
+    	
+    	if(_buy !=0) {
+    		$("#tip").empty().html('请输入100的整数倍');
+    		return false;
+    	}
+    	
+    	var income = (user_interest * days * amount)/365/100;
+
+    	income = income.toFixed(2);
+    	
+    	$('.buy__up').empty().text('预期收益：'+income+'元');
+    	
+    });
+    
+    $('.allin').click(function(){
+    	
+    	var buy_amt = 0;
+    	
+    	if(user == "") {
+    		$("#tip").empty().html('请先登录');
+    		return false;
+    	}
+    	
+    	if(able>=100){
+    		if(my_money<buy_min_money) {
+    			$("#tip").empty().html('金额不足');
+    			return false;
+    		}
+    		
+    		if(my_money>=buy_max_money) {
+    			if(able<=buy_max_money) {
+    				buy_amt = able;
+    			} else{
+    				buy_amt = buy_max_money;
+    			}
+    		} else {
+    			buy_amt = parseInt(my_money/100)+'00';
+    		}
+    		
+    		
+    		$("#amount").val(buy_amt);
+    		
+    		var income = (user_interest * days * buy_amt)/365/100;
+
+        	income = income.toFixed(2);
+        	
+        	$('.buy__up').empty().text('预期收益：'+income+'元');
+    	}
+    	
+    });
+    
+    
+});
+function showImg(path) {
+    $('.bigPic').css('display','block');
+    $('.bigPic-Pic').attr('src',path);
+}
+
+function payfor() {
+    
+	var amount = $("#amount").val();
+	
+	if(!amount) {
+		$("#tip").empty().html('请输入购买的金额');
+        return false;  
+	}
+	
+	if(user == "") {
+		$("#tip").empty().html('请先登录');
+		return false;
+	}
+		
+	
+	$("#tip").empty();
+	$('.buy__up').empty();
+	
+	
+	
+	if((/^(\+|-)?\d+$/.test( amount ))&&amount>0){  
+       
+    }else{  
+    	
+    	$(this).val('');
+    	$("#tip").empty().html('请输入购买的金额');
+        return false;  
+    }  
+	
+
+	
+	if(amount<buy_min_money) {
+		$("#tip").empty().html('不能低于该标的单次最小购买金额'+buy_min_money+'元！');
+		return false;
+	}
+	
+	if(amount>buy_max_money) {
+		amount = buy_max_money;
+		if(amount>my_money) {
+			$(this).val(amount);
+			$("#tip").empty().html('余额不足，<a href="/index.php/User/index/recharge"><span class="exchangeFirst">请先充值</span>');
+    		return false;
+		}
+	}else {
+		if(amount>my_money) {
+			$("#tip").empty().html('余额不足，<a href="/index.php/User/index/recharge"><span class="exchangeFirst">请先充值</span>');
+    		return false;
+		}
+	}
+	
+	location.href = '/product/buy.html?id='+id+'&amt='+amount;
+	    
+}

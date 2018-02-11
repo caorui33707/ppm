@@ -1,0 +1,67 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">版本号统计</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" style="width:100%;">
+            <table id="checkList" class="list" style="float:left;width:49%;">
+                <tr>
+                    <td height="30" colspan="2" class="topTd" align="center">Android</td>
+                </tr>
+                <tr class="row">
+                    <th align="center" width="25%">版本号</th>
+                    <th align="center" width="25%">数量</th>
+                </tr>
+                <foreach name="android_list" item="item">
+                    <tr>
+                        <td>{$item.app_version}</td>
+                        <td>{$item.cnt}</td>
+                    </tr>
+                </foreach>
+            </table>
+            <table id="checkList" class="list" style="float:left;width:49%;">
+                
+                <tr>
+                    <td height="30" colspan="2" class="topTd" align="center">Ios</td>
+                </tr>
+                <tr class="row">
+                    <th align="center" width="25%">版本号</th>
+                    <th align="center" width="25%">数量</th>
+                </tr>
+                <foreach name="ios_list" item="item">
+                    <tr>
+                        <td>{$item.app_version}
+                        </td>
+                        <td>{$item.cnt}</td>
+                    </tr>
+                </foreach>
+            </table>
+        </div>
+        
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>

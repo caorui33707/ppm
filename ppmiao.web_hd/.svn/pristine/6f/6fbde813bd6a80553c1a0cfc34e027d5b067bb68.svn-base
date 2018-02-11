@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>票票喵 -购买确认</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link href="{:C('STATIC_ROOT')}/assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/cover.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/confirmInvert/style.css" rel="stylesheet" type="text/css">
+    <script src="{:C('STATIC_ROOT')}/assets/confirmInvert/index.js"></script>
+    <script src="{:C('STATIC_ROOT')}/assets/js/semantic.min.js"></script>
+	<script>
+    	var static_root = "{:C('STATIC_ROOT')}";
+    </script>
+</head>
+
+<body>
+	<include file="Common:header" />
+    <div class="main">
+        <div class="container">
+            <div class="product-data">
+                <div class="product-data__title">
+                   {$detail.title}
+                </div>
+                <div class="product-data__details">
+                    <span>
+                        预计年化率 <span style="color:#ff580f;font-weight:bold">{$detail.user_interest}</span>%
+                    </span>
+                    <span style="margin:0 100px">
+                        投资期限 <span style="color:#ff580f;font-weight:bold">{$detail.days}</span>天
+                    </span>
+                    <span>
+                        预计还款日期 {$detail.end_time}
+                    </span>
+                </div>
+                <div class="product-data__money">
+                    <div>
+                        可购金额： <span class="num">{$detail.able|number_format=2}元</span>
+                    </div>
+                    <div>
+                        购买金额：<div class="ui input">
+                                  <input id="amt" style="width: 300px;height: 50px;"type="text" placeholder="请输入金额" value={$buyAmt} maxlength="7" />
+                                  <span class="sign
+                                  ">元</span>
+                                  <span style="color:#ff580f;margin-left:40px;position: relative;
+    top: -7px;" id="buyAmtTip"></span>
+                                </div>
+                    </div>
+                    <div> 预期收益：<span class="num" id="income">{$income}元</span></div>
+                       
+                    
+                </div>
+                <div class="discount-coupon">
+                    <div class="product-data__title" style="padding-top:20px;">
+                        优惠券
+                    </div>
+                    <div class="discount-coupon__choose">
+                        理财红包：<span id="redbag">未选择红包（{$couponCount}个可用)</span>
+                        <button onclick="showRedBag()" id="choosePrize">选择红包</button>
+                    </div>
+                    <div class="discount-coupon__prize" style="display:none">
+
+                        
+                        
+                        
+                    </div>
+                </div>
+                <div class="discount-coupon">
+                    <div class="product-data__title" style="padding-top:20px; border-top: 1px solid #d9d9d9">
+                        支付
+                    </div>
+                    <div class="payfor__choose">
+                        <div>
+                            账户余额：{$waitAmount}元 <a href="/index.php/User/index/recharge"><span class="rechange">去充值</span></a>
+                        </div>
+                        <div>
+                            余额支付：<span class="payfor__money">{$buyAmt}</span>元
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="checkboxclick">
+                        <div class="ui checkbox">
+                            <input type="checkbox" tabindex="0">
+                            <label id="test"><span style="color:#666;font-size:15px">同意</span><span onclick="agreement()">《票据收益权转让协议》</span></label>
+                        </div>
+                        <div class="checkboxclick-warning"></div>
+                    </div>
+                    
+                    <div class="rightNow" onclick="payfor()">立即支付</div>
+                </div>
+            </div>
+            <div class="dialog" style="display:none">
+                <div class="dialog-shadow" onclick="closeDialog()"></div>
+                <div class="dialog-container">
+                    <img src="{:C('STATIC_ROOT')}/assets/images/defeat.png " style="position: relative;left: 154px;top: 80px;"/>
+                    <div class="dialog-container__text">
+                        失败原因
+                    </div>
+                    <div class="dialog-container__button" onclick="closeDialog()">
+                        确认
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="dialog2" style="display:none">
+                <div class="dialog-shadow" onclick="closeDialog2()"></div>
+                <div class="dialog-container">
+                <iframe style="border: 0;width: 100%;height: 100%;" src="https://image.ppmiao.com/Public/agreement/paper.html 
+
+"></iframe>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+    <include file="Common:footer" />
+    <script>
+    $('.tabular.menu .item').tab();
+	    var user_interest = {$detail.user_interest};
+	    var days = {$detail.days};
+	    var id = {$detail.id};
+	    var buy_max_money = {$detail.money_max};
+	    var buy_min_money = {$detail.money_min};
+	    var waitAmount = {$waitAmount};
+	    var user = {$user};
+	    var able = {$detail.able};
+	    var new_preferential = {$detail.new_preferential};
+	    var buyAmount = {$buyAmt};//投票金额
+	    var realAmount = {$buyAmt};//付款金额
+	    
+	</script>
+</body>
+
+</html>

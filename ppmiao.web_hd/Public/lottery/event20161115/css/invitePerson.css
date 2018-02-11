@@ -1,0 +1,47 @@
+﻿@charset "UTF-8";
+@import url(http://mobile.stlc.cn/build/lab/css/style.min.css);
+
+#invitePerson_index, #invitePerson_index1 .main {
+    width:100%;
+    display: none;
+}
+
+
+.main {
+    opacity: 1;
+    width: 690px;
+}
+
+
+
+#invitePerson_index .prize-draw {
+    width: 690px;
+    background-size: 100% 100%;
+}
+
+#invitePerson_index .prize-draw-bg {
+    display: block;
+    width: 616px;
+    margin:auto;
+    background: #571666;
+    overflow: hidden;
+    padding: 5px 0px 10px 5px;
+    border-radius: 10px;
+    border:2px solid #ffeb00;
+}
+
+    #invitePerson_index .prize-draw-bg li {
+        background: #FFF;
+        float: left;
+        margin-left: 5px;
+        margin-top: 5px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        #invitePerson_index .prize-draw-bg li img {
+            width: 196px;
+            border-radius: 10px;
+            border:1px solid #FFF;
+        }
+

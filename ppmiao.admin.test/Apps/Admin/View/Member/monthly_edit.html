@@ -1,0 +1,245 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">修改每月福利 [ <a href="{:C('ADMIN_ROOT')}/Member/monthly">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/layer3/layer.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding=3 cellspacing=3 >
+                <input type="hidden" name="id" value="{$detail.id}">
+                <input type="hidden" name="commodity_id" id="commodity_id" value="{$detail.commodity_id}">
+                <tr>
+                    <td class="tRight">选择要配置的等级：</td>
+                    <td class="tLeft" >
+                        <select name="vip_id">
+                            <option <eq name="detail.vip_id" value="1">selected</eq> value="1" >VIP1</option>
+                            <option <eq name="detail.vip_id" value="2">selected</eq> value="2" >VIP2</option>
+                            <option <eq name="detail.vip_id" value="3">selected</eq> value="3" >VIP3</option>
+                            <option <eq name="detail.vip_id" value="4">selected</eq> value="4" >VIP4</option>
+                            <option <eq name="detail.vip_id" value="5">selected</eq> value="5" >VIP5</option>
+                            <option <eq name="detail.vip_id" value="6">selected</eq> value="6" >VIP6</option>
+                            <option <eq name="detail.vip_id" value="7">selected</eq> value="7" >VIP7</option>
+                            <option <eq name="detail.vip_id" value="8">selected</eq> value="8" >VIP8</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">年：</td>
+                    <td class="tLeft" >
+                        <select name="year">
+                            <foreach name="years" item="item" key="key">
+                                <option <eq name="detail.year" value="$item">selected</eq> value="{$item}">{$item}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">月：</td>
+                    <td class="tLeft" >
+                        <select name="month">
+                            <foreach name="months" item="item" key="key">
+                                <option <eq name="detail.month" value="$item">selected</eq> value="{$item}">{$item}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">名称：</td>
+                    <td class="tLeft" >
+                        <input type="text" name="title" value="{$detail.title}"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">状态：</td>
+                    <td class="tLeft" >
+                        <select name="status">
+                            <option <eq name="detail.status" value="0">selected</eq> value="0">下架</option>
+                            <option <eq name="detail.status" value="1">selected</eq> value="1">使用</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">福利详情：</td>
+                    <td class="tLeft" >
+                        <textarea cols="70" rows="7" name="remark">{$detail.remark}</textarea></td>
+                </tr>
+                <tr>
+                    <td class="tRight">商品：</td>
+                    <td class="tLeft" ><span id="selected_commodity_name">{$detail.commodity.name}</span>
+                        <input type="button" id="select_button" value="更改商品" onclick="toWallet()"  class="button">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<section style="display: none;" id="commodities">
+    <table>
+        <tr>
+            <td>选择商品类型：</td>
+            <td>
+                <select name="type" onchange="changeType(this)" >
+                    <option value="0">全部</option>
+                    <option value="1">红包</option>
+                    <option value="2">加息券</option>
+                    <option value="3">现金券</option>
+                    <option value="4">第三方券</option>
+                    <option value="5">实物</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>选择商品：</td>
+            <td>
+                <select name="commodity" class="commodities_select" onchange="changeC(this)">
+                    <foreach name="commodities" item="item" key="key">
+                        <option <eq name="detail.commodity.id" value="$item.id">selected</eq> value="{$item.id}">{$item.name}</option>
+                    </foreach>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <table class="commodity_info">
+        <input type="hidden" name="" class="select_commodity_id" value="{$detail.commodity.id}">
+        <tr>
+            <td>商品详情：</td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>标题：</td>
+            <td class="select_commodity_name">{$detail.commodity.name}</td>
+        </tr>
+        <if condition="($detail['commodity']['type'] eq 1)">
+            <tr>
+                <td>红包金额：</td>
+                <td>{$detail.commodity.amount}</td>
+            </tr>
+        </if>
+        <if condition="($detail['commodity']['type'] eq 2)">
+            <tr>
+                <td>加息利率：</td>
+                <td>{$detail.commodity.amount}</td>
+            </tr>
+        </if>
+        <if condition="($detail['commodity']['type'] eq 1) or ($detail['commodity']['type'] eq 2)">
+            <tr>
+                <td>最小投资金额：</td>
+                <td>{$detail.commodity.min_invest_amount}</td>
+            </tr>
+            <tr>
+                <td>最小投资期限：</td>
+                <td>{$detail.commodity.min_invest_days}</td>
+            </tr>
+            <tr>
+                <td>有效天数：</td>
+                <td>{$detail.commodity.valid_days}</td>
+            </tr>
+            <tr>
+                <td>适用标签：</td>
+                <td>{$detail.commodity.project_type}</td>
+            </tr>
+        </if>
+    </table>
+    <div class="button">
+        <input type="button" value="选择" onclick="setGoods()">
+        <input type="button" value="取消" onclick="cancelGoods()">
+    </div>
+</section>
+<script>
+    var _layerIndex = 0;
+    var _layerIndex2 = 0;
+    var _action = 0;
+    var _urlObj, _extObj;
+
+
+    var _adding = false;
+
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/member/monthly_update',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('修改成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+
+    function toWallet(){
+        var aa=0;
+
+        var html = $('#commodities').html();
+
+
+        _layerIndex2 =  layer.open({
+            type: 1,
+            title:'添加商品',
+            skin: 'layui-layer-rim', //加上边框
+            area: ['550px', '400px'], //宽高
+            content: html
+        });
+
+
+    }
+
+    function changeType(_obj){
+        _action = $(_obj).val();
+        $(".commodity_info").html("");
+        $.get('{:C("ADMIN_ROOT")}/member/commodities_select',{type: _action},function(msg){
+
+            $(".commodities_select").html(msg);
+        });
+
+
+
+    }
+
+    function changeC(_obj){
+        _action = $(_obj).val();
+        $.get('{:C("ADMIN_ROOT")}/member/commodities_find',{id: _action},function(msg){
+
+            $(".commodity_info").html(msg);
+        });
+
+    }
+    function setGoods(){
+        var commodity_id = $('.select_commodity_id').val()
+        var commodity_name = $('.select_commodity_name').html()
+        $('#commodity_id').val(commodity_id)
+        $('#select_button').val('重新选择')
+        $('#selected_commodity_name').html(commodity_name)
+        layer.close(_layerIndex2);
+    }
+    function cancelGoods(){
+        layer.close(_layerIndex2);
+    }
+</script>

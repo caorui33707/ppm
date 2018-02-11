@@ -1,0 +1,122 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">券包数据管理</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="{:C("ADMIN_ROOT")}/InterestCoupon/index">
+                    <div class="fLeft">
+                        <label for="start_time">产品状态：</label>
+                        <select name="status">
+                            <option value="0" <eq name="params.status" value="0">selected</eq>>全部</option> 
+                            <option value="2" <eq name="params.status" value="2">selected</eq>>销售中</option>     
+                            <option value="3" <eq name="params.status" value="3">selected</eq>>已售完</option>     
+                            <option value="4" <eq name="params.status" value="4">selected</eq>>还款中</option> 
+                            <option value="5" <eq name="params.status" value="5">selected</eq>>已还款</option>    
+                        </select>    
+                        <span><input type="text" name="key" placeholder="输入关键字" class="medium" value="{$params.key}"></span>  
+                        到期日期
+                        <input type="text" class="laydate-icon" name="start_time" id="start_time" value="{$params.time}" readonly />              
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow">
+                    	<input type="submit" id="" name="search" value="查询" onclick="" class="search imgButton">
+                    </div>
+                </form>
+            </div>
+        </div>
+       
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="9" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="3%" align="center">编号</th>
+                    <th width="8%" align="center">项目期数</th>
+                    <th width="8%" align="center">到期日期</th>
+                    <th width="6%" align="center">状态</th>
+                    <th width="8%" align="center">项目利率</th>
+                    <th width="8%" align="center">本期投资总金额(元)</th>
+                    <th width="8%" align="center">券包产生总金额(元)</th>
+                    <th width="8%" align="center">券包使用人数</th>
+                    <th width="8%" align="center">操作</th>
+                </tr>
+                <foreach name="list" item="item">
+                    <tr>
+                        <td align="center">{$item.id}</td>
+                        <td align="center">{$item.title}</td>
+                        <td align="center">{$item.end_time}</td>
+                        <td align="center"><font color='{$item.color}'>{$item.status}</font></td>
+                        <td align="center">{$item.user_interest|number_format=2}%</td>
+                        <td align="center">{$item.project_amount|number_format=2}</td>
+                        <td align="center">{$item.coupon_income|number_format=2}</td>
+                        <td align="center">{$item.use_cnt}</td>
+                        <td align="center">
+                        	<if condition="$item.use_cnt gt 0" >
+                        	<a href="javascript:;" onclick="user_list('{$item.id}');">券包使用明细</a>&nbsp;&nbsp;
+                        	<a href="javascript:;" onclick="exportExcel('{$item.id}');">导出</a>
+                        	</if>
+                        </td>
+                    </tr>    
+                </foreach>
+                <tr>
+                    <td height="5" colspan="9" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">
+            {$showPage}
+        </div>
+        <!-- 列表显示区域结束 -->
+        <div style="clear: both;"></div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+    
+    function user_list(_pid){
+        window.open(ROOT + "/InterestCoupon/user_coupon_list/pid/" + _pid, 'buylist', 'height=600,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    
+	function exportExcel(id){
+    	if(id) {
+    		location.href = "{:C('ADMIN_ROOT')}/InterestCoupon/exportExcel/projectId/"+id;
+    	}
+    }
+    
+	var start = {
+	        elem: '#start_time',
+	        format: 'YYYY-MM-DD',
+	        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+	        max: '2099-06-16 23:59:59', //最大日期
+	        istime: false,
+	        istoday: true,
+	    };
+	    
+	    laydate(start);
+</script>

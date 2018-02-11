@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/ppmiao/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/ppmiao/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/ppmiao/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/ppmiao/js/flash.js"></script>
+</head>
+
+<body>
+    <include file="PublicNew:menu" />
+    
+     <div class="bannerInner bannerInner02">
+    	<ul>
+            <li style="background:url({:C('STATIC_ROOT')}/ppmiao/images/MCContactBanner.png) no-repeat scroll center top; display:block"><a href="#"></a></li>
+        </ul>
+    </div>
+    
+    <div class="MCContactBox01 w1003 clear">
+    	<h5>产品及常见问题</h5>
+        <img src="{:C('STATIC_ROOT')}/ppmiao/images/MCContactImg01.png" />
+    </div>
+    
+     <div class="MCContactBox01 MCContactBox02 w1003 clear">
+    	<h5>联系我们,只是第一步。了解我们，才是开始</h5>
+        <div class="MCContactBox02Txt w1003 clear">
+        	<div class="MCContactBox02TxtLeft fLe clear">
+            	<p>
+                    地址：浙江省杭州市江干区市民街
+                    66号中华-钱塘航空大厦2幢33
+                    楼<br />
+                    电话：0571-86952179<br />
+                    Q Q：2773654558<br />
+                    Email：ppm@miao.net<br />
+                    微信公众号：<em>票票喵</em><br />
+                    新浪微博：<em>票票喵投资理财</em><br />
+                    在线客服：09:00-21:00
+                </p>
+            </div>
+            <div class="MCContactBox02TxtRight fLe clear">
+            	<img src="{:C('STATIC_ROOT')}/ppmiao/images/MCContactImg02.png" />
+            </div>
+        </div>
+    </div>
+     
+     
+     
+
+
+    <!--footer begin-->
+    <include file="PublicNew:footer" />
+    <!--footer end-->
+    
+    <div id="top"></div>
+    
+</body>
+</html>

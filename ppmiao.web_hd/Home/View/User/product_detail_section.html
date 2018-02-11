@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/v2/css/jquery.mCustomScrollbar.css">
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script src="{:C('STATIC_ROOT')}/v2/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/highchart/highcharts.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <include file="PublicNew:user_sidebar" />
+
+    <div class="innerRight fRi clear">
+        <div class="WywBox01 fLe clear" style="height:auto;padding-bottom:20px;">
+            <div class="innerRight_user_title fLe clear">
+                <h2>{$detail.title}</h2>
+                <a href="javascript:;" onclick="showContract()">查看购买合同</a>
+            </div>
+            <div class="innerRight_user_b_block01_01 fLe clear">
+                <ul>
+                    <li><h5>{$due_detail.due_capital|number_format=2}</h5><p>投资金额(元)</p></li>
+                    <if condition="$due_detail['due_interest'] gt 0">
+                        <li><h5 class="red">{$due_detail.due_interest|number_format=2}</h5><p>代收利息</p></li>
+                    <elseif condition="$due_detail['due_interest'] lt 0"/>
+                        <li><h5 class="green">{$due_detail.due_interest|number_format=2}</h5><p>代收利息</p></li>
+                    <else/>
+                        <li><h5>{$due_detail.due_interest|number_format=2}</h5><p>代收利息</p></li>
+                    </if>
+                    <if condition="$due_detail['due_interest'] gt 0">
+                        <li><h5 class="red">{$per}%</h5><p>ETF昨日趋势</p></li>
+                    <elseif condition="$due_detail['due_interest'] lt 0"/>
+                        <li><h5 class="green">{$per}%</h5><p>ETF昨日趋势</p></li>
+                    <else/>
+                        <li><h5>{$per}%</h5><p>ETF昨日趋势</p></li>
+                    </if>
+                </ul>
+            </div>
+            <div class="WywBox01BottomLine fLe clear"></div>
+            <div class="Wyw_list fLe clear">
+                <h5>收益走向</h5>
+            </div>
+            <div class="newsBox01Title fLe clear" style="margin-top:0px;margin-bottom:20px;">
+                <h2 class="selected"><span>年化利率</span></h2>
+                <h2><span style="border-right:none;">50ETF涨幅</span></h2>
+            </div>
+            <ul class="newsBox01Content fLe clear year">
+                <div id="container1" style="width:670px;"></div>
+            </ul>
+            <ul class="newsBox01Content fLe clear etf" style="display:none;">
+                <div id="container2" style="width:670px;"></div>
+            </ul>
+            <div class="Wyw_list fLe clear">
+                <h5>资金状态<em>（资金到账需1-2个工作日）</em></h5>
+                <eq name="due_detail.from_wallet" value="1">
+                    <h3>&nbsp;</h3>
+                <else/>
+                    <h3><i><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$bank_info.bank_code}.png"/></i>{$bank_info.bank_name}&nbsp;&nbsp;尾号：{$due_detail.card_no|get_card_tail_number}</h3>
+                </eq>
+            </div>
+
+            <div class="Wyw_list_content fLe clear">
+                <div class="WywDetailsList01 fLe clear">
+                    <ul>
+                        <li class="li01"><span>{$due_detail.due_time|strtotime|date='Y/m/d',###}</span></li>
+                        <li class="li02"><span>{$due_detail['due_capital']+$due_detail['due_interest']|number_format=2}</span></li>
+                        <switch name="due_detail.status_new">
+                            <case value="1"><li class="li03"><span>等待还款</span></li></case>
+                            <case value="2"><li class="li03"><span>已还款</span></li></case>
+                            <case value="3"><li class="li03"><span>正在还款</span></li></case>
+                        </switch>
+                    </ul>
+                    <eq name="due_detail.status_new" value="2">
+                        <i class="icon01"><img src="{:C('STATIC_ROOT')}/v2/images/img/icon03.png" /></i>
+                    <else/>
+                        <i class="icon01"><img src="{:C('STATIC_ROOT')}/v2/images/img/icon02.png" /></i>
+                    </eq>
+                </div>
+                <div class="WywDetailsList01 fLe clear">
+                    <ul>
+                        <li class="li01"><span>{$due_detail.add_time|strtotime|date='Y/m/d',###}</span></li>
+                        <li class="li02"><span>{$due_detail.due_capital|number_format=2}</span></li>
+                        <li class="li03"><span>购买成功</span></li>
+                    </ul>
+                    <i class="icon01"><img src="{:C('STATIC_ROOT')}/v2/images/img/icon03.png" /></i>
+                </div>
+            </div>
+        </div>
+        <!-- 合同内容开始 -->
+        <div class="MyuserBox01 contactBigBox fLe clear" style="display:none;" id="contract_content">
+            <div class="contractTitle01 fLe clear">
+                <a href="javascript:;" class="closeButton close" onclick="closeContract()"></a>
+            </div>
+            <div class="contractTitle02 fLe clear">
+                <h2>债权受益权转让协议</h2>
+            </div>
+            <div>
+                <div class="contractContent content demo-y fLe clear">
+                    <p>本《债权受益权转让协议》（以下简称“本协议”）由以下双方于{$due_detail.add_time|strtotime|date='Y年m月d日',###}签订。</p>
+                    <p>
+                        甲方（债权受益权转让人）：{$detail.nickname}<br />
+                        身份证号码：{$detail.idcard|hide_whole_idcard}<br />
+                        甲方（债权受益权转让人）：{$due_detail.uinfo.real_name}<br />
+                        身份证号码：{$due_detail.uinfo.card_no|hide_whole_idcard}<br />
+                        联系电话：{$due_detail.uinfo.username}<br />
+                        丙方（信息服务方）：杭州时投信息科技有限公司<br />
+                        就甲方通过由杭州时投信息科技有限公司（ 以下简称“石头理财”）运营管理的石头理财手机客户端向乙方转让债权受益权事宜，双方根据平等、自愿的原则，达成协议如下：<br />
+                    </p>
+                    <p>
+                        第一条 本协议中所表述的“债权受益权”是指基础债权的债权人受领基础债权的债务人归还基础债权借款本息款项的权利。<br />
+                        第二条 债权受益权转让<br />
+                        甲方同意根据本协议约定的条件将以下债权受益权（“标的债权受益权”）的全部或者一部分通过石头理财手机客户端转让给乙方，乙方同意受让该债权受益权。<br />
+                    </p>
+                    <p>
+                        1、债权受益权转让信息：<br />
+                        <table border="1" width="100%" bordercolor="#999999">
+                            <tr>
+                                <td><span>产品名称：</span></td>
+                                <td><span>{$detail.title}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>最低债权受益权价值：</span></td>
+                                <td><span>{$due_detail['due_capital']+$due_detail['due_capital']*$days*$detail['user_interest']/100/365|number_format=2}元(包含本金{$due_detail.due_capital|number_format}元和保底利息{$due_detail['due_capital']*$days*$detail['user_interest']/100/365|number_format=2}元)</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>转让数额：</span></td>
+                                <td><span>{$due_detail.due_capital|number_format}元</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>年化利率区间：</span></td>
+                                <td><span>{$detail.user_interest}~{$ex_detail.max_interest}%</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>上线日50ETF参考单位净值：</span></td>
+                                <td><span>{$ex_detail.start_net}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>到期日期：</span></td>
+                                <td><span>{$due_detail.due_time|strtotime|date='Y-m-d',###}</span></td>
+                            </tr>
+                        </table>
+                    </p>
+                    <p>
+                        2、债权到期日对应50ETF(基金代码510050)基金单位净值上涨X%，则本产品年化利率为X%，若到期时50ETF基金单位净值出现下跌，或者上涨幅度未超过{$detail.user_interest}%，则本产品仍享有{$detail.user_interest}%的年化利率。（注：本产品最高年化利率不超过{$ex_detail.max_interest}%）<br />
+                        3、涨幅定义：涨幅=（产品到期日50ETF单位净值- 产品上线日50ETF参考单位净值）/产品上线日50ETF参考单位净值。<br />
+                        4、上述债权按日计息，一年按365天计算利息，即日利率=年利率÷365。<br />
+                        债权受益权<br />
+                        1、乙方按照石头理财客户端的规则，通过对标的债权受益权转让需求点击“立即投资”按钮并点击确认订立本协议后，本协议即成立并立即生效。<br />
+                        2、同时，乙方对标的债权受益权转让需求点击“立即投资”按钮，即不可撤销地授权石头理财委托其合作的第三方支付机构或监管银行等，从以石头理财名义开立的资金监管账户（“监管账户”），将金额等同于本协议第一条所列金额的款项划转至甲方名下账户中。上述划转完成视为标的债权受益权已转让成功。<br />
+                        第四条 权利与义务<br />
+                        4.1、甲方的权利与义务<br />
+                        4.1.1、甲方拥有将其拥有的合法应收账款（包含但不限于债权受益权）依法转让并获得转让款的权利。<br />
+                        4.1.2、甲方应在本协议签署后三日内将应收账款转让事宜书面通知债务人，并向丙方提交应收账款转让通知书回执<br />
+                        4.13、甲方有义务按照丙方平台要求，向丙方提供真实、合法、有效及可转让的应收账款信息，因甲方提供虚假信息而造成的一切法律后果(包括但不限于民事赔偿，行政处罚等)均由甲方承担。<br />
+                        4.1.4、甲方承诺，若债务人未能在应收账款到期日前向甲方偿还债务的，则甲方应在应收账款到期日无条件按应收账款转让价格及利息作为对价进行回购。<br />
+                        4.1.5、甲方同意，甲方有义务向丙方支付平台服务费，平台服务费收费标准和方式由双方另行约定。<br />
+                        4.2、乙方的权利与义务<br />
+                        4.2.1、乙方有利用丙方提供的平台按约定价格受让相应债权受益权的权利。<br />
+                        4.2.2、乙方有义务按照丙方平台要求，向丙方提供真实的个人信息，因乙方提供虚假信息而造成的一切法律后果（包括但不限于民事赔偿，行政处罚等）均由乙方承担。<br />
+                        4.2.3、乙方有义务按照丙方要求，操作平台软件以及查收丙方发出的所有消息（包括但不限于站内通知、电子邮件、手机短信等）。因乙方个人操作不当以及疏于查收信息造成的损失由乙方自行承担。<br />
+                        4.3、丙方的权利与义务<br />
+                        4.3.1、丙方应当按照本协议的规定，恪尽职守，以诚实、守信、谨慎、有效管理的原则为甲方、乙方进行服务。<br />
+                        4.3.2、丙方须对甲方、乙方的信息、资产情况及其他服务相关事务的具体情况和资料依法保密；当其中一方出现违约时，丙方有权在平台上公开披露违约方个人或企业的全部相关信息，对此甲方和乙方予以同意和认可，并放弃就丙方上述行为要求丙方承担任何责任或义务的权利。<br />
+                        4.3.3、丙方有权对甲方、乙方的资格进行严格审查，以求保障在平台上交易方真实存在并取得相关资质。<br />
+                        4.3.4、甲方不可撤销授权丙方通过第三方支付平台将其受让资金直接划扣给乙方，以及在还款日或之前代为收取乙方偿还借款本金、利息、罚息，并通过第三方支付平台支付给乙方。<br />
+                        4.3.5、丙方有权按照本协议或与甲方的其他协议的约定向甲方收取相关费用，不因甲、乙双方任何纠纷受影响。<br />
+                        4.3.6、丙方接受委托行为所产生的法律后果，由相应委托方承担。<br />
+                        第五条 声明与保证<br />
+                        1、甲方保证其转让的债权受益权的基础债权系其合法、有效的债权，不存在转让的限制。甲方同意并承诺按有关协议及石头理财平台的相关规则和说明向石头理财平台支付债权受益权转让服务费。<br />
+                        2、乙方保证其所用于购买标的债权受益权的资金来源合法，乙方是该资金的合法所有人，如果第三方对资金归属、合法性问题提出异议，由乙方自行解决。如乙方未能解决，则承诺放弃使用上述资金所带来的利息等收益。<br />
+                        第六条 争议解决<br />
+                        1、本协议的全部事项，包括但不限于本协议的效力、声明与保证以及争议解决均受中国法律管辖；本协议项下任一条款如与中国法律中的强制性规范相抵触，应在该等强制性规范所不禁止的最大限度内进行解释和执行，且任何该等与强制性规范相抵触的约定不应影响本协议其他条款的效力。<br />
+                        2、如果甲乙双方在本协议履行过程中发生任何争议，应友好协商解决；如协商不成，则须提交杭州市拱墅区的人民法院以诉讼方式解决。<br />
+                        3、在诉讼期间，本协议中不涉及争议的条款仍须履行，各方均不得以解决争议为由拒不履行其在本协议项下的任何义务。<br />
+                        第七条 其他权利义务<br />
+                        1、本协议的任何修改、补充均须以石头理财平台电子文本形式作出。经过双方签署的有关本协议的修改协议和补充协议是本协议组成部分，具有与本协议同等的法律效力。<br />
+                        2、甲乙双方均确认，本协议的签订、生效和履行以不违反中国的法律法规为前提。如果本协议中的任何一条或多条违反适用的法律法规，则该条将被视为无效，但该无效条款并不影响本协议其他条款的效力。<br />
+                        3、甲乙双方委托石头理财代为保管并永久保存在石头理财平台为此设立的专用服务器上备查。双方均认可该形式的协议效力。<br />
+                        4、本协议中所使用的定义，除非在上下文中另有定义外，应具有石头理财手机客户端公布的咨询与服务协议及其有关规则中定义的含义。<br />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 合同内容结束 -->
+    </div>
+</div>
+<script>
+    var _fund_id = "{$detail.sFund.id}";
+    var _chart1 = null;
+    var _chart2 = null;
+    var _fdList = '{$fund_data|json_encode}';
+    var _nhList = '{$nh_data|json_encode}';
+    var _zfList = '{$zf_data|json_encode}';
+    _fdList = $.parseJSON(_fdList);
+    _nhList = $.parseJSON(_nhList);
+    _zfList = $.parseJSON(_zfList);
+    var _product_type = {$detail.type};
+
+    $(document).ready(function(){
+        $.mCustomScrollbar.defaults.theme="light-2";
+        $(".demo-y").mCustomScrollbar();
+        $(".demo-x").mCustomScrollbar({
+            axis:"x",
+            advanced:{autoExpandHorizontalScroll:true}
+        });
+        $(".demo-yx").mCustomScrollbar({
+            axis:"yx"
+        });
+        $(".scrollTo a").click(function(e){
+            e.preventDefault();
+            var $this=$(this),
+                    rel=$this.attr("rel"),
+                    el=rel==="content-y" ? ".demo-y" : rel==="content-x" ? ".demo-x" : ".demo-yx",
+                    data=$this.data("scroll-to"),
+                    href=$this.attr("href").split(/#(.+)/)[1],
+                    to=data ? $(el).find(".mCSB_container").find(data) : el===".demo-yx" ? eval("("+href+")") : href,
+                    output=$("#info > p code"),
+                    outputTXTdata=el===".demo-yx" ? data : "'"+data+"'",
+                    outputTXThref=el===".demo-yx" ? href : "'"+href+"'",
+                    outputTXT=data ? "$('"+el+"').find('.mCSB_container').find("+outputTXTdata+")" : outputTXThref;
+            $(el).mCustomScrollbar("scrollTo",to);
+            output.text("$('"+el+"').mCustomScrollbar('scrollTo',"+outputTXT+");");
+        });
+    });
+    function showContract(){
+        $("#contract_content").css('display', '');
+    }
+    function closeContract(){
+        $("#contract_content").css('display', 'none');
+    }
+
+    $('#container1').highcharts({
+        chart: {
+            events: {
+                load: function(e) {
+                    _chart1 = this;
+                    getData1();
+                }
+            }
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+            shared: true,
+            formatter: function() {
+                var _dateArr = new Date(this.x).toLocaleString().split(' ');
+                return _dateArr[0].replace('年',"-").replace('月',"-").replace('日',"")+'<br><span style="color:#7cb5ec;">年化收益率:'+this.points[0].y+'%</span>';
+            }
+        },
+        plotOptions: {
+            area: {
+                lineWidth: 1,
+                marker: {
+                    enabled: false
+                },
+                shadow: false,
+                states: {
+                    hover: {
+                        lineWidth: 0
+                    }
+                },
+                threshold: null
+            },
+            series: {
+                marker: {
+                    enabled: false
+                },
+                events: {
+                    legendItemClick: function(){
+                        return false;
+                    }
+                }
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                format: '{value:%m-%d}',
+                align: 'center'
+            }
+        },
+        yAxis: [{
+            lineWidth: 0,
+            title: {
+                text: null
+            },
+            labels: {
+                format: '{value}%'
+            }
+        }],
+        series: [{
+            name: '年化利率',
+            type: 'line',
+            data: []
+        }]
+    });
+    $('#container2').highcharts({
+        chart: {
+            events: {
+                load: function(e) {
+                    _chart2 = this;
+                    getData2();
+                }
+            }
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+            shared: true,
+            formatter: function() {
+                var year = this.x;
+                var _dateArr = new Date(this.x).toLocaleString().split(' ');
+                var _zf = 0;
+                $.each(_fdList, function(i, n){
+                    if(n.datetime == year){
+                        _zf = _zfList[i]['val'];
+                    }
+                });
+                return _dateArr[0].replace('年',"-").replace('月',"-").replace('日',"")+'<br><span style="color:#7cb5ec;">净值:'+this.points[0].y+'</span><br><span style="color:#7cb5ec;">涨幅:'+_zf+'%</span>';
+            }
+        },
+        plotOptions: {
+            area: {
+                lineWidth: 1,
+                marker: {
+                    enabled: false
+                },
+                shadow: false,
+                states: {
+                    hover: {
+                        lineWidth: 0
+                    }
+                },
+                threshold: null
+            },
+            series: {
+                marker: {
+                    enabled: false
+                },
+                events: {
+                    legendItemClick: function(){
+                        return false;
+                    }
+                }
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                format: '{value:%m-%d}',
+                align: 'center'
+            }
+        },
+        yAxis: [{
+            lineWidth: 0,
+            title: {
+                text: null
+            }
+        }],
+        series: [{
+            name: '50ETF涨幅',
+            type: 'line',
+            data: []
+        }]
+    });
+
+    function getData1(){
+        var _nh = new Array();
+        $.each(_nhList, function(i, n){
+            _nh.push([n.datetime, parseFloat(n.val)]);
+        });
+        _chart1.series[0].setData(_nh);
+    }
+    function getData2(){
+        var _data = new Array();
+        $.each(_fdList, function(i, n){
+            _data.push([n.datetime, parseFloat(n.val)]);
+        });
+        _chart2.series[0].setData(_data);
+    }
+</script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/user.js"></script>
+<include file="PublicNew:user_footer" />
+</body>
+</html>

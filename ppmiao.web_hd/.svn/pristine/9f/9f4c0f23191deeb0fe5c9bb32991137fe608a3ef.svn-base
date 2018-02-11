@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body>
+<include file="PublicNew:menu" />
+
+<div class="joinBanner">
+    <p style="background:url({:C('STATIC_ROOT')}/v2/images/ABbanner01.jpg) no-repeat scroll center top; display:block"></p>
+</div>
+
+<div class="classBigBox01 fLe clear">
+    <div class="main w978 clear">
+        <div class="classBox01 fLe clear">
+            <h2>石头公募基金结构化A、B类产品</h2>
+            <p>年化收益400—1000% “搏一搏”屌丝变土豪</p>
+        </div>
+    </div>
+</div>
+
+<div class="classBigBox02 fLe clear">
+    <div class="main w978 clear">
+        <div class="classBox02 fLe clear">
+            <h4>石头公募基金结构化产品A类<img src="{:C('STATIC_ROOT')}/v2/images/tag_gaofengxian.png" class="tag_base" /><img src="{:C('STATIC_ROOT')}/v2/images/tag_gaoshouyi.png" class="tag_base" /></h4>
+            <ul>
+                <li><span>产品介绍</span><p>本产品与石头保守级产品按照1:2的结构比例投资于公募基金，本产品作为风险承担方承担公募基金亏损风险，盈利时额外享有保守级80%的收益分成（相对于本产品160%收益分成）。</p></li>
+                <li><span>收益计算</span><p>本进取级产品投资收益率 = 标的公募基金期间收益率X260% 若投资期间，若本产品亏损超过90%，为保障保守级资金安全，本产品将提前结束并赎回，最终赎回价以赎回当日基金公布的净值计算为准。</p></li>
+                <li><span>投资期限</span><p>本产品计划投资期为30日，若投资期间产品亏损触及平仓线，则产品提前结束。</p></li>
+                <li><span>回款说明</span><p>投资到期后或提前结束后，根据基金赎回时间将在4-5个工作日后回款给投资者。</p></li>
+                <li><span>风险揭示</span><p>本产品为杠杆风险产品、请谨慎投资。</p></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="classBigBox02 fLe clear">
+    <div class="main w978 clear">
+        <div class="classBox02 fLe clear">
+            <h4>石头公募基金结构化产品B类<img src="{:C('STATIC_ROOT')}/v2/images/tag_fudongshouyi.png" class="tag_base" /><img src="{:C('STATIC_ROOT')}/v2/images/tag_benjinbaozhang.png" class="tag_base" /></h4>
+            <ul>
+                <li><span>产品介绍</span><p>本产品与石头进取级产品按照2:1的结构比例投资于公募基金，本产品不承担公募基金亏损风险，盈利时享有公募基金20%的收益分成。</p></li>
+                <li><span>收益计算</span><p>本保守级产品投资收益率 = 标的公募基金期间收益率X 20%。<br />
+                    特别提示：若投资期间标的公募基金发生亏损，本保守级产品不承担亏损，到期返还本金。</p></li>
+                <li><span>投资期限</span><p>本产品计划投资期为30日，若投资期间产品亏损触及平仓线，则产品提前结束返还本金。</p></li>
+                <li><span>回款说明</span><p>投资到期后或提前清盘后，进取级产品份额与保守级产品份额将被一同赎回，并在4-5个工作日后回款给投资者。</p></li>
+                <li><span>风险揭示</span><p>本产品本金安全，风险较低。</p></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="classBigBox03 fLe clear" style="background:url({:C('STATIC_ROOT')}/v2/images/ABbanner.jpg) no-repeat scroll center top;">
+    <div class="main w978 clear">
+        <div class="classBox03 fLe clear">
+
+        </div>
+    </div>
+</div>
+
+<div class="classBigBox04 fLe clear">
+    <div class="main w978 clear">
+        <div class="classBox04 fLe clear">
+            <img src="{:C('STATIC_ROOT')}/v2/images/ABImg01.jpg" />
+            <div class="classBox04Right fLe clear">
+                <h2>故事说明</h2>
+                <p> 看到最近菜市场猪肉价额天天涨，猪场老板张三（计划A）和猪场李四（计划B）都想赚更多的钱。猪场老板张三希望自己猪的数量快速的增加，却不介意自己的母猪可能因为难产死掉。另一猪场老板李四也希望猪的数量增加，却不希望自己的猪会死掉。于是二人决定联合，张三原有10头猪，李四原有20头猪，共计有30头猪，用30头猪一起生小猪。假如一切顺利，假设生出10只小猪，那么有8只小猪归张三，有2只小猪归李四。假如到最后，没有生出一只小猪，母猪却因为生小猪死掉了，死掉的猪由张三承担。当死掉的猪到了10只，张三和李四的合作也终止，李四领回自己的20只猪，张三就一只猪也没有了。
+                    当下国内外各种刺激消费、经济的利好信息，已在股市和基金的市场中显露无疑。金融产业调整后的资产证券化，为我们奠定了故事里的猪肉价格飞涨的机遇，在此趋势下更应考虑的是如何抓住机遇。</p>
+            </div>
+        </div>
+    </div>
+
+    <include file="PublicNew:footer" />
+</div>
+<include file="PublicNew:gotop" />
+</body>
+</html>

@@ -1,0 +1,38 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">文件管理 - {$contract_name} [ <a href="javascript::" onclick="closeWindow()">关闭</a> ]</div>
+        <div id="result" class="result none"></div>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/foxibox/jquery-foxibox-0.2.css" />
+        <script type="text/javascript" src="__PUBLIC__/admin/foxibox/jquery-foxibox-0.2.js"></script>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="cid" value="{$id}" />
+            <input type="hidden" name="timestamp" value="{$timestamp}" />
+            <input type="hidden" name="token" value="{$token}" />
+            <input id="file_upload" name="file_upload" type="file" />
+            <input type="submit" value="上传" class="imgButton" />
+        </form>
+        <p>
+            <ul>
+                <foreach name="list" item="item">
+                    <li>
+                        <a href="/Uploads/contract/{$item.filename}" rel="[gall1]" title="">
+                            <img src="/Uploads/contract/{$item.filename}" alt="first picture" width="72" height="72" />
+                        </a>
+                    </li>
+                </foreach>
+            </ul>
+        </p>
+    </div>
+</div>
+<style>
+    ul li{float:left;list-style:none;margin:10px;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('a[rel]').foxibox();
+    });
+    function closeWindow(){
+        window.close();
+    }
+</script>

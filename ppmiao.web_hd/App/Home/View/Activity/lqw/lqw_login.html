@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .model-back{
+        width: 10rem;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background:rgba(0,0,0,0.6);
+        z-index:999;
+    }
+    .dialog {
+        width: 7.28rem;
+        height: 3.33rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -3.78rem;
+        margin-left: -3.33rem;
+        text-align: center;
+    }
+    .top {
+        width: 100%;
+        padding: 0.5rem 0;
+        line-height: 0.85rem;
+        color: #fff;
+        background-color: #FF8702;
+        border-radius: 0.4rem 0.4rem 0 0;
+        font-size: 0.37rem;
+        white-space: pre;
+        text-align: center;
+    }
+    .bottom {
+        width: 100%;
+        height: 1.31rem;
+        line-height: 1.31rem;
+        color: #FF8702;
+        background-color: #fff;
+        border-radius: 0 0 0.4rem 0.4rem;
+        font-size: 0.4rem;
+    }
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+
+    <script type="text/javascript" src="https://image.ppmiao.com/Public/js/util.js"></script>
+    <link rel="stylesheet" href="https://image.ppmiao.com/Public/activity/lqw/css/index.css">
+    <title>首投送现金</title>
+</head>
+<body>
+<div class="background img1">
+    <div class="input-group">
+        <input class="phoneno" type="text" name="mobile"  placeholder="请输入手机号">
+        <input class="code" type="text" name="code" placeholder="请输入验证码">
+        <span class="get-code code-time">获取验证码</span>
+    </div>
+    <div class="appointment">
+        <input type="checkbox" name="agreement" checked>
+        <span>已阅读并同意<a href="https://cg.ppmiao.com/act/agree/index.html">《注册协议》</a></span>
+    </div>
+</div>
+<div id="z" class="background img2">
+    <a href="javascript:;" class="login">登录/注册</a>
+    <span onclick="openeds()">查看活动规则</span>
+</div>
+<div class="background img3"></div>
+<div class="background img4"></div>
+<div class="background img5"></div>
+<div class="background img6"></div>
+<div class="background img7"></div>
+<div class="background img8"></div>
+<div class="background img9"></div>
+<div class="background img10"></div>
+<div id="c" class="background img11"></div>
+<div class="btn-group">
+    <a href="#z" class="active-btn"></a>
+    <a href="#c" class="zizhi"></a>
+</div>
+<div class="detail" onclick="closed()">
+    <div class="detail-model"></div>
+</div>
+
+<div class="model-back" style="display:none">
+    <div class="dialog">
+        <div class="top"> 手机号输入有误</div>
+        <div class="bottom">
+            确定
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    function closed(){
+        $('.detail').css('display', 'none');
+    }
+    function openeds(){
+        $('.detail').css('display', 'block');
+    }
+    function getCode(){
+
+    }
+
+    var ch = "{$ch}";
+
+    $('.bottom').click(function() {
+        $('.model-back').css({display:'none'});
+    });
+
+    // 获取验证码
+    $('.code-time').click(function() {
+        var mobile = $('input[name=mobile]').val();
+        if(!checkPhone(mobile)) {
+            if(mobile == "") {
+                $('.model-back .top').html('请输入您的手机号码！');
+            } else {
+                $('.model-back .top').html('输入的手机号码有误！');
+            }
+            $('.model-back').css({display:'block'});
+            return;
+        }
+
+        $.ajax({
+            url: "/hd/sendCode.html",
+            type: "post",
+            data: {'invitedMobile':mobile},
+            success: function (json) {
+                if(json.status == 1){
+                    Countdown();
+                } else {
+                    $('.pop .top').html(json.info);
+                    $('.pop').css({display:'block'});
+                }
+                return;
+            }
+        })
+
+    });
+
+
+    // 登录/注册
+    $('.login').click(function() {
+
+        if(!$('input[name=agreement]').is(':checked')){
+            $('.model-back .top').html('您没有同意用户注册协议！');
+            $('.model-back').css({display:'block'});
+            return ;
+        }
+
+        var mobile = $('input[name=mobile]').val();
+        var code = $('input[name=code]').val();
+
+        if(!checkPhone(mobile)) {
+            if(mobile == "") {
+                $('.model-back .top').html('请输入您的手机号码！');
+            } else {
+                $('.model-back .top').html('输入的手机号码有误！');
+            }
+            $('.model-back').css({display:'block'});
+            return ;
+        }
+
+        if(!code || code.length<6) {
+            $('.model-back .top').html('请输入6位数的验证码！');
+            $('.model-back').css({display:'block'});
+            return ;
+        }
+
+
+        $.ajax({
+            url: "/hd/lqw_res.html",
+            type: "post",
+            data: {'code':code,'mobile':mobile,'ch':ch},
+            success: function (json) {
+                if(json.status == 0){
+                    $('.model-back .top').html(json.info);
+                    $('.model-back').css({display:'block'});
+                } else {
+
+                    window.location.href=json.info;
+                }
+                return;
+            }
+        });
+
+
+    });
+
+    // 真不错，开始赚钱
+    $('.go-top').click(function() {
+        $('body,html').animate({scrollTop:0},500);
+
+    });
+
+
+    //  修改弹出框内容
+    //$('.pop .top').html('这里修改弹出提示');
+    //显示弹框
+    // $('.pop').css({display:'block'});
+    //隐藏弹框
+    $('.pop .bottom').click(function() {
+        $('.pop').css({display: "none"});
+    });
+
+
+    // 注册
+
+    // 倒计时
+    var sleep = 60, interval = null;
+    function Countdown(){
+        if (!interval) {
+            $('.get-code').css('pointer-events', 'none');
+            $('.code-time').html(sleep + " s");
+            interval = setInterval(function () {
+                if (sleep == 0) {
+                    if (!!interval) {
+                        clearInterval(interval);
+                        interval = null;
+                        sleep = 60;
+                        $('.get-code').css('pointer-events', 'auto');
+                        $(".code-time").html("获取验证码");
+                    }
+                    return false;
+                }
+                $('.code-time').html(sleep-- + " s");
+            }, 1000);
+        }
+    }
+
+    function checkPhone(phone){
+        if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){
+            return false;
+        }
+        return true;
+    }
+
+</script>
+</html>

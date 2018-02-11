@@ -1,0 +1,226 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">积分任务 - 添加任务 [ <a href="{:C('ADMIN_ROOT')}/member/tasks">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="id" value="{$task.id}">
+            <input type="hidden" name="sub_category" value="{$task.sub_category}">
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="20%">任务分类：</td>
+                    <td class="tLeft" >
+                        <select name="category" disabled id="category">
+                            <option <eq name="task.category" value="1">selected</eq> value="1">新手任务</option>
+                            <option <eq name="task.category" value="2">selected</eq> value="2">日常任务</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">任务名称：</td>
+                    <td class="tLeft" >
+                        <input type="text" name="title" class="huge" value="{$task.title}">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">任务类型：</td>
+                    <td class="tLeft">
+                        <select disabled id="sub_category" class="bleftrequire" onchange="changeAction(this)">
+                            <option value="">请选择</option>
+                            <foreach name="sub_category" item="item" key="key">
+                                <option  <eq name="task.sub_category" value="$key">selected</eq> value="{$key}">{$item}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">重复任务：</td>
+                    <td class="tLeft">
+                        <input type="radio" disabled class="laydate-icon" name="repeatable" <eq name="task.repeatable" value="1" > checked </eq>  value="1"/>是
+                        <input type="radio" disabled class="laydate-icon" name="repeatable" <eq name="task.repeatable" value="0" > checked </eq> value="0"/>否
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">奖励积分：</td>
+                    <td class="tLeft">
+                        <input type="text" name="jf_val" value="{$task.jf_val}">
+                    </td>
+                </tr>
+            </table>
+                <span  id="category_ext">
+
+                </span>
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">任务说明：</td>
+                    <td class="tLeft">
+                        <textarea id="url" name="description" class="huge">{$task.description}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">跳转选项：</td>
+                    <td class="tLeft">
+                        <select name="redirect" id="red" class="bleftrequire" onchange="changeAction(this)">
+                            <foreach name="redirect" item="item" key="key">
+                                <option <eq name="task.redirect" value="$key">selected</eq> value="{$key}">{$item}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<section id="HIDDEN_REGISTER" style="display: none;">
+    <table>
+    </table>
+</section>
+<section id="HIDDEN_RECHARGE" style="display: none;">
+    <table>
+        <tr>
+            <td class="tRight">充值金额大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="recharge_amount" value="{$ext.recharge_amount}">
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">持有天数大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="recharge_days" value="{$ext.recharge_days}">
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">是否首次充值：</td>
+            <td class="tLeft">
+                <input type="radio" class="laydate-icon" name="recharge_first"  checked value="1"/>是
+                <input type="radio" class="laydate-icon" name="recharge_first"    value="0"/>否
+            </td>
+        </tr>
+    </table>
+</section>
+<section id="HIDDEN_BUY" style="display: none;">
+    <table>
+        <tr>
+            <td class="tRight">标的标签：</td>
+            <td class="tLeft">
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  <if condition="in_array(0,$ext['buy_type']) "> checked </if>  value="0"/>普通
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  <if condition="in_array(1,$ext['buy_type']) "> checked </if> value="1"/>新人特惠
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  <if condition="in_array(2,$ext['buy_type']) "> checked </if> value="2"/>爆款
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  <if condition="in_array(6,$ext['buy_type']) "> checked </if> value="6"/>活动
+                <input type="checkbox" class="laydate-icon" name="buy_type[]"  <if condition="in_array(8,$ext['buy_type']) "> checked </if> value="8"/>私人专享
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">投资金额大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="buy_amount" value="{$ext.buy_amount}">
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">标的期限大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="buy_day" value="{$ext.buy_day}">
+            </td>
+        </tr>
+    </table>
+</section>
+<section id="HIDDEN_INVITE" style="display: none;"></section>
+<section id="HIDDEN_INVITE_TOTAL" style="display: none;">
+    <table>
+        <tr>
+            <td class="tRight">选择邀请统计方式：</td>
+            <td class="tLeft">
+                <input type="radio" class="laydate-icon" name="invite_type" checked   value="number"/>总人数
+                <input type="radio" class="laydate-icon" name="invite_type" <eq name="ext.invite_type" value="money">checked</eq>   value="money"/>总金额
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">邀请人数大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="invite_people_number" value="{$ext.invite_people_number}">
+            </td>
+        </tr>
+        <tr>
+            <td class="tRight">好友投资金额总额大于等于：</td>
+            <td class="tLeft">
+                <input type="text" name="invite_buy_total_amount" value="{$ext.invite_buy_total_amount}">
+            </td>
+        </tr>
+    </table>
+</section>
+<section id="HIDDEN_WECHAT" style="display: none;">
+</section>
+<section id="HIDDEN_SIGN" style="display: none;">
+    <tr>
+        <td class="tRight">累计签到天数：</td>
+        <td class="tLeft">
+            <input type="text" name="sign_days" value="{$ext.sign_days}">
+        </td>
+    </tr>
+</section>
+<script>
+    var _layerIndex = 0;
+    var _action = 0;
+    var _sub = '{$task.sub_category}';
+    var _urlObj, _extObj;
+
+
+
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+
+        var table = $('#HIDDEN_'+_sub).html();
+        $('#category_ext').html(table);
+
+
+
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/member/task_update',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('修改成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    function changeAction(_obj){
+        _action = $(_obj).val();
+        var table = $('#HIDDEN_'+_action).html();
+        $('#category_ext').html(table);
+
+    }
+    $("#is_activity").change(function() {
+        if ($("#is_activity").attr("checked")) {
+            $("#start_time").parent().parent().css('display', '');
+        } else{
+            $("#start_time").parent().parent().css('display', 'none');
+        }
+    });
+</script>

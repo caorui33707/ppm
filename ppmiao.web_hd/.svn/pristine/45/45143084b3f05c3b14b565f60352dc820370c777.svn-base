@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    
+     <link rel="stylesheet" href="{:C('STATIC_ROOT')}/new_ppmiao_v4/css/base.css">
+	<link rel="stylesheet" href="{:C('STATIC_ROOT')}/new_ppmiao_v4/css/index.css">
+	<script src="{:C('STATIC_ROOT')}/new_ppmiao_v4/js/jquery-1.10.2.min.js"></script>
+    <title>票票喵 - 充值</title>
+
+</head>
+<body style="background-color:#f4f4f4;">
+	
+	<include file="Public:ppm_menu" />
+    
+    <!--正文-->
+        <div class="person_top">
+            <div class="person_center">
+                <a href="profile.html"><p class="cut10 fl">个人中心</p></a>
+                <a href="repayment_list.html?type=2"><p class="cut10 fl">待还款</p></a>
+                <a href="repayment_list.html?type=1"><p class="cut10 fl">已还款</p></a>
+                <a href="money_detail.html"><p class="cut10 fl">资金明细</p></a>
+                <a href="setting.html"><p class="cut10 fl">账户设置</p></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="container">
+ 			<div class="content">
+						<!-- 余额 -->
+						<!-- 
+						<div class="remainder">
+								<div class="sum1">余额：<span>1000.00</span>元</div>
+								<div class="sum2" >可用余额：<span>500.00</span>元 <span class="line">|</span>在途余额：<span>500.00</span>元</div>
+						</div> -->
+						<!-- 充值金额 -->
+						<div class="input_money">
+							<div class="in">
+									<span>充值金额</span>
+									<input type="text" placeholder="请输入充值金额" maxlength="15" name="amount">
+									<i>元</i>
+							</div>
+						</div>
+						<!-- 选择银行 -->
+						<div class="choice_bank">
+								<p class="choice_rule">选择银行卡<span>（单笔限额200万，单日无限额）</span></p>
+						</div>
+						<!-- 显示银行列表 -->
+						<div class="list clearfix">
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03050000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/中国民生@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03070000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/平安@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03080000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/招商@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="01040000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/中国银行@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="01020000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/中国工商@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03010000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/交通银行@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03060000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/广发银行@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03200000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/东亚银行@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="01030000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/中国农业@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="01050000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/建设@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03020000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/中信@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03100000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/浦发@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03040000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/华夏银行@2x.png" alt="">
+								</div>
+								<div class="bank_box">
+										<div class="mask"></div>
+										<i></i>
+										<img id="03030000" src="{:C('STATIC_ROOT')}/new_ppmiao_v4/images/中国光大@2x.png" alt="">
+								</div>
+						</div>
+						<!-- 登录到网银支付 -->
+						<div class="login_pay_box clearfix">
+								<div class="login_pay">
+										登录到网银支付
+								</div>
+						</div>
+				</div>
+        </div>
+
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+	<script>
+	
+				var bank_code = '';
+				var lis = $(".echo ul li");
+				var banks = $(".bank_box");
+				lis.click(function(){
+						$(this).css("color","#fe712a").siblings().css("color","#333");
+				});
+				
+				
+				
+				banks.click(function(){
+						$(this).css("border","1px solid #ffba9d").find(".mask").css("display","block").end().find("i").css("display","block").end().siblings().css("border","1px solid #cdcdcd").find(".mask").css("display","none").end().find("i").css("display","none");
+						console.log($(this).find("img").attr("id"));
+						
+						bank_code = $(this).find("img").attr("id");
+				})
+				
+				
+		</script>
+    <script>		
+    
+    		$(".login_pay").click(function () {		    	
+		    	var amount = $("input[name='amount']").val();
+		    	var reg	= new RegExp(/^\d*\.?\d{0,2}$/);
+				if (!reg.test(amount) || !amount){	
+					alert('请输入正确金额');
+			        $("input[name='amount']").focus();
+					return false;
+				}
+				if(!bank_code) {
+					alert('请选择银行');
+					return;
+				}
+				location.href = "pay_to.html?amount="+amount+"&bankcode="+bank_code;
+		    });
+    
+    
+    function CheckForm()
+	{
+    	var amount = $("input[name='amount']").val();
+    	var reg	= new RegExp(/^\d*\.?\d{0,2}$/);
+		if (!reg.test(amount) || !amount){	
+			$("#err").empty().html('请输入正确金额,小数点部分只允许两位');
+	        $("input[name='amount']").focus();
+			return false;
+		}
+		/*
+		if(amount<1){
+			$("#err").empty().html('请输入正确金额,小数点部分只允许两位');
+	        $("input[name='amount']").focus();
+			return false;
+		}*/
+	} 
+    
+		$(function () {	
+			/*
+		    $("#pay").click(function () {		    	
+		    	var amount = $("input[name='amount']").val();
+		    	var reg	= new RegExp(/^\d*\.?\d{0,2}$/);
+				if (!reg.test(amount) || !amount){	
+					$("#err").empty().html('请输入正确金额');
+			        $("input[name='amount']").focus();
+					return false;
+				}
+				
+				location.href = "http://114.55.85.42:8089/recharge?companyId={$uid}&amount="+amount;
+				$("#err").empty().html();
+				
+		    });
+		    */
+		    
+		    
+		})
+    </script>
+</body>
+</html>         

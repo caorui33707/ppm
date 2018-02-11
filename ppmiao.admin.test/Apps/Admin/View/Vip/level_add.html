@@ -1,0 +1,79 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">VIP等级增加 [ <a href="{:C('ADMIN_ROOT')}/vip/level_index">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding=3 cellspacing=3 >
+                	
+                <tr>
+                    <td class="tRight">vip等级名称：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="name" name="name" maxlength="45">&nbsp;<span style="color:#409DFE;"></span></td>
+                </tr>
+                                
+                <tr>
+                    <td class="tRight">任务名称：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="mission_name" name="mission_name" maxlength="45">&nbsp;<span style="color:#409DFE;"></span></td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">vip等级值：</td>
+                    <td class="tLeft" >
+                    	<input type="text" class="bLeftRequire" datatype="n" id="level" name="level">&nbsp;
+                    	<span style="color:#409DFE;">和 vip等级 对应 ; vip0->0,vip1->1以次 类推</span>
+                    </td>
+                </tr>
+                			
+				<tr>
+                    <td class="tRight">升至下一级所需成长值：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" datatype="n" id="grow_val" name="grow_val" />&nbsp;<span style="color:#409DFE;"></span></td>
+                </tr>
+				
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    
+    
+    var _adding = false;
+    var _layerIndex = 0;
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                if(_adding) return;
+                _adding = true;
+                _layerIndex = layer.load('数据提交中...');
+                $.ajax({
+                    url: ROOT + '/vip/level_add',
+                    data: $('#frmMain').serialize(),
+                    type: "POST",
+                    cache: false,
+                    success: function(msg) {
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('添加成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                        _adding = false;
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>

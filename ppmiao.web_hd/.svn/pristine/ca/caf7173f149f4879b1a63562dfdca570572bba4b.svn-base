@@ -1,0 +1,333 @@
+<?php
+namespace User\Controller;
+use Think\Controller;
+
+class IndexController extends BaseController {
+
+    private $base;
+
+    protected $api;
+
+    public function __construct()
+    {
+
+        parent::__construct();
+        vendor('Api.ApiRequest');
+
+        $user = session(ONLINE_SESSION);
+
+        if(!$user) {
+            redirect(C('WEB_ROOT').'/user/login.html');
+        }
+
+
+        $this->api = new \ApiRequest();
+        $this->base = [
+            'user' =>[
+                'id' => $user['uid'],
+                'add_time' => $user['add_time'],
+                'salt' => $user['salt']
+            ]
+        ];
+
+
+        if(!cookie('couponCount')){
+            cookie('couponCount',0);
+        }
+    }
+
+
+
+
+
+
+
+    public function index(){
+
+        $response = $this->api->post('userAccountAssets',$this->base);
+
+        $bank = $this->api->post('BindCard',$this->base);
+
+        $bankInfo = $bank->result->bankName.$bank->result->supportCardType." （尾号".substr($bank->result->bankCardNo, -4)."）";
+        $userInfo = (array)$response->result;
+        $user = M('user')->where(array('id'=>$this->base['user']['id']))->find();
+        $user['card_no'] = hide_whole_idcard($user['card_no']);
+        $user['real_name'] = $this->name_star($user['real_name']);
+        $user['username'] = hide_whole_phone($user['username']);
+        $this->assign('bankInfo',$bankInfo);
+        $this->assign('userInfo',$userInfo);
+        $this->assign('user',$user);
+        $this->assign('date',getTime());
+        $info['menu'] = 'index';
+        $this->assign('info',$info);
+        $this->display();
+
+    }
+
+
+
+    public function recharge(){
+
+        $response = $this->api->post('preRecharge',$this->base);
+        $wallet = $this->api->post('userAccountAssets',$this->base);
+//        var_dump($response);
+//
+//        var_dump($wallet);
+
+
+        //自定义数据
+        $info['card_no'] = get_card_tail_number_star($response->result->bankCardNo);
+        $info['mobile'] = hide_whole_phone($response->result->mobile);
+
+        $info['menu'] = 'index';
+
+        $this->assign('info',$info);
+        $this->assign('data',$response->result);
+        $this->assign('wallet',$wallet->result);
+        $this->display();
+
+    }
+
+
+    public function recharge_store(){
+
+        $msgCode = trim(I('post.msgCode', '', 'strip_tags'));
+        $amount = trim(I('post.amount', '', 'strip_tags'));
+        $data = $this->base;
+        $data['msgCode'] = $msgCode;
+        $data['amount'] = $amount;
+        $response = $this->api->post('recharge',$data);
+
+        echo json_encode($response);
+
+    }
+
+    public function recharge_success(){
+        $info['menu'] = 'index';
+
+        $this->assign('info',$info);
+        $this->display();
+    }
+
+
+    public function bank(){
+
+        $response = $this->api->post('preRecharge',$this->base);
+        $response = $response->result;
+        $info['card_no'] = get_card_tail_number_star($response->bankCardNo);
+
+        $info['limitTimes'] = change_money($response->limitTimes);
+        $info['limitDay'] = change_money($response->limitDay);
+        $info['limitMonth'] = change_money($response->limitMonth);
+        $info['menu'] = 'bank';
+//        var_dump($info);
+        $this->assign('data',$response);
+        $this->assign('info',$info);
+        $this->display();
+    }
+
+
+    public function withdraw(){
+
+        $response = $this->api->post('preWithdrawal',$this->base);
+
+        //自定义数据
+        $info['card_no'] = get_card_tail_number_star($response->result->bankCardNo);
+
+        $info['menu'] = 'index';
+
+        $this->assign('info',$info);
+        $this->assign('data',$response->result);
+        $this->display();
+
+    }
+
+
+    public function withdraw_store(){
+
+        $msgCode = trim(I('post.msgCode', '', 'strip_tags'));
+        $amount = trim(I('post.amount', '', 'strip_tags'));
+        $data = $this->base;
+        $data['msgCode'] = $msgCode;
+        $data['amount'] = $amount;
+        $response = $this->api->post('withdraw',$data);
+
+//        var_dump($response);
+        echo json_encode($response);
+
+    }
+
+    public function withdraw_success(){
+        $info['menu'] = 'index';
+
+        $this->assign('info',$info);
+        $this->display();
+    }
+
+
+    public function getAllTrade($type){
+        $res_data = [];
+        for ($i =1;$i<=10;$i++){
+            $data = $this->base;
+            $data['type'] = $type;
+            $data['pageNo'] = $i;
+            $response = $this->api->post('tradeDetail',$data);
+
+            if(empty($response->result)){
+                break;
+            }else{
+                $res_data[] = $response->result;
+            }
+
+
+        }
+        return $res_data;
+    }
+
+
+    public function account(){
+        $info['menu'] = 'account';
+        $info['type']=[
+            1=>'充值',2=>'提现',3=>'购买定期',4=>'到期还款',5=>'现金奖励'
+        ];
+
+        $info['pay_status']=[
+            1=>'打款中',2=>'交易成功',3=>'支付失败'
+        ];
+        $info['status']=[
+            1=>'交易成功',2=>'交易中',3=>'等待处理'
+        ];
+
+
+        $in = $this->getAllTrade(1);
+        $out = $this->getAllTrade(2);
+        $accountBalace = $this->api->post('accountBalace',$this->base);
+
+        $this->assign('info',$info);
+        $this->assign('in',$in);
+        $this->assign('out',$out);
+        $this->assign('accountBalace',$accountBalace);
+        $this->display();
+    }
+
+
+    public function dueDetail(){
+
+        $info['menu'] = 'dueDetail';
+
+
+        $response = $this->api->post('userAccountAssets',$this->base);
+
+        $InvestingRecord = $this->api->post('InvestingRecord',$this->base);
+        $InvestFinishRecord = $this->api->post('InvestFinishRecord',$this->base);
+//        $InvestFailedRecord = $this->api->post('InvestFailedRecord',$this->base);
+//        print_r($InvestingRecord);
+//        print_r($InvestFinishRecord);
+
+
+        $this->assign('info',$info);
+        $this->assign('response',$response->result);
+        $this->assign('InvestingRecord',$InvestingRecord->result);
+        $this->assign('InvestFinishRecord',$InvestFinishRecord->result);
+        $this->display();
+
+    }
+
+    public function dueInfo(){
+        $id = 87164;
+        $data = $this->base;
+        $data['id'] = $id;
+        $response = $this->api->post('dueDetail',$data);
+        var_dump($response);
+//        $this->assign('response',$response->result);
+//        $this->display();
+
+
+    }
+
+    public function coupon(){
+
+
+        $info['menu'] = 'coupon';
+        $RedEnvelope = $this->api->post('RedEnvelope',$this->base);
+        $CashCoupons = $this->api->post('CashCoupons',$this->base);
+        $InterestCoupon = $this->api->post('InterestCoupon',$this->base);
+
+        $info['RedEnvelopeCount'] = count($RedEnvelope->result[0]->couponList);
+        $info['CashCouponsCount'] = count($CashCoupons->result[0]->couponList);
+        $info['InterestCouponCount'] = count($InterestCoupon->result[0]->couponList);
+
+        $couponCount = $info['RedEnvelopeCount']+$info['CashCouponsCount']+$info['InterestCouponCount'];
+
+        cookie('couponCount',$couponCount);
+
+//        var_dump($RedEnvelope);
+//        var_dump($CashCoupons);
+//        var_dump($InterestCoupon);
+
+
+        $this->assign('info',$info);
+        $this->assign('RedEnvelope',$RedEnvelope);
+        $this->assign('CashCoupons',$CashCoupons);
+        $this->assign('InterestCoupon',$InterestCoupon);
+        $this->display();
+
+
+    }
+
+    public function cashCouponToWallet(){
+
+        $id = trim(I('post.id', '', 'strip_tags'));
+        $data = $this->base;
+        $data['cashCouponId'] = $id;
+
+        $cashCouponToWallet = $this->api->post('cashCouponToWallet',$data);
+        echo json_encode($cashCouponToWallet);
+
+
+    }
+
+
+    public function getMoneyInfo(){
+        $wallet = $this->api->post('allWaitInterestDetail',$this->base);
+
+
+        print_r($wallet);
+    }
+
+
+
+    public function getSmsCode(){
+        $code = $this->api->post('tradeSmsCode',$this->base);
+        var_dump($code);
+    }
+
+    public function name_star($str){
+        if(preg_match("/[\x{4e00}-\x{9fa5}]+/u", $str)) {
+            //按照中文字符计算长度
+            $len = mb_strlen($str, 'UTF-8');
+            //echo '中文';
+            if($len >= 3){
+                //三个字符或三个字符以上掐头取尾，中间用*代替
+                $str = mb_substr($str, 0, 1, 'UTF-8') . '**';
+            } elseif($len == 2) {
+                //两个字符
+                $str = mb_substr($str, 0, 1, 'UTF-8') . '*';
+            }
+        } else {
+            //按照英文字串计算长度
+            $len = strlen($str);
+            //echo 'English';
+            if($len >= 3) {
+                //三个字符或三个字符以上掐头取尾，中间用*代替
+                $str = substr($str, 0, 1) . '**';
+            } elseif($len == 2) {
+                //两个字符
+                $str = substr($str2, 0, 1) . '*';
+            }
+        }
+        return $str;
+
+    }
+
+}

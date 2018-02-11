@@ -1,0 +1,85 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">{$name}</div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/layer3/layer.js"></script>
+        <style>
+            pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+            .string { color: green; }
+            .number { color: darkorange; }
+            .boolean { color: blue; }
+            .null { color: magenta; }
+            .key { color: red; }
+        </style>
+        <form id="frmMain" method='GET' action="/admin.php/FundAccount/detail">
+            <table id cellpadding=3 cellspacing=3 >
+                <input type="hidden" name="type" value="{$type}">
+                <tr>
+                    <td class="tRight">{$name}金额：</td>
+                    <td class="tLeft" >
+                        {$money} <if condition="$last_money neq 0"><span class="boolean">（提示：账户余额不可低于{$last_money}万元。）</span></if>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">选择日期：</td>
+                    <td class="tLeft" >
+                        <input type="text" class="laydate-icon" name="dt" id="start_time" value="{$start_time}" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="查询"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="3" colspan="3" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="5%">转入金额</th>
+                    <th width="12%" align="center">转出金额</th>
+                    <th width="10%" align="center">合计</th>
+                </tr>
+
+                <tr>
+                    <td>{$in}</td>
+                    <td>-{$out}</td>
+                    <td>{$mao_in}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    var _layerIndex2 = 0;
+    var _action = 0;
+    var _urlObj, _extObj;
+
+
+    var _adding = false;
+
+
+    var start = {
+        elem: '#start_time',
+        format: 'YYYY-MM-DD',
+        min: '1970-00-00', //设定最小日期为当前日期
+        max: '2099-06-16', //最大日期
+        istime: false,
+        istoday: true,
+    };
+
+    laydate(start);
+
+</script>

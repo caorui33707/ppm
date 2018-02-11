@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script src="{:C('IMG_ROOT')}/activity/event20170523/js/flexible.js"></script>
+	<script src="{:C('IMG_ROOT')}/activity/event20170523/js/flexible_css.js"></script>
+	<link rel="stylesheet" href="{:C('IMG_ROOT')}/activity/event20170523/css/style.css" />
+	<title>票票喵-端午节</title>
+</head>
+
+<body>
+	<section style="background-color: #fdfcfb;">
+		<div class="rules_bg">
+			<div class="rules_number">
+				<div class="cut30 tc fl">
+						<p>
+							编号
+						</p>
+				</div>
+				<div class="cut30 tc fl">
+						<p>
+							奖励内容
+						</p>
+				</div>
+				<div class="cut40 tc fl">
+					<p>
+						发放时间
+					</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+		<notempty name="list">
+			<div class="rules_time">
+			
+				<volist name="list" id="vo" key="k">
+				<div class="cut30 fl tc">
+					<p style="margin-top:0.06rem;">
+						{$k}
+					</p>
+				</div>
+				<div class="cut30 fl tc">
+					<p style="margin-top:0.06rem;">
+						{$vo.name}
+					</p>
+				</div>
+				<div class="cut40 fl tc">
+					<p style="margin-top:0.06rem;">
+						{$vo.createTime}
+					</p>
+				</div>
+				<div class="clear"></div>
+				</volist>
+			</div>
+			<else />
+			<div class="rules_none tc">
+				<img src="{:C('IMG_ROOT')}/activity/event20170523/images/none.png" style="width:2rem;"/></img>
+			</div>
+			
+		</notempty>
+			
+		</div>
+		<a href="/hd/event20170523.html?mobile={$mobile}">
+			<div class="index_go">
+		      <img src="{:C('IMG_ROOT')}/activity/event20170523/images/go_02.png" /></img>
+		    </div>
+		</a>
+	</section>
+</body>
+</html>

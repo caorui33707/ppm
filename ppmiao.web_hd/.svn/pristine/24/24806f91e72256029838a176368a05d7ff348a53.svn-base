@@ -1,0 +1,6 @@
+﻿@charset "utf-8";
+        .grow_pic img {
+            width: 100%;
+        }
+
+

@@ -1,0 +1,159 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<style type="text/css">
+    a {
+        color: #231cff;
+        text-decoration: none;
+        border-bottom: none;
+    }
+
+    td a {
+        float: right;
+    }
+</style>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">月统计</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <label for="dt">统计时间： <input type="text" name="dt" id="dt" class="laydate-icon" placeholder="选择日期" class="medium" value="{$dt}" readonly></label>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="搜索" class="search imgButton"></div>
+                    <a href="javascript:void(0)" onclick="export_month()" target="_blank">导出excel</a>
+                </form>
+            </div>
+            <!-- 高级查询区域 -->
+            <div  id="searchM" class=" none search cBoth" >
+            </div>
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr class="row">
+                    <th width="150px" align="center">一级分类</th>
+                    <th width="100px" align="center">人数（人）</th>
+                    <th width="100px" align="center">占比（%）</th>
+                    <th width="100px" align="center">二级分类</th>
+                    <th width="150px" align="center">人数（人）</th>
+                    <th width="100px" align="center">占比（%）</th>
+                </tr>
+
+                <foreach name="categories" item="category" key="key">
+
+                    <foreach name="category" item="cate" key="k">
+                    <tr>
+                        <if  condition="$k eq 0">
+                            <td rowspan="{:count($category)}">{$cate_name.$key}</td>
+                            <td rowspan="{:count($category)}">{$this_month_data.$key}</td>
+                            <td rowspan="{:count($category)}"><php>echo    round(  $this_month_data[$key]/$this_month_data['total'] * 100 , 2) . "%";</php></td>
+                        </if>
+                        <td>{$cate_name.$cate} <a href="{:C('ADMIN_ROOT')}/UserCateExport/get_count/type/{$cate}/dt/{$dt}" target="_blank">导出</a></td>
+                        <td>{$this_month_data.$cate}</td>
+                        <td><php>echo    round(  $this_month_data[$cate]/$this_month_data['total'] * 100 , 2) . "%";</php></td>
+                    </tr>
+                    </foreach>
+                </foreach>
+                </tbody>
+            </table>
+
+
+            <foreach name="cate_list" item="cate">
+                <table  class="list" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr class="row">
+                        <th width="150px" align="center">{$last_month_date}</th>
+                        <th width="100px" align="center">总数（人）</th>
+                        <th width="100px" align="center">去向（人数）</th>
+                        <th width="100px" align="center">占比（%）</th>
+                        <th width="150px" align="center">类别</th>
+                        <th width="100px" align="center">占比（%）</th>
+                        <th width="100px" align="center">来源（人数）</th>
+                        <th width="100px" align="center">总数（人）</th>
+                        <th width="100px" align="center">{$month_date}</th>
+                    </tr>
+
+                    <foreach name="cate_list" item="sub_cate" key="key">
+                        <tr>
+                            <if  condition="$key eq 0">
+                                <td rowspan="14">{$cate_name.$cate}</td>
+                                <td rowspan="14">{$last_month_data.$cate}</td>
+                            </if>
+                            <td>{$category_count.$cate.$sub_cate}</td>
+                            <td><php>echo    round(  $category_count[$sub_cate][$cate]/$last_month_data[$cate] * 100 , 2) . "%";</php></td>
+                            <td>{$cate_name.$sub_cate}</td>
+                            <td><php>echo    round(  $category_count[$sub_cate][$cate]/$this_month_data[$cate] * 100 , 2) . "%";</php></td>
+                            <td>{$category_count.$sub_cate.$cate}</td>
+                            <if  condition="$key eq 0">
+                                <td rowspan="14">{$this_month_data.$cate}</td>
+                                <td rowspan="14">{$cate_name.$cate}</td>
+                            </if>
+                        </tr>
+                    </foreach>
+
+
+                    </tbody>
+                </table>
+
+            </foreach>
+
+
+
+
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<script>
+    var dt = {
+        elem: '#dt',
+        format: 'YYYY-MM',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-12-00 00:00:00', //最大日期
+        istime: false,
+        istoday: false,
+        choose: function(datas){
+
+        }
+    };
+    laydate(dt);
+    function export_month(){
+        var month = $('#dt').val();
+        window.location.href=ROOT + "/UserCategory/monthly_excel?dt="+month;
+    }
+
+    // /**
+    //  * 获取需要导出类型的数据条数
+    //  * @return {[type]} [description]
+    //  */
+    // function get_count(cate, dt) {
+    //     $.ajax({
+    //         url: ROOT + '/UserCateExport/get_count',
+    //         data: {"type": cate, "dt":dt},
+    //         type: "POST",
+    //         cache: false,
+    //         success: function(msg) {
+    //             if (msg.status == 200) {
+    //                 // 成功获取需要导出类型的数据条数
+    //                 console.log(msg.info);
+    //                 $('#nav').removeClass('display');
+    //                 // $('body').
+    //             } else {
+    //                 alert('系统错误！');
+    //             }
+    //         }
+    //     });
+    // }
+</script>

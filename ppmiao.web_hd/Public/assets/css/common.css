@@ -1,0 +1,20 @@
+.cut-off__rule{
+    border-top: 1px solid #d4d4d5;
+    width: 1000px;
+    margin-left: -41px;
+    margin-bottom: 15px;
+}
+.tab-cover__padding{
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+    border-bottom: 0!important;
+    padding-bottom: 0!important;
+}
+.progress__cover {
+    height: 5px!important;
+    margin-top: 33px!important;
+}
+.bar__cover {
+    height: 5px!important;
+    background-color: #ff5813!important;
+}

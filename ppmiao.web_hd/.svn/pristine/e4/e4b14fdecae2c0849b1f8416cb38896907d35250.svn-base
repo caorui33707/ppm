@@ -1,0 +1,272 @@
+﻿@charset "utf-8";
+        .four_pic img {
+            width: 100%;
+        }
+
+
+        .four_yuan img {
+        width:100%;
+        height:100%;
+        }
+
+.four_yuan {
+    z-index:-2;
+}
+        /*数字定位*/
+        .times {
+        color:#ffffff;
+        font-size:17px;
+        left:44.5%;
+        top:22%;
+        }
+
+
+         .four_activity img {
+        width:100%;
+        }
+        .four_look {
+        background-color:#f4dd6b;
+        }
+        .four_look img {
+        width:50%;
+        margin:auto;
+        margin-top:-1px;
+        }
+
+                /*滚动框*/
+        .preferential_bigsquare {
+        background-color:#f4dd6b;
+        padding-top:30px;
+        padding-bottom:10px;
+        z-index:-2;
+         
+        }
+         .preferential_number { 
+        padding-bottom:10px;
+        border-bottom:1px dashed #faae1f;
+        margin:0 10px;
+        font-size:13px;
+        color:#832c8e;
+        }   
+       .preferential_number img {
+       width:100%;
+       padding-top:15px;
+       }
+        .invite_detailed {
+            width: 100%;
+            border-radius: 10px;
+            background-color:#ebc715;
+            color:#862612;
+        }
+        .preferential_square {
+        width:90%;
+        margin-right:auto;
+        margin-left:auto;
+        background-color:#ebc715;
+        border-radius:10px;
+        }
+.maquee div {
+padding-top:5px;
+}
+
+         /*抽奖*/
+
+         .main {
+           width: 100% !important;
+       }
+    .prize-draw {
+    width: 100% !important;
+    margin:auto;
+}
+
+ .prize-draw-bg {
+    display: block;
+    width: 90% !important;
+    margin: 0 auto;
+    background: #571666;
+    overflow: hidden;
+    padding-bottom: 5px;
+    border-radius: 10px;
+}
+
+    .prize-draw-bg li {
+        background: #FFF;
+        float: left;
+        margin-left: 5px;
+        margin-top: 5px;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 31% !important;
+    }
+
+     .prize-draw-bg li img {
+     width:98% !important;
+     border-radius: 10px;
+     border: 5px solid #FFF;
+     }
+
+    .actived {
+         background-color: #ff3968;
+         }
+       .integral_kuang {
+        width:80%;
+        margin:auto;
+        padding-bottom:10px;
+        } 
+
+          /*弹框*/
+       .integral_content {
+        width:85%;
+        margin-left:auto;
+        margin-right:auto;
+        background-color:#fed927;
+        border-radius: 12px;
+        padding-top:0px;
+        padding-bottom:30px;
+        }
+        .integral_content  img {
+        padding:5px 5px 5px 0;
+        }
+        .integral_content p {
+            font-size: 16px;
+            text-align: center;
+            line-height: 25px;
+            color:#862612;
+        }
+
+        .integral_content span {
+            font-size: 16px;
+             text-align: center;
+             font-weight:bold;
+             line-height: 25px;
+            color:#ff3968;
+            font-weight:bold;
+        }
+        .integral_bj{
+             top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            opacity: 0.7;
+            position: fixed;}
+        .integral_window{
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed; }
+        .integral_window .integral_content{    border-radius: 5px;
+            width: 70%;
+            margin-left: 15%;
+            background-color: #fff;
+            height: 220px;
+            position: fixed;
+            margin-top: 671px;}
+        .integral_refer select{width:97%;height:40px;background-color:#fff;border:0;color:#787878;color:#000;font-size:13.5px;}
+
+        .tankuang{
+            position: fixed;
+            width: 80%;
+            top: 35%;
+            left: 10%;
+            color: #fff;
+        }
+        .backgr{
+            width: 100%;
+            height: 100%;
+            background: #000;
+            position: fixed;
+            opacity: .5;
+            z-index: 1;
+        }
+
+/*中奖纪录弹框*/
+        .yes {
+            top: -70px;
+            left: 45%;
+        }
+        .yes img {
+                width: 35px;
+            }
+        .yes p {
+                color: #21B2EA;
+                padding: 20px 0 20px 0;
+            }
+        .square_bj {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.6;
+            position: fixed;
+        }
+        .square_window {
+            top: 80%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .success img {
+            width: 45%;
+            padding-top: 20px;
+            margin: auto;
+        }
+        .must {
+            color: #862612;
+            font-size: 14px;
+            padding: 15px 0;
+        }
+        .things div {
+            margin: 10px 0;
+        }
+
+       
+        #lottery table td{
+            width:31%;
+            height: 84px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 24px;
+            border: 1px solid #571666;
+            color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-left: 1.5%;
+            display: block;
+            float: left;
+            background: #fff;;
+            margin-top: 5px;}
+        #lottery table td a{width:100%;height:100px;line-height:100px;display:block;text-decoration:none;}
+
+
+        #lottery table td.active{background-color:#ff3968;}
+        .lottery-group{
+            height: 50px;
+        }
+        .lottery-unit{height: 84px;}
+        .lottery-unit img{
+            width: 100%;
+            margin: auto;
+            margin-top: 8px;}
+        #demo{width:300px; margin:50px auto 10px; overflow:hidden;}
+        #demo a{float:left; width:90px; height:30px; line-height:30px; text-align:center; margin-left:5px; background-color:#000; color:#fff; text-decoration:none; font-weight:bold;}
+        #demo a.cur{background-color:#933;}
+        .lottery_tab{
+            width: 84%;
+            background: #571666;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 10px;
+            display: block;
+            height: 275px;
+            padding-top: 10px;
+            border:solid 1px #fff10c;
+        }
+        .center_html{
+            width: 100%;
+            height: 308px;
+            overflow-y: scroll;
+        }

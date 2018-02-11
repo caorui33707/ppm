@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.min.js"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/tupianlunbo.js"></script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.1.4.2-min.js"></script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.SuperSlide.2.1.js"></script>
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/tupianlunbo.css" rel="stylesheet" type="text/css"/>
+<title>{$meta_title}</title>
+
+</head>
+<style>
+.content{ position:absolute;opacity:10;z-index:3; width: 100%;filter:alpha(opacity=70);}
+.about_banner{margin-top:-96px;}<!--第二导航条透明度-->
+body{background-color:#f4f4f4;}
+.integral_content p{font-size:14px;margin:0 10px;color:#ff580f;margin-top:10px;}
+.integral_content span{color:#ff580f;font-size:20px;}
+.integral_bj{ top:0;left:0; width:100%; height:100%; background-color:#333; opacity:0.3;filter:alpha(opacity=30);z-index:30;}
+.integral_window{top:30%;left:0; width:100%; height:100%;z-index:40; }
+.integral_window .integral_content{border-radius:5px; width:300px;background-color:#fff; height:400px;}
+</style>
+<body style="min-width:1200px;" bgcolor="#f4f4f4">
+	<include file="Public:menu" />		
+      <!--弹出层-->
+      <div  class="hidden" id="integral_bj"></div>
+      <div class="hidden" id="integral_window">
+          <div class="integral_content tc mar">
+          	  <p class="fr cup" onclick="IsPass()"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/enjoy_09.png"/></p>
+              <div class="clear"></div>
+              <p class="tc mtop"><span>扫一扫</span></p>
+              <p class="tc mtop">下载APP即可抢购</p>
+              <img class="tc mtop4" src="{:C('STATIC_ROOT')}/new_ppmiao/images/enjoy_14.png"/>
+          </div>
+      </div>
+        <div class="submit_money mar">
+        	<div class="submit_zero">
+                <p>{$projectInfo.title}</p>
+            </div>
+            <div class="submit_speed cut60 fl">
+            	<div class="product_year cut33 fl tc">
+                    <p>{$projectInfo.user_interest}%</p>
+                    <p><span>预期年化收益</span></p>
+                </div>
+                <div class="product_yuan cut33 fl tc">
+                    <p>{$projectInfo.day}<span>天</span></p>
+                    <p><span>理财期限</span></p>
+                </div>
+                <div class="product_yuan cut33 fl tc">
+                    <p>{$projectInfo.money_min}<span>元</span></p>
+                    <p><span>起投金额</span></p>
+                </div>
+                <div class="clear"></div>
+                <div class="submit_dotted  tc">
+                	<if condition="$projectInfo.new_preferential == 1 ">	
+                	<p>该项目为新手专享项目，只有为进行过投资的新用户才可以投资（仅限一次）</p>
+                	</if>
+                </div>
+                <div class="submit_finance ">
+                	<p>项目总额：{$projectInfo.amount}元</p>
+                    <p class="fl mtop">融资进度：</p>
+                    <div class="proListBox02Rate fl">
+                        <div class="proListBox02RateInner" style="width:{$projectInfo.percent}%;"></div>
+                    </div>
+                    <p class="fl mtop "><span>{$projectInfo.percent}%</span></p>
+                </div>
+            </div>
+            <div class="submit_calculation cut40 fl bg8">
+            	<div class="submit_invest bodb mtop2">
+                	<p>投资金额</p>
+                </div>
+                <div class="submit_can mtop">
+                	<p>可投金额：<span>{$projectInfo.able}</span>元</p>
+                </div>
+                <div class="submit_can mtop">
+                	<p class="fl">起息日期：T（成交日）+1</p>
+                    <p class="fr"><span>一次性还本付息</span></p>
+                    <img class="fr" src="{:C('STATIC_ROOT')}/new_ppmiao/images/enjoy_03.png"/>
+                </div>
+                <div class="clear"></div>
+                <div class="submit_date mtop">
+                	<p>还款日期：<span>{$projectInfo.repayment_time}</span></p>
+                </div>
+                <div class="submit_date mtop">
+                	<p>已投人数：<span>{$projectInfo.total_people}</span>人</p>
+                </div>
+                <div class="submit_key mtop2  cup">
+                	<button class="fl cup"  onclick="IsPass()">立即购买</button>
+                    <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/enjoy_06.png"/>
+                </div>
+            </div>
+        </div>
+      
+        <!---切换内容--->
+        <div class="submit-slideTxtBox mtop2">
+			<div class="hd">
+
+				<!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+				<span class="arrow"><a class="next"></a><a class="prev"></a></span>
+
+				<ul><li>资金保障</li><li>银行托管协议</li><li>保险协议</li><li>相关协议</li></ul>
+			</div>
+			<div class="bd">
+				<ul>
+					<li>承兑银行：本息由{$projectInfo.accepting_bank}兑付</li>
+                    <li>票面金额：{$projectInfo.amount} 票号：{$projectInfo.ticket_number}</li>
+                    <li>还款来源：融资方持有银行承兑汇票托管到期后，由开票银行无条件兑付，托收款项用于偿还投资人的本金和收益。</li>
+                    <li>验票托管：票票喵票据全部由平安银行负责验票确认真伪，并托管至票据到期， 票据到期后由银行负责托收清算，确保票据和资金安全， 本平台所有票据由太平洋保险承保。</li>
+				</ul>
+				<ul>
+
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/1.jpg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/2.jpg"></a></li>
+
+				</ul>
+				<ul>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-1.jpeg"></a></li>
+                    <!-- <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-2.jpeg"></a></li> -->
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-3.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-4.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-5.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-6.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-7.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-8.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/合同-9.jpeg"></a></li>
+                   
+				</ul>
+                <ul>
+                    <li><a href="#" target="_blank"><img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/1.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/2.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/3.jpeg"></a></li>
+                    <li><a href="#" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/4.jpeg"></a></li>
+                    <li><a href="#" target="_blank"></a></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">jQuery(".submit-slideTxtBox").slide();</script>
+        <!---切换内容end--->
+		<!--底部导航栏-->
+		<include file="Public:footer" />
+</body>
+ 
+ <!--点击二维码显示隐藏-->
+<script>
+	var IsPopup = false;
+	function IsPass() {
+		if (IsPopup) {
+			document.getElementById("index_bj").className = "hidden";
+			document.getElementById("index_window").className = "hidden";
+			IsPopup = false;
+		} else {
+			document.getElementById("index_bj").className = "index_bj abs";
+			document.getElementById("index_window").className = "index_window abs";
+			IsPopup = true;
+		}
+	}
+</script>
+
+<script>
+        window.onload = function () {
+            ChangeNav(1);
+        }
+
+        function ChangeNav(num) {
+            $("#zijin").attr("class", "hidden");
+            $("#tuoguan").attr("class", "hidden");
+            $("#baoxian").attr("class", "hidden");
+			$("#xianguan").attr("class", "hidden");
+            for (var i = 1; i < 5; i++) {
+                $("#nav_" + i).css( "border-top:4px solid #fff","background-color", "#fff");
+            }
+            $("#nav_" + num).css("border-top:4px solid #ff580f","background-color", "#f4f4f4");
+            switch (num) {
+                case 1:
+                    $("#zijin").attr("class", "submit_topright ul li a");
+                    break;
+                case 2:
+                    $("#tuoguan").attr("class", "submit_topright ul li a ");
+                    break;
+                case 3:
+                    $("#baoxian").attr("class", "submit_topright ul li a ");
+                    break;
+				case 4:
+                    $("#xianguan").attr("class", "submit_topright ul li a ");
+                    break;
+                default:
+            }
+        }
+</script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.tabso_yeso.js"></script>
+<script type="text/javascript">
+$(document).ready(function($){
+	//淡隐淡现选项卡切换
+	$("#fadetab").tabso({
+		cntSelect:"#fadecon",
+		tabEvent:"mouseover",
+		tabStyle:"fade"
+	});
+	
+});
+
+	var IsPopup = false;
+	function IsPass() {
+		if (IsPopup) {
+			document.getElementById("integral_bj").className = "hidden";
+			document.getElementById("integral_window").className = "hidden";
+			IsPopup = false;
+		} else {
+			document.getElementById("integral_bj").className = "integral_bj abs";
+			document.getElementById("integral_window").className = "integral_window abs";
+			IsPopup = true;
+		}
+	}
+</script>
+</html>

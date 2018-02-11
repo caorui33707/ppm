@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body style="background:#f0f0f0;">
+<include file="PublicNew:menu" />
+
+<div class="joinBanner">
+    <p style="background:url({:C('STATIC_ROOT')}/v2/images/recommentBanner.jpg) no-repeat scroll center top; display:block"></p>
+</div>
+
+<div class="proListBigBox fLe clear">
+    <div class="w980 clear">
+        <notempty name="special_info">
+            <div class="proListBox01 fLe clear">
+                <div class="proListBox01Left fLe clear">
+                    <h2>新手特惠</h2>
+                    <p>低门槛、高收益，新人专享　体验稳稳的幸福</p>
+                </div>
+                <div class="proListBox01Right fLe clear">
+                    <a href="{:C('WEB_ROOT')}/product/detail/{$special_info.id}.html" target="_blank"><h2>{$special_info.title}</h2></a>
+                    <div class="proListBox01RightInner fLe clear">
+                        <span class="span01">预期年化收益<em class="red">{$special_info.user_interest|number_format=2}%</em></span>
+                        <span class="span02">起购金额<em> {$special_info.money_min|number_format}元</em> </span>
+                        <span class="span03">投资期限<em> {$special_info.days}天</em></span>
+                        <a href="{:C('WEB_ROOT')}/product/detail/{$special_info.id}.html" target="_blank"><span class="span04">立即申购</span></a>
+                    </div>
+                </div>
+            </div>
+        </notempty>
+        <notempty name="wallet_info">
+            <div class="proListBox01 fLe clear">
+                <div class="proListBox01Left fLe clear">
+                    <h2>石头钱包</h2>
+                    <p>随存随取</p>
+                </div>
+                <div class="proListBox01Right fLe clear">
+                    <a href="{:C('WEB_ROOT')}/product/wallet.html"><h2>{$wallet_info.title}</h2></a>
+                    <div class="proListBox01RightInner fLe clear">
+                        <span class="span01">年化收益<em class="red">{$wallet_info.rate|number_format=2}%</em></span>
+                        <span class="span02">起购金额<em> 1元</em> </span>
+                        <span class="span03">投资期限<em> 随存随取</em></span>
+                        <a href="{:C('WEB_ROOT')}/product/wallet.html#savemoney"><span class="span04">立即申购</span></a>
+                    </div>
+                </div>
+            </div>
+        </notempty>
+
+        <div class="proListBox02 fLe clear">
+            <div class="proListBox02Title fLe clear">
+                <a href="{:C('WEB_ROOT')}/product/type/1/p/1"><h2 <eq name="params.type" value="1">class="active"</eq>>稳一稳</h2></a>
+                <a href="{:C('WEB_ROOT')}/product/type/2/p/1"><h2 <eq name="params.type" value="2">class="active"</eq> style="margin-left:200px;">博一博</h2></a>
+            </div>
+            <div class="proListBox02Content fLe clear">
+                <ul>
+                <foreach name="list" item="item">
+                    <if condition="$item['type'] eq 104">
+                        <li>
+                            <if condition="$item['type'] eq 107">
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/bkIcon.png" /></div>
+                            <elseif condition="$item['ts'] gt 0" />
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div>
+                            <else/>
+                                <switch name="item.new_preferential">
+                                    <case value="1"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/noviceIcon.png" /></div></case>
+                                    <case value="2"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/explosionIcon.png" /></div></case>
+                                    <case value="3"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/hotIcon.png" /></div></case>
+                                    <case value="4"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/rewardIcon.png" /></div></case>
+                                    <!--<case value="5"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div></case>-->
+                                    <case value="6"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/activityIcon.png" /></div></case>
+                                </switch>
+                            </if>
+                            <div class="proListBlock01 fLe clear" data-time="{$item.ts}">
+                                <span class="span01 fLe clear"><a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><p>{$item.title}</p></a><em>浮动收益</em><em>本金安全</em></span>
+                                <span class="span02 fRi clear" id="counter_{$key}"><gt name="item.ts" value="0">离开抢还有：00 时 00 分 00 秒</gt></span>
+                            </div>
+                            <div class="proListBlock02 fLe clear">
+                                <div class="proListBox02Txt fLe clear">
+                                    <span>近1个月年化收益率 <em class="red">{$item.user_interest|number_format=2}%</em></span><i>|</i>
+                                    <span>起购金额 <em>{$item.money_min|number_format}元</em></span><i>|</i>
+                                    <span>预计期限<em>{$item.days}天</em></span><i>|</i>
+                                    <span>剩余金额<em>{$item.able|number_format}元</em></span>
+                                </div>
+                                <div class="proListBox02Rate fLe clear">
+                                    <eq name="item.status" value="2">
+                                        <div class="proListBox02RateInner" style="width:{$item.percent}%;"></div>
+                                    <else/>
+                                        <div class="proListBox02RateInner" style="width:0px;"></div>
+                                    </eq>
+                                </div>
+                                <switch name="item.status">
+                                    <case value="2">
+                                        <gt name="item.ts" value="0">
+                                            <div id="btn_{$key}" class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                                <span id="btn_no_{$key}">未开售</span>
+                                                <a id="btn_s_{$key}" href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank" style="display:none;"><span>立即申购</span></a>
+                                            </div>
+                                        <else/>
+                                            <div class="proListBox02Button fRi clear">
+                                                <a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><span>立即申购</span></a>
+                                            </div>
+                                        </gt>
+                                    </case>
+                                    <case value="3">
+                                        <div class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                            <span>已售罄</span>
+                                        </div>
+                                    </case>
+                                    <case value="4">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>还款中</span>
+                                        </div>
+                                    </case>
+                                    <case value="5">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>已还款</span>
+                                        </div>
+                                    </case>
+                                </switch>
+                            </div>
+                        </li>
+                    <elseif condition="$item['type'] eq 109"/>
+                        <li>
+                            <if condition="$item['type'] eq 107">
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/bkIcon.png" /></div>
+                            <elseif condition="$item['ts'] gt 0" />
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div>
+                            <else/>
+                                <switch name="item.new_preferential">
+                                    <case value="1"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/noviceIcon.png" /></div></case>
+                                    <case value="2"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/explosionIcon.png" /></div></case>
+                                    <case value="3"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/hotIcon.png" /></div></case>
+                                    <case value="4"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/rewardIcon.png" /></div></case>
+                                    <!--<case value="5"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div></case>-->
+                                    <case value="6"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/activityIcon.png" /></div></case>
+                                </switch>
+                            </if>
+                            <div class="proListBlock01 fLe clear" data-time="{$item.ts}">
+                                <span class="span01 fLe clear"><a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><p>{$item.title}</p></a><em>浮动收益</em><em>本金安全</em></span>
+                                <span class="span02 fRi clear" id="counter_{$key}"><gt name="item.ts" value="0">离开抢还有：00 时 00 分 00 秒</gt></span>
+                            </div>
+                            <div class="proListBlock02 fLe clear">
+                                <div class="proListBox02Txt fLe clear">
+                                    <span>近{$item.lastmonths|default=3}个月年化收益率 <em class="red">{$item.user_interest|number_format=2}%</em></span><i>|</i>
+                                    <span>起购金额 <em>{$item.money_min|number_format}元</em></span><i>|</i>
+                                    <span>预计期限<em>{$item.days}天</em></span><i>|</i>
+                                    <span>剩余金额<em>{$item.able|number_format}元</em></span>
+                                </div>
+                                <div class="proListBox02Rate fLe clear">
+                                    <eq name="item.status" value="2">
+                                        <div class="proListBox02RateInner" style="width:{$item.percent}%;"></div>
+                                    <else/>
+                                        <div class="proListBox02RateInner" style="width:0px;"></div>
+                                    </eq>
+                                </div>
+                                <switch name="item.status">
+                                    <case value="2">
+                                        <gt name="item.ts" value="0">
+                                            <div id="btn_{$key}" class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                                <span id="btn_no_{$key}">未开售</span>
+                                                <a id="btn_s_{$key}" href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank" style="display:none;"><span>立即申购</span></a>
+                                            </div>
+                                        <else/>
+                                            <div class="proListBox02Button fRi clear">
+                                                <a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><span>立即申购</span></a>
+                                            </div>
+                                        </gt>
+                                    </case>
+                                    <case value="3">
+                                        <div class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                            <span>已售罄</span>
+                                        </div>
+                                    </case>
+                                    <case value="4">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>还款中</span>
+                                        </div>
+                                    </case>
+                                    <case value="5">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>已还款</span>
+                                        </div>
+                                    </case>
+                                </switch>
+                            </div>
+                        </li>
+                    <elseif condition="$item['type'] eq 110"/>
+                        <li>
+                            <if condition="$item['type'] eq 107">
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/bkIcon.png" /></div>
+                            <elseif condition="$item['ts'] gt 0" />
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div>
+                            <else/>
+                                <switch name="item.new_preferential">
+                                    <case value="1"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/noviceIcon.png" /></div></case>
+                                    <case value="2"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/explosionIcon.png" /></div></case>
+                                    <case value="3"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/hotIcon.png" /></div></case>
+                                    <case value="4"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/rewardIcon.png" /></div></case>
+                                    <!--<case value="5"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div></case>-->
+                                    <case value="6"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/activityIcon.png" /></div></case>
+                                </switch>
+                            </if>
+                            <div class="proListBlock01 fLe clear" data-time="{$item.ts}">
+                                <span class="span01 fLe clear"><a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><p>{$item.title}</p></a><em>高风险</em><em>高回报</em></span>
+                                <span class="span02 fRi clear" id="counter_{$key}"><gt name="item.ts" value="0">离开抢还有：00 时 00 分 00 秒</gt></span>
+                            </div>
+                            <div class="proListBlock02 fLe clear">
+                                <div class="proListBox02Txt fLe clear">
+                                    <span>近{$item.lastmonths|default=3}个月年化收益率 <em class="red">{$item.user_interest|number_format=2}%</em></span><i>|</i>
+                                    <span>起购金额 <em>{$item.money_min|number_format}元</em></span><i>|</i>
+                                    <span>预计期限<em>{$item.days}天</em></span><i>|</i>
+                                    <span>剩余金额<em>{$item.able|number_format}元</em></span>
+                                </div>
+                                <div class="proListBox02Rate fLe clear">
+                                    <eq name="item.status" value="2">
+                                        <div class="proListBox02RateInner" style="width:{$item.percent}%;"></div>
+                                    <else/>
+                                        <div class="proListBox02RateInner" style="width:0px;"></div>
+                                    </eq>
+                                </div>
+                                <switch name="item.status">
+                                    <case value="2">
+                                        <gt name="item.ts" value="0">
+                                            <div id="btn_{$key}" class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                                <span id="btn_no_{$key}">未开售</span>
+                                                <a id="btn_s_{$key}" href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank" style="display:none;"><span>立即申购</span></a>
+                                            </div>
+                                        <else/>
+                                            <div class="proListBox02Button fRi clear">
+                                                <a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><span>立即申购</span></a>
+                                            </div>
+                                        </gt>
+                                    </case>
+                                    <case value="3">
+                                        <div class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                            <span>已售罄</span>
+                                        </div>
+                                    </case>
+                                    <case value="4">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>还款中</span>
+                                        </div>
+                                    </case>
+                                    <case value="5">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>已还款</span>
+                                        </div>
+                                    </case>
+                                </switch>
+                            </div>
+                        </li>
+                    <elseif condition="$item['type'] eq 139"/>
+                        <li>
+                            <if condition="$item['type'] eq 107">
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/bkIcon.png" /></div>
+                            <elseif condition="$item['ts'] gt 0" />
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div>
+                            <else/>
+                                <switch name="item.new_preferential">
+                                    <case value="1"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/noviceIcon.png" /></div></case>
+                                    <case value="2"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/explosionIcon.png" /></div></case>
+                                    <case value="3"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/hotIcon.png" /></div></case>
+                                    <case value="4"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/rewardIcon.png" /></div></case>
+                                    <!--<case value="5"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div></case>-->
+                                    <case value="6"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/activityIcon.png" /></div></case>
+                                </switch>
+                            </if>
+                            <div class="proListBlock01 fLe clear" data-time="{$item.ts}">
+                                <span class="span01 fLe clear"><a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><p>{$item.title}</p></a><em>高风险</em><em>高回报</em></span>
+                                <span class="span02 fRi clear" id="counter_{$key}"><gt name="item.ts" value="0">离开抢还有：00 时 00 分 00 秒</gt></span>
+                            </div>
+                            <div class="proListBlock02 fLe clear">
+                                <div class="proListBox02Txt fLe clear">
+                                    <span>预计收益率 <em class="red">8.00%~{$item.user_interest}%</em></span><i>|</i>
+                                    <span>起购金额 <em>{$item.money_min|number_format}元</em></span><i>|</i>
+                                    <span>预计期限<em>365天</em></span><i>|</i>
+                                    <span>剩余金额<em>{$item.able|number_format}元</em></span>
+                                </div>
+                                <div class="proListBox02Rate fLe clear">
+                                    <eq name="item.status" value="2">
+                                        <div class="proListBox02RateInner" style="width:{$item.percent}%;"></div>
+                                        <else/>
+                                        <div class="proListBox02RateInner" style="width:0px;"></div>
+                                    </eq>
+                                </div>
+                                <switch name="item.status">
+                                    <case value="2">
+                                        <gt name="item.ts" value="0">
+                                            <div id="btn_{$key}" class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                                <span id="btn_no_{$key}">未开售</span>
+                                                <a id="btn_s_{$key}" href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank" style="display:none;"><span>立即申购</span></a>
+                                            </div>
+                                            <else/>
+                                            <div class="proListBox02Button fRi clear">
+                                                <a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><span>立即申购</span></a>
+                                            </div>
+                                        </gt>
+                                    </case>
+                                    <case value="3">
+                                        <div class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                            <span>已售罄</span>
+                                        </div>
+                                    </case>
+                                    <case value="4">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>还款中</span>
+                                        </div>
+                                    </case>
+                                    <case value="5">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>已还款</span>
+                                        </div>
+                                    </case>
+                                </switch>
+                            </div>
+                        </li>
+                    <elseif condition="$item['type'] eq 148" />
+                        <li>
+                            <if condition="$item['type'] eq 107">
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/bkIcon.png" /></div>
+                                <elseif condition="$item['ts'] gt 0" />
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div>
+                                <else/>
+                                <switch name="item.new_preferential">
+                                    <case value="1"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/noviceIcon.png" /></div></case>
+                                    <case value="2"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/explosionIcon.png" /></div></case>
+                                    <case value="3"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/hotIcon.png" /></div></case>
+                                    <case value="4"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/rewardIcon.png" /></div></case>
+                                    <!--<case value="5"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div></case>-->
+                                    <case value="6"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/activityIcon.png" /></div></case>
+                                </switch>
+                            </if>
+                            <div class="proListBlock01 fLe clear" data-time="{$item.ts}">
+                                <span class="span01 fLe clear"><a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><p>{$item.title}</p></a><em>本金安全</em><em>收益保底</em></span>
+                                <span class="span02 fRi clear" id="counter_{$key}"><gt name="item.ts" value="0">离开抢还有：00 时 00 分 00 秒</gt></span>
+                            </div>
+                            <div class="proListBlock02 fLe clear">
+                                <div class="proListBox02Txt fLe clear">
+                                    <span>预计收益率 <em class="red">{$item.user_interest}%~{$item.maxInterest}%</em></span><i>|</i>
+                                    <span>起购金额 <em>{$item.money_min|number_format}元</em></span><i>|</i>
+                                    <span>预计期限<em>{$item.days}天</em></span><i>|</i>
+                                    <span>剩余金额<em>{$item.able|number_format}元</em></span>
+                                </div>
+                                <div class="proListBox02Rate fLe clear">
+                                    <eq name="item.status" value="2">
+                                        <div class="proListBox02RateInner" style="width:{$item.percent}%;"></div>
+                                        <else/>
+                                        <div class="proListBox02RateInner" style="width:0px;"></div>
+                                    </eq>
+                                </div>
+                                <switch name="item.status">
+                                    <case value="2">
+                                        <gt name="item.ts" value="0">
+                                            <div id="btn_{$key}" class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                                <span id="btn_no_{$key}">未开售</span>
+                                                <a id="btn_s_{$key}" href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank" style="display:none;"><span>立即申购</span></a>
+                                            </div>
+                                            <else/>
+                                            <div class="proListBox02Button fRi clear">
+                                                <a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><span>立即申购</span></a>
+                                            </div>
+                                        </gt>
+                                    </case>
+                                    <case value="3">
+                                        <div class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                            <span>已售罄</span>
+                                        </div>
+                                    </case>
+                                    <case value="4">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>还款中</span>
+                                        </div>
+                                    </case>
+                                    <case value="5">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>已还款</span>
+                                        </div>
+                                    </case>
+                                </switch>
+                            </div>
+                        </li>
+                    <elseif condition="$item['type'] eq 149" />
+                        <li>
+                            <if condition="$item['type'] eq 107">
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/bkIcon.png" /></div>
+                            <elseif condition="$item['ts'] gt 0" />
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div>
+                            <else/>
+                                <switch name="item.new_preferential">
+                                    <case value="1"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/noviceIcon.png" /></div></case>
+                                    <case value="2"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/explosionIcon.png" /></div></case>
+                                    <case value="3"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/hotIcon.png" /></div></case>
+                                    <case value="4"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/rewardIcon.png" /></div></case>
+                                    <!--<case value="5"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div></case>-->
+                                    <case value="6"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/activityIcon.png" /></div></case>
+                                </switch>
+                            </if>
+                            <div class="proListBlock01 fLe clear" data-time="{$item.ts}">
+                                <span class="span01 fLe clear"><a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><p>{$item.title}</p></a><!--<em>本金安全</em><em>收益保底</em>--></span>
+                                <span class="span02 fRi clear" id="counter_{$key}"><gt name="item.ts" value="0">离开抢还有：00 时 00 分 00 秒</gt></span>
+                            </div>
+                            <div class="proListBlock02 fLe clear">
+                                <div class="proListBox02Txt fLe clear">
+                                    <span>预计收益率 <em class="red">{$item.user_interest}%~{$item.maxInterest}%</em></span><i>|</i>
+                                    <span>起购金额 <em>{$item.money_min|number_format}元</em></span><i>|</i>
+                                    <span>预计期限<em>1~2年</em></span><i>|</i>
+                                    <span>剩余金额<em>{$item.able|number_format}元</em></span>
+                                </div>
+                                <div class="proListBox02Rate fLe clear">
+                                    <eq name="item.status" value="2">
+                                        <div class="proListBox02RateInner" style="width:{$item.percent}%;"></div>
+                                        <else/>
+                                        <div class="proListBox02RateInner" style="width:0px;"></div>
+                                    </eq>
+                                </div>
+                                <switch name="item.status">
+                                    <case value="2">
+                                        <gt name="item.ts" value="0">
+                                            <div id="btn_{$key}" class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                                <span id="btn_no_{$key}">未开售</span>
+                                                <a id="btn_s_{$key}" href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank" style="display:none;"><span>立即申购</span></a>
+                                            </div>
+                                            <else/>
+                                            <div class="proListBox02Button fRi clear">
+                                                <a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><span>立即申购</span></a>
+                                            </div>
+                                        </gt>
+                                    </case>
+                                    <case value="3">
+                                        <div class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                            <span>已售罄</span>
+                                        </div>
+                                    </case>
+                                    <case value="4">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>还款中</span>
+                                        </div>
+                                    </case>
+                                    <case value="5">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>已还款</span>
+                                        </div>
+                                    </case>
+                                </switch>
+                            </div>
+                        </li>
+                    <else/>
+                        <li>
+                            <if condition="$item['type'] eq 107">
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/bkIcon.png" /></div>
+                            <elseif condition="$item['ts'] gt 0" />
+                                <div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div>
+                            <else/>
+                                <switch name="item.new_preferential">
+                                    <case value="1"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/noviceIcon.png" /></div></case>
+                                    <case value="2"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/explosionIcon.png" /></div></case>
+                                    <case value="3"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/hotIcon.png" /></div></case>
+                                    <!--<case value="4"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/rewardIcon.png" /></div></case>-->
+                                    <case value="5"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/presaleIcon.png" /></div></case>
+                                    <case value="6"><div class="addIcon"><img src="{:C('STATIC_ROOT')}/v2/images/img/activityIcon.png" /></div></case>
+                                </switch>
+                            </if>
+                            <div class="proListBlock01 fLe clear" data-time="{$item.ts}">
+                                <span class="span01 fLe clear"><a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><p>{$item.title}</p></a><em>低风险</em><em>本息保障</em></span>
+                                <span class="span02 fRi clear" id="counter_{$key}"><gt name="item.ts" value="0">离开抢还有：00 时 00 分 00 秒</gt></span>
+                            </div>
+                            <div class="proListBlock02 fLe clear">
+                                <div class="proListBox02Txt fLe clear">
+                                    <span>年化利率 <em class="red">{$item.user_interest|number_format=2}%</em></span><i>|</i>
+                                    <span>起购金额 <em>{$item.money_min|number_format}元</em></span><i>|</i>
+                                    <span>预计期限<em>{$item.days}天</em></span><i>|</i>
+                                    <span>剩余金额<em>{$item.able|number_format}元</em></span>
+                                </div>
+                                <div class="proListBox02Rate fLe clear">
+                                    <eq name="item.status" value="2">
+                                        <div class="proListBox02RateInner" style="width:{$item.percent}%;"></div>
+                                    <else/>
+                                        <div class="proListBox02RateInner" style="width:0px;"></div>
+                                    </eq>
+                                </div>
+                                <switch name="item.status">
+                                    <case value="2">
+                                        <gt name="item.ts" value="0">
+                                            <div id="btn_{$key}" class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                                <span id="btn_no_{$key}">未开售</span>
+                                                <a id="btn_s_{$key}" href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank" style="display:none;"><span>立即申购</span></a>
+                                            </div>
+                                        <else/>
+                                            <div class="proListBox02Button fRi clear">
+                                                <a href="{:C('WEB_ROOT')}/product/detail/{$item.id}.html" target="_blank"><span>立即申购</span></a>
+                                            </div>
+                                        </gt>
+                                    </case>
+                                    <case value="3">
+                                        <div class="proListBox02Button proListBox02ButtonGray fRi clear">
+                                            <span>已售罄</span>
+                                        </div>
+                                    </case>
+                                    <case value="4">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>还款中</span>
+                                        </div>
+                                    </case>
+                                    <case value="5">
+                                        <div class="proListBox02Button proListBox02ButtonGreen fRi clear">
+                                            <span>已还款</span>
+                                        </div>
+                                    </case>
+                                </switch>
+                            </div>
+                        </li>
+                    </if>
+                </foreach>
+                </ul>
+                {$show}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="re_big_box07 mt20 fLe clear">
+    <div class="main w978 clear">
+        <div class="re_big_box07_b1 fLe clear">
+            <p>石头理财APP</p>
+            <span>
+                <a href="{:C('APP_DOWNLOAD_ANDROID')}" target="_blank"><img src="{:C('STATIC_ROOT')}/v2/images/re_img10.png" /></a>
+                <a href="{:C('APP_DOWNLOAD_IOS')}" target="_blank"><img src="{:C('STATIC_ROOT')}/v2/images/re_img11.png" /></a>
+            </span>
+        </div>
+    </div>
+</div>
+<script>
+    var timerArr = new Array();
+    var idArr = new Array();
+    var pidArr = new Array();
+    var isScroll = {$is_scroll|default=0};
+    var _dd,_hh,_mm,_ss,_time,_pid;
+    $(document).ready(function(){
+        $(".proListBlock01").each(function(i, n){
+            _time = $(n).attr('data-time');
+            if(_time > 0){
+                timerArr.push(_time);
+                idArr.push(i);
+                _dd = parseInt(_time / 60 / 60 / 24, 10);//计算剩余的天数
+                _hh = parseInt(_time / 60 / 60 % 24, 10);//计算剩余的小时数
+                _mm = parseInt(_time / 60 % 60, 10);//计算剩余的分钟数
+                _ss = parseInt(_time % 60, 10);//计算剩余的秒数
+                _dd = checkTime(_dd);
+                _hh = checkTime(_hh);
+                _mm = checkTime(_mm);
+                _ss = checkTime(_ss);
+                if(_dd > 0){
+                    $('#counter_' + i).html("开抢倒计时：<em>" + _dd + "</em>天<em>" + _hh + "</em>时<em>" + _mm + "</em>分<em>" + _ss + "</em>秒");
+                }else{
+                    $('#counter_' + i).html("开抢倒计时：<em>" + _hh + "</em>时<em>" + _mm + "</em>分<em>" + _ss + "</em>秒");
+                }
+                _pid = setInterval("timer(" + i + ")", 1000);
+                pidArr.push(_pid);
+            }else{
+                timerArr.push(0);
+                idArr.push(i);
+                pidArr.push(0);
+            }
+        });
+        if(isScroll == 1){
+            $('html, body').scrollTop(353);
+        }
+    });
+    function timer(_index){
+        timerArr[_index] = timerArr[_index] - 1;
+        _dd = parseInt(timerArr[_index] / 60 / 60 / 24, 10);//计算剩余的天数
+        _hh = parseInt(timerArr[_index] / 60 / 60 % 24, 10);//计算剩余的小时数
+        _mm = parseInt(timerArr[_index] / 60 % 60, 10);//计算剩余的分钟数
+        _ss = parseInt(timerArr[_index] % 60, 10);//计算剩余的秒数
+        _dd = checkTime(_dd);
+        _hh = checkTime(_hh);
+        _mm = checkTime(_mm);
+        _ss = checkTime(_ss);
+        if(_dd > 0){
+            $('#counter_' + idArr[_index]).html("开抢倒计时：<em>" + _dd + "</em>天<em>" + _hh + "</em>时<em>" + _mm + "</em>分<em>" + _ss + "</em>秒");
+        }else{
+            $('#counter_' + idArr[_index]).html("开抢倒计时：<em>" + _hh + "</em>时<em>" + _mm + "</em>分<em>" + _ss + "</em>秒");
+        }
+        if(timerArr[_index] <= 0) {
+            clearInterval(pidArr[_index]);
+            $("#counter_" + idArr[_index]).css('display', 'none');
+            $("#btn_" + idArr[_index]).removeClass('proListBox02ButtonGray');
+            $("#btn_no_" + idArr[_index]).css('display','none');
+            $("#btn_s_" + idArr[_index]).css('display', '');
+        }
+    }
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+</script>
+<include file="PublicNew:footer" />
+</body>
+</html>

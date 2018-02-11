@@ -1,0 +1,80 @@
+* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+
+
+
+/*index*/
+.index_top1{
+	background-image: url("../images/cun5_01.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	margin: auto;
+	position: relative;
+}
+.index_top2{
+	background-image: url("../images/cun5_02.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	margin: auto;
+	position: relative;
+}
+.index_top3{
+	background-image: url("../images/cun5_03.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 9.95rem;
+	text-align: center;
+	margin: auto;
+	position: relative;
+}
+.index_top4{
+	background-image: url("../images/cun5_04.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	margin: auto;
+	position: relative;
+}
+.index_top5{
+	background-image: url("../images/cun5_05.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	margin: auto;
+	position: relative;
+}
+.index_top6{
+	background-image: url("../images/cun5_06.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 10rem;
+	text-align: center;
+	margin: auto;
+	position: relative;
+}
+.index_top7{
+	background-image: url("../images/cun5_07.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 10rem;
+	height: 8.5rem;
+	text-align: center;
+	margin: auto;
+	position: relative;
+}

@@ -1,0 +1,60 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">发送短信</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="150px">手机号码：</td>
+                    <td class="tLeft">
+                        <textarea name="phones" id="phones" datatype="*" style="width:600px;height:150px;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight" width="150px">短信内容：</td>
+                    <td class="tLeft">
+                        <textarea name="content" id="content" datatype="*" onkeyup="countChar(this)" style="width:600px;height:100px;"></textarea>
+                        <p>字数：<em id="count">0</em></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="发  送"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    $("#frmMain").Validform({ // 表单验证
+        tiptype: 3,
+        callback: function(form){
+            _layerIndex = layer.load('短信发送中...');
+            $.ajax({
+                url: ROOT + '/message/send_sms',
+                data: $('#frmMain').serialize(),
+                type: "POST",
+                cache: false,
+                success: function(msg) {
+                    layer.close(_layerIndex);
+                    if(msg.status){
+                        layer.alert('短信发送成功~!', -1);
+                    }else{
+                        layer.alert(msg.info);
+                    }
+                }
+            });
+            return false;
+        }
+    });
+    function countChar(_obj){
+        $("#count").text($(_obj).val().length);
+    }
+</script>

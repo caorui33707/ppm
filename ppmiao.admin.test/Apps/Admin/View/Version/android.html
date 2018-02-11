@@ -1,0 +1,141 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<style>
+    div.content{padding-left:100px;}
+    ul.timeline {
+        list-style-type: none;
+        background: url("../../Public/admin/images/version_line.png") repeat-y scroll 120px 0 transparent;
+        margin: 50px 0;
+        padding: 0;
+    }
+
+    ul.timeline li {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    ul.timeline li .time {
+        position: absolute;
+        width: 90px;
+        text-align: right;
+        left: 0;
+        top: 10px;
+        color: #999;
+    }
+    ul.timeline li .version {
+        position: absolute;
+        width: 290px;
+        text-align: right;
+        left: -200px;
+        top: 30px;
+        font-size: 40px;
+        line-height: 50px;
+        color: #3594cb;
+        overflow: hidden;
+    }
+    ul.timeline li .number {
+        position: absolute;
+        background: url("../../Public/admin/images/version_dot.png") no-repeat scroll 0 0 transparent;
+        width: 56px;
+        height: 56px;
+        left: 97px;
+        line-height: 56px;
+        text-align: center;
+        color: #fff;
+        font-size: 18px;
+    }
+    ul.timeline li.alt .number {
+        background-image: url("../../Public/admin/images/version_dot_alt.png");
+    }
+    ul.timeline li .content2 {
+        margin-left: 180px;
+
+    }
+    ul.timeline li .content2 pre {
+        background-color: #3594cb;
+        padding: 20px;
+        color: #fff;
+        font-size: 13px;
+        line-height: 20px;
+    }
+    ul.timeline li.alt .content2 pre {
+        background-color: #43B1F1;
+    }
+</style>
+<div class="main" >
+    <div class="content">
+        <ul class="timeline">
+            <li>
+                <div class="time">2013-07-29</div>
+                <div class="version">v3.3.1</div>
+                <div class="number">1</div>
+                <div class="content2">
+                    <pre>
+                    -将工具YUICompressor替换为Microsoft Ajax Minifier（需要指定-evals:immediate）。
+                    ...
+                    </pre>
+                </div>
+            </li>
+            <li>
+                <div class="time">2013-07-29</div>
+                <div class="version">v3.3.1</div>
+                <div class="number">1</div>
+                <div class="content2">
+                    <pre>
+                    -将工具YUICompressor替换为Microsoft Ajax Minifier（需要指定-evals:immediate）。
+                    ...
+                    </pre>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(function() {
+
+        var urlSearch = window.location.search;
+        if(urlSearch && urlSearch.indexOf('from=demo') >= 0 ) {
+            $(document.body).addClass('from-demo');
+        }
+
+        var nextDataNumber = 5;
+        var ajaxLoading = false;
+
+
+        var ulNode = $('ul.timeline');
+
+        function initLiNodes() {
+            var liNodes = ulNode.find('li'), count = liNodes.length, i, liNode, leftCount = nextDataNumber * 20;
+            for(i=0; i<count; i++) {
+                liNode = $(liNodes.get(i));
+                if(i % 2 !== 0) {
+                    liNode.addClass('alt');
+                } else {
+                    liNode.removeClass('alt');
+                }
+                liNode.find('.number').text(leftCount + count - i);
+            }
+        }
+        $('#fetchNextData').click(function() {
+            var $this = $(this);
+            $this.addClass('disabled').text('正在加载后二十条数据...');
+            ajaxLoading = true;
+
+            $.get('./version_data_' + nextDataNumber +'.txt', function(data) {
+                ajaxLoading = false;
+                ulNode.append(data);
+                $this.removeClass('disabled').text('后二十条数据');
+                nextDataNumber--;
+
+                if(nextDataNumber === 0) {
+                    $this.hide();
+                }
+
+                initLiNodes();
+            });
+
+        });
+        initLiNodes();
+    });
+</script>
+<!-- 主页面结束 -->
+{// 加载尾部公共文件 }

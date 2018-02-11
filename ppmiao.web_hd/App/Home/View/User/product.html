@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <include file="PublicNew:user_sidebar" />
+
+    <div class="innerRight fRi clear">
+        <div class="innerRight_user_box02 fLe clear" style="margin-top:0; height:auto; padding-bottom:40px;">
+            <div class="innerRight_user_title fLe clear">
+                <h2>我的理财</h2>
+            </div>
+            <div class="newsBox01Title newsBox01ProTitle fLe clear">
+                <h2 class="selected"><span>未还款</span></h2>
+                <h2><span style="border-right:none;">已还款</span></h2>
+            </div>
+            <div class="innerRight_user_myRecord_block01 fLe clear norepayment">
+                <ul class="innerRight_user_myRecord fLe clear norepaymentdata">
+
+                </ul>
+            </div>
+            <div class="innerRight_user_myRecord_block01 fLe clear repayment" style="display:none;">
+                <ul class="innerRight_user_myRecord fLe clear repaymentdata">
+
+                </ul>
+            </div>
+            <div class="page fRi clear norepay"></div>
+            <div class="page fRi clear repay" style="display:none;"></div>
+        </div>
+    </div>
+</div>
+<script>
+    var _root = "{:C('WEB_ROOT')}";
+    $(document).ready(function(){
+        loadNRepayProRecord(1);
+        loadRepayProRecord(1);
+    });
+</script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/user.js"></script>
+<include file="PublicNew:user_footer" />
+</body>
+</html>

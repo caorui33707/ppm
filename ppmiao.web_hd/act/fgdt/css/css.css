@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0px;padding:0px;}
+p,a,dl,dd,dt,img,span,input,select,img{margin:0;padding:0;border:none;}
+body{
+	margin: 0 auto;
+	font-size: 13px;
+	/* [disabled]font-family:"微软雅黑"; */
+	color: #657282;
+	background: #ffffff;
+	-webkit-tap-highlight-color: transparent;
+}
+ul,ul li{list-style:none; padding:0; margin:0}
+a{text-decoration:none;margin:0;}
+a:hover{text-decoration:none;}
+h1,h2,h3,h4,h5,h6{font-family:"微软雅黑";}
+.g-box{display:box; display:-moz-box; display:-o-box; display:-webkit-box;}
+.g-flex{-moz-box-flex:1;-webkit-box-flex:1; box-flex:1;}
+cite, em, i{
+	font-style:normal;}
+
+@media screen and (min-width:480px) {
+ 	body{ width: 480px; margin: 0 auto; background:#ffffff;} 
+}
+
+.activeBox img{
+	max-width: 100%;
+	float:left;}
+.active01,.active02,active03,active04,active05,active06{
+	width:100%;
+	float:left;
+	}
+.active06{
+	width:100%;
+	height:75px;
+	float:left;
+	background:#ffffff;
+	text-align:center;}
+.active06 h3{
+	font:16px/28px "微软雅黑";
+	color:#959595;}
+.active06 h2{
+	font:40px/50px "微软雅黑";
+	color:#e70012;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

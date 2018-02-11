@@ -1,0 +1,138 @@
+﻿@charset "utf-8";
+.opacity{
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom:0;
+background: #000;
+opacity:0.6;
+filter:alpha(opacity=50);
+z-index: 10;
+width: 100%;
+height: 100%;
+display: none;
+}
+.backgr{
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom:0;
+background: #000;
+opacity:0.6;
+filter:alpha(opacity=50);
+z-index: 10;
+width: 100%;
+height: 100%;
+display: none;
+}
+
+.love_money p {
+color:#f05a78;
+font-size:15px;
+font-weight:bold;
+padding-top:58px;
+}
+.love_money span{
+color:#000000;
+}
+.love_now {
+width: 100%;
+line-height: 50px;
+background-color: #ef395d;
+color: #ffffff;
+font-size: 17px;
+width:100%;position:fixed;bottom:0;left:0;
+text-align:center;
+}
+.love_big {
+width:100%;
+height:100%;
+background-color:#fce9ed;
+}
+.love_message {
+width:75%;
+line-height:40px;
+background-color:#ef395d;
+color:#ffffff;
+margin:auto;
+border-radius:10px;
+}
+.love_square {
+width:90%;
+border-radius:10px;
+padding:20px 0 10px 0;
+}
+.love_people {
+margin-left:15px;
+padding-bottom:40px;
+}
+.love_people input {
+line-height:30px;
+text-indent:1em;
+}
+.love_people p {
+margin-top: 10px;
+}
+.love_gou img {
+width:17px;
+margin-top:10px;
+margin-left:5px;
+}
+
+.love_pic img {
+width:100%;
+}
+
+
+
+/*弹出层*/
+.integral_content {
+margin-left:auto;
+margin-right:auto;
+background-color:#ffffff;
+color:#000;
+border-radius: 5px;
+padding-bottom:10px;
+}
+.integral_content p{
+font-size:14px;text-align:center;line-height:25px;
+padding-top:5px;
+padding-bottom:5px;
+}
+.integral_content span{
+color:#000;
+padding-bottom:10px;
+}
+.integral_bj{    
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #333;
+opacity: 0.3;
+position: fixed;}
+.integral_window{
+left: 0;
+width: 100%;
+height: 100%;
+position: fixed; }
+.integral_window .integral_content{    border-radius: 5px;
+width: 70%;
+margin-left: 15%;
+background-color: #fff;
+height: 220px;
+position: fixed;
+margin-top: 671px;}
+.integral_refer select{width:97%;height:40px;background-color:#fff;border:0;color:#787878;color:#000;font-size:13.5px;}
+
+.tankuang{
+position: fixed;
+width: 75%;
+top: 300px;
+left: 13%;
+color: #fff;
+z-index:100;
+}
+

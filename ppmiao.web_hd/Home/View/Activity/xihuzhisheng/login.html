@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+
+  <script type="text/javascript" src="https://image.ppmiao.com/Public/js/util.js"></script>
+  <link rel="stylesheet" href="https://image.ppmiao.com/Public/channel/20171121_oilCard/index.css">
+  <title>油卡</title>
+</head>
+  <body>
+      <!-- 弹框 -->
+      <div class="pop">
+          <div class="dialog">
+              <div class="top"> 请输入验证码 </div>
+              <div class="bottom">
+                  确定
+              </div>
+          </div>
+      </div>
+
+      <!-- 弹框 -->
+    <div class="background img1">
+      <input type="text" class="input1" placeholder="请输入手机号" id="mobile" name="mobile" maxlength="11" >
+      <input type="text" class="input2" placeholder="请输入验证码" id="code" name="code" maxlength="6">
+      <span class="get-code" id="getcodeId">获取验证码</span>
+    </div>
+    <div class="background img2">
+      <div class="add-msg">
+        <input type="checkbox" id="agree_id" checked="checked">
+        <span>
+          已阅读并同意
+          <a href="https://cg.ppmiao.com/act/agree/index.html">《注册协议》</a>
+        </span>
+      </div>
+      <div class="add-account" onclick="addAccount()"></div>
+    </div>
+    <div class="background img3"></div>
+    <div class="background img4"></div>
+    <div class="background img5"></div>
+    <div class="background img6"></div>
+
+    <script>
+    
+    
+    var ch = "{$ch}";
+    
+    
+
+    //  修改弹出框内容
+    //$('.pop .top').html('这里修改弹出提示');
+    //显示弹框
+    // $('.pop').css({display:'block'});
+    //隐藏弹框
+    $('.pop .bottom').click(function() {
+        $('.pop').css({display: "none"});
+    });
+
+
+
+    //立即注册
+      function addAccount(){
+        //window.location.href="./success.html"
+        
+        
+        var mobile = $('input[name=mobile]').val();    		
+		var code = $('input[name=code]').val();
+		if(!checkPhone(mobile)) {
+			if(mobile == "") {				
+				$('.pop .top').html('请输入您的手机号码！');
+			} else {
+				$('.pop .top').html('输入的手机号码有误！');
+			}
+			$('.pop').css({display:'block'});
+			return;
+		}
+		
+		if(!code) {
+			$('.pop .top').html('请输入手机验证码！');
+			$('.pop').css({display:'block'});			
+			return;
+		}
+		
+		
+		var isChecked = $("#agree_id").is(":checked");
+		
+		if(isChecked == false) {
+			$('.pop .top').html('您没有同意用户注册协议');
+			$('.pop').css({display:'block'});			
+			return;
+		}
+				
+		$.ajax({
+	    	url: "/hd/youka_login.html",
+	        type: "post",
+	        data: {'code':code,'mobile':mobile,'ch':ch},
+	        success: function (json) {
+	        	if(json.status == 0){
+	        		$('.pop .top').html(json.info);
+	        		$('.pop').css({display:'block'});
+	        		return;
+	        	} else {
+	        		window.location.href=json.info;
+	        		return;
+	        	}
+	        }
+	   	})         
+        
+        
+      }
+      var time = 59;
+      var interval = null;
+      // 获取验证码
+      function getCode(){
+        if (!interval) {
+        		$('.get-code').css('pointer-events', 'none');
+ 			    $('.get-code').html(time + " s");
+ 			    interval = setInterval(function () {
+ 				    if (time == 0) {
+ 					     if (!!interval) {
+ 						     clearInterval(interval);
+ 						     interval = null;
+ 						     time = 59;
+ 						     
+ 						    $('.get-code').css('pointer-events', 'auto');
+
+ 						     $(".get-code").html("获取验证码");
+ 					     }
+ 					     return false;
+ 				    }
+ 				    $('.get-code').html(time-- + " s");
+ 			    }, 1000);
+        }
+      }
+      
+      
+      
+      $("#getcodeId").click(function(){
+  		var mobile = $('input[name=mobile]').val();
+  		if(!checkPhone(mobile)) {
+  			if(mobile == "") {  				
+  				$('.pop .top').html('请输入您的手机号码！');
+  			} else {
+  				$('.pop .top').html('输入的手机号码有误！'); 		
+  			}
+  			$('.pop').css({display:'block'});
+  			return;
+  		}
+  			
+  		
+  		//if(time == 0) {
+	  		$.ajax({
+	  	    	url: "/hd/sendCode.html",
+	  	        type: "post",
+	  	        data: {'invitedMobile':mobile},
+	  	        success: function (json) {
+	  	        	if(json.status == 1){
+	  	        		getCode();
+	  	        		return;
+	  	        	} else {
+	  	        		$('.pop .top').html(json.info);
+	  	        		$('.pop').css({display:'block'});
+	  	        		return;
+	  	        	}
+	  	          }
+	  	   	})
+  		//}
+  	})
+      
+  	function checkPhone(phone){ 
+		if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){ 
+			return false; 
+		} 
+		return true;
+	}
+      
+    </script>
+  </body>
+</html>

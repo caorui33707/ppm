@@ -1,0 +1,113 @@
+.ui .divider {
+    margin-bottom: 0;
+}
+
+.main {
+    background-color: #F5F5F5;
+    margin-top: 96px;
+}
+
+.container {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.container .object {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.prefecture {
+    height: auto;
+}
+
+.prefecture-title {
+    font-weight: 400;
+    font-size: 16px;
+    color: #333;
+}
+
+.object {
+    height: 160px;
+    border-top: 1px dashed #d9d9d9;
+}
+
+.object .object-title {
+    font-size: 14px;
+    color: #42464e;
+    height: 20px;
+    width: 1119px;
+    margin-left: -15px;
+    margin-top: 15px;
+}
+
+.object .object-title img {
+    height: 14px;
+    margin: 0 3px;
+}
+
+.object .object-data {
+    width: 1120px;
+    display: flex;
+}
+
+.object .object-data__number {
+    display: flex;
+    width: 505px;
+    margin-left: -20px;
+}
+
+.object-data__number .data-number__earnings, .object-data__number .data-number__dates, .object-data__number .data-number__money {
+    width: 150px;
+    height: 100px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.number-earnings__number {
+    font-size: 36px;
+    color: #ff5813;
+}
+
+.number-earnings__text {
+    color: #999;
+    font-size: 14px;
+    margin: 15px 0px;
+}
+
+.number-earnings__number.dates {
+    color: #000;
+}
+
+.object-data__progress {
+    width: 250px;
+}
+
+.data-progress__text {
+    color: #999;
+    font-size: 14px;
+}
+
+.object-data__button {
+    width: 135px!important;
+    height: 44px!important;
+    color: #fff!important;
+    background-color: #ff580f!important;
+    border-radius: 5px!important;
+    font-size: 18px!important;
+    font-weight: 400!important;
+    margin: 10px 0 10px 50px!important;
+}
+.object-data__button:hover {
+    background-color: #F6855C!important;
+}
+.tag{
+    background-color: #fe5a59;
+    color: #fff;
+    border-radius: 3px;
+    padding: 3px;
+    display: inline;
+    margin-left: 20px;
+}

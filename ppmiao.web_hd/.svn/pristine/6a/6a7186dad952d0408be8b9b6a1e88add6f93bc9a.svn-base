@@ -1,0 +1,26 @@
+# nginx rewrite rule
+    rewrite ^/([0-9a-zA-Z_\-]+).html$ /index.php?c=Index&a=$1 last;
+    rewrite ^/product/([0-9a-zA-Z_\-]*)$ /index.php?c=Product&a=$1 last;
+    rewrite ^/product/([0-9a-zA-Z_\-]+).html$ /index.php?c=Product&a=$1 last;
+	rewrite ^/qrcode/([0-9a-zA-Z_\-]+).html$ /index.php?c=Index&a=$1 last;
+    rewrite ^/product/type/([0-9]+)/p/([0-9]+)$ /index.php?c=Product&a=index&type=$1&p=$2 last;
+    rewrite ^/product/detail/([a-zA-Z0-9\=+@|]+).html$ /index.php?c=Product&a=detail&data=$1 last;
+    rewrite ^/product/pay/([a-zA-Z0-9\=+@|]+)$ /index.php?c=Product&a=pay&data=$1 last;
+    rewrite ^/media/p/([0-9]+)$ /index.php?c=Media&a=index&p=$1 last;
+    rewrite ^/media/detail/([0-9]+)$ /index.php?c=Media&a=detail&id=$1 last;
+    rewrite ^/common/([0-9a-zA-Z]+)$ /index.php?c=Common&a=$1 last;
+    rewrite ^/login/([0-9a-zA-Z_\-]*)$ /index.php?c=Login&a=$1 last;
+    rewrite ^/user/([0-9a-zA-Z_\-]*)$ /index.php?c=User&a=$1 last;
+    rewrite ^/user/product/detail/([0-9]+)$ /index.php?c=User&a=product_detail&id=$1 last;
+    rewrite ^/logout$ /index.php?c=Login&a=logout last;
+
+    rewrite ^/api/([0-9a-zA-Z]+)$ /index.php?c=Api&a=$1 last;
+    rewrite ^/mobile/projectdescr/([0-9]+)/([0-9]+)$ /index.php?c=mobile&a=projectdescr&id=$1&target=$2 last;
+    rewrite ^/mobile/activities/([0-9]+)$ /index.php?c=mobile&a=activities&id=$1 last;
+    rewrite ^/mobile/showoff/([a-zA-Z0-9]+)$ /index.php?c=mobile&a=showoff&key=$1 last;
+    rewrite ^/mobile/contract/([0-9]+)/([0-9]+)/([0-9]+)/([a-zA-Z0-9]+)$ /index.php?c=mobile&a=contract&pid=$1&uid=$2&did=$3&sign=$4 last;
+    rewrite ^/mobile/([0-9a-zA-Z_\-]+).html$ /index.php?c=mobile&a=$1 last;    
+    rewrite ^/hd/([0-9a-zA-Z_\-]+).html$ /index.php?c=activity&a=$1 last; 
+    
+    
+# end nginx rewrite rule

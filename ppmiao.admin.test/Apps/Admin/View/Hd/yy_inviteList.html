@@ -1,0 +1,227 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">邀请好友活动单日数据统计</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+            
+                <form method='post' action="">
+                    <div class="fLeft">
+						统计月份：<input type="text" class="laydate-icon" name="regDate" id="start_time" value="{$regDate}" readonly />
+                  		
+                  		邀请人号码：<input type="text" id="invitedUsernName" >
+                  		 
+                  		 <input type="button" value="搜索" class="search imgButton" id="btnInvited">
+                  		 
+                  		被邀请人号码：<input type="text" id="byInvitedUsernName" >
+                  		 
+                  		 <input type="button" value="搜索" class="search imgButton" id="btnByInvited">
+                  		 
+                  		 <input type="button" value="导出" class="search imgButton" id="toExport">
+                    </div>
+
+                </form>  
+            </div>
+        </div>
+        
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody id="rowlist">
+                <tr>
+                    <td height="5" colspan="9" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="5%" align="center">编号</th>
+                    <th width="10%" align="center">邀请人手机号码</th>
+                    <th width="10%" align="center">被邀请用户手机号码</th>
+                    <th width="10%" align="center">注册日期</th>
+                    <th width="10%" align="center">首投日期</th>
+                    <th width="8%" align="center">首投金额</th>
+                    <th width="10%" align="center">累计投资金额</th>
+                    <th width="10%" align="center">累计投资次数</th>
+                    <th width="10%" align="center">最后一次投资日期</th>
+                </tr>
+                    <tr>
+                    	<th align="center"></th>
+                    	<td align="center"></td>
+                    	<td align="center"></td>
+                    	<td align="center"></td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                       	<td align="center"></td>
+                       	<td align="center"></td>
+                    </tr>    
+                <tr>
+                    <td height="5" colspan="9" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+
+	var option = 0;
+
+	var start = {
+	    elem: '#start_time',
+        format: 'YYYY-MM',
+        min: '1970-00', //设定最小日期为当前日期
+        max: '2099-06', //最大日期
+        isdate: true,
+        choose: function(datas){
+        }
+	};
+	laydate(start);
+	
+	$("#btnRegDate").click(function(){
+		_layerIndex = layer.load('正在查询...');
+		var t = 1;
+		var data = $("#start_time").val();
+		if(data == ''){
+			layer.alert('请选择注册时间');
+			return false;
+		}
+		getData(data,t);
+	});
+	//邀请
+	$("#btnInvited").click(function(){
+		
+		_layerIndex = layer.load('正在查询...');
+		var t = 1;
+		var userName = $("#invitedUsernName").val();
+		var time = $("#start_time").val();		
+		$("#byInvitedUsernName").val('');
+		if(userName == '' || time == ''){
+			layer.alert('邀请人手机号码和日期都不能为空');
+			return false;
+		}
+		getData(userName,time,t);
+		
+		option = 1;
+	});
+	
+	//被邀请
+	$("#btnByInvited").click(function(){
+		_layerIndex = layer.load('正在查询...');
+		var t = 2;
+		var userName = $("#byInvitedUsernName").val();
+		
+		$("#invitedUsernName").val('');
+		$("#start_time").val('');
+		
+		if(userName == ''){
+			layer.alert('被邀请人手机号码不能为空');
+			return false;
+		}
+		getData(userName,'66',t);
+		
+		option = 2;
+		
+	});
+		
+	function getData(userName,time,type){
+		
+		$.post(ROOT + "/hd/yy_inviteList", {type: type, userName: userName,time:time}, function(msg){
+	    	layer.close(_layerIndex);
+		    if(msg.status){
+		    	var dd = msg.info;
+		    	var s = '<tr><td height="5" colspan="9" class="topTd"></td></tr>';
+                s +='<tr class="row">';	
+                s +='<th width="5%" align="center">编号</th>';
+                s +='<th width="10%" align="center">邀请人手机号码</th>';
+                s +='<th width="10%" align="center">被邀请用户号码</th>';
+                s +='<th width="14%" align="center">注册日期</th>';
+                s +='<th width="14%" align="center">首投日期</th>';
+                s +='<th width="10%" align="center">首投金额</th>';
+                s +='<th width="10%" align="center">累计投资金额</th>';
+                s +='<th width="8%" align="center">累计投资次数</th>';
+                s +='<th width="14%" align="center">最后一次投资日期</th>';
+		        s +='</tr>';
+		    	
+		        
+		        if(dd) {
+		        
+			    	for(var key in dd){  	
+			    		
+			    		var _first_invest_time = '';
+			    		if(dd[key]['info']['first_invest_time'] != null) {
+			    			_first_invest_time = dd[key]['info']['first_invest_time'];
+			    		}
+			    		
+			    		var _total_invest_amount =0;
+			    		if(dd[key]['total_invest_amount'] != null){
+			    			_total_invest_amount = dd[key]['total_invest_amount'];
+			    		}
+			    		
+			    		var _total_invest_count = 0;
+			    		if(dd[key]['total_invest_count'] != null){
+			    			_total_invest_count = dd[key]['total_invest_count'];
+			    		}
+			    		
+			    		var _last_invest_time = '';
+			    		if(dd[key]['last_invest_time'] != null){
+			    			_last_invest_time = dd[key]['last_invest_time'];
+			    		}
+			    		
+			    		
+			    		var userName = dd[key]['userName'];
+			    		var _a1 = '<a target="_blank" href="{:C('ADMIN_ROOT')}/statistics/user_search/key/';
+			    		_a1 += userName;
+			    		_a1 += '">'+userName+'</a>';
+			    		
+			    		
+			    		var invited_phone = dd[key]['invited_phone'];
+			    		var _a2 = '<a target="_blank" href="{:C('ADMIN_ROOT')}/statistics/user_search/key/';
+			    		_a2 += invited_phone;
+			    		_a2 += '">'+invited_phone+'</a>';
+			    		
+			    		s += '<tr class="row">';
+			    		s += '<td align="center">'+dd[key]['i']+'</td>';
+			    		s += '<td align="center">'+_a1+'</td>';		    		
+			    		s += "<td align='center'>"+_a2+'</td>';
+			    		s += "<td align='center'>"+dd[key]['add_time']+'</td>';
+			    		s += '<td align="center">'+_first_invest_time+'</td>';
+			    		s += '<td align="center">'+dd[key]['info']['first_invest_amount']+'</td>';
+			    		s += '<td align="center">'+_total_invest_amount+'</td>';
+			    		s += '<td align="center">'+_total_invest_count+'</td>';
+			    		s += '<td align="center">'+_last_invest_time+'</td>';
+			    		s += '</tr>';
+			    	}
+		        }
+		    	$("#rowlist").empty().html(s);
+		    }else{
+		        layer.alert(msg.info, -1);
+		    }
+		});
+	}
+	
+	$("#toExport").click(function(){
+		location.href = "{:C('ADMIN_ROOT')}/hd/toExport";
+	})
+	
+</script>

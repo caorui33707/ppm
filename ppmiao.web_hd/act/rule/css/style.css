@@ -1,0 +1,25 @@
+﻿@charset "utf-8";
+
+       .world {
+        width:80%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:20px;
+        }
+        .world_voucher p{
+        font-size:16px;
+        color:#ff6a00;
+        font-weight:bold;
+        padding-top:30px;
+        }
+        .world_number p{
+        font-size:13px;
+        margin-top:5px;
+        }
+        .world_explain {
+        margin-top:30px;
+        }
+        .world_explain p{
+        font-size:13px;
+        color:#858585;
+        }

@@ -1,0 +1,2236 @@
+[ 2017-12-15T09:49:13+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.059000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.059000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.012000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.013000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014000s ]
+
+[ 2017-12-15T09:49:14+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:16+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_member` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`username`,`status` FROM `s_member` WHERE `username` = 'admin' AND `password` = '6fe9f921b95d9ab966fae28149fa89f7' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_admin_log_login` [ RunTime:0.0070s ]
+SQL: INSERT INTO `s_admin_log_login` (`uid`,`username`,`ip`,`location`,`status`,`time_add`) VALUES ('1','admin','127.0.0.1','本机地址','0','1513302556') [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:17+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-12-15T09:49:18+08:00 ] 127.0.0.1 /admin.php/Public/top
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: nodeGroupList E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\696de8d6e81ee8c9b4e4b62238b34e79.php 第 18 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:18+08:00 ] 127.0.0.1 /admin.php/Public/menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:18+08:00 ] 127.0.0.1 /admin.php/Public/drag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:18+08:00 ] 127.0.0.1 /admin.php/Public/footer
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:18+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:18+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T09:49:18+08:00 ] 127.0.0.1 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:22+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0090s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2017-12-15 00:00:00.000000' and add_time<='2017-12-15 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0300s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0070s ]
+SQL: SELECT SUM(value) AS tp_sum FROM `s_user_wallet_records` WHERE ( user_id > 0 and type in(1,4,5) and pay_status=2 ) LIMIT 1   [ RunTime:0.0150s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `device_type` = 1 AND `real_name_auth` = 1 LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `device_type` = 2 AND `real_name_auth` = 1 LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `real_name_auth` = 0 LIMIT 1   [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_share` [ RunTime:0.0080s ]
+
+[ 2017-12-15T09:49:22+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0080s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE ( user_id>0 and status = 1 ) LIMIT 1   [ RunTime:0.0140s ]
+SQL: SELECT COUNT(user_id) AS tp_count from s_recharge_log WHERE user_id >0 and status=2 and project_id in(SELECT id FROM s_project WHERE status in(2,3,4) and is_delete=0) [ RunTime:0.0120s ]
+SQL: SELECT COUNT(DISTINCT user_id) AS tp_count from s_recharge_log WHERE user_id >0 and status=2 and project_id in(SELECT id FROM s_project WHERE status in(2,3,4) and is_delete=0) [ RunTime:0.0100s ]
+
+[ 2017-12-15T09:49:23+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE ( status = 2 ) ORDER BY add_time desc LIMIT 10   [ RunTime:0.0100s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0070s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD201712141605313WI' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121416050685F' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171214160446945' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3057' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD201712141559269Bn' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3089' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171214155901SxC' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3088' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD201712141529339gN' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66484' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3071' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171214150552RN5' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66795' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3073' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171214144913g2P' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66774' LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3073' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD201712141444487IE' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66795' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3071' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171214144124Ybp' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2017-12-15T09:49:25+08:00 ] 127.0.0.1 /admin.php/advIcon/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_adv_icon` [ RunTime:0.0100s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_adv_icon` WHERE `is_delete` = 0 LIMIT 1   [ RunTime:0.0100s ]
+SQL: SELECT * FROM `s_adv_icon` WHERE `is_delete` = 0 ORDER BY edit_time desc LIMIT 0,10   [ RunTime:0.0100s ]
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:28+08:00 ] 127.0.0.1 /admin.php/advPopup/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_adv_popup` [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_adv_popup` WHERE `is_delete` = 0 LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT * FROM `s_adv_popup` WHERE `is_delete` = 0 ORDER BY status,create_time desc LIMIT 0,10   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:52+08:00 ] 127.0.0.1 /admin.php/advPopup/edit/id/14/p/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_adv_popup` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `s_adv_popup` WHERE `id` = 14 AND `is_delete` = 0 LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.047000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:49:56+08:00 ] 127.0.0.1 /admin.php/advPopup/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_adv_popup` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_adv_popup` WHERE `is_delete` = 0 LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `s_adv_popup` WHERE `is_delete` = 0 ORDER BY status,create_time desc LIMIT 0,10   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-12-15T09:51:23+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: params E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\909a7de4e1cea2678db828de48024d13.php 第 130 行.
+NOTIC: [8] Undefined variable: params E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\909a7de4e1cea2678db828de48024d13.php 第 131 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:51:28+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T09:51:28+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T09:52:39+08:00 ] 127.0.0.1 /admin.php/advSuspend/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_adv_suspend` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_adv_suspend` WHERE `is_delete` = 0 LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT * FROM `s_adv_suspend` WHERE `is_delete` = 0 ORDER BY status,create_time desc LIMIT 0,10   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvSuspendController.class.php 第 22 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:52:48+08:00 ] 127.0.0.1 /admin.php/advIcon/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_adv_icon` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_adv_icon` WHERE `is_delete` = 0 LIMIT 1   [ RunTime:0.0060s ]
+SQL: SELECT * FROM `s_adv_icon` WHERE `is_delete` = 0 ORDER BY edit_time desc LIMIT 0,10   [ RunTime:0.0060s ]
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvIconController.class.php 第 22 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:52:58+08:00 ] 127.0.0.1 /admin.php/advPopup/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_adv_popup` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_adv_popup` WHERE `is_delete` = 0 LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `s_adv_popup` WHERE `is_delete` = 0 ORDER BY status,create_time desc LIMIT 0,10   [ RunTime:0.0100s ]
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:53:02+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: params E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\909a7de4e1cea2678db828de48024d13.php 第 130 行.
+NOTIC: [8] Undefined variable: params E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\909a7de4e1cea2678db828de48024d13.php 第 131 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T09:57:51+08:00 ] 127.0.0.1 /admin.php/advPopup/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_adv_popup` [ RunTime:0.0140s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_adv_popup` WHERE `is_delete` = 0 LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT * FROM `s_adv_popup` WHERE `is_delete` = 0 ORDER BY status,create_time desc LIMIT 0,10   [ RunTime:0.0140s ]
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+NOTIC: [8] Undefined index: position E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvPopupController.class.php 第 23 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:58:10+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: params E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\909a7de4e1cea2678db828de48024d13.php 第 130 行.
+NOTIC: [8] Undefined variable: params E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\909a7de4e1cea2678db828de48024d13.php 第 131 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:58:19+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:58:23+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:58:26+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:58:26+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T09:58:29+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_adv_popup` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `s_adv_popup` WHERE ( type = 2 and status = 0 and is_delete = 0 ) LIMIT 1   [ RunTime:0.0080s ]
+
+[ 2017-12-15T09:58:35+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T09:58:43+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T09:58:50+08:00 ] 127.0.0.1 /admin.php/advPopup/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_adv_popup` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `s_adv_popup` WHERE ( type = 2 and status = 0 and is_delete = 0 ) LIMIT 1   [ RunTime:0.0156s ]
+
+[ 2017-12-15T10:13:53+08:00 ] 127.0.0.1 /admin.php/project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_financing` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_project` WHERE ( is_delete=0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `s_project` WHERE ( is_delete=0 ) ORDER BY start_time desc ,status asc LIMIT 0,10   [ RunTime:0.0100s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_project_group` [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3086' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3081' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3084' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3085' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE `project_id` = '3082' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_financing` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `name` FROM `s_project_group` WHERE ( id =0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_advertisement_tag` [ RunTime:0.0080s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: bgcolor E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 112 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: bgcolor E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 112 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: bgcolor E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 112 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: bgcolor E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 112 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: bgcolor E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 112 行.
+NOTIC: [8] Undefined index: can_subscribe E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 171 行.
+NOTIC: [8] Undefined index: type E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\af43d8c2e73251e43123a35be3509780.php 第 195 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.059000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.059000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T10:13:53+08:00 ] 127.0.0.1 /admin.php/Common2/getProjectGroupInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_project_group` [ RunTime:0.0050s ]
+SQL: SELECT `id`,`name` FROM `s_project_group`  [ RunTime:0.0000s ]
+
+[ 2017-12-15T10:13:55+08:00 ] 127.0.0.1 /admin.php/project/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_financing` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`name` FROM `s_financing`  [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `s_monthly_increase_interest_config` [ RunTime:0.0080s ]
+SQL: SELECT `group_id` FROM `s_monthly_increase_interest_config` WHERE ( status=1 ) GROUP BY group_id  [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `s_advertisement_tag` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_advertisement_tag` [ RunTime:0.0070s ]
+SQL: SELECT `id`,`tag_title` FROM `s_advertisement_tag` WHERE ( tag_type =2 and end_time > 1513304035 and start_time < 1513304035 and is_delete = 0  )  [ RunTime:0.0080s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: stage E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\e32864a144b0c4649502c011b355cdf2.php 第 61 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T10:13:55+08:00 ] 127.0.0.1 /admin.php/Common2/getProjectGroupInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_project_group` [ RunTime:0.0080s ]
+SQL: SELECT `id`,`name` FROM `s_project_group` WHERE `tag` = 0  [ RunTime:0.0080s ]
+
+[ 2017-12-15T10:13:55+08:00 ] 127.0.0.1 /admin.php/Common/getProductStageByType
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0100s ]
+SQL: SELECT `stage` FROM `s_project` ORDER BY stage desc LIMIT 1   [ RunTime:0.0070s ]
+
+[ 2017-12-15T10:13:55+08:00 ] 127.0.0.1 /admin.php/Common2/getContractInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_contract` [ RunTime:0.0080s ]
+SQL: SELECT `interest`,`end_time`,`acceptor` FROM `s_contract` WHERE `name` = 'ppm450' LIMIT 1   [ RunTime:0.0090s ]
+
+[ 2017-12-15T10:14:13+08:00 ] 127.0.0.1 /admin.php/statistics/channel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Missing argument 1 for Admin\Model\ExcelModel::__construct(), called in E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\StatisticsController.class.php on line 15 and defined E:\wamp\www\ppmiao.admin.test\Apps\Admin\Model\ExcelModel.class.php 第 18 行.
+NOTIC: [2] Missing argument 2 for Admin\Model\ExcelModel::__construct(), called in E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\StatisticsController.class.php on line 15 and defined E:\wamp\www\ppmiao.admin.test\Apps\Admin\Model\ExcelModel.class.php 第 18 行.
+NOTIC: [8] Undefined variable: fields E:\wamp\www\ppmiao.admin.test\Apps\Admin\Model\ExcelModel.class.php 第 20 行.
+SQL: SHOW COLUMNS FROM `s_constant` [ RunTime:0.0080s ]
+SQL: SELECT `id` FROM `s_constant` WHERE ( cons_key='channel' and parent_id=0 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_constant` WHERE `parent_id` = 4 LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `s_constant` WHERE `parent_id` = 4 ORDER BY add_time desc LIMIT 0,20   [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+NOTIC: [8] Undefined index: new_preferential E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\bcb60fd2a7d116cea90a41bda85a8ed1.php 第 61 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-12-15T10:14:14+08:00 ] 127.0.0.1 /admin.php/statistics/channel_add/p/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Missing argument 1 for Admin\Model\ExcelModel::__construct(), called in E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\StatisticsController.class.php on line 15 and defined E:\wamp\www\ppmiao.admin.test\Apps\Admin\Model\ExcelModel.class.php 第 18 行.
+NOTIC: [2] Missing argument 2 for Admin\Model\ExcelModel::__construct(), called in E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\StatisticsController.class.php on line 15 and defined E:\wamp\www\ppmiao.admin.test\Apps\Admin\Model\ExcelModel.class.php 第 18 行.
+NOTIC: [8] Undefined variable: fields E:\wamp\www\ppmiao.admin.test\Apps\Admin\Model\ExcelModel.class.php 第 20 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.055000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T10:17:21+08:00 ] 127.0.0.1 /admin.php/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ppmiao_test.s_task' doesn't exist
+
+[ 2017-12-15T10:17:26+08:00 ] 127.0.0.1 /admin.php/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ppmiao_test.s_task' doesn't exist
+
+[ 2017-12-15T10:17:51+08:00 ] 127.0.0.1 /admin.php/advertisement/withdrawals_explain_index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_advertisement` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_advertisement` WHERE ( position=9 and is_delete=0 ) LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT * FROM `s_advertisement` WHERE ( position=9 and is_delete=0 ) ORDER BY status asc LIMIT 0,15   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined offset: 9 E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvertisementController.class.php 第 1130 行.
+NOTIC: [8] Undefined offset: 9 E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\AdvertisementController.class.php 第 1130 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T10:18:05+08:00 ] 127.0.0.1 /admin.php/order/depository_index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_depository_log` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_depository_log` WHERE `order_type` IN (6,7) AND `order_status` IN (2,3) LIMIT 1   [ RunTime:0.1710s ]
+SQL: SELECT * FROM `s_depository_log` WHERE `order_type` IN (6,7) AND `order_status` IN (2,3) ORDER BY add_time desc LIMIT 0,20   [ RunTime:0.0350s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072710153141810845225' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072710153141810845225' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017082317032243411027774' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017082317032243411027774' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103011214463611177814' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103011214463611177814' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0060s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072416481871410822717' LIMIT 1   [ RunTime:0.0070s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.070000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-12-15T10:18:10+08:00 ] 127.0.0.1 /admin.php/order/depository_index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_depository_log` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_depository_log` WHERE `order_type` IN (6,7) AND `order_status` IN (2,3) LIMIT 1   [ RunTime:0.0120s ]
+SQL: SELECT * FROM `s_depository_log` WHERE `order_type` IN (6,7) AND `order_status` IN (2,3) ORDER BY add_time desc LIMIT 0,20   [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0060s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072710153141810845225' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072710153141810845225' LIMIT 1   [ RunTime:0.0100s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017082317032243411027774' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017082317032243411027774' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103011214463611177814' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103011214463611177814' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072416481871410822717' LIMIT 1   [ RunTime:0.0060s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-12-15T10:18:15+08:00 ] 127.0.0.1 /admin.php/order/depository_index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_depository_log` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_depository_log` WHERE `order_type` IN (6,7) AND `order_status` IN (2,3) LIMIT 1   [ RunTime:0.0120s ]
+SQL: SELECT * FROM `s_depository_log` WHERE `order_type` IN (6,7) AND `order_status` IN (2,3) ORDER BY add_time desc LIMIT 0,20   [ RunTime:0.0300s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0090s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0090s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072710153141810845225' LIMIT 1   [ RunTime:0.0090s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072710153141810845225' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017082317032243411027774' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017082317032243411027774' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103011214463611177814' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103011214463611177814' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072416481871410822717' LIMIT 1   [ RunTime:0.0070s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T10:18:19+08:00 ] 127.0.0.1 /admin.php/order/depository_index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_depository_log` [ RunTime:0.0090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_depository_log` WHERE `order_type` IN (6,7) AND `order_status` IN (2,3) LIMIT 1   [ RunTime:0.0120s ]
+SQL: SELECT * FROM `s_depository_log` WHERE `order_type` IN (6,7) AND `order_status` IN (2,3) ORDER BY add_time desc LIMIT 0,20   [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0090s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0090s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101815004523711147825' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0090s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103017515619411177822' LIMIT 1   [ RunTime:0.0090s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072710153141810845225' LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072710153141810845225' LIMIT 1   [ RunTime:0.0090s ]
+NOTIC: [8] Undefined property: stdClass::$result E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+NOTIC: [8] Trying to get property of non-object E:\wamp\www\ppmiao.admin.test\Apps\Admin\Controller\OrderController.class.php 第 74 行.
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017082317032243411027774' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017082317032243411027774' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103011214463611177814' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017103011214463611177814' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017101809224091311147819' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `mobile` FROM `s_user` WHERE `platcust` = '2017072416481871410822717' LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:31:39+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:31:39+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:31:39+08:00 ] 127.0.0.1 /admin.php/Public/top
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: nodeGroupList E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\696de8d6e81ee8c9b4e4b62238b34e79.php 第 18 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T11:31:39+08:00 ] 127.0.0.1 /admin.php/Public/menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:31:40+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T11:31:40+08:00 ] 127.0.0.1 /admin.php/Public/drag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:31:40+08:00 ] 127.0.0.1 /admin.php/Public/footer
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:31:40+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:31:40+08:00 ] 127.0.0.1 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T11:31:41+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0080s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2017-12-15 00:00:00.000000' and add_time<='2017-12-15 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0110s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0130s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0040s ]
+SQL: SELECT SUM(value) AS tp_sum FROM `s_user_wallet_records` WHERE ( user_id > 0 and type in(1,4,5) and pay_status=2 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `device_type` = 1 AND `real_name_auth` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `device_type` = 2 AND `real_name_auth` = 1 LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `real_name_auth` = 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `s_share` [ RunTime:0.0000s ]
+
+[ 2017-12-15T11:31:42+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE ( status = 2 ) ORDER BY add_time desc LIMIT 10   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3051' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111418637' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111348g9R' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121511112990L' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111114GH4' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111053kv7' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111040I2I' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66774' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3088' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121510204234n' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD201712141605313WI' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121416050685F' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171214160446945' LIMIT 1   [ RunTime:0.0156s ]
+
+[ 2017-12-15T11:31:42+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0060s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE ( user_id>0 and status = 1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(user_id) AS tp_count from s_recharge_log WHERE user_id >0 and status=2 and project_id in(SELECT id FROM s_project WHERE status in(2,3,4) and is_delete=0) [ RunTime:0.0156s ]
+SQL: SELECT COUNT(DISTINCT user_id) AS tp_count from s_recharge_log WHERE user_id >0 and status=2 and project_id in(SELECT id FROM s_project WHERE status in(2,3,4) and is_delete=0) [ RunTime:0.0156s ]
+
+[ 2017-12-15T11:50:52+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:50:52+08:00 ] 127.0.0.1 /admin.php/Public/top
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: nodeGroupList E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\696de8d6e81ee8c9b4e4b62238b34e79.php 第 18 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:50:52+08:00 ] 127.0.0.1 /admin.php/Public/drag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:50:52+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:50:52+08:00 ] 127.0.0.1 /admin.php/Public/menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:50:52+08:00 ] 127.0.0.1 /admin.php/Public/footer
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:50:52+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:50:53+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE ( status = 2 ) ORDER BY add_time desc LIMIT 10   [ RunTime:0.0110s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3051' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111418637' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111348g9R' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121511112990L' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111114GH4' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111053kv7' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111040I2I' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66774' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3088' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121510204234n' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD201712141605313WI' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121416050685F' LIMIT 1   [ RunTime:0.0156s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66723' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3050' LIMIT 1   [ RunTime:0.0226s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171214160446945' LIMIT 1   [ RunTime:0.0080s ]
+
+[ 2017-12-15T11:50:53+08:00 ] 127.0.0.1 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T11:50:54+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0090s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2017-12-15 00:00:00.000000' and add_time<='2017-12-15 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0110s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0080s ]
+SQL: SELECT SUM(value) AS tp_sum FROM `s_user_wallet_records` WHERE ( user_id > 0 and type in(1,4,5) and pay_status=2 ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `s_share` [ RunTime:0.0080s ]
+
+[ 2017-12-15T11:50:54+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php/Public/top
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: nodeGroupList E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\696de8d6e81ee8c9b4e4b62238b34e79.php 第 18 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php/Public/menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php/Public/drag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php/Public/footer
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T13:47:28+08:00 ] 127.0.0.1 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T13:47:36+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0080s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2017-12-15 00:00:00.000000' and add_time<='2017-12-15 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0110s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0070s ]
+SQL: SELECT SUM(value) AS tp_sum FROM `s_user_wallet_records` WHERE ( user_id > 0 and type in(1,4,5) and pay_status=2 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `device_type` = 1 AND `real_name_auth` = 1 LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `device_type` = 2 AND `real_name_auth` = 1 LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `real_name_auth` = 0 LIMIT 1   [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `s_share` [ RunTime:0.0080s ]
+
+[ 2017-12-15T13:47:36+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0130s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE ( status = 2 ) ORDER BY add_time desc LIMIT 10   [ RunTime:0.0120s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66630' LIMIT 1   [ RunTime:0.0300s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0300s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0390s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215125749499' LIMIT 1   [ RunTime:0.0360s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66630' LIMIT 1   [ RunTime:0.0280s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215125732i3P' LIMIT 1   [ RunTime:0.0100s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66630' LIMIT 1   [ RunTime:0.0140s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0170s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215125708730' LIMIT 1   [ RunTime:0.0200s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66630' LIMIT 1   [ RunTime:0.0250s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0330s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD201712151256501Z5' LIMIT 1   [ RunTime:0.0290s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0210s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3051' LIMIT 1   [ RunTime:0.0180s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111418637' LIMIT 1   [ RunTime:0.0250s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0300s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0110s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111348g9R' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121511112990L' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111114GH4' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111053kv7' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111040I2I' LIMIT 1   [ RunTime:0.0090s ]
+
+[ 2017-12-15T13:47:37+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0070s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE ( user_id>0 and status = 1 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT COUNT(user_id) AS tp_count from s_recharge_log WHERE user_id >0 and status=2 and project_id in(SELECT id FROM s_project WHERE status in(2,3,4) and is_delete=0) [ RunTime:0.0100s ]
+SQL: SELECT COUNT(DISTINCT user_id) AS tp_count from s_recharge_log WHERE user_id >0 and status=2 and project_id in(SELECT id FROM s_project WHERE status in(2,3,4) and is_delete=0) [ RunTime:0.0090s ]
+
+[ 2017-12-15T13:47:37+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T13:47:37+08:00 ] 127.0.0.1 /admin.php/task/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ppmiao_test.s_task' doesn't exist
+
+[ 2017-12-15T13:47:37+08:00 ] 127.0.0.1 /admin.php/activity/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `s_activity_conf` [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_activity_conf` WHERE `is_delete` = 0 LIMIT 1   [ RunTime:0.0060s ]
+SQL: SELECT * FROM `s_activity_conf` WHERE `is_delete` = 0 ORDER BY create_time desc LIMIT 0,15   [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `s_activity_award` [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_activity_award` WHERE ( a_id = 12 and is_delete=0 ) LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_activity_award` WHERE ( a_id = 13 and is_delete=0 ) LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_activity_award` WHERE ( a_id = 15 and is_delete=0 ) LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_activity_award` WHERE ( a_id = 17 and is_delete=0 ) LIMIT 1   [ RunTime:0.0070s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/Public/top
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: nodeGroupList E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\696de8d6e81ee8c9b4e4b62238b34e79.php 第 18 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/Public/menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/Public/drag
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/Public/footer
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/Public/main
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: today_totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 47 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 48 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 49 行.
+NOTIC: [8] Undefined variable: totle_money E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 50 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+NOTIC: [8] Undefined variable: user_count E:\wamp\www\ppmiao.admin.test\Runtime\Cache\Admin\8478f25c4c2f5d819368cae16e2f4f61.php 第 51 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/common/getSmsQueryBalance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-12-15T16:23:30+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `s_project` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `s_recharge_log` WHERE ( status = 2 ) ORDER BY add_time desc LIMIT 10   [ RunTime:0.0110s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66630' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user_redenvelope` [ RunTime:0.0090s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215125749499' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66630' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215125732i3P' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66630' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215125708730' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66630' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD201712151256501Z5' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3051' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111418637' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111348g9R' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD2017121511112990L' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111114GH4' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111053kv7' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `username`,`real_name` FROM `s_user` WHERE `id` = '66487' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `title` FROM `s_project` WHERE `id` = '3090' LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT `amount` FROM `s_user_redenvelope` WHERE `recharge_no` = 'FQWLBPD20171215111040I2I' LIMIT 1   [ RunTime:0.0080s ]
+
+[ 2017-12-15T16:23:31+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_user_due_detail` [ RunTime:0.0070s ]
+SQL: SELECT SUM(due_capital) AS tp_sum FROM `s_user_due_detail` WHERE ( user_id>0 and status = 1 ) LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(user_id) AS tp_count from s_recharge_log WHERE user_id >0 and status=2 and project_id in(SELECT id FROM s_project WHERE status in(2,3,4) and is_delete=0) [ RunTime:0.0100s ]
+SQL: SELECT COUNT(DISTINCT user_id) AS tp_count from s_recharge_log WHERE user_id >0 and status=2 and project_id in(SELECT id FROM s_project WHERE status in(2,3,4) and is_delete=0) [ RunTime:0.0100s ]
+
+[ 2017-12-15T16:23:33+08:00 ] 127.0.0.1 /admin.php/Index/main_ajax
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `s_recharge_log` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0080s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 and add_time>='2017-12-15 00:00:00.000000' and add_time<='2017-12-15 23:59:59.999000' ) LIMIT 1   [ RunTime:0.0120s ]
+SQL: SELECT SUM(amount) AS tp_sum FROM `s_recharge_log` WHERE ( user_id>0 and status=2 ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `s_user_wallet_records` [ RunTime:0.0090s ]
+SQL: SELECT SUM(value) AS tp_sum FROM `s_user_wallet_records` WHERE ( user_id > 0 and type in(1,4,5) and pay_status=2 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `device_type` = 1 AND `real_name_auth` = 1 LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `device_type` = 2 AND `real_name_auth` = 1 LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `s_user` WHERE `real_name_auth` = 0 LIMIT 1   [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `s_share` [ RunTime:0.0070s ]
+

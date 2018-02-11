@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$title}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/css.css" rel="stylesheet" type="text/css" media="all"/>
+    <include file="Public:mobile_forbidding" />
+</head>
+
+<body id="hkfx02">
+    <div class="wrap">
+            <div class="hkfxListBox">
+               <section class="hkfxListTitle">
+                    <h3>验票托管</h3>
+                </section>
+                <section class="hkfxListTxt">
+                    {$descr}
+                </section>
+            </div>
+        <div class="hkfxListBox">
+            <section class="hkfxListTitle">
+                <h3>还款来源</h3>
+            </section>
+            <section class="hkfxListTxt">
+                {$repayment_from}
+            </section>
+        </div>
+        <notempty name="bank_image">
+            <div class="hkfxListBox">
+                <section class="hkfxListTitle">
+                    <h3>承兑汇票</h3>
+                </section>
+                <section class="hkfxListTxt">
+                    <foreach name="bank_image" item="item">
+                        <img src="{$item}" onclick="bigPic('{$item}')" />
+                    </foreach>
+                </section>
+            </div>
+        </notempty>        
+		<div class="hkfxListBox">
+			<section class="hkfxListTitle">
+				<h3>银行托管协议</h3>
+			</section>
+			<section class="hkfxListTxt">
+				
+				<img src="{:C('STATIC_ROOT')}/ppmiao/bank/pa01.jpg" onclick="bigPic('{:C('STATIC_ROOT')}/ppmiao/bank/pa01.jpg" />
+				<img src="{:C('STATIC_ROOT')}/ppmiao/bank/pa02.jpg" onclick="bigPic('{:C('STATIC_ROOT')}/ppmiao/bank/pa02.jpg" />
+				
+			</section>
+		</div>
+		
+		
+		<div class="hkfxListBox">
+			<section class="hkfxListTitle">
+				<h3>保险协议</h3>
+			</section>
+			<section class="hkfxListTxt">
+				<img src="{:C('STATIC_ROOT')}/ppmiao/contract/ht01.jpeg" onclick="bigPic('{:C('STATIC_ROOT')}/ppmiao/contract/ht01.png" />
+				<img src="{:C('STATIC_ROOT')}/ppmiao/contract/ht02.jpeg" onclick="bigPic('{:C('STATIC_ROOT')}/ppmiao/contract/ht02.png" />
+				<img src="{:C('STATIC_ROOT')}/ppmiao/contract/ht03.jpeg" onclick="bigPic('{:C('STATIC_ROOT')}/ppmiao/contract/ht03.png" />
+			</section>
+		</div>
+		
+		 
+		
+		<notempty name="image">
+            <div class="hkfxListBox">
+                <section class="hkfxListTitle">
+                    <h3>相关协议</h3>
+                </section>
+                <section class="hkfxListTxt">
+                    <foreach name="image" item="item">
+                        <img src="{$item}" onclick="bigPic('{$item}')" />
+                    </foreach>
+                </section>
+            </div>
+        </notempty>
+    </div>
+<script>
+    var dType = "{$device_type}";
+    function bigPic(_url){
+        if(dType == 'android'){
+            window.stlc.open(_url);
+        }else if(dType == 'ios'){
+            document.location = 'stlc:open:' + encodeURI(_url);
+        }
+    }
+</script>
+</body>
+</html>

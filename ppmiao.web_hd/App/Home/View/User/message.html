@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <include file="PublicNew:user_sidebar" />
+
+    <div class="innerRight fRi clear">
+        <div class="newsBox01 fLe clear">
+            <div class="innerRight_user_title fLe clear">
+                <h2>消息中心</h2>
+            </div>
+            <div class="newsBox01Title fLe clear">
+                <h2 class="selected"><span>系统消息</span></h2>
+                <h2><span style="border-right:none;">个人消息</span></h2>
+            </div>
+            <ul class="newsBox01Content fLe clear sysmsg">
+
+            </ul>
+            <ul class="newsBox01Content fLe clear permsg" style="display:none;">
+
+            </ul>
+            <div class="page fRi clear system"></div>
+            <div class="page fRi clear personal" style="display:none;"></div>
+        </div>
+    </div>
+</div>
+<script>
+    var _root = "{:C('WEB_ROOT')}";
+    $(document).ready(function(){
+        loadSysMsg(1);
+        loadPerMsg(1);
+    });
+</script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/user.js"></script>
+<include file="PublicNew:user_footer" />
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script language="javascript" src="{:C('STATIC_ROOT')}/v2/js/tab.js"></script>
+    <script language="javascript" src="{:C('STATIC_ROOT')}/layer/layer.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <div class="ProDetailsBox01 fLe clear">
+        <div class="buyRecordBox01Title fLe clear">
+            <h2>{$detail.title}</h2>
+        </div>
+        <div class="ProDetailsBox01_Bigcontent fLe clear">
+            <div class="ProDetailsBox01_content01 fLe clear">
+                <div class="ProDetailsBox01_content01_details fLe clear">
+                    <div class="ProDetailsBox01_details_block01 fLe clear">
+                        <ul>
+                            <li class="li01">
+                                <h5>{$detail.user_interest|number_format=2}<em>%</em></h5>
+                                <p>年化利率</p>
+                            </li>
+                            <li class="li02">
+                                <h5>{$detail.days}天</h5>
+                                <p>投资期限</p>
+                            </li>
+                            <li class="li03">
+                                <h5>{$detail.amount|number_format}元</h5>
+                                <p>融资总额</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ProDetailsBox01_details_block02 fLe clear">
+                        <eq name="detail.status" value="2">
+                            <div class="rateInner" style="width:{$detail.percent}%;"></div>
+                        <else/>
+                            <div class="rateInner" style="width:0px;"></div>
+                        </eq>
+                    </div>
+                    <div class="ProDetailsBox01_details_block03 fLe clear">
+                        <h5 class="fLe">已售 {$detail.percent|number_format=2}%</h5>
+                        <h5 class="fRi">剩余总额 {$detail.able|number_format}元</h5>
+                    </div>
+                </div>
+
+                <div class="ProDetailsBox01_content02_details fLe clear">
+                    <p><span>起息时间：</span>T（成交日）+{$detail['count_interest_type']-1}</p>
+                    <p><span>到期时间：</span>{$detail.end_time|strtotime|date='Y/m/d',###}</p>
+                    <p>
+                        <span>还款方式：</span>
+                        <if condition="$detail['repayment_type'] eq 1">
+                            一次性到期还本付息，到期自动打款到付款银行卡，预计1-2个工作日到账
+                        <elseif condition="$detail['repayment_type'] eq 2"/>
+                            按月付息，到期还本
+                        </if>
+                    </p>
+                </div>
+            </div>
+
+            <div class="ProDetailsBox01_content02 fLe clear">
+                <form id="frmMain" action="" method="post">
+                    <input type="hidden" name="target" value="{$data}" />
+                    <input type="hidden" name="minmoney" value="{$detail.money_min|default=0}" />
+                    <ul>
+                        <li class="li01"><span>申购金额</span><input type="text" id="money" name="money" value="{$detail.money_min|default=0}" class="input01" maxlength="10" onkeyup="value=value.replace(/[^\d]/g,'')" /></li>
+                        <li class="li02"><p>起购金额： {$detail.money_min|number_format} 元</p></li>
+                        <switch name="detail.status">
+                            <case value="2"><li class="li03"><input type="button" value="确认申购" class="button01 <gt name='detail.ts' value='0'>buttonGray</gt>" onclick="buy()" id="btn_buy" /></li></case>
+                            <case value="3"><li class="li03"><input type="button" value="已售罄" class="button01 buttonGray" /></li></case>
+                            <case value="4"><li class="li03"><input type="button" value="正在还款" class="button01 buttonGray" /></li></case>
+                            <case value="5"><li class="li03"><input type="button" value="已还款" class="button01 buttonGray" /></li></case>
+                        </switch>
+                        <li class="li04"><span class="moni_radio" onclick="changeAllow(this)">我同意<a href="{:C('WEB_ROOT')}/protocol.html" target="_blank">《服务协议》</a></span></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="ProDetailsBox02 fLe clear">
+        <div class="ProDetailsBox02Title fLe clear">
+            <h2 class="active">投资方向</h2>
+            <h2>还款来源</h2>
+            <notempty name="detail.invest_direction_image"><h2>相关图片</h2></notempty>
+        </div>
+        <div class="ProDetailsBox02Txt fLe clear">
+            <foreach name="detail.description" item="item">
+                <h2>{$item[0]}</h2>
+                <p>{$item[1]}</p>
+            </foreach>
+        </div>
+        <div class="ProDetailsBox02Txt fLe clear" style="display:none;">
+            <foreach name="detail.s_description" item="item">
+                <h2>{$item[0]}</h2>
+                <p style="text-indent:0px;">{$item[1]}</p>
+            </foreach>
+        </div>
+        <notempty name="detail.invest_direction_image">
+            <div class="ProDetailsBox02Txt fLe clear" style="display:none;">
+                <foreach name="detail.images" item="item">
+                    <p style="text-indent:0px;padding-top:20px;"><img src="{$item}" style="width:100%;" /></p>
+                </foreach>
+            </div>
+        </notempty>
+    </div>
+</div>
+<script>
+    var _root = "{:C('WEB_ROOT')}";
+    var _allow = true;
+    var _id = "{$detail.id}";
+    var _minMoney = {$detail.money_min|default=0};
+    var _pid;
+    var _is_remind = "{$is_remind}";
+    var ts = {$detail.ts|default=0};
+    var _countObj;
+    var _dd,_hh,_mm,_ss;
+    $(document).ready(function(){
+        if(ts > 0) {
+            _countObj = $("#btn_buy");
+            _dd = parseInt(ts / 60 / 60 / 24, 10);//计算剩余的天数
+            _hh = parseInt(ts / 60 / 60 % 24, 10);//计算剩余的小时数
+            _mm = parseInt(ts / 60 % 60, 10);//计算剩余的分钟数
+            _ss = parseInt(ts % 60, 10);//计算剩余的秒数
+            _dd = checkTime(_dd);
+            _hh = checkTime(_hh);
+            _mm = checkTime(_mm);
+            _ss = checkTime(_ss);
+            if(_dd > 0){
+                _countObj.val(_dd + "天" + _hh + "时" + _mm + "分" + _ss + "秒");
+            }else{
+                _countObj.val(_hh + "时" + _mm + "分" + _ss + "秒");
+            }
+            _pid = setInterval("timer()", 1000);
+        }
+    });
+    function timer(){
+        ts = ts - 1;
+        _dd = parseInt(ts / 60 / 60 / 24, 10);//计算剩余的天数
+        _hh = parseInt(ts / 60 / 60 % 24, 10);//计算剩余的小时数
+        _mm = parseInt(ts / 60 % 60, 10);//计算剩余的分钟数
+        _ss = parseInt(ts % 60, 10);//计算剩余的秒数
+        _dd = checkTime(_dd);
+        _hh = checkTime(_hh);
+        _mm = checkTime(_mm);
+        _ss = checkTime(_ss);
+        if(_dd > 0){
+            _countObj.val(_dd + "天" + _hh + "时" + _mm + "分" + _ss + "秒");
+        }else{
+            _countObj.val( _hh + "时" + _mm + "分" + _ss + "秒");
+        }
+        if(ts <= 0) {
+            clearInterval(_pid);
+            _countObj.removeClass('buttonGray');
+            _countObj.val('确认申购');
+        }
+    }
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+</script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/detail.js"></script>
+<include file="PublicNew:footer" />
+</body>
+</html>

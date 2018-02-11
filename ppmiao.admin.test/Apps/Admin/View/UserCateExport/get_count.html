@@ -1,0 +1,128 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<style type="text/css">
+    a {
+        color: #231cff;
+        text-decoration: none;
+        border-bottom: none;
+    }
+
+    .list {
+        float: left;
+        margin: 5px 10px;
+    }
+
+</style>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">月统计-导出{$dt}{$type_name}</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <div class="fRig">
+                &nbsp;&nbsp;共 {$count_uids} 条数据，如果数据量过大，一次性导出可能导致速度非常缓慢，建议分批导出。
+            </div>
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <?php if ($count_uids > 0): ?>
+                
+                <!-- <a href="{:C('ADMIN_ROOT')}/UserCateExport/index/type/{$type}/dt/{$dt}" target="_blank">导出 全部</a><br> -->
+                <a href="###" onclick="export_slice('{$dt}', '{$type}')">导出 全部</a><br>
+                <foreach name="data" item="item" key="k">
+                    <a href="{:C('ADMIN_ROOT')}/UserCateExport/index/type/{$type}/dt/{$dt}/start/{$item['start']-1}/limit/{$item['end'] - $item['start'] + 1}" target="_blank">导出 {$item.start}~{$item.end}</a><br>
+                </foreach>
+
+            <?php endif ?>
+            
+        </div>
+
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<script type="text/javascript">
+
+    var filenames = new Array(); // 记录有数据的页码，压缩文件需要
+    var count = 0;
+    var count_uids = '{$count_uids}'; // 总数据条数
+    var limit = 10000; // 限制每页数据条数
+    var total_page = Math.ceil(count_uids / limit); // 总页数
+
+    /**
+     * 删除数组为空的数据
+     * @param  {[type]} arr [description]
+     * @return {[type]}     [description]
+     */
+    function del_arr_null(arr) {
+        for(var i = 0; i < arr.length; i++) {
+            if(arr[i] == null || arr[i] == '') arr.splice(i,1);
+        }
+        return arr;
+    }
+
+    /**
+     * 分批导出压缩文件
+     * @return {[type]} [description]
+     */
+    function export_slice(dt, type, page = 1) {
+        if (page == 1) {
+            // 清空数组
+            filenames.splice(0,filenames.length);
+        }
+
+        console.log(filenames);
+        if (page <= total_page) {
+            _layerIndex = layer.load('正在生成导出数据...');
+            // 获取每页数据缓存到csv文件
+            generate_temp_csv(dt, type, page);
+        } else {
+            layer.close(_layerIndex);
+
+            filenames = del_arr_null(filenames);
+            // 将所有csv文件压缩并下载
+            if (filenames.length == 0) {
+                layer.close(_layerIndex);
+                layer.alert("没有数据可以导出。");
+                return false;
+            }
+            var page_str = filenames.toString();
+            window.location.href = ROOT + "/UserCateExport/export_zip/dt/" + dt + "/type/" + type + "/pages/" + page_str;
+        }
+    }
+
+    /**
+     * 生成临时文件
+     * @return {[type]} [description]
+     */
+    function generate_temp_csv(dt, type, page) {
+        $.ajax({
+            url: ROOT + '/UserCateExport/put_csv',
+            timeout : 0, //超时时间设置，单位毫秒
+            data: {"type": type, "dt":dt, "page": page, "limit": limit},
+            type: "POST",
+            cache: false,
+            success: function(msg) {
+                if (msg.status == 200) {
+                    if (msg.info != '') {
+                        if ($.inArray(msg.info, filenames) == -1) {
+                            // 要压缩的文件路径记录
+                            filenames.push(msg.info);
+                        }
+                    }
+                    // 下一页数据请求开始
+                    export_slice(dt, type, ++page);
+                } else {
+                    layer.alert(msg.info);
+                }
+            }
+        });
+    }
+
+</script>

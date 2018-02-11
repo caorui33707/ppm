@@ -1,0 +1,108 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">新手标购买记录 <a href="javascript:;" onclick="percent()">百分比</a></div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <label>选择新手标：</label>
+                        <select onchange="changeProject(this)">
+                            <option value="0">选择一个新手标</option>
+                            <foreach name="list" item="item">
+                                <option value="{$item.id}">{$item.title}</option>
+                            </foreach>
+                        </select>
+                        &nbsp;&nbsp;<label id="percent"></label>
+                    </div>
+                </form>
+            </div>
+            <!-- 高级查询区域 -->
+        </div>
+        <!-- 功能操作区域结束 -->
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td height="5" colspan="9" class="topTd"></td>
+                    </tr>
+                    <tr class="row">
+                        <th width="100px" align="center">手机</th>
+                        <th width="100px" align="center">姓名</th>
+                        <th width="50px" align="center">性别</th>
+                        <th width="180px" align="center">身份证</th>
+                        <th width="150px" align="center">渠道</th>
+                        <th width="100px" align="center">购买金额</th>
+                        <th width="150px" align="center">购买时间</th>
+                        <th width="150px" align="center">到期时间</th>
+                        <th width="*">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td height="5" colspan="9" class="bottomTd"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">{$show}</div>
+        <!-- 列表显示区域结束 -->
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<script>
+    var _layerIndex = 0;
+    var _page = 1;
+    var _pid = 0;
+    var _contentObj;
+
+    $(document).ready(function(){
+        _contentObj = $("#checkList > tbody");
+    })
+    function percent(){
+        _layerIndex = layer.load('正在获取数据...');
+        $.post(ROOT + "/activities/newman_record_percent", {}, function(msg){
+            layer.close(_layerIndex);
+            if(msg.status){
+                layer.alert(msg.info, -1);
+            }else{
+                layer.alert(msg.info, -1);
+            }
+        });
+    }
+    function loadData(){
+        _layerIndex = layer.load('正在加载数据...');
+        $.post(ROOT + "/activities/newman_record", {pid: _pid, page: _page}, function(msg){
+            layer.close(_layerIndex);
+            if(msg.status){
+                _contentObj.html(msg.info);
+                $("#percent").html("新手二次投资率："+msg.percent+"%");
+            }else{
+                layer.alert(msg.info, -1);
+            }
+        });
+    }
+    function changeProject(_obj){
+        _pid = $(_obj).val();
+        if(_pid > 0){
+            _page = 1;
+            loadData();
+        }else{
+            _contentObj.html('');
+        }
+    }
+</script>

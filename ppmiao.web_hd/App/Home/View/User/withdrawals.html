@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/validform_v5.3.2_min.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <div class="FirstBuyBox01 withdrawCashBox fLe clear">
+        <div class="withdrawCashTitle01 fLe clear">
+            <h2>提现到银行卡</h2>
+        </div>
+        <form id="frmMain" action="" method="post">
+            <div class="withdrawCashBox01 fLe clear">
+                <div class="SecondBuyListTxt fLe clear"><span>选择银行卡：</span></div>
+                <ul class="FirstBuyBox01List SecondBuyList withdrawCashBoxList fLe clear">
+                    <foreach name="bank_list" item="item">
+                        <gt name="key" value="0">
+                            <li><label><input name="bank_item" type="radio" value="{$item.id}" class="radio" /><span class="span01"><em><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$item.bankCode}.png" /></em>{$item.bankName}  尾号：{$item.shortBankCardNo}</span></label><p class="pTxt">本卡最多可转出金额：{$item.limit}元</p></li>
+                        <else/>
+                            <li><label><input name="bank_item" type="radio" value="{$item.id}" class="radio" checked /><span class="span01"><em><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$item.bankCode}.png" /></em>{$item.bankName}  尾号：{$item.shortBankCardNo}</span></label><p class="pTxt">本卡最多可转出金额：{$item.limit}元</p></li>
+                        </gt>
+                    </foreach>
+                </ul>
+            </div>
+            <div class="withdrawCashBox02 fLe clear">
+                <ul class="FirstBuyBox01List fLe clear">
+                    <li><span>提现金额：</span><input type="text" name="money" value="" datatype="num" errormsg="请输入正确的金额" class="input02" maxlength="10"><p>钱包余额：<em>{$account_info.wallet_totle}</em></p></li>
+                    <li><span>图形验证码：</span><input type="text" name="vcode" value="" datatype="*5-5" errormsg="验证码位数不正确" class="input02 input02Short" maxlength="5"><div class="recode"><img src="{:C('WEB_ROOT')}/common/vcode" title="点击刷新验证码" onclick="refresh(this)" /></div></li>
+                    <li class="LiTxt"><p>今日还可提现 {$times}次</p></li>
+                    <li><input type="submit" value="确认提现" class="button02" <eq name="times" value="0">disabled</eq>></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $("#frmMain").Validform({
+        tiptype:3,
+        datatype:{
+            "num":function(gets,obj,curform,regxp){
+                var reg1 = /^\d+$/, reg2 = /^\d+\.\d{1}$/, reg3 = /^\d+\.\d{2}$/;
+                if(reg1.test(gets)){return true;}
+                if(reg2.test(gets)){return true;}
+                if(reg3.test(gets)){return true;}
+                return false;
+            }
+        }
+    });
+    function refresh(_obj){
+        $(_obj).attr("src", "{:C('WEB_ROOT')}/common/vcode?" + Math.random());
+    }
+</script>
+<include file="PublicNew:user_footer" />
+</body>
+</html>

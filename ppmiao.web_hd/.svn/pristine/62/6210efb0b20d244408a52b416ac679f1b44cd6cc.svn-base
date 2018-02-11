@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170111/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170111/css/style.css" rel="stylesheet" type="text/css" />
+    <title>票票喵-让红包飞</title>
+    <style>
+.red_money{
+    background: url("{:C('STATIC_ROOT')}/activity/event20170111/images/bag_03.jpg") no-repeat;
+        background-size:100% 100%;
+        width:100%;
+        height:80px;
+        margin-top:-1px;
+}
+.red_pic{
+    background: url("{:C('STATIC_ROOT')}/activity/event20170111/images/top_04.jpg") no-repeat;
+        background-size:100% 100%;
+        width:100%;
+        height:70px;
+        margin-top:-1px;
+}
+    </style>
+</head>
+<body>
+    <section>
+        <!--正文-->
+        <div class="news_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20170111/images/bag_01.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170111/images/bag_02.jpg" />
+        </div>
+        <div class="red_money tc">
+            <p>{$income_amount}</p>
+        </div>
+        <div class="red_pic">
+            <div class="red_time tc">
+                <div class="red_money2 cut50 fl">
+                    <p>{$i_invest_amount}</p>
+                </div>
+                <div class="red_money3 cut50 fl">
+                    <p>{$total_invest_money}</p>
+                </div>
+            </div>
+        </div>     
+        <div class="news_pic">
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170111/images/top1_05.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170111/images/bag_05.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170111/images/bag_06.jpg" />
+            <img style="margin-bottom:42px;" src="{:C('STATIC_ROOT')}/activity/event20170111/images/bag_07.jpg" />
+        </div>
+        <div class="news_now tc" style="cursor:pointer;" onclick="go2App();">
+            <p>立即投资</p>
+        </div>
+</section>
+	<script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+    </body>
+</html>

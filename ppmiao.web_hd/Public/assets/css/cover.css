@@ -1,0 +1,17 @@
+.ui.tabular.menu .active.item {
+    width: 119px;
+    font-size: 16px;
+    color: #333;
+}
+
+.active.item .title {
+    margin: 0 auto;
+}
+
+button {
+    outline: none!important;
+}
+
+.ui.progress .bar{
+    min-width:0!important;
+}

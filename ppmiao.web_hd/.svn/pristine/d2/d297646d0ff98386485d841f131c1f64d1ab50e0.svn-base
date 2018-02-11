@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/flash.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.jobBox ul li').hover(function(){
+                $(this).addClass('cur');
+            },function(){
+                $(this).removeClass('cur');
+            })
+        });
+    </script>
+</head>
+
+<body>
+<include file="PublicNew:menu" />
+
+<div class="joinBanner">
+    <p style="background:url(Public/v2/images/innerBanner01.jpg) no-repeat scroll center top; display:block"></p>
+</div>
+
+
+<div class="main w978 clear">
+    <div class="teamBox fLe clear">
+        <h1>核心团队</h1>
+        <p>青春还有，节操不在，有机会，就放肆，不够狠的，别来！</p>
+        <div class="team fLe clear">
+            <ul>
+                <li>
+                    <img src="{:C('STATIC_ROOT')}/v2/images/teamImg01.jpg" />
+                    <div class="teamTxt fLe clear">
+                        <h2>bo Chen</h2>
+                        <h5>陈 波</h5>
+                        <p>石头理财/产品经理</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="{:C('STATIC_ROOT')}/v2/images/teamImg04.png" />
+                    <div class="teamTxt fLe clear">
+                        <h2>wenbin Zhang</h2>
+                        <h5>张文斌</h5>
+                        <p>石头理财/创始人&CEO</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="{:C('STATIC_ROOT')}/v2/images/teamImg03.jpg" />
+                    <div class="teamTxt fLe clear">
+                        <h2>chenping Du</h2>
+                        <h5>杜晨平</h5>
+                        <p>石头理财/首席运营</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="teamWords fLe clear">
+        <h2>来吧！与我们一起共事！</h2>
+        <p>如果你是 技术控，数据控，创意控，完美控，工作疯癫，才气太大，花活要好，外加强迫症患者</p>
+        <p>石头给你“前途”+“钱途”，带你装13带你飞</p>
+        <p>这里有漂亮的妹子，这里有发癫的程序猿，这里有变态的CEO，</p>
+        <p>这里有超体贴的 HR和行政！这里还有吃不完的零食和饮料！</p>
+        <p>国内、国外各种玩，……还有很多不让说的，想知道自己发邮件来</p>
+        <p>精神正常的，还有节操的，别来！</p>
+    </div>
+
+    <div class="jobBox fLe clear">
+        <a href="{:C('WEB_ROOT')}/jobs.html" class="moreJob"></a>
+    </div>
+</div>
+
+<include file="PublicNew:footer" />
+<include file="PublicNew:gotop" />
+</body>
+</html>

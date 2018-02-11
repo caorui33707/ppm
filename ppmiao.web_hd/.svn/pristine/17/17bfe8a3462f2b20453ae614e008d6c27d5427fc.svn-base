@@ -1,0 +1,94 @@
+<div class="header">
+    <div class="middle">
+        <div class="header_left">
+            <img src="https://www.ppmiao.com/Public/new_ppmiao/images/tel.png"> <span>客服热线：400-992-8855
+                    服务时间：09:00-21:00</span>
+        </div>
+        <div class="header_right rel">
+            <img class="rel" onclick="IsPass()" src="https://www.ppmiao.com/Public/new_ppmiao/images/1345.png">
+            <a class="rel" onclick="IsPass()">APP下载</a>
+            <span class="division">|</span>
+            
+           
+            <if condition="$Think.session.USER_ONLINE_SESSION.username eq ''">
+            	<a class="help" href="/user/login.html" ><span>登录</span></a>
+            	<a class="help" href="/user/reg.html" ><span>注册</span></a> 
+            <else/>
+            	<span style="color:#fff">您好，</span>
+                <a href="/index.php/User/index">
+                   			<span style="color:#d45d22;margin-right: 20px;">{$Think.session.USER_ONLINE_SESSION.username}</span>
+                   		</a>
+                <a href="/user/logout.html">
+                   			<span style="color:#d45d22;margin-right: 20px;">退出</span>
+                   		</a>
+            </if>
+            
+            
+            <a class="help" href="help.html"><span>帮助中心</span></a>
+           
+            <if condition="$Think.session.ONLINE_SESSION.uid eq ''">
+                <a href="login.html" class="header-login"><span>企业用户登录/注册</span></a>
+            <else/>
+                <span style="color:#fff">您好，</span>
+                <a href="profile.html">
+                   			<span style="color:#d45d22;margin-right: 20px;">{$Think.session.ONLINE_SESSION.username}</span>
+                   		</a>
+                <a href="logout.html">
+                   			<span style="color:#d45d22;margin-right: 20px;">退出</span>
+                   		</a>
+            </if>
+            
+            <div class="hidden" id="index_bj"></div>
+            <div class="hidden" id="index_window">
+                <img onclick="IsPass()" src="https://www.ppmiao.com/Public/new_ppmiao/images/9_49.png" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--第二导航栏-->
+<div class="content">
+    <div class="clear"></div>
+    <div class="top">
+        <div class="middle">
+            <div class="topleft">
+                <div class="top1 fl">
+                    <img src="https://www.ppmiao.com/Public/new_ppmiao/images/logo_03.png">
+                </div>
+                <div class="top2 fl">
+                    <img src="https://www.ppmiao.com/Public/new_ppmiao/images/logo_09.png">
+                </div>
+                <div class="top3 fl">
+                    <img src="https://www.ppmiao.com/Public/new_ppmiao/images/logo_06.jpg">
+                </div>
+                <div class="fl">
+                    <big>做更好的理财平台</big><br> <small>安全可靠丶信息透明</small>
+                </div>
+
+            </div>
+            <div class="topright">
+                <ul>
+                    <li id="li0"><a href="/">首页</a></li>
+                    <li id="li1"><a href="/security.html">安全保障</a></li>
+                    <li id="li2"><a href="/product/index.html" <if condition="$path eq 'product'">style="border-bottom: 2px solid #ff580f;"</if>>理财产品</a></li>
+                    <li id="li3"><a href="/about.html">关于我们</a></li>
+                    <li id="li4"><a href="/contact.html">联系我们</a></li>
+                    <li id="li5"><a href="/index.php/User/index">我的账户</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function() {
+    var headerShow = 0;
+    $('#li'+ headerShow).css("borderBottom","2px solid #ff580f");
+});
+function IsPass() {
+    if($('.hidden').css("display") == 'block') {
+        $('.hidden').css("display","none");
+    } else {
+        $('.hidden').css("display","block");
+    }
+}
+</script>

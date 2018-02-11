@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/activity/event20170523/css/style.css?f=111" />
+    <script src="{:C('IMG_ROOT')}/activity/event20170523/js/flexible.js"></script>
+    <script src="{:C('IMG_ROOT')}/activity/event20170523/js/flexible_css.js"></script>
+    <script src="{:C('IMG_ROOT')}/activity/event20170523/js/jquery.min.js"></script>
+    <title>端午节</title>
+
+</head>
+
+<body>
+	
+	<div class="backgr" id="integral_bj" style="display: none"></div>
+    <div class="tankuang rel" id="integral_window" style="z-index:12;display: none">
+        <div class="integral_content abs">
+            <p>活动将于5月29日开启</p>
+        </div>
+    </div>
+
+  <div class="index_top">
+  	<div class="index_tim">
+      <p>
+        活动时间：5月29日—6月6日
+      </p>
+    </div>
+  </div>
+  <a href="/hd/event20170523prize.html?mobile={$mobile}">
+    <div class="index_lu">
+      <img src="{:C('IMG_ROOT')}/activity/event20170523/images/gift.png" /></img>
+    </div>
+  </a>
+  <div class="index_rules"></div>
+  <div class="index_ship1">
+  	<if condition="$cashCouponAwardCounts.pos_0 gt 0">
+    <div>
+      <div class="index_dump1">
+        <img src="{:C('IMG_ROOT')}/activity/event20170523/images/dw.gif" /></img>
+      </div>
+      <div class="index_round1">
+        <p>
+          ×{$cashCouponAwardCounts.pos_0}
+        </p>
+      </div>
+    </div>
+    </if>
+    
+    <if condition="$cashCouponAwardCounts.pos_1 gt 0">
+    <div class="" id=""><!--2-->
+      <div class="index_dump2">
+        <img src="{:C('IMG_ROOT')}/activity/event20170523/images/dw.gif" /></img>
+      </div>
+      <div class="index_round2">
+        <p>
+          ×{$cashCouponAwardCounts.pos_1}
+        </p>
+      </div>
+    </div>
+    </if>
+    
+  </div>
+  <div class="index_ship2">
+  	<if condition="$cashCouponAwardCounts.pos_2 gt 0">
+    <div class="" id=""><!--3-->
+      <div class="index_dump3">
+        <img src="{:C('IMG_ROOT')}/activity/event20170523/images/dw.gif" /></img>
+      </div>
+      
+      <div class="index_round3">
+        <p>
+          ×{$cashCouponAwardCounts.pos_2}
+        </p>
+      </div>
+    </div>
+    </if>
+    <if condition="$cashCouponAwardCounts.pos_3 gt 0">
+    <div class="" id=""><!--4-->
+      <div class="index_dump4">
+        <img src="{:C('IMG_ROOT')}/activity/event20170523/images/dw.gif" /></img>
+      </div>
+      <div class="index_round4">
+        <p>
+          ×{$cashCouponAwardCounts.pos_3}
+        </p>
+      </div>
+    </div>
+    </if>
+    <if condition="$cashCouponAwardCounts.pos_4 gt 0">
+    <div class="" id=""><!--5-->
+      <div class="index_dump5">
+        <img src="{:C('IMG_ROOT')}/activity/event20170523/images/dw.gif" /></img>
+      </div>
+      <div class="index_round5">
+        <p>
+          ×{$cashCouponAwardCounts.pos_4}
+        </p>
+      </div>
+    </div>
+    </if>
+  </div>
+  <div class="index_money">
+    <div class="index_mine">
+      <p style="margin-top:0.55rem">
+        我的累计投资金额：<span>{$investTotal}元</span>
+      </p>
+      <p style="margin-top:0.2rem">
+        我的返现奖励：<span>{$cashCouponTotal}元</span>
+      </p>
+    </div>
+    <div class="index_times">
+      <p>我的当前排名：<span>{$myRanking}</span></p>
+    </div>
+  </div>
+  <div class="index_rank">
+  	<div class="index_name">
+  		<volist name="investLists" id="vo" key="k">
+  	
+       <div class="index_number">
+        <div class="cut25 fl tc">
+        	<if condition="$vo.rank eq 1">
+        	          <img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/one_08.png" style="width:0.6rem;padding-left:0.4rem;"/></img>
+			<elseif condition="$vo.rank eq 2" />
+					  <img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/two_11.png" style="width:0.6rem;padding-left:0.4rem;"/></img>
+			<elseif condition="$vo.rank eq 3" />
+					<img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/three_13.png" style="width:0.6rem;padding-left:0.4rem;"/></img>
+			<elseif condition="$vo.rank eq 4" />
+					<img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/four_16.png" style="padding-left:0.4rem;padding-top:0.05rem;"/></img>
+			<elseif condition="$vo.rank eq 5" />
+					<img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/five_19.png" style="padding-left:0.4rem;padding-top:0.05rem;"/></img>
+			<elseif condition="$vo.rank eq 6" />
+					<img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/six_21.png" style="padding-left:0.4rem;padding-top:0.05rem;"/></img>
+			<elseif condition="$vo.rank eq 7" />
+					<img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/seven_23.png" style="padding-left:0.4rem;padding-top:0.05rem;"/></img>
+			<elseif condition="$vo.rank eq 8" />
+					<img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/eight_25.png" style="padding-left:0.4rem;padding-top:0.05rem;"/></img>
+			<elseif condition="$vo.rank eq 9" />
+					<img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/nine_27.png" style="padding-left:0.4rem;padding-top:0.05rem;"/></img>
+			<else />
+				    <img class="fl" src="{:C('IMG_ROOT')}/activity/event20170523/images/ten_29.png" style="padding-left:0.4rem;padding-top:0.05rem;"/></img>
+			</if>
+        	
+          <p>
+           	{$vo.userName}
+          </p>
+        </div>
+        <div class="cut25 fl tc">
+          <p>
+            {$vo.mobile}
+          </p>
+        </div>
+        <div class="cut25 fl tc">
+          <p>
+            {$vo.totalInvest}
+          </p>
+        </div>
+        <div class="cut25 fl tc">
+          <p style="overflow: hidden;text-overflow: ellipsis;width: 2.5rem;white-space: nowrap;">
+            {$vo.prize}
+          </p>
+        </div>
+        <div class="clear"></div>
+      </div>
+      </volist>
+    </div>
+  </div>
+  <div class="index_rule"></div>
+  
+  <if condition="$hdStatus eq 1">
+   <div class="head_now1 tc" style="cursor:pointer;">
+      <p>活动已结束</p>
+  </div>
+  <else />
+  <div class="head_now tc" style="cursor:pointer;">
+      <p>立即投资</p>
+  </div>
+  </if>
+  
+  <script>
+  
+  	var hdStatus = "{$hdStatus}";
+    $(function () {
+        $(".head_now ").click(function () {
+        	if(hdStatus == 2){
+        		$("#integral_bj").show();
+                $("#integral_window").show();
+                return;
+        	} else{
+        		go2App();
+        	}
+        });
+        $(".backgr").click(function () {
+            $("#integral_bj").hide();
+            $("#integral_window").hide();
+        });
+    });
+</script>
+  
+</body>
+<script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+</html>
+

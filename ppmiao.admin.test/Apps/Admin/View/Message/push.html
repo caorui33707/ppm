@@ -1,0 +1,136 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">推送消息</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="150px">正文内容：</td>
+                    <td class="tLeft">
+                        <textarea name="content" id="content" maxlength="58" style="width:600px;height:150px;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">筛选推送对象</td>
+                    <td class="tLeft"><label for="filter_bk"><input type="checkbox" name="filter_bk" id="filter_bk" />&nbsp;对已购买爆款用户不推送</label></td>
+                </tr>
+                <tr>
+                    <td class="tRight">Registration ID</td>
+                    <td class="tLeft"><input type="text" name="regid" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">平台</td>
+                    <td class="tLeft">
+                        <select name="platform">
+                            <option value="">所有平台</option>
+                            <option value="android">Android</option>
+                            <option value="ios">IOS</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">推送动作</td>
+                    <td class="tLeft">
+                        <select name="action" onchange="pushAction(this)">
+                            <option value="0">无动作</option>
+                            <option value="1">精品推荐</option>
+                            <option value="2">理财产品</option>
+                            <option value="3">发现</option>
+                            <option value="4">我</option>
+                            <option value="5">URL</option>
+                            <option value="6">产品详细</option>
+                            <option value="7">立即购买</option>
+                            <option value="8">账户中心</option>
+                            <option value="9">完善银行卡</option>
+                            <option value="10">我的钱包</option>
+                            <option value="11">邀请好友</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">参数数组</td>
+                    <td class="tLeft">
+                        <p><input type="text" name="key[]" readonly  /> - <input type="text" name="value[]" /></p>
+                        <p><input type="text" name="key[]" readonly  /> - <input type="text" name="value[]" /></p>
+                        <p><input type="text" name="key[]" readonly  /> - <input type="text" name="value[]" /></p>
+                        <p><input type="text" name="key[]"readonly   /> - <input type="text" name="value[]" /></p>
+                        <p><input type="text" name="key[]" readonly  /> - <input type="text" name="value[]" /></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="推 送"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    $("#frmMain").Validform({ // 表单验证
+        tiptype: 3,
+        callback: function(form){
+            _layerIndex = layer.load('消息推送中...');
+            $.ajax({
+                url: ROOT + '/message/push',
+                data: $('#frmMain').serialize(),
+                type: "POST",
+                cache: false,
+                success: function(msg) {
+                    layer.close(_layerIndex);
+                    if(msg.status){
+                       layer.alert('推送成功~!', -1);
+                    }else{
+                        layer.alert(msg.info);
+                    }
+                }
+            });
+            return false;
+        }
+    });
+    function pushAction(_obj){ // 转换推送动作
+        var _act = $(_obj).val();
+        resetExtra();
+        switch(_act){
+            case '1':
+                $("input[name='key[]']").val('');
+                break;
+            case '2':
+                $("input[name='key[]']").val('');
+                break;
+            case '3':
+                $("input[name='key[]']").val('');
+                break;
+            case '4':
+                $("input[name='key[]']").val('');
+                break;
+            case '5':
+                $("input[name='key[]']:first").val('url');
+                break;
+            case '6':
+                $("input[name='key[]']:first").val('id');
+                break;
+            case '7':
+                $("input[name='key[]']:first").val('id');
+                break;
+            case '8':
+                $("input[name='key[]']:first").val('id');
+                break;
+            case '9':
+                $("input[name='key[]']:first").val('cardNo');
+                break;
+            default:
+                $("input[name='key[]']").val('');
+                break;
+        }
+    }
+    function resetExtra(){ // 重置参数
+        $("input[name='key[]'],input[name='value[]']").val('');
+    }
+</script>

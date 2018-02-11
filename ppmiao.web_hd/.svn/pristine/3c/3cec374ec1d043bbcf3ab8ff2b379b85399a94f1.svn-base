@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/v2/css/jquery.mCustomScrollbar.css">
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script src="{:C('STATIC_ROOT')}/v2/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/highchart/highcharts.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <include file="PublicNew:user_sidebar" />
+
+    <div class="innerRight fRi clear">
+        <div class="WywBox01 fLe clear">
+            <div class="innerRight_user_title fLe clear">
+                <h2>{$detail.title}</h2>
+                <a href="javascript:;" onclick="showContract()">查看购买合同</a>
+            </div>
+            <div class="innerRight_user_b_block01_01 fLe clear">
+                <ul>
+                    <li><h5>{$due_detail.due_capital|number_format=2}</h5><p>投资金额(元)</p></li>
+                    <if condition="$due_detail['due_interest'] gt 0">
+                        <li><h5 class="red">{$due_detail.due_interest|number_format=2}</h5><p>当前盈亏</p></li>
+                    <elseif condition="$due_detail['due_interest'] lt 0"/>
+                        <li><h5 class="green">{$due_detail.due_interest|number_format=2}</h5><p>当前盈亏</p></li>
+                    <else/>
+                        <li><h5>{$due_detail.due_interest|number_format=2}</h5><p>当前盈亏</p></li>
+                    </if>
+                    <if condition="$due_detail['due_interest'] gt 0">
+                        <li><h5 class="red">{$current_profit*100|number_format=2}%</h5><p>当前收益率</p></li>
+                    <elseif condition="$due_detail['due_interest'] lt 0"/>
+                        <li><h5 class="green">{$current_profit*100|number_format=2}%</h5><p>当前收益率</p></li>
+                    <else/>
+                        <li><h5>{$current_profit*100|number_format=2}%</h5><p>当前收益率</p></li>
+                    </if>
+
+                </ul>
+            </div>
+            <div class="WywBox01BottomLine fLe clear"></div>
+            <div class="Wyw_list fLe clear">
+                <h5>净值走向</h5>
+            </div>
+            <div class="Byb_list fLe clear">
+                <div id="container" style="width:670px;"></div>
+            </div>
+            <div class="Wyw_list fLe clear">
+                <h5>资金状态<em>（资金到账需4-6个工作日）</em></h5>
+                <eq name="due_detail.from_wallet" value="1">
+                    <h3>&nbsp;</h3>
+                <else/>
+                    <h3><i><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$bank_info.bank_code}.png"/></i>{$bank_info.bank_name}&nbsp;&nbsp;尾号：{$due_detail.card_no|get_card_tail_number}</h3>
+                </eq>
+            </div>
+            <div class="Wyw_list_content fLe clear">
+                <div class="WywDetailsList01 fLe clear">
+                    <ul>
+                        <li class="li01"><span>{$due_detail.due_time|strtotime|date='Y/m/d',###}</span></li>
+                        <li class="li02"><span>{$due_detail['due_capital']+$due_detail['due_interest']|number_format=2}</span></li>
+                        <switch name="due_detail.status_new">
+                            <case value="1"><li class="li03"><span>等待还款</span></li></case>
+                            <case value="2"><li class="li03"><span>已还款</span></li></case>
+                            <case value="3"><li class="li03"><span>正在还款</span></li></case>
+                        </switch>
+                    </ul>
+                    <eq name="due_detail.status_new" value="2">
+                        <i class="icon01"><img src="{:C('STATIC_ROOT')}/v2/images/img/icon03.png" /></i>
+                    <else/>
+                        <i class="icon01"><img src="{:C('STATIC_ROOT')}/v2/images/img/icon02.png" /></i>
+                    </eq>
+                </div>
+                <div class="WywDetailsList01 fLe clear">
+                    <ul>
+                        <li class="li01"><span>{$due_detail.add_time|strtotime|date='Y/m/d',###}</span></li>
+                        <li class="li02"><span>{$due_detail.due_capital|number_format=2}</span></li>
+                        <li class="li03"><span>购买成功</span></li>
+                    </ul>
+                    <i class="icon01"><img src="{:C('STATIC_ROOT')}/v2/images/img/icon03.png" /></i>
+                </div>
+            </div>
+        </div>
+        <!-- 合同内容开始 -->
+        <div class="MyuserBox01 contactBigBox fLe clear" style="display:none;" id="contract_content">
+            <div class="contractTitle01 fLe clear">
+                <a href="javascript:;" class="closeButton close" onclick="closeContract()"></a>
+            </div>
+            <div class="contractTitle02 fLe clear">
+                <h2>基金损益权转让协议</h2>
+            </div>
+            <div>
+                <div class="contractContent content demo-y fLe clear">
+                    <p>
+                        甲方（出让方）：{$detail.nickname}<br />
+                        身份证号码：{$detail.idcard|hide_whole_idcard}<br />
+                        乙方（受让方）：{$due_detail.uinfo.real_name}<br />
+                        身份证号码：{$due_detail.uinfo.card_no|hide_whole_idcard}<br />
+                        联系电话：{$due_detail.uinfo.username}<br />
+                        丙方（信息服务方）：杭州时投信息科技有限公司<br />
+                        鉴于：<br />
+                        1、丙方为一家专业的投融资第三方信息服务平台。丙方运营网站“石头理财网”有大量的注册会员。<br />
+                        2、甲方为专业的基金投资人，具有丰富的基金投资经验。<br />
+                        3、乙方为甲方的注册会员，并具有投资意向。<br />
+                        根据《中华人民共和国合同法》、《中华人民共和国民法通则》等有关法律规定，甲乙丙三方本着诚实信用的基本原则，经平等友好协商，就甲方通过丙方运营平台向乙方转让基金损益权的相关事宜达成如下协议：<br />
+                    </p>
+                    <p>
+                        第一条 本协议名词释义<br />
+                        1、“基金损益权”是指基金持有人基于其持有的基金可能获得收益或承担损失的一种权利义务。<br />
+                        2、“资金监管账户”是指甲方通过丙方平台在丙方合作的第三方支付机构或银行开立的资金管理账户，该账户由丙方与甲方共同监管。<br />
+                        第二条 基金基本信息<br />
+                        1、甲方持有基金的基本情况如下：<br />
+                    </p>
+                    <p>
+                        <table border="1" width="100%" bordercolor="#999999">
+                            <tr>
+                                <td><span>基金全称：</span></td>
+                                <td><span>{$fund_info.name}</span></td>
+                                <td><span>基金代码：</span></td>
+                                <td><span>{$fund_info.code}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>申购价格：</span></td>
+                                <td><span>{$totle_money/10000}万</span></td>
+                                <td><span>申购数量：</span></td>
+                                <td><span>{$totle_money/10000}万</span></td>
+                            </tr>
+
+                            <tr>
+                                <td><span>预计持有时间：</span></td>
+                                <td><span>至{$detail.end_time|strtotime|date='Y.m.d',###}</span></td>
+                                <td><span>剩余持有时间：</span></td>
+                                <td><span>{$detail.cyDays}天</span></td>
+                            </tr>
+                        </table>
+                    </p>
+                    <p>
+                        2、为应对不同风险类型受让人的投资需求，甲方将上述基金的基金损益权拆分为基金损益权（A）和基金损益权（B）两类，比例为 1:2，基金损益权（A）称作劣后损益权，基金损益权（B）称作保本损益权，即当基金损益权获得收益时，其基金损益权（B）收益的 80% 由基金损益权（A）受让人按受让比例和受让期限优先享有，剩余部分收益由基金损益权（B）受让人按受让比例和受让期限享有；当基金损益权出现亏损时，基金损益权亏损全部由基金损益权（A）受让人按受让比例和受让期限优先承担，若仍有亏损剩余由基金损益权（B）受让人按受让比例和受让期限承担。<br />
+                        3、基金损益权收益=基金损益权对应基金的实际收益（亏损时为负数）-基金损益权对应基金申购和赎回等交易手续费-基金损益权对应基金持有管理费，基金损益权对应基金持有管理费为对基金损益权（A），年化收益超过100%时收取，收取超额部分50%，对基金损益权（B），年化收益超过20%时，收取超额部分50%，基金损益权收益计算结果为负数时即为基金损益权亏损。<br />
+                        4、为保障基金损益权（B）的保本性，在基金损益权对应基金持有期间，当{$fund_info.name}当前累计净值低于初始累计净值 70% 时，丙方有权强行要求甲方平仓基金损益权对应基金，甲方也可以自行平仓。<br />
+                        5、基金损益权对应基金的申购过程由丙方法务和风控人员全程监督和见证，甲方持仓账户和密码在基金损益权获得全部实现之前，由丙方负责保管，甲方不得私自操作。<br />
+                        第三条 基金损益权转让<br />
+                        1、甲方转让的基金损益权类型为 <eq name="detail.type" value="109">基金损益权（B）<else/>基金损益权（A）</eq>，对应基金数量为 {$due_detail.due_capital|number_format}份。<br />
+                        2、甲方自愿将上述类型基金损益权以人民币 {$due_detail.due_capital|number_format}元的价格转让给乙方。<br />
+                        3、乙方同意按本条第二款约定的价格受让甲方上述转让的基金损益权。<br />
+                        第四条 基金损益权转让款的支付<br />
+                        1、甲乙丙三方均一致同意乙方将基金损益权转让款支付至甲方通过丙方平台在第三方支付机构或银行开立的资金监管账户，该账户由丙方与甲方共同监管。<br />
+                        2、乙方按照石头理财网的规则将基金损益权转让款支付至甲方通过丙方平台在第三方支付机构或银行开立的资金监管账户中，即视为乙方完成了该笔基金损益权转让的付款行为。<br />
+                        第五条 基金损益权的取得<br />
+                        乙方自本协议生效之日即取得本协议项下的基金损益权，有权按照本协议约定的条件获得基金损益权收益并承担基金损益权损失。<br />
+                        第六条 基金损益权的实现<br />
+                        1、基金损益权到期后或出现提前平仓情况，甲方应按本协议第二条的规定将已转让基金损益权的对应结算资金（转让价格获得收益或扣除亏损后的剩余资金）支付到资金监管账户绑定账号（结算资金已直接提取至资金监管账户绑定账号的除外），并向乙方支付对应基金损益权的结算资金。<br />
+                        2、在基金损益权对应基金持有期间若出现基金分红，基金红利按本协议第二条基金损益权收益规则和上述方式进行分配。<br />
+                        3、丙方对甲方向乙方支付基金损益权结算资金的行为负有监管的权利和义务，并对甲方的上述行为予以配合。<br />
+                        第七条 其他权利义务<br />
+                        1、转让基金损益权可能并非甲方申购的全部基金对应基金损益权，乙方对此充分理解和认可。而且乙方已经充分了解甲方申购基金的全部情况，并且同意从甲方处受让基金损益权。<br />
+                        2、甲方保证本协议项下转让给乙方的基金损益权真实有效，并为甲方合法拥有，甲方对其拥有完全、有效的处分权。<br />
+                        3、乙方声明与保证其所用于受让标的基金损益权的资金来源合法，乙方是该资金的合法所有人，如果第三方对资金归属、合法性问题发生争议，由乙方自行负责解决。<br />
+                        4、因战争、动乱、自然灾害等不可抗力或国家法律政策变动、电信网络服务终止、黑客攻击等客观因素出现，导致协议内容延迟履行或不能履行，甲、乙、丙三方互不追究责任。<br />
+                        5、甲乙丙三方确认，本协议的签订 、生效和履行以不违反中国的法律法规为前提。如果本协议中的任何一条或多条违反现行的法律法规，则该条将被视为无效，但该无效条款并不影响本协议其他条款的效力。<br />
+                        第十条 协议的变更<br />
+                        本协议的任何修改、补充均须以石头理财网平台电子文本形式做出。<br />
+                        第十一条 争议解决<br />
+                        如果甲乙丙三方在本协议履行过程中发生任何争议，应友好协商解决；如协商不成，则须提交丙方所在地人民法院进行诉讼。<br />
+                        第十二条 协议的保管<br />
+                        甲乙双方一致同意委托丙方保管所有与本协议有关的书面文件或电子信息。<br />
+                        第十三条 协议的解释<br />
+                        本协议中所使用的定义，除在上下文中另有定义外，以石头理财网公布的《石头理财网网站定义与释义规则》中的定义及内容为准。<br />
+                        第十四条 本协议的成立与生效<br />
+                        乙方按照“石头理财网”的规则，通过甲方的基金损益权（“标的基金损益权”）转让需求界面，点击 “立即投资”按钮，进入投资理财详细信息界面，填写完成乙方的投资理财信息，点击同意《基金损益权转让协议范本》，形成相应订单，并在线完成基金损益权转让款支付后本协议即成立并立即生效。<br />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 合同内容结束 -->
+    </div>
+</div>
+<script>
+    var _fund_id = "{$ex_detail.fund_id}";
+    var _chart = null;
+    var _unwinding_line = {$ex_detail.unwindingLine|default=0};
+    var _fdList = '{$fund_data|json_encode}';
+    var _syList = '{$sy_data|json_encode}';
+    _fdList = $.parseJSON(_fdList);
+    _syList = $.parseJSON(_syList);
+    var _product_type = {$detail.type};
+    var _netDescr = '<switch name="detail.type"><case value="110">A级净值</case><case value="109">B级净值</case></switch>';
+    $(document).ready(function(){
+        $.mCustomScrollbar.defaults.theme="light-2";
+        $(".demo-y").mCustomScrollbar();
+        $(".demo-x").mCustomScrollbar({
+            axis:"x",
+            advanced:{autoExpandHorizontalScroll:true}
+        });
+        $(".demo-yx").mCustomScrollbar({
+            axis:"yx"
+        });
+        $(".scrollTo a").click(function(e){
+            e.preventDefault();
+            var $this=$(this),
+                    rel=$this.attr("rel"),
+                    el=rel==="content-y" ? ".demo-y" : rel==="content-x" ? ".demo-x" : ".demo-yx",
+                    data=$this.data("scroll-to"),
+                    href=$this.attr("href").split(/#(.+)/)[1],
+                    to=data ? $(el).find(".mCSB_container").find(data) : el===".demo-yx" ? eval("("+href+")") : href,
+                    output=$("#info > p code"),
+                    outputTXTdata=el===".demo-yx" ? data : "'"+data+"'",
+                    outputTXThref=el===".demo-yx" ? href : "'"+href+"'",
+                    outputTXT=data ? "$('"+el+"').find('.mCSB_container').find("+outputTXTdata+")" : outputTXThref;
+            $(el).mCustomScrollbar("scrollTo",to);
+            output.text("$('"+el+"').mCustomScrollbar('scrollTo',"+outputTXT+");");
+        });
+    });
+    function showContract(){
+        $("#contract_content").css('display', '');
+    }
+    function closeContract(){
+        $("#contract_content").css('display', 'none');
+    }
+
+    Highcharts.setOptions({
+        colors: ['#7cb5ec', '#FF0000', '#B34EE9']
+    });
+    $('#container').highcharts({
+        chart: {
+            events: {
+                load: function(e) {
+                    _chart = this;
+                    getData();
+                }
+            }
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+            shared: true,
+            formatter: function() {
+                var _dateArr = new Date(this.x).toLocaleString().split(' ');
+                return _dateArr[0].replace('年',"-").replace('月',"-").replace('日',"")+'<br><span style="color:#7cb5ec;">母基金净值:'+this.points[0].y+'</span><br><span style="color:#B34EE9;">'+_netDescr+':'+this.points[2].y+'</span>';
+            }
+        },
+        legend: {
+            enabled: true,
+            align: 'left',
+            verticalAlign: 'top'
+        },
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                lineWidth: 1,
+                marker: {
+                    enabled: false
+                },
+                shadow: false,
+                states: {
+                    hover: {
+                        lineWidth: 0
+                    }
+                },
+                threshold: null
+            },
+            series: {
+                marker: {
+                    enabled: false
+                },
+                events: {
+                    legendItemClick: function(){
+                        return false;
+                    }
+                }
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                format: '{value:%m-%d}',
+                align: 'center'
+            }
+        },
+        yAxis: [{
+            lineWidth: 0,
+            title: {
+                text: null
+            }
+        },{
+            opposite: true,
+            title: {
+                text: null
+            }
+        }],
+        series: [{
+            name: '母基金净值',
+            type: 'line',
+            data: []
+        },{
+            name: '平仓线',
+            type: 'line',
+            lineWidth: 0.3,
+            data: []
+        },{
+            name: _netDescr,
+            type: 'line',
+            data: []
+        }]
+    });
+
+    function getData(){
+        var _data = new Array();
+        var _pcx = new Array();
+        var _sy = new Array();
+        $.each(_fdList, function(i, n){
+            _data.push([n.datetime, parseFloat(n.val)]);
+            _pcx.push([n.datetime, _unwinding_line]);
+        });
+        $.each(_syList, function(i, n){
+            _sy.push([n.datetime, parseFloat(n.val)]);
+        });
+        _chart.series[0].setData(_data);
+        _chart.series[1].setData(_pcx);
+        _chart.series[2].setData(_sy);
+    }
+</script>
+<include file="PublicNew:user_footer" />
+</body>
+</html>

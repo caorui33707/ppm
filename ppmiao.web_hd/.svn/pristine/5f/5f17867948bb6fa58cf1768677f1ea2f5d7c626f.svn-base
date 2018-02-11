@@ -1,0 +1,169 @@
+﻿@charset "utf-8";
+.index_top img{
+    width:100%;
+}
+.index_time{
+    width:100%;
+    text-align: center;
+    top:85%;
+}
+
+.index_thrid img{
+    width:100%;
+}
+.index_fourth img{
+    width:100%;
+}
+.index_now{
+    width:100%;
+    text-align: center;
+    top:65%;
+}
+.index_now img{
+    width:67%;
+}
+.index_fifth img{
+    width:100%;
+}
+.index_on{
+    width:100%;
+    text-align: center;
+    top:69%;
+}
+.index_on img{
+    width:67%;
+}
+
+.abb img {
+    width: 100%;
+
+}
+
+
+
+.index_nav {
+    background-color: #82088a;
+    font-size: 15px;
+    margin: auto;
+}
+.index_er {
+width:92%;
+margin:auto;
+border-top: solid 1px #fced00;
+border-bottom: solid 1px #fced00
+
+}
+
+
+
+.hot_text img {
+    width: 100%;
+    height: 100px;
+}
+
+.index_nav .nav_pic {
+    top: -0px;
+}
+
+.index_nav .nav_pic img {
+    width: 100%;
+    height:100%;
+}
+
+
+
+/*今日*/
+.hot_pic img {
+    width: 100%;
+}
+
+/*昨日*/
+.model_bj {
+    height:125px;
+    margin: auto;
+    color:#fff;
+    border-top:1px solid #fced00;
+    border-bottom:2px solid #fced00;
+    border-right:2px solid #fced00;
+    border-left:2px solid #fced00;
+}
+.index_line{
+    height:125px;
+    margin: auto;
+    color:#fff;
+    border-top:1px solid #fced00;
+    border-bottom:2px solid #fced00;
+    border-right:2px solid #fced00;
+    border-left:2px solid #fced00;
+
+}
+
+
+.model_top p {
+    color: #fff;
+    padding-top: 9px;
+    font-size: 14px;
+    font-weight:bold;
+}
+
+.model_number p {
+    padding-top: 10px;
+    color:#fff;
+}
+.gift_ti {
+background-color:#82088a;
+}
+.index_last{
+    padding-top:36px;
+}
+.index_last p{
+    line-height:22px;
+    color:#fff;
+}
+.index_laster{
+    padding-top:38px;
+}
+.index_laster p{
+    line-height:22px;
+    color:#fff;
+}
+
+
+
+/*弹框*/
+.backgr{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    opacity: .6;
+    z-index: 11;
+}
+.tankuang{
+    position: fixed;
+    width: 95%;
+    top: 40%;
+    left: 3%;
+}
+.integral_content{
+    width:70%;
+    height:100px;
+    background-color: #fff;
+    border:solid 1px #83088a;
+    border-radius: 5px;
+    color:#83088a;
+    text-align: center;
+    line-height:100px;
+    left:15%;
+}
+
+.integral_window {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+.intergral_cha{
+    top:-45px;
+    left:47%;
+}

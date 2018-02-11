@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{:C('STATIC_ROOT')}/new_ppmiao_v4/css/index.css">
+    <title>票票喵 - 资金明细</title>
+<style>
+html, body {font: normal 13px "Microsoft YaHei";font-family: "Microsoft YaHei","微软雅黑","sans-serif";}
+.information_page{margin-left:300px;margin-bottom:200px;}
+
+/*page*/
+.page{ padding:90px 0 0px 0; text-align:center; margin-right:40px;margin-bottom:100px;}
+.page .num{margin:0 1px;}
+.page a{
+	padding:6px 13px;
+	color:#666666;
+	background:#efeeee;
+}
+.page a:hover{background:#ff580f;color:#ffffff;}
+.page a.cur{
+	color:#ffffff;
+	background:#ff580f;
+}
+
+</style>
+
+</head>
+<body style="background-color:#f4f4f4;">
+		
+		<include file="Public:ppm_menu" />
+    
+    <!--正文-->
+        <div class="person_top">
+            <div class="person_center">
+                <a href="profile.html"><p class="cut10 fl"">个人中心</p></a>
+                <a href="repayment_list.html?type=2"><p class="cut10 fl">待还款</p></a>
+                <a href="repayment_list.html?type=1"><p class="cut10 fl">已还款</p></a>
+                <a href="money_detail.html"><p class="cut10 fl" style="color:#ff6a00;">资金明细</p></a>
+                <a href="setting.html"><p class="cut10 fl">账户设置</p></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="record_big mar" style="margin: 20px auto;">
+			<!-- 待还款 -->
+				<div class="repayment">
+					<dl>
+						<dt>日期</dt>						
+					</dl>
+					<dl style="width:20%">
+						<dt>事件</dt>						
+					</dl>
+					<dl>
+						<dt>金额</dt>						
+					</dl>
+					<dl style="width:7%">
+						<dt>状态</dt>						
+					</dl>
+					<dl style="width:22.5%">
+						<dt>订单号</dt>						
+					</dl>
+					<dl>
+						<dt>操作</dt>						
+					</dl>
+					
+					<foreach name="list" item="item">
+					<dl>
+						<dd>{$item.create_time}</dd>						
+					</dl>
+					<dl style="width:20%">
+						<dd>
+						<switch name="item.pay_type" >
+							<case value="0">充值</case>
+							<case value="1">还款 -{$item.memo}</case>
+							<case value="2">提现</case>
+							</switch>
+						</dd>					
+					</dl>
+					<dl class="amount">						
+						<dd><eq name="item.pay_type" value="0">+<else/>-</eq>{$item.amount}</dd>		
+					</dl>
+					<dl class="amount" style="width:7%">						
+						<dd><switch name="item.status" >
+							<case value="0">初始</case>
+							<case value="1">成功</case>
+							<case value="2">失败</case>
+							</switch></dd>						
+					</dl>
+					<dl class="amount" style="width:22.5%">						
+						<dd>
+							{$item.recharge_no}
+						</dd>						
+					</dl>
+					<dl class="operation">						
+						
+						<eq name="item.pay_type" value="0">
+							<eq name="item.status" value="0"><dd><a href="pay_to.html?amount={$item.amount}&bankcode={$item.bank_code}&" target="_blank">充值</a></dd><else/><dd style="background-color:#fff;cursor:none">&nbsp;</dd></eq>
+						<else/>
+							<dd style="background-color:#fff;cursor:none">>&nbsp;
+							</dd>	
+						</eq>
+											
+					</dl>
+					</foreach>
+									
+					
+				</div>
+				{$show}
+        </div>
+        
+
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+</body>
+</html>         

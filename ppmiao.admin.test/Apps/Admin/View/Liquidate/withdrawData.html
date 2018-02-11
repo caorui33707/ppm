@@ -1,0 +1,94 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">提现资金对账</div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/layer3/layer.js"></script>
+        <style>
+            pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+            .string { color: green; }
+            .number { color: darkorange; }
+            .boolean { color: blue; }
+            .null { color: magenta; }
+            .key { color: red; }
+        </style>
+        <form id="frmMain" method='post' action="">
+            <table id="params_table">
+                <tr>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <if condition="$today eq 1">
+                                <input type="submit" value="开始对账"  class="button">
+
+                            <elseif condition="$today eq 2"/>
+                                <input type="submit" disabled value="今日对账完成"  class="button">
+                            <else />
+                                <input type="submit" disabled value="请等待对账完成......"  class="button">
+                            </if>
+                            <input type="hidden" name="liquidateType" value="liquidateAction_withdrawData">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+            <if condition="$today eq 2">
+                <empty name="dif_data">无异常数据</empty>
+                <noempty name="dif_data">
+                    <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                        <tr class="row">
+                            <th width="200px">异常订单号</th>
+                            <th width="100px">存管方值</th>
+                            <th width="100px">数据库值</th>
+                        </tr>
+                        <foreach name="dif_data" item="item">
+                            <tr class="row">
+                                <td>{$item.order_no}</td>
+                                <td>{$item.value1}</td>
+                                <td>{$item.value2}</td>
+                            </tr>
+                        </foreach>
+                    </table>
+            </noempty>
+            </if>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    var _layerIndex2 = 0;
+    var _action = 0;
+    var _urlObj, _extObj;
+
+
+    var _adding = false;
+
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('请求中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/Liquidate/downloadLiquidateData',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status == 1){
+                            layer.alert(msg.info, -1,function (){
+                                window.location.reload();
+                            });
+                        }else{
+                            layer.alert(msg.info, -1);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+
+
+</script>

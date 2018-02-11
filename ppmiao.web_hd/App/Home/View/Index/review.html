@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    <title>票票喵 -</title>
+</head>
+
+<style>
+    .content {
+        position: absolute;
+        opacity: 0.7;
+        z-index: 3;
+        width: 100%;
+        filter: alpha(opacity=70);
+    }
+
+    .about_banner {
+        margin-top: -96px;
+    }
+
+    <!-- 第二导航条透明度-->
+</style>
+
+<style>
+    .index_new:hover {
+        background-color: #ff5813;
+    }
+</style>
+
+<body style="background-color:#f4f4f4;">
+
+    <include file="Public:ppm_menu" />
+
+    <div class="sign review" style="margin-top:150px;">
+        <div class="content-main review">
+        
+        	<if condition="$status eq 0"> 
+        	
+        		<div class="review-info">
+                	<div style="margin: 5px 0;">
+                    		您可以通过以下方式完成企业实名信息填写，才可以正常使用票票喵相关功能。
+                	</div>
+                	<div style="margin: 5px 0;">
+                		<br/>
+                    	<a href="edit_company_detail.html"><button class="review-button" style="cursor:pointer;">企业实名认证填写</button></a>
+                	</div>
+            	</div>
+            	
+			<elseif condition="$status eq 1"/>
+				<div class="review-info">
+	                <div style="margin: 5px 0;">信息已经提交，请等待人工审核，需要3-5个工作日。</div>
+	                <div style="margin: 5px 0;">审核通过后会通过手机短信通知您。也可登录企业账号查看审核进度。</div>
+	            </div>
+			<else /> 
+				<div class="review-info">
+                	<div style="margin: 10px 0;">抱歉，您提交的审核未通过，请重新修改企业实名信息后再次提交。原因:{$data.review_text}</div>
+                	<div style="margin: 5px 0;">
+                    	<a href="edit_company_detail.html"><button class="review-button" style="cursor:pointer;">企业实名认证填写</button></a>
+                	</div>
+            	</div>
+			</if>
+            
+        </div>
+    </div>
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+</body>
+
+</html>

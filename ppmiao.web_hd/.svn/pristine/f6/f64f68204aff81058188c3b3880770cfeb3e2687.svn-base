@@ -1,0 +1,191 @@
+<?php
+namespace Home\Controller;
+
+/**
+ * 用户中心控制器
+ * @package Home\Controller
+ */
+class UserController extends BaseController{
+    
+    protected $api;
+    
+    public function __construct(){
+        
+        parent::__construct();
+        
+        vendor('Api.ApiRequest');
+        $this->api = new \ApiRequest();
+    }
+    
+    public function login(){
+        
+        if(!IS_AJAX) {
+            $user = session(USER_ONLINE_SESSION);
+            if($user) {
+                redirect(C('WEB_ROOT').'/product/index.html');
+            } 
+            $this->display('User/login/index');
+        } else {
+             
+            $mobile = I('mobile','','strip_tags');
+            $graph_code = I('graph_code','','strip_tags');
+            $msgCode = I('msgCode',0,'int');
+            $channel = I('channel', '', 'strip_tags'); 
+                      
+            if(!$mobile) {
+                $this->ajaxReturn(array('status'=>0,'info'=>'请填写手机号码'));
+            }
+            
+            if(!check_mobile($mobile)) {
+                $this->ajaxReturn(array('status'=>0,'info'=>'填写的手机号码有误'));
+            }
+            
+            $userInfo = M('User')->where('username='.$mobile)->find();
+            
+            if(!$userInfo) {
+                $this->ajaxReturn(array('status'=>0,'info'=>'该号码未注册，请先请注册'));
+            } 
+            
+            /*
+            if(!check_verify($graph_code, '')){
+                $this->ajaxReturn(array('status'=>0,'info'=>'验证码错误'));
+            }
+           */
+            if(!$msgCode) {
+                $this->ajaxReturn(array('status'=>0,'info'=>'请填写手机验证码'));
+            }
+           
+            $postData = [
+                'versionName' => '0.1',
+                'device_type' => 4,
+                'registration_id' => '0',
+                'device_serial_id' => '0',
+                'mobile'=>$mobile,
+                'mobile_auth_code'=>$msgCode,
+                'channel' => $channel
+            ];
+            
+            $response = $this->api->httpPost('UserLogin', $postData);
+            
+            if($response->code == 0) {
+                $user = [
+                    'user_id' => $response->result->id,
+                    'token' => $response->result->token,
+                    'username' => $response->result->username,                    
+                    'realName' => $response->result->realName,                    
+                    'realNameAuth' => $response->result->realNameAuth,
+                    'platcustAuth' => $response->result->platcustAuth,
+                ];
+                
+                session(USER_ONLINE_SESSION, $user);
+                
+                $this->ajaxReturn(array('status'=>1,'info'=>C('WEB_ROOT').'/product/index.html'));
+                
+            } else {    
+                
+               $this->ajaxReturn(array('status'=>0,'info'=>$response->result->errorMsg));
+            }
+        }
+
+    }
+    
+    
+    
+    public function reg(){
+        
+        $jump = $_SERVER['HTTP_REFERER'];
+        $user = session(USER_ONLINE_SESSION);
+        if($user) {
+            redirect(C('WEB_ROOT').'/profile.html');
+        }
+        if(IS_AJAX) {
+            $mobile = I('mobile','','strip_tags');
+            $strCode = I('strCode','','strip_tags');
+            $msgCode = I('msgCode',0,'int');
+            $channel = I('channel', '', 'strip_tags');
+            $jump_url = urldecode(I('jump_url', '/product/index.html', 'strip_tags'));
+            if(!$mobile) {
+                $this->ajaxReturn(array('status'=>0,'info'=>'请填写手机号码'));
+            }
+    
+            if(!check_mobile($mobile)) {
+                $this->ajaxReturn(array('status'=>0,'info'=>'填写的手机号码有误'));
+            }
+    
+            $userInfo = M('User')->where('username='.$mobile)->find();
+    
+            if($userInfo) {
+                $this->ajaxReturn(array('status'=>0,'info'=>'该号码已经注册，请直接登录'));
+            }
+    /*
+            if(!check_verify($verify, '')){
+                $this->ajaxReturn(array('status'=>0,'info'=>'验证码错误'));
+            }
+      */       
+            if(!$msgCode) {
+                $this->ajaxReturn(array('status'=>0,'info'=>'请填写手机验证码'));
+            }           
+           
+            $postData = [
+                'versionName' => '0.1',
+                'device_type' => 4,
+                'registration_id' => '0',
+                'device_serial_id' => '0',
+                'mobile'=>$mobile,
+                'mobile_auth_code'=>$msgCode,
+                'channel' => $channel
+            ];
+            
+            $response = $this->api->httpPost('UserLogin', $postData);
+            
+            if($response->code == 0) {
+                $user = [
+                    'user_id' => $response->result->id,
+                    'token' => $response->result->token,
+                    'username' => $response->result->username,                    
+                    'realName' => $response->result->realName,                    
+                    'realNameAuth' => $response->result->realNameAuth,
+                    'platcustAuth' => $response->result->platcustAuth,
+                ];
+                session(USER_ONLINE_SESSION, $user);
+                $this->ajaxReturn(array('status'=>1,'info'=>C('WEB_ROOT').'/user/reg_succ.html?jump='.$jump_url));
+            } else {    
+               $this->ajaxReturn(array('status'=>0,'info'=>$response->result->errorMsg));
+            }
+        } else {
+            $this->assign('referer',$jump);
+            $this->display('User/reg/index');
+        }
+    }
+    
+    public function reg_succ(){
+        $this->assign('jump_url',I('jump'));
+        $this->display('User/reg/reg_succ');
+    }
+    
+    public function logout(){
+        session(USER_ONLINE_SESSION,null);
+        redirect(C('WEB_ROOT').'/user/login.html');
+    }
+    
+    public function msgCode(){
+        
+        $mobile = I('mobile','','strip_tags');
+        
+        if(!$mobile) {
+            $this->ajaxReturn(array('status'=>0,'info'=>'请填写手机号码'));
+        }
+        if(!check_mobile($mobile)) {
+            $this->ajaxReturn(array('status'=>0,'info'=>'填写的手机号码有误'));
+        }        
+        
+        $data['mobile'] = $mobile;
+        $response = $this->api->httpPost('SmsCode', $data);
+        
+        if($response->code == 0){
+            $this->ajaxReturn(array('status'=>1,'info'=>'验证码已发送'));
+        } else {
+            $this->ajaxReturn(array('status'=>0,'info'=>$response->result->errorMsg));
+        }
+    }
+}

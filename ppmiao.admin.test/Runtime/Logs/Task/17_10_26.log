@@ -1,0 +1,18 @@
+[ 2017-10-26T09:46:55+08:00 ] 127.0.0.1 /task.php/pushMsg/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `s_msg_push` [ RunTime:0.0156s ]
+SQL: SELECT `id`,`target`,`content`,`registration_id`,`android_ver`,`ios_ver`,`push_extra` FROM `s_msg_push` WHERE ( status = 0 and is_delete=0 and push_time<=1508982407 )  [ RunTime:0.0000s ]
+SQL: UPDATE `s_msg_push` SET `status`='1',`mtime`='1508982407' WHERE ( id=193 ) [ RunTime:0.0156s ]
+SQL: SHOW COLUMNS FROM `s_user` [ RunTime:0.0156s ]
+SQL: SELECT `id`,`registration_id`,`channel` FROM `s_user` WHERE ( latest_device_type = 2 and registration_id !='' ) GROUP BY registration_id  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`registration_id`,`channel` FROM `s_user` WHERE ( latest_device_type = 1 and registration_id !='' and app_version='2.2.0' ) GROUP BY registration_id  [ RunTime:0.0000s ]
+SQL: UPDATE `s_msg_push` SET `status`='2',`done_time`='1508982415' WHERE ( id=193 ) [ RunTime:0.0156s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

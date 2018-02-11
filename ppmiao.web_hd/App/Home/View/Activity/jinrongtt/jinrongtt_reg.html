@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+	<script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+	<script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" href="https://image.ppmiao.com/Public/channel/20180116_channel/css/channel.css">
+	<title>票票喵</title>
+	<script>
+        //声明_czc对象:
+        var _czc = _czc || [];
+        //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+        _czc.push(["_setAccount", "1271661273"]);
+	</script>
+</head>
+
+<body>
+	<!-- 弹框 -->
+	<div class="pop">
+		<div class="dialog">
+			<div class="top"> 请输入验证码 </div>
+			<div class="bottom">
+				确定
+			</div>
+		</div>
+	</div>
+
+	<!-- 弹框 -->
+
+	
+
+	<!-- 未注册 -->
+	<div class="container">
+		<div class="img00 channel2_01"></div>
+		<div class="img00 channel2_02">
+			<div class="download">
+				下载APP
+			</div>
+		</div>
+	</div>
+
+	<!-- 埋点 -->
+	<script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan style='display:none' id='cnzz_stat_icon_1271661273'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1271661273%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+
+	<script>
+        function staticTimes(){
+            _czc.push(["_trackEvent",'download','统计下载的次数',"{$chinese_characters}",'','']);
+        }
+
+		// 下载APP
+		$('.download').click(function() {
+            staticTimes();
+			window.location.href= "{$url}";
+		})
+		
+	</script>
+</body>
+
+</html>

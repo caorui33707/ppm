@@ -1,0 +1,30 @@
+<div class="headerBg">
+    <div class="header w1003 clear">
+        <div class="MCLogo fLe clear">
+            <img src="{:C('STATIC_ROOT')}/ppmiao/images/MCLogo.png" />
+        </div>
+        <div class="MCPhone fLe clear">
+            <img src="{:C('STATIC_ROOT')}/ppmiao/images/MCphone.png" />
+        </div>
+        <div class="header fRi clear">
+            <ul>
+                <if condition="$path eq 'index'"><li class="active"><a href="{:C('WEB_ROOT')}">首页</a></li> <else/> <li><a href="{:C('WEB_ROOT')}">首页</a></li></if>
+                <if condition="$path eq 'product'"><li class="active"> <a href="{:C('WEB_ROOT')}/product/">理财产品</a></li> <else/> <li> <a href="{:C('WEB_ROOT')}/product/">理财产品</a></li></if>
+                <if condition="$path eq 'security'"> <li class="active"><a href="{:C('WEB_ROOT')}/security.html">安全保障</a></li> <else/> <li> <a href="{:C('WEB_ROOT')}/security.html">安全保障</a></li></if>
+                <if condition="$path eq 'about'"><li class="active"> <a href="{:C('WEB_ROOT')}/about.html">关于我们</a></li> <else/> <li> <a href="{:C('WEB_ROOT')}/about.html">关于我们</a></li></if>
+                <if condition="$path eq 'contact'"><li class="active"> <a href="{:C('WEB_ROOT')}/contact.html">联系我们</a></li> <else/> <li> <a href="{:C('WEB_ROOT')}/contact.html">联系我们</a></li></if>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".userHeader").hover(function(){
+            $(this).find(".pulldown-nav").addClass("hover");
+            $(this).find(".uderHeaderDl").show();
+        },function(){
+            $(this).find(".uderHeaderDl").hide();
+            $(this).find(".pulldown-nav").removeClass("hover");
+        });
+    });
+</script>

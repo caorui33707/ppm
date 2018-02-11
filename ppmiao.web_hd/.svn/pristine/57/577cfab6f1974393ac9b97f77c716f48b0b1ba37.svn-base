@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20161222/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20161222/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+    <title>圣诞爆款 票票喵</title>
+
+</head>
+<body>
+    <section>
+        <!--正文-->
+        <div class="marry_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20161222/images/marry_01.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161222/images/marry_02.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20161222/images/marry_03.jpg" />
+        </div>
+        <div class="marry_now tc" style="cursor:pointer;" onclick="go2App();">
+            <p>立即投资</p>
+        </div>
+    </section>
+    </body>
+</html>

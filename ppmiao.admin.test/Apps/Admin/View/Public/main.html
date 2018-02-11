@@ -1,0 +1,146 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<style>
+    .moneynotice{
+        width: 100%;
+        background: orange;
+        color: #fff;
+        height: 30px;
+        line-height: 40px;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+</style>
+<div class="main" >
+    <div id="m_notice">
+    </div>
+    <div class="content">
+        <TABLE id="checkList" class="list" cellpadding=0 cellspacing=0 >
+            <tr><td height="3" colspan="2" class="topTd" ></td></tr>
+            <if condition="checkAuth('Admin/main/datastatistics') eq true">
+            <tr class="row" ><th colspan="2" class="space">数据统计 <a href="javascript:;" onclick="loadBaseInfo(this)">刷新</a></th></tr>
+            <tr class="row"><td width="15%" align="right">今日已售</td><td id="tdTodayTotleMoney">{$today_totle_money|number_format=2}&nbsp;元</td></tr>
+            <tr class="row"><td width="15%" align="right">定期总销售额</td><td id="tdProjectTotleMoney">{$totle_money|number_format=2}&nbsp;元</td></tr>
+            <tr class="row"><td width="15%" align="right">总销售额</td><td id="tdAllTotleMoney">{$totle_money|number_format=2}&nbsp;元</td></tr>
+            <tr class="row"><td width="15%" align="right">定期存量</td><td id="total_profit">{$totle_money|number_format=2}&nbsp;元</td></tr>
+            <tr class="row"><td width="15%" align="right">用户数量</td><td id="tdUserCount">{$user_count.totle} （ios：{$user_count.ios_count}，android：{$user_count.android_count}，未购买：{$user_count.not_count}）&nbsp;&nbsp;&nbsp;<em style="font-size:10px;color:gray;">下次更新:{$user_count.update_time|date='H:i:s',###}</em></td></tr>
+            <if condition="checkAuth('Admin/common/getSmsQueryBalance') eq true"><tr class="row"><td width="15%" align="right">短信剩余</td><td><span id="sms">-</span>&nbsp;条</td></tr></if>
+            </if>
+            <if condition="checkAuth('Admin/main/latestbuyrecord') eq true">
+                <tr class="row" id="trLastestBuyRecord">
+                    <th colspan="2" class="space">最新购买记录 <a href="javascript:;" onclick="loadLatestBuyRecord(this)">刷新</a></th>
+                </tr>
+            </if>
+            <!-- 
+            <if condition="checkAuth('Admin/main/walletrechargerecord') eq true">
+                <tr class="row" id="trWalletRechargeRecord">
+                    <th colspan="2" class="space">钱包充值记录 <a href="javascript:;" onclick="loadWalletRechargeRecord(this)">刷新</a></th>
+                </tr>
+            </if>
+            -->
+            <if condition="checkAuth('Admin/main/lastesterrorpayment') eq true">
+                <tr class="row" id="trLastestErrorPayment"><th colspan="2" class="space">最新购买失败记录 <a href="javascript:;" onclick="loadLastestErrorPayment(this)">刷新</a></th></tr>
+            </if>
+            <tr><td height="3" colspan="2" class="bottomTd"></td></tr>
+        </TABLE>
+    </div>
+</div>
+<script>
+    var _loadErrorList = false;
+    var _loadBuyList = false;
+    var _loadWalletList = false;
+    var _loadBaseInfo = false;
+    var _loadProfit = false;
+    
+    $(document).ready(function(){
+        <if condition="checkAuth('Admin/common/getSmsQueryBalance') eq true">
+        $.post(ROOT + "/common/getSmsQueryBalance", {}, function(msg){
+            $("#sms").text(msg.info);
+        });
+        </if>
+        <if condition="checkAuth('Admin/main/datastatistics') eq true">loadBaseInfo();</if>
+        <if condition="checkAuth('Admin/main/latestbuyrecord') eq true">loadLatestBuyRecord();</if>
+        <if condition="checkAuth('Admin/main/datastatistics') eq true">loadProfit();</if>
+        //<if condition="checkAuth('Admin/main/walletrechargerecord') eq true">loadWalletRechargeRecord();</if>
+        
+        
+    });
+    function loadBaseInfo(_obj){
+        if(!_loadBaseInfo){
+            $(_obj).text('正在刷新...');
+            _loadBaseInfo = true;
+            $.post(ROOT + "/Index/main_ajax", {act: 'data_statistics'}, function(msg){
+                $(_obj).text('刷新');
+                _loadBaseInfo = false;
+                if(msg.status){
+                    $("#tdTodayTotleMoney").html(msg.data.todayTotleMoney + '&nbsp;元');
+                    $("#tdProjectTotleMoney").html(msg.data.projectTotleMoney + '&nbsp;元');
+                    $("#tdAllTotleMoney").html(msg.data.allTotleMoney + '&nbsp;元');
+                    $("#tdUserCount").html(msg.data.userCountCache.totle + ' （ios：'+msg.data.userCountCache.ios_count+'，android：'+msg.data.userCountCache.android_count+'，未购买：'+msg.data.userCountCache.not_count+'）&nbsp;&nbsp;&nbsp;<em style="font-size:10px;color:gray;">下次更新:'+msg.data.userCountCache.update_time+'</em>');
+                    $('#m_notice').html(msg.data.fundData);
+                }
+            });
+        }
+    }
+    function loadLatestBuyRecord(_obj){
+        if(!_loadBuyList){
+            _loadBuyList = true;
+            $(_obj).text('正在刷新...');
+            $(".lbr").remove();
+            $.post(ROOT + "/Index/main_ajax", {act: 'latest_buy_record'}, function(msg){
+                _loadBuyList = false;
+                $(_obj).text('刷新');
+                if(msg.status){
+                    $("#trLastestBuyRecord").after(msg.info);
+                }
+            });
+        }
+    }
+    /*
+    function loadWalletRechargeRecord(_obj){
+        if(!_loadWalletList){
+            _loadWalletList = true;
+            $(_obj).text('正在刷新...');
+            $(".wrr").remove();
+            $.post(ROOT + "/Index/main_ajax", {act: 'wallet_recharge_record'}, function(msg){
+                _loadWalletList = false;
+                $(_obj).text('刷新');
+                if(msg.status){
+                    $("#trWalletRechargeRecord").after(msg.info);
+                }
+            });
+        }
+    }
+    */
+    function loadLastestErrorPayment(_obj){
+        if(!_loadErrorList){
+            _loadErrorList = true;
+            $(".lep").remove();
+            $(_obj).text('正在刷新...');
+            $.post(ROOT + "/Index/main_ajax", {act: 'lastest_error_payment'}, function(msg){
+                _loadErrorList = false;
+                $(_obj).text('刷新');
+                if(msg.status){
+                    $("#trLastestErrorPayment").after(msg.info);
+                }
+            });
+        }
+    }
+    
+    function loadProfit(_obj){
+    	
+        if(!_loadProfit){
+            $(_obj).text('正在刷新...');
+            _loadProfit = true;
+            $.post(ROOT + "/Index/main_ajax", {act: 'system_profit'}, function(msg){
+                $(_obj).text('刷新');
+                _loadProfit = false;
+                if(msg.status){
+                    $("#total_profit").html(msg.data.system_profit.total_money+'元 ，人数：'+msg.data.system_profit.buy_user+'，笔数：'+msg.data.system_profit.buy_count+'&nbsp;&nbsp;<em style="font-size:10px;color:gray;">下次更新:'+msg.data.system_profit.update_time+'</em>');
+                }
+            });
+        }
+    }
+</script>
+<!-- 主页面结束 -->
+{// 加载尾部公共文件 }

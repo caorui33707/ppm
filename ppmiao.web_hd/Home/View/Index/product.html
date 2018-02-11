@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.min.js"></script>
+<!-- <script src="http://www.helloweba.com/demo/flexslider/jquery.flexslider-min.js"></script> -->
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/tupianlunbo.js"></script>
+<script type="{:C('STATIC_ROOT')}/new_ppmiao/js/weixin/jquery-1.8.2.min.js"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/progressbar.min.js"></script>
+
+
+
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/tupianlunbo.css" rel="stylesheet" type="text/css"/>
+<title>{$meta_title}</title>
+
+</head>
+<style>
+.content{ position:absolute;opacity:0.7;z-index:3; width: 100%;filter:alpha(opacity=70);}
+.about_banner{margin-top:-96px;}<!--第二导航条透明度-->
+
+</style>
+<style>
+.product_look{width:100px;line-height:30px;border:solid 1px #ff580f;border-radius:6px;color:#ff580f;margin-right:35px;}
+.product_look:hover{background-color:#ff580f;color:#FFF;}
+</style>
+<style>
+.processingbar {
+  text-align: center;
+  position: relative;
+  width: 110px;
+}
+.processingbar font {
+  color: #ff580f;
+  display: block;
+  width: 110px;
+  height: 110px;
+  line-height: 110px;
+  font-size: 22px;
+  font-weight:bold;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0px 0 0 0px;
+}
+</style>
+<style>
+.map img{width:100%;}
+.about_banner img{display: block;width: 100%;}
+</style>
+<body style="min-width:1200px;">
+    <!--第一导航栏-->
+	<include file="Public:menu" />
+
+	<div class="about_banner">
+            <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_02.jpg"/>
+        </div>
+        <div class="product_middle">
+        
+        	 <!--活动理财-->
+        	 
+        	 <!-- 
+        	 <div class="product_current mar">
+            	<div class="product_activity bodb">
+                	<p>票票喵—<span>活动理财</span></p>
+                </div>
+                <div class="product_expect">
+                	<div class="product_profit cut70 fl ">
+                    	<div class="product_money">
+                        	<div class="product_year cut25 fl tc">
+                            	<p class="bodr">{$rate}%</p>
+                                <p class="bodr"><span>预期年化收益</span></p>
+                            </div>
+                            
+                            <div class="product_cumulative cut50 fl tc">
+                            	<p>累计为用户赚取收益：<span>{$res.web_base.total_income}</span>元</p>
+                                
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="product_rightnow ">
+                            <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_12.png"/>
+                            <p class="fl">1元起投</p>
+                            <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_14.png"/>
+                            <p  class="fl">随存随取</p>
+                            <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_16.png"/>
+                            <p class="fl">当日起息</p>
+                            <div class="product_look fr tc">
+                            	<a href="change.html"><p>查看详情>></p></a>
+                            </div>
+                         </div>
+                         
+                         <div class="clear"></div>
+                     </div>
+                    <div class="product_security  cut30 fl">
+                        <img class="fl bodl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_05.png"/>
+                        <p>账户安全</p>
+                        <p>由太平洋保险承担</p>
+                        <div class="clear"></div>
+                        <img class="fl bodl mtop" src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_08.png"/>
+                        <p class="mtop15">银行承兑汇票</p>
+                        <p>票据由平安银行托管，到期托收</p>
+                        <div class="clear"></div>
+                        <img class="fl bodl mtop" src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_10.png"/>
+                        <p class="mtop15">交易资金</p>
+                        <p>平台账户资金由国有银行实时监管</p>
+                    </div>
+                </div>
+             </div>
+             
+              -->
+             <!--定期理财-->
+             <div class="product_meow mar">
+                 <div class="product_activity bodb">
+                    <p>票票喵—<span>定期理财</span></p>
+                 </div>
+                 <!--1-->
+                 	<foreach name="res.list" item="item" key="k">
+                     <div class="product_bag">
+                        <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_23.png"/>
+                        <div class="product_new">
+                            <p class="fl">{$item.title}</p>
+                            <if condition="$item.new_preferential == 1 ">
+   							<img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_28.png"/>
+							</if>                      
+                        </div>
+                        <div class="clear"></div>
+                     </div>
+                     <div class="product_year cut20 fl tc">
+                        <p>{$item.user_interest}%</p>
+                        <p><span>预期年化收益</span></p>
+                     </div>
+                     <div class="product_cumulative cut20 fl tc mtop2">
+                          <p>期限</p>
+                          <p><span>{$item.day}</span>天</p>
+                      </div>
+                      <div class="product_cumulative cut20 fl tc mtop2">
+                          <p>投资金额</p>
+                          <p><span>{$item.amount}</span></p>
+                      </div>
+                      <div class="product_chart fl mar">
+                           <div class="chart" id="chart{$k+1}" style="width:85px;height:85px"></div>
+                           <span class="hidden" id="percent_{$k}">{$item.percent}</span>
+                           <p>{$item.money_min}元起购</p>
+                      </div>
+                      <div class="product_panic tc mtop4" onClick="location" >
+                            <a href="buy.html?id={$item.id}">
+                            <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/8_03.png"/>
+                            </a>
+                      </div>   
+                      <div class="product_activity bodbm"></div>
+                 </foreach>
+             </div>
+             
+             <!--已售罄-->
+             <div class="product_meow1 mar">
+                 <div class="product_activity bodb">
+                    <p>票票喵—<span>已售罄</span></p>
+                 </div> 
+                 <!--1-->
+                 
+                 <foreach name="res.soldout_list" item="item">
+                 
+                      <div class="product_bag">
+                        <div class="product_new">
+                            <p class="fl  color_2 mbom5  padl20">{$item.item}</p>
+                        </div>
+                        <div class="clear"></div>
+                     </div>
+                     <div class="product_year1 cut20 fl tc">
+                        <p class="color_2">{$item.user_interest}%</p>
+                        <p><span>预期年化收益</span></p>
+                     </div>
+                     <div class="product_cumulative1 cut20 fl tc mtop2">
+                          <p>期限</p>
+                          <p class="color_2"><span>{$item.duration}</span>天</p>
+                      </div>
+                      <div class="product_cumulative1 cut20 fl tc mtop2">
+                          <p>投资金额</p>
+                          <p><span>{$item.amount}</span></p>
+                      </div>
+                      <div class="product_chart fl mar">
+                            <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_41.png"/>
+                            <p>{$item.money_min}元起购</p>
+                      </div>
+                      <div class="product_panic1 tc">
+                            <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_34.png"/>
+                      </div>
+                      <div class="product_activity bodbm"></div>
+                      
+                 </foreach>
+                 
+             </div>
+             
+             <!--已还款-->
+             <div class="product_meow1 mar  ">
+                 <div class="product_activity bodb">
+                    <p>票票喵—<span>已还款</span></p>
+                 </div> 
+				<foreach name="res.expire_list" item="item">
+                      <div class="product_bag">
+                        <div class="product_new">
+                            <p class="fl  color_2 mbom5  padl20">{$item.title}</p>
+                        </div>
+                        <div class="clear"></div>
+                     </div>
+                     <div class="product_year1 cut20 fl tc">
+                        <p class="color_2">{$item.user_interest}%</p>
+                        <p><span>预期年化收益</span></p>
+                     </div>
+                     <div class="product_cumulative1 cut20 fl tc mtop2">
+                          <p>期限</p>
+                          <p class="color_2"><span>{$item.duration}</span>天</p>
+                     </div>
+                      <div class="product_cumulative1 cut20 fl tc mtop2">
+                          <p>投资金额</p>
+                          <p><span>{$item.amount}</span></p>
+                      </div>
+                      <div class="product_chart fl mar">
+                            <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/88_41.png"/>
+                            <p>{$item.money_min}元起购</p>
+                      </div>
+                      <div class="product_panic1 tc">
+                            <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/eee_03.png"/>
+                      </div>
+                      <div class="product_activity bodbm"></div>
+      			</foreach>            
+                  
+             </div>
+        </div>
+        <div class="clear"></div>
+		<!--底部导航-->
+		<include file="Public:footer" />
+
+</body>
+ 
+ <!--点击二维码显示隐藏-->
+<script>
+	var IsPopup = false;
+
+	$(document).ready(function() {
+		$("IsPass").click(function() {
+			$("#IsPass").fadeToggle();
+			$("#IsPass").fadeToggle("slow");
+			$("#IsPass").fadeToggle(1000);
+		});
+	});
+	
+	function IsPass() {
+		if (IsPopup) {
+			document.getElementById("index_bj").className = "hidden";
+			document.getElementById("index_window").className = "hidden";
+			IsPopup = false;
+		} else {
+			document.getElementById("index_bj").className = "index_bj abs";
+			document.getElementById("index_window").className = "index_window abs";
+			IsPopup = true;
+		}
+	}
+	
+	var circle = new ProgressBar.Circle('#chart1', {
+		color : '#ff6600',
+		strokeWidth : 10,
+		trailWidth : 10,
+		easing : 'linear',
+		duration : 1000,
+		text : {
+			value : '0'
+		},
+		step : function(state, bar) {
+			bar.setText((bar.value() * 100).toFixed(0) + '%');
+		}
+	});
+	
+	var v =  $("#percent_0").text()/100;
+	circle.animate(v, function() {
+
+	});
+
+	
+	var circle = new ProgressBar.Circle('#chart2', {
+		color : '#ff6600',
+		strokeWidth : 10,
+		trailWidth : 10,
+		easing : 'linear',
+		duration : 1000,
+		text : {
+			value : '0'
+		},
+		step : function(state, bar) {
+			bar.setText((bar.value() * 100).toFixed(0) + '%');
+		}
+	});
+	
+	var v =  $("#percent_1").text()/100;
+	circle.animate(v, function() {
+
+	});
+
+	var circle = new ProgressBar.Circle('#chart3', {
+		color: '#ff6600',
+		strokeWidth: 10,
+		trailWidth: 10,
+		easing: 'linear',
+		duration: 1000,
+		text: {
+			value: '0'
+		},
+		step: function(state, bar) {
+			bar.setText((bar.value() * 100).toFixed(0)+'%');
+		}
+	});
+	var v =  $("#percent_2").text()/100;
+	circle.animate(v, function() {
+		
+	});
+</script>
+</html>

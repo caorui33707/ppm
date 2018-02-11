@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+  <script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+
+  <script type="text/javascript" src="https://image.ppmiao.com/Public/js/util.js"></script>
+  <link rel="stylesheet" href="https://image.ppmiao.com/Public/activity/wenjuanxing/css/index.css">
+  <style>
+    .dialog-tips {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .tips{
+      position: fixed;
+      top: 0;
+      right: .8rem;
+      width: 8.16rem;
+      height: 8.04rem;
+      background-repeat: no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
+    }
+
+    .ios-image{
+      background-image: url(https://image.ppmiao.com/Public/activity/wenjuanxing/img/ios_03.png);
+    }
+    .andrio-image{
+      background-image: url(https://image.ppmiao.com/Public/activity/wenjuanxing/img/andrio.png);
+    }
+  </style>
+  <title>票票喵注册有礼</title>
+</head>
+<body>
+<div class="background imgs1"></div>
+<div class="background imgs2">
+  <if condition="($is_weixin eq 1)">
+    <div class="dialog-tips">
+      <div class="tips <if condition="($device_type eq 'ios' )"> ios-image <else/> andrio-image </if>"></div>
+</div>
+<else/>
+<span class="down-load" ></span>
+</if>
+</div>
+<script type="text/javascript">
+
+    // 下载APP
+    $('.down-load').click(function() {
+        window.location.href= "{$url}";
+    });
+
+</script>
+</body>
+</html>

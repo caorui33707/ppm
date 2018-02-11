@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>404 - 页面找不到</title>
+    <meta name="viewport" content="user-scalable=no,width=device-width">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/css02.css" rel="stylesheet" type="text/css"  media="all" />
+    <script language="javascript" src="{:C('STATIC_ROOT')}/js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body id="bodyGray03">
+<section class="wrapBox03">
+    <section class="nullContent">
+        <section class="nullBg">
+            <img src="{:C('STATIC_ROOT')}/mobile/images/null01.png" id="null01">
+            <img src="{:C('STATIC_ROOT')}/mobile/images/null02.png" id="null02">
+        </section>
+    </section>
+</section>
+<script type="text/javascript">
+    window.onload=function(){
+        var winH = $(window).height();
+        var winW = $(window).width();
+        var winH1=winH;
+        $(".wrapBox03").css('height',winH1+'px');//这里的div，选择你的那个div
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/modules/exporting.js"></script>
+    <div class="content">
+        <div class="title">理财收支记录</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <input type="hidden" name="target" value="Investment" />
+                    <div class="fLeft">
+                        <span><input type="text" name="dt" id="dt" class="laydate-icon" placeholder="选择日期" class="medium" value="{$dt}" readonly></span>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="checkbox" name="cache" value="1">更新缓存 <input type="submit" value="筛选" class="search imgButton"></div>
+                </form>
+            </div>
+        </div>
+        <div id="result" class="result none"></div>
+        <div id="container" style="min-width: 310px; height: 800px; margin: 0 auto"></div>
+    </div>
+</div>
+<script>
+    //日历开始
+    var dt = {
+        elem: '#dt',
+        format: 'YYYY-MM',
+        min: '1970-00', //设定最小日期为当前日期
+        max: '2099-06', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+
+        }
+    };
+    laydate(dt);
+    //日历结束
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '理财收支'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: [{
+                categories: [{$due_date}]
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+                    formatter: function() {
+                        return this.value +'元';
+                    },
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                title: {
+                    text: '理财支出',
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                opposite: true
+
+            }, { // Secondary yAxis
+                gridLineWidth: 0,
+                title: {
+                    text: '收益',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value +' 元';
+                    },
+                    style: {
+                        color: '#4572A7'
+                    }
+                }
+
+            }, { // Tertiary yAxis
+                gridLineWidth: 0,
+                title: {
+                    text: '理财收入',
+                    style: {
+                        color: '#AA4643'
+                    }
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value +' 元';
+                    },
+                    style: {
+                        color: '#AA4643'
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 80,
+                floating: true,
+                backgroundColor: '#FFFFFF'
+            },
+            series: [{
+                name: '理财收益',
+                color: '#4572A7',
+                type: 'column',
+                yAxis: 1,
+                data: [{$due_profit}],
+                tooltip: {
+                    valueSuffix: ' 元'
+                }
+
+            }, {
+                name: '理财收入',
+                type: 'spline',
+                color: '#AA4643',
+                yAxis: 2,
+                data: [{$due_income}],
+                marker: {
+                    enabled: false
+                },
+                dashStyle: 'shortdot',
+                tooltip: {
+                    valueSuffix: ' 元'
+                }
+
+            }, {
+                name: '理财支出',
+                color: '#89A54E',
+                type: 'spline',
+                data: [{$due_expense}],
+                tooltip: {
+                    valueSuffix: '元'
+                }
+            }]
+        });
+    });
+
+</script>

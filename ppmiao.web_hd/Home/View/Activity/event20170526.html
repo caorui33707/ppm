@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="{:C('IMG_ROOT')}/activity/event20170526/css/style.css" />
+    <script src="{:C('IMG_ROOT')}/activity/event20170526/js/flexible.js"></script>
+    <script src="{:C('IMG_ROOT')}/activity/event20170526/js/flexible_css.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+    <title>票票喵</title>
+<style>
+.index_bank{
+background-image: url("{:C('IMG_ROOT')}/activity/event20170526/images/bank_01.jpg");
+background-repeat: no-repeat;
+background-size: 100%;
+width: 10rem;
+height: 10rem;
+text-align: center;
+margin: auto;
+position: relative;
+}
+.index_time{
+position: absolute;
+top:4.5rem;
+width:10rem;
+text-align: center;
+color:#fff;
+font-size:0.35rem;
+}
+.index_middle{
+background-image: url("{:C('IMG_ROOT')}/activity/event20170526/images/bank_02.jpg");
+background-repeat: no-repeat;
+background-size: 100%;
+width: 10rem;
+height: 10rem;
+text-align: center;
+margin: auto;
+}
+.index_foot{
+background-image: url("{:C('IMG_ROOT')}/activity/event20170526/images/foot_03.jpg");
+background-repeat: no-repeat;
+background-size: 100%;
+width: 10rem;
+height: 3rem;
+text-align: center;
+margin: auto;
+}
+.head_now {
+width: 100%;
+height: 1.2rem;
+line-height: 1.2rem;
+background-color: #f39800;
+color: #fff;
+font-size: 0.4rem;
+width:100%;position:fixed;bottom:0;left:0;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+  <div class="index_bank">
+    <div class="index_time">
+      <p>
+        活动时间：5月26号—5月28号
+      </p>
+    </div>
+  </div>
+  <div class="index_middle"></div>
+  <div class="index_foot"></div>
+  <div class="head_now tc" style="cursor:pointer;" onclick="go2App();">
+      <p>立即投资</p>
+  </div>
+</body>
+</html>

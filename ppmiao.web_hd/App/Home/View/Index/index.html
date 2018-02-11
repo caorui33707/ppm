@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<meta name="keywords" content="票票喵,票据融资,票据理财,银行承兑汇票,理财平台,手机理财软件" />
+<meta name="description" content="票票喵，APP，专注于银行承兑汇票为主的低风险金融资产投资理财的细分市场，是一个专业为企业及个人打造票据融资、票据理财的服务平台" />
+<meta name="author" content="票票喵理财" />
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.min.js"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/tupianlunbo.js"></script>
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/tupianlunbo.css" rel="stylesheet" type="text/css" />
+<title>{$meta_title}</title>
+
+<script type="text/javascript">
+
+	var goUrl = 'https://www.ppmiao.com';
+	var url = window.location.href;
+	if (url.indexOf("https") < 0) {
+		url = url.replace("http:", "https:");
+		window.location.replace(url);
+	}
+
+	url = window.location.host;
+	if(url == "www.piaopiaomiao.com" || url == "piaopiaomiao.com" || url == "ppmiao.cn" ||url == 'www.ppmiao.cn') {
+		window.location.replace(goUrl);
+	}
+
+</script>
+
+<script type="text/javascript">
+$(function(){
+    $(".daku1").mouseover(function(){
+        $(".yutu1").hide();
+        $(".hutu1").show();
+    });
+    $(".daku1").mouseout(function(){
+        $(".yutu1").show();
+        $(".hutu1").hide();
+    });
+    $(".daku2").mouseover(function(){
+        $(".yutu2").hide();
+        $(".hutu2").show();
+    });
+    $(".daku2").mouseout(function(){
+        $(".yutu2").show();
+        $(".hutu2").hide();
+    });
+});
+</script>
+
+
+<style>
+.slides  .img {
+
+}
+.index_baidu img{
+	width:160px;
+}
+
+.slides  .img>a.btn {
+	display: inline-block;
+	position: absolute;
+	border: 1px solid #fff;
+	width: 6%;
+	height: 21px;
+	color: #FFF;
+	line-height:;
+}
+
+.slides  .img>a.btn.btn_1 {
+	top: 83.8%;
+	left: 28%;
+}
+
+.slides  .img>a.btn.btn_2 {
+	top: 83.8%;
+	left: 47%;
+}
+
+.slides  .img>a.btn.btn_3 {
+	top: 83.8%;
+	left: 66%;
+}
+</style>
+<style>
+.index_zu {
+	top: 47%;
+	left: 40%;
+}
+</style>
+
+<style>
+.content {
+	position: absolute;
+	opacity: 0.7;
+	z-index: 3;
+	width: 100%;
+	filter: alpha(opacity = 70);
+}
+
+.about_banner {
+	margin-top: -96px;
+}
+
+</style>
+<style>
+.index_new:hover {
+	background-color: #ff5813;
+}
+</style>
+<style>
+.index_zu{top:47%;left:40%;}
+.index_percent{top:46%;left:57%;}
+.index_percent span{font-size:45px;font-weight:bold;color:#ff6600;}
+.index_percent p{font-size:20px;color:#ff6600;}
+.index_percent1 {top:63%;left:57%;border:solid 2px #fff;border-radius:5px;width:9%;line-height:30px;text-align:center;color:#fff;}
+</style>
+</head>
+
+
+<body style="min-width:1200px;">
+
+	<include file="Public:menu" />
+
+<!--轮播图片-->
+        <div class="main rel" id="pic">
+            <div class="pro-switch">
+                <div class="slider">
+                    <div class="flexslider">
+                        <ul class="slides">
+						<!-- <li>
+                            <div class="img tc">
+                                <img src="https://image.ppmiao.com/H5picture/common/index_weekend.jpg" alt="" />
+                            </div>
+                        </li> -->
+						<!-- 幻灯片，第一张 -->
+                        <li>
+                            <div class="img tc">
+                                <a href="https://image.ppmiao.com/Public/activity/advertise/pc/index.html" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/mv.jpg" alt="" />
+                                </a>
+                            </div>
+                        </li>
+
+						<!-- <li>
+                            <div class="img tc">
+                                <a href="https://image.ppmiao.com/act/cunguan/index.html" target="_blank"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/pc.jpg" alt="" />
+                                </a>
+                            </div>
+                        </li> -->
+
+						<li>
+							<div class="img tc">
+								<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/banner4.jpg" alt="" />
+							</div>
+						</li>
+
+
+							<li>
+                              <a href="/a_banner.html" target="_blank">
+                                <div class="img tc">
+                                    <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/4.jpg" />
+                                </div>
+                              </a>
+                            </li>
+                            <li>
+                                <div class="img tc">
+                                    <a href="security.html" class="btn btn_1">安全保障>></a>
+                                    <a href="product.html" class="btn btn_2">理财产品>></a>
+                                    <a href="about.html" class="btn btn_3">关于我们>></a>
+                                    <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/banner。_01.jpg" alt="" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img tc">
+                                    <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/222.jpg" alt="" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img tc">
+                                    <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/3333.jpg" alt="" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="index_platform">
+        	<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/line_02.png"/>
+        </div>
+        <div class="index_mount mar">
+            <div class="index_interest cut33 fl tc daku1">
+                <div class="index_week">
+                    <p>一周交易数据</p>
+                </div>
+                <img class="fl yutu1" src="{:C('STATIC_ROOT')}/new_ppmiao/images/首页城市_07_06.png"/>
+                <img class="fl hutu1" src="{:C('STATIC_ROOT')}/new_ppmiao/images/首页城市_06.png" style="display: none"/>
+                <div class="index_money fl">
+                	<span>{$res.web_base.week_deal_value}</span>元
+                    <p>本周累计成功投资金额</p>
+                </div>
+                <div class="index_lineright"></div>
+            </div>
+            <div class="index_interest cut33 fl tc daku2">
+                <div class="index_week">
+                  <p>一周投资人数</p>
+                </div>
+                <img class="fl yutu2" src="{:C('STATIC_ROOT')}/new_ppmiao/images/首页城市_04_03.png"/>
+                <img class="fl hutu2" src="{:C('STATIC_ROOT')}/new_ppmiao/images/首页城市_03.png"style="display: none"/>
+                <div class="index_money fl">
+                	<span>{$res.web_base.week_investors_people}</span>人
+                  <p>成功投资</p>
+              </div>
+                <div class="index_lineright"></div>
+            </div>
+            <div class="index_register cut33 fl tc">
+            	<p>票票喵累积完成注册人数<span>{$res.web_base.total_user}</span>人</p>
+                <div class="index_new mar">
+                	<p>新用户享高收益标</p>
+                </div>
+            </div>
+        </div>
+        <!--<div class="index_annual">
+        	<a href="change.html"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/you_03.jpg"/></a>
+        </div>-->
+        <div class="index_annual rel">
+        	<!-- <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/city_02.jpg"/> -->
+            <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/city_2018_1_5.jpg"/>
+            <div class="index_percent abs" style="display:none;">
+            	<p ><span>{$year_rate}</span>%年化率</p>
+            </div>
+            <div class="index_percent1 abs" style="display:none;">
+                <a href=" change.html">
+                    <p>立即购买</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="index_bigger mar">
+            <div class="index_outer mar">
+                <div class="index_grey mar"></div>
+                <div class="index_regular tc">
+                    <p><span>定期理财</span>票票喵</p>
+                </div><!--定期理财-->
+                <div class="index_frame mar">
+                <foreach name="res.project_list" item="item">
+                    <div class="index_share fl">
+                        <a href="buy.html?id={$item.id}">
+                            <div class="box">
+                                <div class="box_o">
+                                	<if condition="$item.new_preferential == 1 ">
+                                    <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/date_07.png" class="box_fl">
+                                    <else /> <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/date_09.png" class="box_fl">
+                                	</if>
+                                    <div class=" tc"><p></p></div>
+                                </div>
+                                <p class="box_tw color_4">{$item.user_interest}%</p>
+                                <p class="box_year tc">预期年化收益</p>
+                                <div class="box_tr">
+                                    <p>{$item.title}</p>
+                                </div>
+                                <div class="box_f">
+                                    <li class="box_li1">
+                                        <p class="box_p1">投资期限</p>
+                                        <p class="box_sp1">{$item.day}天</p>
+                                    </li>
+                                    <li class="box_li1">
+                                        <p class="box_p1">起购金额</p>
+                                        <p class="box_sp1">{$item.money_min}元</p>
+                                    </li>
+                                    <li class="box_li1">
+                                        <p class="box_p1">计息日期</p>
+                                        <p class="box_sp1">次日起息</p>
+                                    </li>
+                                </div>
+                                <div class="box_fi tc">
+                                    <p class="box_p3 color_4">承兑银行：{$item.accepting_bank}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    </foreach>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+       <div class="index_grey mar mtop3"></div>
+       <div class="index_regular tc">
+          <p><span>最新动态</span></p>
+       </div><!--媒体报道-->
+
+       <div class="index_report mar mtop3 ">
+            <div class="index_le fl cut40 mar">
+                    <div class="index_media cut80 fl bodb">
+                        <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_03.png"/>
+                        <p class="fl">行业资讯</p>
+                        <img class="fr" src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_06.png"/>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                    <foreach name="res.news_list" item="item">
+                    <div class="index_ticket mtop2 cut80 bodbm">
+                        <a href="news.html">
+                            <img class="fl" style="width:145px;height:99px;" src="{:C('WEB_ROOT')}{$item.img}"/>
+                            <p>{$item.title}</p>
+                            <p><span>{$item.intro}</span></p>
+                            <div class="index_time mtop3">
+                                 <p class="fr"><span>{$item.add_time}</span></p>
+                                <img class="fr" src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_15.png"/>
+                            </div>
+                        </a>
+                        <div class="clear"></div>
+                    </div>
+                    </foreach>
+
+            </div>
+            <div class="index_le fl cut40">
+                    <div class="index_media cut80 fl bodb ">
+                        <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_03.png"/>
+                        <p class="fl">网站公告</p>
+                        <img class="fr" src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_06.png"/>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                    <foreach name="res.notice_list" item="item">
+                    <div class="index_spot mtop2 cut80 bodbm">
+                        <a href="detail.html?id={$item.id}">
+                            <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/tiem_11.png"/>
+                            <p class="fl">{$item.title}</p>
+                            <p class="fr"><span>{$item.add_time}</span></p>
+                        </a>
+                        <div class="clear"></div>
+                    </div>
+                    </foreach>
+            </div>
+</div>
+        <div class="clear"></div>
+
+        <!--合作媒体-->
+        <div class="index_cooperation">
+           <div class="index_grey mar mtop3"></div>
+           <div class="index_regular tc">
+              <p><span>合作伙伴</span></p>
+           </div><!--媒体报道-->
+           <div class="index_china mar" style="width:1245px;">
+           		<div class="index_baidu">
+                    <a target="_blank" href="http://www.wdzj.com">
+                        <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/2018_01_17.png"/>
+                    </a>
+                	<img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/9_30.png"/>
+                    <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/9_32.png"/>
+                    <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/9_34.png"/>
+                    <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/9_36.png"/>
+                    <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/9_38.png"/>
+                    <img class="fl" src="{:C('STATIC_ROOT')}/new_ppmiao/images/9_39.png"/>
+                </div>
+           </div>
+           <div class="clear"></div>
+       </div>
+
+		<!--底部导航-->
+		<include file="Public:footer" />
+
+</body>
+<!--图片轮播-->
+     <script type="text/javascript">
+        $(function(){
+          $('.flexslider').flexslider({
+            animation: "slide",
+            start: function(slider){
+              $('body').removeClass('loading');
+            },
+            directionNav:true
+          });
+        });
+ </script>
+
+ <!--点击二维码显示隐藏-->
+<script>
+	var IsPopup = false;
+	function IsPass() {
+		if (IsPopup) {
+			document.getElementById("index_bj").className = "hidden";
+			document.getElementById("index_window").className = "hidden";
+			IsPopup = false;
+		} else {
+			document.getElementById("index_bj").className = "index_bj abs";
+			document.getElementById("index_window").className = "index_window abs";
+			IsPopup = true;
+		}
+	}
+</script>
+
+
+</html>

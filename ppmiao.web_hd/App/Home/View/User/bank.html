@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人中心</title>
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body id="innerBody">
+<include file="PublicNew:menu" />
+
+<div class="innerMain w980 clear">
+    <include file="PublicNew:user_sidebar" />
+
+    <div class="innerRight fRi clear">
+        <div class="innerRight_user_box03 fLe clear" style="margin-top:0; height:auto; padding-bottom:40px;">
+            <div class="innerRight_user_title fLe clear">
+                <h2>我的银行卡</h2>
+            </div>
+            <ul class="fLe">
+                <foreach name="bank_list" item="item">
+                    <li>
+                        <h6><i><img src="{:C('STATIC_ROOT')}/v2/images/bank/bank_{$item.bank_code}.png" /></i>{$item.bank_name}</h6>
+                        <p>{$item.bank_card_no|get_idcard_tail_number}</p>
+                    </li>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<include file="PublicNew:user_footer" />
+</body>
+</html>

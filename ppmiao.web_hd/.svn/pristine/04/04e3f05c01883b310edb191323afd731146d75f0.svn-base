@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">    
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    <title>票票喵 - 个人中心</title>
+
+</head>
+<body style="background-color:#f4f4f4;">
+	<include file="Public:ppm_menu" />
+    <!--正文-->
+        <div class="person_top">
+            <div class="person_center">
+                <a href="profile.html"><p class="cut10 fl" style="color:#ff6a00;">个人中心</p></a>
+                <a href="orderlog.html"><p class="cut10 fl" style="margin:0 30px 0 30px;">交易记录</p></a>
+                <a href="setting.html"><p class="cut80 ">账户设置</p></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="person_big changePassword">        
+            <div class="change-info">
+                <div class="change-text">
+                	<img class="change-pic" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/images/fail.png"  style=" width: 20px; height: 20px; "/>{$err}
+                </div>
+                <div style="margin: 5px 0;">
+                    <a href="pay.html"><button class="change-info-button" style="width:128px">返回</button></a>
+                </div>
+            </div>            
+            <div class="clear"></div>
+        </div>
+
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+</body>
+</html>         

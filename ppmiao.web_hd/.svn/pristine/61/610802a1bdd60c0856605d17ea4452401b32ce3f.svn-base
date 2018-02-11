@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{$meta_keywords}" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/jquery.min.js"></script>
+<script src="{:C('STATIC_ROOT')}/new_ppmiao/js/tupianlunbo.js"></script>
+<script type="{:C('STATIC_ROOT')}/new_ppmiao/js/weixin/jquery-1.8.2.min.js"></script>
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/tupianlunbo.css" rel="stylesheet" type="text/css"/>
+<title>{$meta_title}</title>
+</head>
+<style>
+.content{ position:absolute;opacity:0.7;z-index:3; width: 100%;filter:alpha(opacity=70);}
+.about_banner{margin-top:-96px;}<!--第二导航条透明度-->
+
+</style>
+<style>
+.about_banner img{display: block;width: 100%;}
+</style>
+<body style="min-width:1200px;">
+		
+		<include file="Public:menu" />
+        
+        <div class="about_banner">
+            <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/security_02.jpg"/>
+        </div>
+<div class="security_guarantee mar">
+            <div class="cut50 fl">
+                <div class="zero">
+                    <p><span>安全保障低风险</span></p>
+                </div>
+                <div class="company">
+                    <p>企业现有资产 及银行承兑汇票</p>
+                    <p>作为抵押担保财产</p>
+                    <p>票据到期银行无条件兑付</p>
+                </div>
+                <div class="bank tc fl">
+                <a href="help.html" target="_blank">
+                	<p>什么是银行承兑汇票</p>
+                </a>
+                </div>
+                <div class="bank tc fl">
+                <a href="help.html" target="_blank">
+                	<p>什么叫无条件兑付</p>
+                </a>
+                </div>
+            </div>
+            <div class="cut50 fl tc">
+            	<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/555_03.png"/>
+    </div>
+        </div>
+        <div class="clear"></div>
+        <div class="security_middle bg6 ">
+        	<div class="clear"></div>
+            <div class="security_trusteeship mar">
+                <div class="cut50 fl">
+                    <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/security_09.png" style="width:100%;"/>
+                </div>
+                <div class="security_have cut40 fl">
+                	<div class="zero">
+                        <p><span>票据理财 安全有保障</span></p>
+                    </div>
+                    <div class="company">
+                        <p>票票喵以银行未到期的承兑汇票为投资产品</p>
+                        <p>到期收益和本金承兑行无条件100%兑换。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="security_guarantee mar">
+            <div class="cut50 fl">
+                <div class="zero mtop4">
+                  <p><span>资金账户 安全无忧</span></p>
+                </div>
+                <div class="company">
+                    <p>姓名，身份证，银行卡，银行预留手机号四重验证，</p>
+                    <p>资金同卡进出，免除资金被他人盗用之忧;</p>
+                    <p>资金账户安全由太平洋保险承保。</p>
+                </div>
+            </div>
+            <div class="cut50 fl tc">
+            	<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/555_10.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="security_middle bg6 ">
+        	<div class="clear"></div>
+            <div class="security_trusteeship mar">
+                <div class="cut50 fl">
+                    <img src="{:C('STATIC_ROOT')}/new_ppmiao/images/555_13.png"/>
+                </div>
+                <div class="security_have cut40 fl">
+                	<div class="zero">
+                        <p><span>票据理财 安全有保障</span></p>
+                    </div>
+                    <div class="company">
+                        <p>票票喵以银行未到期的承兑汇票为投资产品</p>
+                        <p>到期收益和本金承兑行无条件100%兑换。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        <div class="security_guarantee mar">
+            <div class="cut50 fl">
+                <div class="zero mtop4">
+                  <p><span>资金账户 安全无忧</span></p>
+                </div>
+                <div class="company">
+                    <p>姓名，身份证，银行卡，银行预留手机号四重验证，</p>
+                    <p>资金同卡进出，免除资金被他人盗用之忧;</p>
+                    <p>资金账户安全由太平洋保险承保。</p>
+                </div>
+            </div>
+            <div class="cut50 fl tc">
+            	<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/555_17.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <!--底部导航-->
+		<include file="Public:footer" />
+        </body>
+ 
+ <!--点击二维码显示隐藏-->
+<script>
+	var IsPopup = false;
+	function IsPass() {
+		if (IsPopup) {
+			document.getElementById("index_bj").className = "hidden";
+			document.getElementById("index_window").className = "hidden";
+			IsPopup = false;
+		} else {
+			document.getElementById("index_bj").className = "index_bj abs";
+			document.getElementById("index_window").className = "index_window abs";
+			IsPopup = true;
+		}
+	}
+</script>
+</html>

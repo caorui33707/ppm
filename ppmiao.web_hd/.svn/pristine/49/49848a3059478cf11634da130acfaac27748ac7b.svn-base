@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>大富翁理财之旅</title>
+    <link rel="stylesheet" type="text/css" href="{:C('STATIC_ROOT')}/activity/dafuweng/css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="{:C('STATIC_ROOT')}/activity/dafuweng/css/style.css?=v3.271">
+    <link rel="stylesheet" type="text/css" href="{:C('STATIC_ROOT')}/activity/dafuweng/css/load2.css">
+    
+    
+    <style>
+	    .load2 .loader:before {
+	        background: #5CD5ea;
+	    }
+	
+	    .load2 .loader:after {
+	        background: #5CD5ea;
+	    }
+	
+	    .load2 .loader {
+	        margin: auto;
+	    }
+	</style>
+
+</head>
+
+<body>
+    <div id="loading" style="    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    background: #5CD5ea;">
+        <div class="load-container load2" style="position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -3em 0 0 -3em;">
+
+            <div class="loader">Loading...</div>
+        </div>
+    </div>
+    <!--加载 -->
+    <div class="dfw">
+        <div class="background">
+            <!--消息滚动-->
+            <div class="content">
+                <div class="container">
+                    <div class="marquee-sibling tc">
+                        <img src="{:C('STATIC_ROOT')}/activity/dafuweng/img/fu_03@2x.png" style="width:50%;" />
+                    </div>
+					<div class="">
+                        <div id="scrollobj" style="white-space: nowrap;overflow: hidden;width: 500px;color: #fff;height: 2rem;line-height:2rem;">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="newTop">
+            </div>
+            <div class="raiders-float" id="raidersfloat"></div>
+            <div class="header"></div>
+            <div class="activity-time">
+                活动时间:4月1号—4月7号23点
+            </div>
+            <div class="random">
+                <div class="random-pic initial" id="throwing"></div>
+                <div class="random-text">
+                    还剩<span style="color:#e60012" id="lottery_cnt">0</span>枚
+                </div>
+                <button class="random-buttonl" id="randomButtonl"></button>
+                <button class="random-buttonr"></button>
+            </div>
+            
+             <div class="shaizi-bg">
+                <div class="random-pic initial" style="position: absolute;
+                     top: 0.5rem;
+                     left: 1.7rem;" id="throwing2"></div>
+                <div class="shaiziBg-button">
+                </div>
+            </div>
+            
+            <div class="dafuweng">
+                <div class="box-border selected first" id="box0">
+                    <div class="box-content box-content00"></div>
+                </div>
+                <div class="box-border box01" id="box1">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box02" id="box2">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box03" id="box3">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box04" id="box4">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box05" id="box5">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box06" id="box6">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box07" id="box7">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box08" id="box8">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box09" id="box9">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box10" id="box10">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box11" id="box11">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box12" id="box12">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box13" id="box13">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box14" id="box14">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box15" id="box15">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box16" id="box16">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box17" id="box17">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box18" id="box18">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box19" id="box19">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box20" id="box20">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box21" id="box21">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box22" id="box22">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box23" id="box23">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box24" id="box24">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box25" id="box25">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box26" id="box26">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box27" id="box27">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box28" id="box28">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box29" id="box29">
+                    <div class="box-content"></div>
+                </div>
+                <div class="box-border box30" id="box30">
+                    <div class="box-content"></div>
+                </div>
+            </div>
+            <div class="investment" style="text-align:center">
+                <p class="invest-text" style="margin-top:0.5rem">
+                    最终解释权归票票喵所有
+                </p>
+                <p class="invest-text">
+                    如有任何疑问请拨打在线客服热线：400-992-8855
+                </p>
+                <button class="invest-button" onclick="go2App();">立即投资</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div style="display:none">
+    	    <div class="record" id="recordlist">
+    	    	<div class="close" id="closerecord"></div>
+    	    	<div class="record-bg">
+	    	    	<div><span style="color:red;float:left">时间</span>
+	    	    		<span  style="color:red;float:left">奖品名称</span>
+	    	    		<span  style="color:red;float:left">兑奖方式</span>
+	    	    	</div>
+	    	    	
+	    	    	<div id="prizelist">
+	    	    	</div>
+	    	    	 
+    	    	</div>
+    	    </div>
+    </div>
+    
+    
+    <div style="display:none">
+    	<div class="notice">
+    		<div class="close" id="closenotice"></div>
+    		<div class="notice-text" id="tips"></div>
+    	</div>
+    </div>
+    
+    <script src="{:C('STATIC_ROOT')}/activity/dafuweng/js/jquery.min.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/dafuweng/js/modernizr-2.8.2.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/dafuweng/js/dialog-min.js"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/dafuweng/js/dfw.js?v=12017040122"></script>
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>   
+
+    <script>
+    	
+    	var mobile = "{$mobile}";
+    	var static_url = "{:C('STATIC_ROOT')}/activity/dafuweng/img/";
+    	//跳转位置
+    	var selectedPosition;
+    	
+	    function scroll(obj) {
+	        var tmp = (obj.scrollLeft) ++;
+	        //当滚动条到达右边顶端时
+	        if (obj.scrollLeft == tmp) obj.innerHTML += obj.innerHTML;
+	        //当滚动条滚动了初始内容的宽度时滚动条回到最左端
+	        //if (obj.scrollLeft >= obj.firstChild.offsetWidth) obj.scrollLeft = 0;
+	    }
+	   
+	    getallprizelist();
+	    getPos();
+	    
+	    function getPos(){
+	    	if(mobile) {
+		    	$.ajax({
+	    	    	url: "?c=Activity&a=dfw_current_pos",
+	    	        type: "post",
+	    	        data: {'mobile':mobile},
+	    	        success: function (data) {
+	    	        	if(data.status == 0){
+	    	        		$('#lottery_cnt').empty().html(data.info[1]);
+	    	        		stepData = data.info[0];
+	    	        		
+	    	        		if(stepData != 0){
+	    	                    $("#box" + (stepData % 30)).addClass("selected");
+	    	                    selectedPosition = $("#box" + (stepData % 30)).position().top;
+	    	                	setTimeout("scroll_top()", 3000)
+	    	                }
+	    	        		
+	    	        		
+	    	        	}/* else {
+	    	        		if(json.status == 2) {
+	    	        			alert(data.info);
+	    	        		} else {
+	    	        			alert(data.info['errorMsg']);
+	    	        		}
+	    	        	}*/
+	    	        }
+	    	   	})
+	    	}
+	    }
+
+	    function getallprizelist(){
+	    	$.ajax({
+    	    	url: "?c=Activity&a=dfw_all_prizelist",
+    	        type: "post",
+    	        success: function (data) {
+    	        	if(data.status == 0){
+    	        		var len = data.info.length;      	
+    	        		var html = '';
+    	        		for (var i = 0;i<len; i++) {    	        				
+	        				html += '<span>恭喜'+data.info[i]['mobile']+'获得了'+data.info[i]['awardDesc']+'</span>';
+	        			}
+    	        		
+    	        		if(html) {
+    	        			$("#scrollobj").empty().html(html);
+    	        			setInterval("scroll(document.getElementById('scrollobj'))", 50);
+    	        		}
+    	        	}
+    	        }
+    	   	})
+	    }
+	  //初始化位移
+	    function scroll_top() {
+	        /* slide down html */
+	    	if (selectedPosition < document.documentElement.clientHeight){
+	    		 $("body").scrollTop(0);
+	    	}
+	    	else if (selectedPosition - (document.documentElement.clientHeight / 2) < document.documentElement.clientHeight) {
+	            $("body").scrollTop(selectedPosition - (document.documentElement.clientHeight / 2));
+	        } 
+	        else {
+	            $("body").scrollTop($(".background").height() - document.documentElement.clientHeight);
+	        }
+	    }
+    
+    </script>
+</body>
+
+</html>

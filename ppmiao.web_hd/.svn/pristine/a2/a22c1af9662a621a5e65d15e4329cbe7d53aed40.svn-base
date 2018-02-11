@@ -1,0 +1,268 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20170206/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20170206/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/lottery/event20170206/css/marquee.css">    
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery-1.9.1.js"></script>
+    <title>票票喵</title>
+    <style>
+        .bg {
+        background: url("{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_03.jpg") no-repeat;
+        background-size:100% 100%;
+        width:100%;
+        height:280px;
+        margin-top:-1px;
+        }
+        
+        .jiang {
+        background: url("{:C('STATIC_ROOT')}/lottery/event20170206/images/bj_02.jpg") no-repeat;
+        background-size:100% 100%;
+        width:100%;
+        height:60px;
+        margin-top:-8px;
+        }
+      
+        .windows{
+     background: url("{:C('STATIC_ROOT')}/lottery/event20170206/images/bg1_05.png") no-repeat;
+     background-size:100% 100%;
+     width:300px;
+     height:180px;
+}
+
+        .square2_content {
+                background: url("{:C('STATIC_ROOT')}/lottery/event20170206/images/bg2_03.png") no-repeat;
+                background-size: 100% 100%;
+            }
+       .square_content {
+                background: url("{:C('STATIC_ROOT')}/lottery/event20170206/images/bg2_03.png") no-repeat;
+                background-size: 100% 100%;
+            }
+    </style>
+</head>
+<body style="width:100%;">
+    <section>
+
+
+        <!--正文-->
+        <div class="fu_pic">
+            <img src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_01.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_02.jpg" />
+        </div>
+        <div class="opacity"></div>
+        <div class="bg tc">
+            <div class=" tc" style="padding-top:75px;"><!--福袋动态-->
+                <div class="red cut33 fl tc">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20170206/images/uuu.gif" />
+                </div>
+                <div class="two cut33 fl tc">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20170206/images/yyy.gif" />
+                </div>
+                <div class="three cut33 fl tc">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20170206/images/ttt.gif" />
+                </div>  
+            </div>
+            <!--福袋弹框-->
+            <div class="windows">
+                <div class="text tc">
+                    <p href="#"><span id="tips">恭喜您获得</span></p>
+                    <p href="#" style="color:#ffd800;padding-top:0px;" id="prizeName">一张3%的加息券</p><!--获得奖品-->
+                    <p href="#" style="color:#ffd800;padding-top:0px;display:none;">您已没有点花灯机会</p><!--获得奖品-->
+                </div>
+                <div class="close"><img src="{:C('STATIC_ROOT')}/lottery/event20170206/images/goon_46.png" /></div>
+            </div>
+        </div>
+        <div class="fu_pic">
+            <img style="margin-top:-10px;" src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_04.jpg" />
+        </div>
+        <div class="jiang ">
+            <div class="chang " style="width:90%;margin:auto;">
+                <div class="time cut50 fl">
+                    <img class="fl" src="{:C('STATIC_ROOT')}/lottery/event20170206/images/one_07.png" style="width:20px;margin-top:2px;margin-right:2px;" />
+                    <p>您还有 <span><u id="lottery_cnt">{$params.lottery_cnt}</u></span> 次机会</p>
+                </div>
+                <div class="look cut50 fl tc">
+                    <p>查看奖品</p>
+                </div>
+                <!--奖品弹框-->
+                <div class="mine hidden">
+                    <div class="square2_content rel">
+                        <div class="success2  tc">
+                            <img src="{:C('STATIC_ROOT')}/lottery/event20170206/images/gift_29.png" style="width:195px;padding-top:25px;text-align:center;" />
+                            <div class="clear"></div>
+                            <div class="must cut30 fl">
+                                <p>时间</p>
+                            </div>
+                            <div class="must cut40 fl">
+                                <p>奖品名称</p>
+                            </div>
+                            <div class="must cut30 fl">
+                                <p>兑换方式</p>
+                            </div>
+                            <div class="center2_html">
+                                <ul id="iu">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="yes2 tc abs">
+                            <img  src="{:C('STATIC_ROOT')}/lottery/event20170206/images/cha.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fu_pic">
+            <img  src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_06.jpg" />
+        </div>
+        <div class="lantern_times ">
+            <img class="fl"  src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lights_12.png"  style="width:35px;"/>
+            <p>累计获得<span><u>{$params.hd_cnt}</u></span>盏花灯</p>
+        </div>
+        <div class="fu_pic" style="margin-top:-1px;">
+            <img style="margin-bottom:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_08.jpg" />
+            <img style="margin-bottom:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_09.jpg" />
+            <img style="margin-bottom:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_10.jpg" />
+            <img style="margin-bottom:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_11.jpg" />
+            <img style="margin-bottom:42px;" src="{:C('STATIC_ROOT')}/lottery/event20170206/images/lantern_12.jpg" />
+        </div>
+
+        <!--规则-->
+        <div class="rule_now tc" style="cursor:pointer;margin-top:50px;z-index:1;" >
+            <img src="{:C('STATIC_ROOT')}/lottery/event20170206/images/rules_02.png" />
+        </div>
+        <div class="gui hidden">
+            <div class="square_content rel">
+                <div class="success  ">
+                    <div class="tc">
+                        <img src="{:C('STATIC_ROOT')}/lottery/event20170206/images/activity_08.png" style="width:195px;padding-top:25px;" />
+                    </div>
+                    <div class="center_html">
+                        <ul>
+                            <li style="padding-top:20px;">
+                                1、活动期间，投资带“活动标签”的定期理财产品，单笔投资每满5000元即可获得一盏<span>“元宵花灯”</span>，得到随机券包奖励，并计入累计花灯总数，可用于兑换现金券奖励。新老用户均可免费获得一次打开<span>“元宵花灯”</span>的机会，未使用的机会将在活动结束后自动失效。
+                            </li>
+                            <li style="font-size:10px;color:#ff3237;">
+                                （例如：票小喵投资了带“活动标签”的定期理财产品，单笔投资金额为10000元，则票小喵可以获得2次打开“元宵花灯”的机会；若票小喵单笔投资金额为14000元，也仅有2次机会哦。）
+                            </li>
+                            <li>
+                                2、打开<span>“元宵花灯”</span>，即可随机获得券包类奖品（如加息券、红包券、现金券），奖励将实时发放至您的“券包”中，您可在【账户】- 【我的奖励】 中查看。
+                            </li>
+                            <li>
+                                3、活动结束后两个工作日内，根据<span>累计花灯现金奖励</span> 还可获得相应现金券奖励，您可在【账户】- 【我的奖励】 中查看。
+                            </li>
+                            <li style="font-size:10px;color:#ff3237;">
+                                （例如：票小喵投资了带“活动标签”的定期理财产品，累计获得75盏“元宵花灯”，活动结束后，票小喵可以获得1600元的现金券奖励，腻不腻害！赶快行动起来吧~）
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="yes2 tc abs">
+                    <img  src="{:C('STATIC_ROOT')}/lottery/event20170206/images/cha.png" />
+                </div>
+            </div>
+        </div>
+       <!--footer-->
+        <div class="fu_now tc" style="cursor:pointer;margin-top:50px;z-index:1;" onclick="go2App();">
+            <p>立即投资</p>
+        </div>
+    </section>
+
+
+    <script type="text/javascript">
+    
+		var lotteryId = "{$params.lottery_id}";
+		var userId = "{$params.user_id}"; 
+		var userName = "{$params.user_name}";
+		var flag = true;
+    
+        /*福袋*/
+       $(function () {
+            $(".red , .two ,.three").click(function () {
+                $(this).addClass("shake");
+                setTimeout(function () {
+                	do_lottery();
+                    $(".red , .two ,.three").removeClass("shake");
+                    $(".windows ").fadeIn();
+                    $(".opacity").fadeIn();
+                }, 2500);
+            });
+            $(".close ").click(function () {
+                $(this).parent().fadeOut(); $(".opacity").fadeOut();
+                $(".windows ").css("display", "none");
+                flag = true;
+            });
+            /*奖品*/
+                $(".look").click(function () {
+                    $.ajax({
+               			type: "post",
+               		    async: false,
+               		    data:{'lotteryId':lotteryId,'userId':userId,'userName':userName},
+               		    url: "?c=Lottery&a=get_lottery_log", 
+               		    dataType: "json",
+               		    success: function (json) {
+               		        if(json.status == 1) {
+               		        	var arr = [];
+               		        	for(var item in json.info) {               		        		
+               		        		var s = "<li><div class='cut30 fl'>"+json.info[item]['create_time']+"</div><div class='cut40 fl'>"+json.info[item]['prize_name']+"</div><div class='cut30 fl'>系统派发</div></li>";
+               		        		arr.push(s);
+               		        	}
+               		        	$('#iu').empty().html(arr.join(''));
+               		        }            		        
+               		     	$(".mine").fadeIn();
+                         	$(".opacity").fadeIn();
+                         	$(".square2_content").fadeIn();
+               		    }
+               		});
+                });
+            
+                $(".yes2").click(function () {
+                    $(this).parent().fadeOut();
+                    $(".opacity").fadeOut();
+                    $(".mine").css("display", "none");
+                    $(".gui").css("display", "none");
+                })
+
+            /*规则*/
+                $(".rule_now").click(function () {
+                    $(".gui").fadeIn();
+                    $(".opacity").fadeIn();
+                    $(".square_content").fadeIn();
+                });
+        });
+        
+       function do_lottery(){
+	    	if(!flag) {
+	    		return false;
+	    	}
+	    	flag = false;
+	    	$.ajax({
+			        type: "post",
+			        async: false,
+			        data:{'lotteryId':lotteryId,'userId':userId,'userName':userName},
+			        url: "?c=Lottery&a=do_lottery", 
+			        dataType: "json",
+			        success: function (json) {
+			        	if(json.status == 1) {
+			        		$("#tips").empty().html('恭喜您获得');
+			        		$("#prizeName").empty().html(json.info.name);
+			        		var _cnt = parseInt($("#lottery_cnt").text()) - 1;
+	                    	if(_cnt<0){
+	                    		_cnt = 0;
+	                    	}
+	                    	$("#lottery_cnt").html(_cnt);
+			        	} else{
+			        		$("#tips").empty().html();
+			        		$("#prizeName").empty().html(json.info);
+			        	}			        	
+			        }
+	    	});
+	    }
+       
+    </script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/lottery/event20170206/js/marquee.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+    </body>
+</html>

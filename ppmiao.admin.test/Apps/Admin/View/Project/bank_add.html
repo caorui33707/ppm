@@ -1,0 +1,165 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">新增银行卡 [ <a href="{:C('ADMIN_ROOT')}/project/bank/p/{$params.page}<notempty name='params.key'>/s/{$params.key}</notempty>">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="page" value="{$params.page}" />
+            <input type="hidden" name="key" value="{$params.key}" />
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">银行编号：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="bank_code" name="bank_code"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">银行名称：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="bank_name" name="bank_name"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">支持范围：</td>
+                    <td class="tLeft" >
+                        <select name="support_area">
+                            <option value="全国">全国</option>
+                            <option value="区域">区域</option>
+                            <option value="外资">外资</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">卡种：</td>
+                    <td class="tLeft" >
+                        <select name="support_card_type">
+                            <option value="借记卡">借记卡</option>
+                            <option value="信用卡">信用卡</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="tRight">单次限额(元)：</td>
+                    <td class="tLeft" >
+                        <input type="text" name="limit_times" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">单日限额(元)：</td>
+                    <td class="tLeft" >
+                        <input type="text" name="limit_day" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">单月限额(元)：</td>
+                    <td class="tLeft" >
+                        <input type="text" name="limit_month" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">图片(大)：</td>
+                    <td class="tLeft" >
+                        <input type="file" class="bleftrequire" name="icon" id="icon" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">图片(小)：</td>
+                    <td class="tLeft" >
+                        <input type="file" class="bleftrequire" name="small_icon" id="small_icon" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="tRight">状态：</td>
+                    <td class="tLeft" >
+                        <select name="bank_status">
+                            <option value="1">正常</option>
+                            <option value="2">维护中</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _adding = false;
+    var _layerIndex = 0;
+
+    
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/project/bank_add',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('添加成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    
+</script>
+
+
+<script>
+    var _adding = false;
+    var _layerIndex = 0;
+
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/bank/bank_limit_add',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('添加成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    
+</script>
+

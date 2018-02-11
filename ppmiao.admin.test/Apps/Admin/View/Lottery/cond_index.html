@@ -1,0 +1,117 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+
+
+<load href="__PUBLIC__/admin/layer-v2.4/layer.js" />
+
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <if condition="checkAuth('Admin/lottery/lottery_cond_add') eq true"><div class="impBtn hMargin fLeft shadow"><input type="button" name="add" value="新增" onclick="add()" class="add imgButton"></div></if>
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="5" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="5%" align="center">编号</th>
+                    <th width="15%" align="center">金额区间</th>
+                    <th width="10%" align="center">最小投资期限(天)</th>
+                    <th width="10%" align="center">抽奖次数</th>
+                    <th width="10%" align="center">操作</th>
+                </tr>
+                <foreach name="list" item="item">
+                    <tr>
+                        <td align="center">{$item.id}</td>
+                        <td align="center">{$item.min_amount} - {$item.max_amount}</td>
+                        <td align="center">{$item.invest_days}</td>
+                        <td align="center">{$item.count}</td>
+                        <td align="center">
+                            <if condition="checkAuth('Admin/lottery/lottery_cond_edit') eq true"><a href="javascript:;" onclick="edit({$item.id})">编辑</a>&nbsp;</if>
+                            <if condition="checkAuth('Admin/lottery/lottery_cond_delete') eq true"><a href="javascript:;" style="color:red;" onclick="del({$item.id})">删除</a>&nbsp;</if>
+                        </td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td height="5" colspan="5" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <!-- 列表显示区域结束 -->
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+    
+    var _layerIndex = 0;
+    var _lottery_id = '{$param.lottery_id}';
+    var _lottery_status = '{$param.lottery_stauts}';
+    function add(){
+    	if(_lottery_status == 1){
+    		layer.alert('该抽奖活动已经结束!');
+    	}else{
+    		window.location.href = ROOT + '/lottery/lottery_cond_add/lottery_id/' + _lottery_id;
+    	}
+    }
+    
+    function edit(_id){
+    	if(_lottery_status == 1){
+    		layer.alert('该抽奖活动已经结束!');
+    	} else{
+    		window.location.href = ROOT + '/lottery/lottery_cond_edit/id/' + _id ;
+    	}
+    }
+    
+    function del(_id){
+    	if(_lottery_status == 1){
+    		layer.alert('该抽奖活动已经结束!');
+    	} else {
+	        layer.confirm('确定删除吗?', function(){
+	            _layerIndex = layer.load('正在删除中...');
+	            $.post(ROOT + "/lottery/lottery_cond_delete", {id: _id}, function(msg){
+	                layer.close(_layerIndex);
+	                if(msg.status){
+	                    layer.alert('删除成功~!', -1, function(){
+	                        window.location.reload();
+	                    });
+	                }else{
+	                    layer.alert(msg.info);
+	                }
+	            });
+	        });
+    	}
+    }
+    
+    
+   
+    
+    
+</script>

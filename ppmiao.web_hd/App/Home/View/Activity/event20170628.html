@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN">
+<html>
+<head>
+    
+    <meta charset="utf-8">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta content="telephone=no,email=no" name="format-detection">
+    
+    <link href="https://image.ppmiao.com/Public/activity/event20170620/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="https://image.ppmiao.com/Public/activity/event20170627/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+    <script src="https://image.ppmiao.com/Public/activity/event20170620/js/index.js"></script>
+    <link rel="stylesheet" href="https://image.ppmiao.com/Public/activity/event20170627/css/index.css">
+    <title>票票喵</title>
+    <style>
+
+        .index_second{
+            background: url("{:C('IMG_ROOT')}/activity/event20170620/images/warn_03.jpg") no-repeat;
+            background-size:100% 100%;
+            width:100%;
+            height:4rem;
+        }
+
+
+    </style>
+</head>
+<body>
+    <section>
+        <!--正文-->
+        <div class="olympics-00 olympics-01"></div>
+        <div class="olympics-00 olympics-02">
+          <div class="buy2">
+          	<if condition="$hotStatus eq 1">
+          		<img id="now1" src="https://image.ppmiao.com/Public/activity/event20170627/images/lj@2x.png" onclick="go2App();"><!--活动开始-->
+			<elseif condition="$hotStatus eq 2" />
+				<img id="now2" src="https://image.ppmiao.com/Public/activity/event20170627/images/wks@2x.png"><!--活动未开始-->
+			<elseif condition="$hotStatus eq 3" />
+			    <img id="now3" src="https://image.ppmiao.com/Public/activity/event20170627/images/yjs@2x.png"><!--活动结束-->
+			</if>
+          </div>
+        </div>
+        <div class="olympics-00 olympics-03"></div>
+        <div class="olympics-00 olympics-06"></div>
+
+
+        <!--导航栏-->
+        <div class="olympics-00 olympics-04">
+            <div class="olympics_top" >
+              <nav>
+                  <div class="index_nav">
+                      <div class="index_er">
+                          <div class="chunk" id="nav_hot" onclick="show_index()" style="width: 50%;text-align: center;position: relative;float: left;">
+                              <div class="abb">
+                                  <img id="hot_text" src="https://image.ppmiao.com/Public/activity/event20170627/images/last1.jpg" />
+                              </div>
+                              <div class="cbb hidden" id="nav_pic1">
+                                  <img src="https://image.ppmiao.com/Public/activity/event20170627/images/last3.jpg"/>
+                              </div>
+                          </div>
+                          <div class="chunk " id="nav_model" onclick="show_model()" style="width: 50%;text-align: center;position: relative;float: left;">
+                              <div class="abb">
+                                  <img id="model_text" src="https://image.ppmiao.com/Public/activity/event20170627/images/last4.jpg" />
+                              </div>
+                              <div class="cbb hidden" id="nav_pic2">
+                                  <img src="https://image.ppmiao.com/Public/activity/event20170627/images/last2.jpg"/>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="clear"></div>
+                  </div>
+              </nav>
+              <!--昨日-->
+              <div class="gift_ti">
+              <section id="hot_forum" style="width:92%;height:3.4rem;margin:auto;background-color:#04153c;">
+      				<div class="index_line" style="">
+      				
+      					<notempty  name="lastWeekList">
+      						<ul class="">
+      	                        <li class="model_top cut20 fl tc">
+      	                            <p>排名</p>
+      	                        </li>
+      	                        <li class="model_top cut20 fl tc">
+      	                            <p>用户</p>
+      	                        </li>
+      	                        <li class="model_top cut30 fl tc">
+      	                            <p>手机号码</p>
+      	                        </li>
+      	                        <li class="model_top cut30 fl tc">
+      	                            <p>投资金额</p>
+      	                        </li>
+      	                        <li class="clear"></li>
+                         		</ul>
+
+                         		<ul class="">
+                             		<volist name="lastWeekList" id="vo" key="k">
+      		                        <li class="">
+      		                            <div class="model_number cut20 fl tc">
+      		                                <p>{$k}</p>
+      		                            </div>
+      		                            <div class="model_number cut20 fl tc">
+      		                                <p>{$vo.real_name}</p>
+      		                            </div>
+      		                            <div class="model_number cut30 fl tc">
+      		                                <p>{$vo.username}</p>
+      		                            </div>
+      		                            <div class="model_number cut30 fl tc">
+      		                                <p>{$vo.amount}</p>
+      		                            </div>
+      		                            <li class="clear"></li>
+      		                        </li>
+      	                        </volist>
+
+                         		</ul>
+      					<else />
+      					
+      						<if condition="$rankStatus eq 2">
+      							<div class="index_laster tc">
+                             			<p>活动即将开始，</p>
+                           				<p>做好准备了吗？</p>
+                             	</div>
+                             </if>
+                           	<if condition="$rankStatus eq 1">
+                           		<div class="index_laster tc">
+                           			<p>活动本周开启，</p>
+                          			<p>暂无上周记录。</p>
+                           		</div>
+                           	</if>
+                           	
+                           	<if condition="$rankStatus eq 3">
+                           		<div class="index_laster tc">
+                          			<p>活动已结束</p>
+                           		</div>
+                           	</if>
+      					</notempty>
+                  </div>
+              </section>
+              </div>
+              <!--今日-->
+              <div class="gift_ti" >
+                  <section id="model" class="hidden" style="width:92%;height:3.4rem;margin:auto;background-color:#04153c;">
+
+                      <div class="model_bj">
+                      
+                      <notempty name="currentWeekList">
+                          <ul class="">
+                              <li class="model_top cut20 fl tc">
+                                  <p>排名</p>
+                              </li>
+                              <li class="model_top cut20 fl tc">
+                                  <p>用户</p>
+                              </li>
+                              <li class="model_top cut30 fl tc">
+                                  <p>手机号码</p>
+                              </li>
+                              <li class="model_top cut30 fl tc">
+                                  <p>投资金额</p>
+                              </li>
+                              <li class="clear"></li>
+
+                          </ul>
+                          <ul class="">
+                              <volist name="currentWeekList" id="vo" key="k">
+      	                        <li class="">
+      	                            <div class="model_number cut20 fl tc">
+      	                                <p>{$k}</p>
+      	                            </div>
+      	                            <div class="model_number cut20 fl tc">
+      	                                <p>{$vo.real_name}</p>
+      	                            </div>
+      	                            <div class="model_number cut30 fl tc">
+      	                                <p>{$vo.username}</p>
+      	                            </div>
+      	                            <div class="model_number cut30 fl tc">
+      	                                <p>{$vo.amount}</p>
+      	                            </div>
+      	                        </li>
+      	                        <li class="clear"></li>
+                              </volist>
+                          </ul>
+                      <else />
+                      
+                      	<div class="index_laster tc">
+
+                           	<if condition="$rankStatus eq 3">
+                             		<p>活动已结束</p>
+                            </if>
+      
+                           	<if condition="$rankStatus eq 2">
+                           		<p>活动即将开始，</p>
+                           		<p>做好准备了吗？</p>
+                           	</if>
+                           	
+                       	</div>
+                           
+                      </notempty>
+                      </div>
+                      <div class="clear"></div>
+                  </section>
+              </div>
+            </div>
+            <div class="buy4">
+              	<if condition="$rankStatus eq 1">
+					<img src="https://image.ppmiao.com/Public/activity/event20170627/images/lj@2x_43.png" onclick="go2App();">
+				<elseif condition="$rankStatus eq 2" />
+	              	<img id="now2" src="https://image.ppmiao.com/Public/activity/event20170627/images/wks@2x.png">
+				<elseif condition="$rankStatus eq 3" />
+	              	<img id="now3" src="https://image.ppmiao.com/Public/activity/event20170627/images/yjs@2x.png">
+				</if>
+            </div>
+        </div>
+    </section>
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+</body>
+</html>
+
+<script>
+    var Ishot = false;
+    var Ismodel = false;
+    var IsCollection1 = false;
+    var IsCollection2 = false;
+    var IsGreat1 = false;
+    var IsGreat2 = false;
+    //加载调用函数
+    window.onload = function () {
+        show_model();
+    }
+    //奖品榜
+    function show_index() {
+        if (Ishot) {
+            document.getElementById("hot_forum").className = "hidden";
+            document.getElementById("nav_pic1").className = "hidden";
+            Ishot = false;
+        } else {
+            Ismodel = true;
+            show_model();
+            document.getElementById("hot_forum").className = "";
+            document.getElementById("nav_pic1").className = "abs nav_pic";
+            Ishot = false;
+        }
+    }
+    //排行榜
+    function show_model() {
+        if (Ismodel) {
+            document.getElementById("model").className = "hidden";
+            document.getElementById("nav_pic2").className = "hidden";
+            Ismodel = false;
+        } else {
+            Ishot = true;
+            show_index();
+            document.getElementById("model").className = "";
+            document.getElementById("nav_pic2").className = "abs nav_pic";
+            Ismodel = false;
+        }
+    }
+</script>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body style="overflow-x:hidden;">
+<include file="PublicNew:menu" />
+
+<div class="joinBanner">
+    <p style="background:url(Public/v2/images/contactBanner.jpg) no-repeat scroll center top; display:block"></p>
+</div>
+
+<div class="contactBox">
+    <div class="main w978 clear">
+        <h1>联系我们，只是第一步。了解我们，才是开始。</h1>
+    </div>
+    <div class="contactBg">
+        <div class="main contactImgBox w978 clear">
+            <img src="{:C('STATIC_ROOT')}/v2/images/contactImg02.png" class="img01" />
+            <img src="{:C('STATIC_ROOT')}/v2/images/contactImg03.png" class="img02" />
+        </div>
+    </div>
+</div>
+
+<include file="PublicNew:footer" />
+</body>
+</html>

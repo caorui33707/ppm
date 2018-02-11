@@ -1,0 +1,268 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><?php echo ($meta_title); ?></title>
+    <meta name="keywords" content="<?php echo ($meta_keywords); ?>" />
+    <meta name="description" content="<?php echo ($meta_description); ?>" />
+    <meta name="author" content="<?php echo C('META_AUTHOR');?>" />
+    <link rel="shortcut icon" href="<?php echo C('WEB_ROOT');?>/favicon.ico">
+    <link href="<?php echo C('STATIC_ROOT');?>/ppmiao/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo C('STATIC_ROOT');?>/ppmiao/css/css.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo C('STATIC_ROOT');?>/ppmiao/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<?php echo C('STATIC_ROOT');?>/ppmiao/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo C('STATIC_ROOT');?>/ppmiao/js/flash.js"></script>
+    <script type="text/javascript" src="<?php echo C('STATIC_ROOT');?>/ppmiao/js/jquery.movingboxes.js"></script>
+</head>
+
+<body>
+
+    <div class="headerBg">
+    <div class="header w1003 clear">
+        <div class="MCLogo fLe clear">
+            <img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/MCLogo.png" />
+        </div>
+        <div class="MCPhone fLe clear">
+            <img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/MCphone.png" />
+        </div>
+        <div class="header fRi clear">
+            <ul>
+                <?php if($path == 'index'): ?><li class="active"><a href="<?php echo C('WEB_ROOT');?>">首页</a></li> <?php else: ?> <li><a href="<?php echo C('WEB_ROOT');?>">首页</a></li><?php endif; ?>
+                <?php if($path == 'product'): ?><li class="active"> <a href="<?php echo C('WEB_ROOT');?>/product/">理财产品</a></li> <?php else: ?> <li> <a href="<?php echo C('WEB_ROOT');?>/product/">理财产品</a></li><?php endif; ?>
+                <?php if($path == 'security'): ?><li class="active"><a href="<?php echo C('WEB_ROOT');?>/security.html">安全保障</a></li> <?php else: ?> <li> <a href="<?php echo C('WEB_ROOT');?>/security.html">安全保障</a></li><?php endif; ?>
+                <?php if($path == 'about'): ?><li class="active"> <a href="<?php echo C('WEB_ROOT');?>/about.html">关于我们</a></li> <?php else: ?> <li> <a href="<?php echo C('WEB_ROOT');?>/about.html">关于我们</a></li><?php endif; ?>
+                <?php if($path == 'contact'): ?><li class="active"> <a href="<?php echo C('WEB_ROOT');?>/contact.html">联系我们</a></li> <?php else: ?> <li> <a href="<?php echo C('WEB_ROOT');?>/contact.html">联系我们</a></li><?php endif; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".userHeader").hover(function(){
+            $(this).find(".pulldown-nav").addClass("hover");
+            $(this).find(".uderHeaderDl").show();
+        },function(){
+            $(this).find(".uderHeaderDl").hide();
+            $(this).find(".pulldown-nav").removeClass("hover");
+        });
+    });
+</script>
+    
+     <div class="banner">
+    	<ul>
+            <li style="background:url(<?php echo C('STATIC_ROOT');?>/ppmiao/images/banner01.png) no-repeat scroll center top; display:block"><a href="#"></a></li>
+            <li style="background:url(<?php echo C('STATIC_ROOT');?>/ppmiao/images/banner01.png) no-repeat scroll center top;"><a href="#"></a></li>
+            <li style="background:url(<?php echo C('STATIC_ROOT');?>/ppmiao/images/banner01.png) no-repeat scroll center top;"><a href="#"></a></li>
+        </ul>
+        <div class="num">
+            <a href="javascript:void(0)" class="cur"></a>
+            <a href="javascript:void(0)"></a>
+            <a href="javascript:void(0)"></a>
+        </div>
+    </div>
+    
+    <div class="navBg">
+    	<div class="nav w1003 clear">
+        	<ul>
+                <li class="li01">
+                    <img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/navIcon01.png" />
+                    <h3>账户安全</h3>
+                    <p>由太平洋保险承保</p>
+                </li>
+                <li class="li02">
+                    <img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/navIcon02.png" />
+                    <h3>银行承兑汇票</h3>
+                    <p>票据由平安银行托管、到期托收</p>
+                </li>
+                <li class="li03">
+                    <img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/navIcon03.png" />
+                    <h3>交易资金</h3>
+                    <p>平台账户资金由国有银行实时监管</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="MCIndexBox01Bg">
+    	<div class="MCIndexBox01 w1003 clear">
+        	<h3><em>国内领先</em>的综合票据交易平台</h3>
+            <ul>
+            	<li>
+                	<img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/MCIndexIcon01.png" />
+                    <h5>严密风控 资金安全</h5>
+                    <p>账户资金由太平洋保险承保<BR>平台账户资金由国有银行实时监管<BR>全部通过资金第三方支付，平台不接触资金<BR>银行承兑汇票由平安银行托管</p>
+                    <a href="<?php echo C('WEB_ROOT');?>/security.html">了解安全保障></a>
+                </li>
+                <li>
+                	<img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/MCIndexIcon02.png" />
+                    <h5>严格甄选 银行票据</h5>
+                    <p>优质银行票据理财<BR>理财灵活,收益稳定<BR>到期无条件兑付</p>
+                    <a href="<?php echo C('WEB_ROOT');?>/product/">浏览理财产品>></a>
+                </li>
+                <li>
+                	<img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/MCIndexIcon03.png" />
+                    <h5>优质服务 便捷流程</h5>
+                    <p>壹元起投，零手续费 存取灵活 收益随时查看 专业票据团队 客服团队VIP服务</p>
+                    <a href="<?php echo C('WEB_ROOT');?>/about.html">关于我们></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="MCIndexBox02Bg">
+    	<div class="MCIndexBox02Bg_01"></div>
+        <div class="MCIndexBox02Bg_02"></div>
+        <div class="MCIndexBox02TitleBg01">
+        	<div class="MCIndexBox02Title01 w1003 clear">
+        		<h5>活期理财</h5>
+            </div>
+        </div>
+        <div class="MCIndexBox02TitleBg02">
+        	<div class="MCIndexBox02Title02 w1003 clear">
+            	<em></em>
+        		<h5>零钱喵</h5>
+            </div>
+        </div>
+        <div class="MCIndexBox02InnerBg w1003 clear">
+        	<div class="MCIndexBox02Inner fLe clear">
+            	<h2><?php echo ($year_rate); ?><em>%</em></h2>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="MCIndexBox03Bg">
+    	<div class="MCIndexBox03Title01Bg">
+        	<div class="MCIndexBox03Title01 w1003 clear">
+            	<h5>定期理财</h5>
+            </div>
+            <i class="arrow02"></i>
+        </div>
+        <div class="MCIndexBox03InnerBg">
+        	<div class="MCIndexBox03Inner w1003 clear">
+            	<div class="MCIndexBox03Inner01 fLe clear">
+                	<h5>票票喵<em>第1002期</em></h5>
+                    <p>承兑银行：中国工商银行杭州支行</p>
+                    <ul>
+                    	<li><i><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/icon01.png" /></i>次日起息</li>
+                        <li><i><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/icon02.png" /></i>100起购</li>
+                        <li><i><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/icon03.png" /></i>期限90天</li>
+                    </ul>
+                </div>
+                <div class="MCIndexBox03Inner02 fLe clear">
+                	<div class="MCIndexBox03Inner02Left"></div>
+                    <div class="MCIndexBox03Inner02Center">
+                    	<ul id="focus">
+                            <?php if(is_array($list)): foreach($list as $key=>$v): ?><li data-project="<?php echo ($v["project_id"]); ?>">
+                            	<P>年化收益</P>
+                                <h5><?php echo ($v["user_interest"]); ?><em>%</em></h5>
+                                <a href="<?php echo C('WEB_ROOT');?>/product/detail/<?php echo ($v["id"]); ?>.html">立即抢购</a>
+                            </li><?php endforeach; endif; ?>
+                        </ul>
+                    </div>
+                    <div class="MCIndexBox03Inner02Right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="MCIndexBox04Bg">
+    	<div class="MCIndexBox04 w1003 clear">
+        	<div class="MCIndexBox04Title w1003 clear">
+        		<h5>行业资讯</h5>
+                <a href="#">更多></a>
+            </div>
+            <ul>
+            	<li><a href="#">票票喵文案票票喵文案票票喵文案票票 </a><span>2016-01-14</span></li>
+                <li><a href="#">票票喵文案票票喵文案票票喵文案票票 </a><span>2016-01-14</span></li>
+                <li><a href="#">票票喵文案票票喵文案票票喵文案票票 </a><span>2016-01-14</span></li>
+                <li><a href="#">票票喵文案票票喵文案票票喵文案票票 </a><span>2016-01-14</span></li>
+                <li><a href="#">票票喵文案票票喵文案票票喵文案票票 </a><span>2016-01-14</span></li>
+            </ul>
+        </div>
+        <div class="MCIndexBox05 w1003 clear">
+        	<div class="MCIndexBox04Title w1003 clear">
+        		<h5>合作媒体</h5>
+            </div>
+            <ul>
+            	<li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/medioImg01.png" /></li>
+                <li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/medioImg02.png" /></li>
+                <li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/medioImg03.png" /></li>
+                <li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/medioImg04.png" /></li>
+                <li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/medioImg05.png" /></li>
+                <li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/medioImg06.png" /></li>
+            </ul>
+        </div> 
+    </div>
+    
+    <div class="footerBg">
+    	<div class="footer w1003 clear">
+        	<div class="footerLeft fLe clear">
+            	<div class="footerDownLoad fLe clear">
+                	<img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/qrcode.png" />
+                    <a href="https://itunes.apple.com/cn/app/piao-piao-miao/id1086963296?mt=8" class="DownLoadButton" style="margin-top:110px;">iphone下载</a>
+                    <a href="<?php echo C('WEB_ROOT');?>/download/andriod-release.apk" class="DownLoadButton">Android下载</a>
+                </div>
+                <p>
+                    我们知道这个票据理财平台不是最早的，也不是最大的，但是我们相信我们能够做的更好，我们也很高兴和您一起成长，成为一直在您身边的安全可靠、信息透明的票据理财平台。
+                </p>
+            </div>
+            <div class="footerRight01 fLe clear">
+            	<dl>
+                	<dt>关于我们</dt>
+                    <dd><a href="<?php echo C('WEB_ROOT');?>/about.html" target="_blank">公司简介</a></dd>
+                    <dd><a href="<?php echo C('WEB_ROOT');?>/contact.html" target="_blank">联系我们</a></dd>
+                    <dd><a href="<?php echo C('WEB_ROOT');?>/join.html" target="_blank">加入我们</a></dd>
+                    <dd><a href="<?php echo C('WEB_ROOT');?>/provision.html" target="_blank">服务条款</a></dd>
+                </dl>
+            </div>
+            <div class="footerRight01 fLe clear">
+            	<dl>
+                	<dt>新手上路</dt>
+                    <dd><a href="<?php echo C('WEB_ROOT');?>/question.html" target="_blank">帮助中心</a></dd>
+                    <dd><a href="<?php echo C('WEB_ROOT');?>/protection.html" target="_blank">隐私保护</a></dd>
+                    <dd><a href="<?php echo C('WEB_ROOT');?>/question.html" target="_blank">常见问题</a></dd>
+                </dl>
+            </div>
+            <div class="footerRight01 footerRight02 fLe clear">
+            	<dl>
+                	<dt>联系我们 ：杭州富谦网络科技有限公司</dt>
+                    <dd><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/phoneNum.png" /></dd>
+                    <dd>浙江省杭州市江干区市民街 66号中华-钱塘航空大厦2幢33 楼</dd>
+                    <dd>QQ： 2773654558</dd>
+                    <dd>Email：piaopiaomiao@ppmiao.cn</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footerBg02">
+    	<div class="footer02 w1003 clear">
+    		<p>浙ICP备16003202号-1 |  Copyrights      2015 PiaoPiaoMiaopiaojulicaitouziguanli</p>
+            <ul>
+            	<li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/footer02Icon01.png" /></li>
+                <li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/footer02Icon02.png" /></li>
+                <li><img src="<?php echo C('STATIC_ROOT');?>/ppmiao/images/footer02Icon03.png" /></li>
+            </ul>
+        </div>
+    </div>
+    <div id="top"></div>
+    <script type="text/javascript">
+        $(function(){
+            $('#focus').movingBoxes({
+                startPanel   : 1,       // 从第一个li开始
+                reducedSize  : 0,      // 缩小到原图50%的尺寸
+                wrap         : true,   // 无缝循环
+                buildNav     : true,	// 显示指示器效果
+                navFormatter : function(res){
+                    return "&#9679;";
+                } // 指示器格式，为空即会显示123
+            });
+            //$("#mb-scroll").css('height','330px');
+            // $("#focus").find('li.current').css('width','330px');
+        });
+
+    </script>
+    
+</body>
+</html>

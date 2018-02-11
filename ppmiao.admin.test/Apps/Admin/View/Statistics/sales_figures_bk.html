@@ -1,0 +1,151 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/modules/exporting.js"></script>
+    <div class="content">
+        <div class="title">销售图表 -
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/daily">日数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/monthly">月数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/year">年数据</a>&nbsp;&nbsp;
+            爆款数据&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/hbfxztl">还本付息再次投资率</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/xsectz">购买新手标二次投资</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/cumulative">销售增量(产品)</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/cumulative_wallet">销售增量</a>&nbsp;&nbsp;
+        </div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <input type="hidden" name="target" value="bk" />
+                    <div class="fLeft">
+                        <select name="id">
+                            <option value="0">选择爆款标</option>
+                            <foreach name="bk_list" item="item">
+                                <option value="{$item.id}" <eq name="detail.id" value="$item['id']">selected</eq>>{$item.title}</option>
+                            </foreach>
+                        </select>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="筛选" class="search imgButton"></div>
+                </form>
+            </div>
+        </div>
+        <div id="result" class="result none"></div>
+        <div id="container" style="min-width: 310px; height: 800px; margin: 0 auto"></div>
+        <br><br><br>
+        <div id="container_pie" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '爆款数据({$detail.title})'
+            },
+            subtitle: {
+                text: '销售额图表'
+            },
+            xAxis: [{
+                categories: [{$categories}]
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+                    format: '{value}元',
+                    style: {
+                        color: '#89A54E'
+                    }
+                },
+                title: {
+                    text: '投资金额',
+                    style: {
+                        color: '#89A54E'
+                    }
+                }
+            }, { // Secondary yAxis
+                title: {
+                    text: '投资笔数',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                labels: {
+                    format: '{value}个',
+                    style: {
+                        color: '#4572A7'
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: '#FFFFFF'
+            },
+            series: [{
+                name: '投资笔数',
+                color: '#4572A7',
+                type: 'column',
+                yAxis: 1,
+                data: [{$totle_person}],
+                tooltip: {
+                    valueSuffix: '笔'
+                }
+
+            }, {
+                name: '投资金额',
+                color: '#89A54E',
+                type: 'spline',
+                data: [{$totle_price}],
+                tooltip: {
+                    valueSuffix: '元'
+                }
+            }]
+        });
+        $('#container_pie').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '设备占比({$detail.title})'
+            },
+            subtitle: {
+                text: '总设备数：{$device_totle}'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '比例',
+                data: [{$device_data}]
+            }]
+        });
+    });
+</script>

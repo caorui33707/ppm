@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20160913/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20160913/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <title>票票喵</title>
+
+
+</head>
+<body>
+    <section>
+        <!--正文-->
+        <div class="invite_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20160913/images/top_01.jpg" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160913/images/top_02.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160913/images/top_03.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160913/images/top_04.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160913/images/top_05.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160913/images/top_06.jpg" style="margin-top:-1px;" />
+            <img src="{:C('STATIC_ROOT')}/activity/event20160913/images/top_07.jpg" style="margin-bottom:50px;" />
+        </div>
+
+        <div class="invite_now tc" style="cursor:pointer;">
+            <p onclick="go2App()">立即投资</p>
+        </div>
+
+    </section>
+    <script type="text/javascript">
+    
+    	var u = navigator.userAgent, app = navigator.appVersion;
+    	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+    	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    	
+	    function go2App(){
+	    	if(isAndroid == true) {
+	    		ppm.toAction(2);
+	    	} else if(isiOS == true) {
+	    		loadURL('skip2');
+	    	}
+	    	return;
+	    }
+	    
+	    function loadURL(url) {
+	        var iFrame;
+	        iFrame = document.createElement("iframe");
+	        iFrame.setAttribute("src", url);
+	        iFrame.setAttribute("style", "display:none;");
+	        iFrame.setAttribute("height", "0px");
+	        iFrame.setAttribute("width", "0px");
+	        iFrame.setAttribute("frameborder", "0");
+	        document.body.appendChild(iFrame);
+	        iFrame.parentNode.removeChild(iFrame);
+	        iFrame = null;
+	    }
+	    
+    </script>
+</body>
+</html>

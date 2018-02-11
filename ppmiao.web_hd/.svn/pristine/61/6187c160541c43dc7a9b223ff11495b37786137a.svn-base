@@ -1,0 +1,211 @@
+var countdown = 60;
+
+function checkPhone(phone){ 
+	if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){ 
+		return false; 
+	} 
+	return true;
+}
+
+function newgdcode(obj,url) { 
+	obj.src = url+ '?nowtime=' + new Date().getTime(); 
+} 
+
+function getCode(obj){
+	var mobile = $("input[name='phone']").val(); 
+	var graph_code = $("input[name='graph_code']").val();
+	
+	if(!checkPhone(mobile)) {
+		if(mobile == "") {
+			$(".authCodeError").empty().html('请输入您的手机号码！');
+		} else {
+			$(".authCodeError").empty().html('输入的手机号码有误！');
+		}
+		return false;
+	}
+	/*
+	if(graph_code == "") {
+		$(".graphCodeError").empty().html('请输入图片验证码');
+		return false;
+	}
+	*/
+	$.ajax({
+    	url: "/user/msgCode.html",
+        type: "post",
+        data: {'mobile':mobile/*,'graph_code':graph_code*/},
+        success: function (json) {
+        	if(json.status == 1){
+        		settime(obj);
+        	} else {
+        		//if(json.status == 2) {
+        		//	$(".graphCodeError").empty().html(json.info);
+        		//} else {
+        			$(".authCodeError").empty().html(json.info);
+        		//}
+        	}
+        	return false;
+          }
+   	})
+}
+
+function settime(obj) {
+   	
+   	if (countdown == 0) {
+        obj.removeAttribute("disabled");
+        obj.value = "获取验证码";
+        countdown = 60;
+        return;
+    } else {
+        obj.setAttribute("disabled", true);
+        obj.value = "重新发送(" + countdown + ")";
+        countdown--;
+    }
+    setTimeout(function() {
+        settime(obj)
+    }, 1000)
+}
+
+function show() {
+    $('.ui.modal').modal('show');
+}
+
+
+function jumpUrl(){
+	var url = '/product/index.html';
+	var prevLink = document.referrer;  
+	if($.trim(prevLink)==''){ 
+		return url;
+	}
+	if(prevLink.indexOf('ppmiao.com')==-1){    //来自其它站点  
+		prevLink =  url;
+    }  
+    if(prevLink.indexOf('/user/login.html')!=-1){      //来自注册页面  
+    	prevLink =  url;
+    }  
+    if(prevLink.indexOf('/user/logout.html')!=-1){      //来自注册页面  
+    	prevLink =  url;
+    } 
+    return prevLink;
+}
+
+
+
+$(document).ready(function() {
+    //$(".PPMHeader").load("../header/index.html");
+    //$(".PPMFooter").load("../footer/index.html");
+    
+	$('.login').click(function () {   
+	    	
+		var mobile = $("input[name='phone']").val(); 
+		var graph_code = $("input[name='graph_code']").val(); 
+		var auth_code = $("input[name='auth_code']").val();  
+		var channel = getQueryString('channel');
+		var jump_url = jumpUrl();
+		
+		if(!checkPhone(mobile)) {
+			if(mobile == "") {
+				$(".phoneError").empty().html('请输入您的手机号码！');
+			} else {
+				$(".phoneError").empty().html('输入的手机号码有误！');
+			}
+			return;
+		}
+		
+		$(".phoneError").empty();
+		
+		if(!graph_code){
+			$(".graphCodeError").empty().html('请输入图片验证码');
+			return;
+		}  
+		$(".graphCodeError").empty()
+		
+		if(!auth_code || auth_code.length != 6){
+			$(".authCodeError").empty().html('请输入六位数的手机码证');
+			return;
+		}
+	
+		$(".authCodeError").empty()
+		
+		
+		if(!$("input[type='checkbox']").is(':checked')) {
+			$(".authCodeError").empty().html('请阅读并同意');
+			return;
+		}
+		
+		
+		$.ajax({     
+		    url:'/user/reg.html',     
+		    type:'post',     
+		    data : {'mobile':mobile, 'graph_code':graph_code,'msg_code':auth_code,'channel':channel,'jump_url':jump_url},
+		    success:function(data){     
+		    	if(data.status==1){
+		    		$(".authCodeError").empty().html('注册成功');
+		    		location.href = data.info; 
+		    	} else{
+		    		$(".authCodeError").empty().html(data.info);  
+		    	}   
+		    },
+		    error:function(){     
+		    	$(".authCodeError").empty().html('系统异常');  
+		    }     
+		});  
+	    	
+	});
+    
+    $('#auth_code').bind('keypress', function (event) {
+        if (event.keyCode == "13") {
+        	$(".login").click();
+        }
+    });
+    
+    
+    $("input[name='phone']").blur(function(){
+    	var phone = $(this).val();
+    	if(phone == ''){
+    		$(".phoneError").empty().html('请输入您的手机号码！');
+    		$("input[name='phone']").focus()
+    		return;
+    	} else {
+    		if(!checkPhone(phone)) {
+        		if(phone == "") {
+        			$(".phoneError").empty().html('请输入您的手机号码！');
+        		} else {
+        			$(".phoneError").empty().html('输入的手机号码有误！');
+        		}
+        		//$("input[name='phone']").focus()
+        		return;
+        	}
+    	}
+    	$(".phoneError").empty();
+    });
+    
+    $("input[name='graph_code']").blur(function(){
+    	var graph_code = $(this).val();
+    	if(graph_code == '' || graph_code.length != 4){
+    		$(".graphCodeError").empty().html('请输入正确的图片验证码');
+    		//$("input[name='graph_code']").focus()
+    		return;
+    	}
+    	$(".graphCodeError").empty();
+    });
+    
+    
+    $("input[name='auth_code']").blur(function(){
+    	var auth_code = $(this).val();
+    	
+    	if(auth_code == '' || auth_code.length != 6){
+    		$(".authCodeError").empty().html('请输入短信验证码');
+    		//$("input[name='auth_code']").focus()
+    		return;
+    	}
+    	$(".authCodeError").empty();
+    });
+    
+
+});
+
+function getQueryString(name) { 
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	var r = window.location.search.substr(1).match(reg); 
+	if (r != null) return unescape(r[2]); return null; 
+} 

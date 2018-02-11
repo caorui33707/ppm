@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>跳转提示</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+</head>
+
+<body id="innerBody">
+    <include file="PublicNew:menu" />
+
+    <div class="innerMain w980 clear">
+        <div class="buySucessBox fLe clear">
+            <div class="buySucessInner fLe clear">
+                <div class="buySucessInnerLeft fLe clear">
+                    <?php if(isset($message)) {?>
+                        <img src="<?php echo(C('STATIC_ROOT')); ?>/v2/images/img/buySucessIcon01.png" />
+                    <?php }else{?>
+                        <img src="<?php echo(C('STATIC_ROOT')); ?>/v2/images/img/buyFailIcon01.png" />
+                    <?php }?>
+                </div>
+                <div class="buySucessInnerRight fLe clear">
+                    <?php if(isset($message)) {?>
+                        <h2><?php echo($message); ?></h2>
+                    <?php }else{?>
+                        <h2><?php echo($error); ?></h2>
+                    <?php }?>
+                    <p>&nbsp;</p>
+                    <p><em id="wait"><?php echo($waitSecond); ?></em>秒后自动跳转 <a id="href" href="<?php echo($jumpUrl); ?>">立即跳转</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <include file="PublicNew:user_footer" />
+    <script type="text/javascript">
+        (function(){
+            var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+            var interval = setInterval(function(){
+                var time = --wait.innerHTML;
+                if(time <= 0) {
+                    location.href = href;
+                    clearInterval(interval);
+                };
+            }, 1000);
+        })();
+    </script>
+</body>
+</html>

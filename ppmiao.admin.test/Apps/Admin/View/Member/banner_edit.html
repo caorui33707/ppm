@@ -1,0 +1,106 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">会员体系 - Banner管理 - 修改Banner [ <a href="{:C('ADMIN_ROOT')}/member/banners">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="id" value="{$detail.id}">
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="20%">广告位：</td>
+                    <td class="tLeft" >
+                        <select name="type" id="type">
+                                <option <eq name="detail.type" value="1">selected</eq> value="1">会员中心</option>
+                                <option <eq name="detail.type" value="2">selected</eq> value="2">票票商城</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">标题：</td>
+                    <td class="tLeft"><input type="text" name="title" id="title" value="{$detail.title}" class="huge" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">动作：</td>
+                    <td class="tLeft" >
+                        <select name="action" id="action">
+                            <option <eq name="detail.action" value="0">selected</eq> value="0">无动作</option>
+                            <option <eq name="detail.action" value="1">selected</eq> value="1">跳转url</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">URL：</td>
+                    <td class="tLeft">
+                        <textarea id="url" name="ext" class="huge">{$detail.ext}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">状态：</td>
+                    <td class="tLeft">
+                        <select name="status" id="status" class="bleftrequire">
+                            <option <eq name="detail.status" value="0">selected</eq> value="0">未上架</option>
+                            <option <eq name="detail.status" value="1">selected</eq> value="1">已上架</option>
+                            <option <eq name="detail.status" value="2">selected</eq> value="2">已下架</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">图片：</td>
+                    <td class="tLeft" >
+                        <input type="hidden" name="img" value="{$detail.image}" />
+                        <img src="https://image.ppmiao.com/Uploads/focus/{$detail.image}" style="max-width: 100px;" /><br>
+                        <input type="file" class="bleftrequire" name="image" id="image" /></td>
+                </tr>
+
+
+
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    var _action = 0;
+    var _urlObj, _extObj;
+
+
+
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('数据提交中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/member/banner_update',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.alert('修改成功~!', -1, function(){
+                                window.location.href = msg.info;
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>

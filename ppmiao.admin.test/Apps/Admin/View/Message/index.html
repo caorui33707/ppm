@@ -1,0 +1,173 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">消息管理</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <div class="impBtn hMargin fLeft shadow"><input type="button" name="add" value="发布" onclick="addPlus()" class="add imgButton"></div>
+            <div class="impBtn hMargin fLeft shadow"><input type="button" name="delete" value="批量删除" onclick="foreverdel()" style="width:100px;color:red;" class="delete imgButton"></div>
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <select name="type">
+                            <option value="0">所有消息</option>
+                            <foreach name="msg_type" item="item">
+                                <option value="{$key}" <eq name="params.type" value="$key">selected</eq>>{$item}</option>
+                            </foreach>
+                        </select>
+                        <span><input type="text" name="key" placeholder="输入关键字" class="medium" value="{$params.search}"></span>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" id="" name="search" value="查询" onclick="" class="search imgButton"></div>
+                </form>
+            </div>
+            <!-- 高级查询区域 -->
+            <div id="addPlus" class="none search cBoth" style="display: none;width:auto;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><a href="{:C('ADMIN_ROOT')}/message/add/type/1">系统消息</a>&nbsp;</td>
+                            <td><a href="{:C('ADMIN_ROOT')}/message/add/type/2">活动(单条)</a>&nbsp;</td>
+                            <td><a href="{:C('ADMIN_ROOT')}/message/add/type/3">活动(多条)</a>&nbsp;</td>
+                            <td><a href="{:C('ADMIN_ROOT')}/message/add/type/4">项目消息</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td height="5" colspan="7" class="topTd"></td>
+                    </tr>
+                    <tr class="row">
+                        <th width="8px"><input type="checkbox" id="check" onclick="CheckAll(this, 'checkList')"></th>
+                        <th width="50px">编号</th>
+                        <th width="400px">标题</th>
+                        <th width="120px">类型</th>
+                        <th width="80px">状态</th>
+                        <th width="150px">发表时间</th>
+                        <th width="*">操作</th>
+                    </tr>
+                    <notempty name="params.search">
+                        <foreach name="list" item="item">
+                            <tr>
+                                <td></td>
+                                <td>{$item.id}</td>
+                                <td>{$item.title}</td>
+                                <td>{$item.typeStr}</td>
+                                <td><eq name="item.status" value="1"><span style="color:green;">已发布</span><else/><a href="javascript:;" style="color:red;" title="点击发布消息" onclick="pass(this,{$item.id})">未发布</a></eq></td>
+                                <td>{$item.add_time|strtotime|date='Y-m-d H:i:s',###}</td>
+                                <td>
+                                    <if condition="checkAuth('Admin/message/edit') eq true"><a href="javascript:;" onclick="edit({$item.group_id},{$item.id})">编辑</a>&nbsp;</if>
+                                    <if condition="checkAuth('Admin/message/delete') eq true"><a href="javascript:;" style="color:red;" onclick="del2({$item.id})">删除</a>&nbsp;</if>
+                                </td>
+                            </tr>
+                        </foreach>
+                    <else/>
+                        <foreach name="list" item="item">
+                            <eq name="item.type" value="3">
+                                <tr class="row">
+                                    <td><input type="checkbox" id="check_{$item.id}"></td>
+                                    <td>{$item.id}</td>
+                                    <td><a href="javascript:;" onclick="showGroup(this, {$item.id})" class="icon_add">消息组,点此打开</a></td>
+                                    <td>{$item.typeStr}</td>
+                                    <td><eq name="item.status" value="1"><span style="color:green;">已发布</span><else/><a href="javascript:;" style="color:red;" title="点击发布消息" onclick="pass(this,{$item.id})">未发布</a></eq></td>
+                                    <td>{$item.add_time|strtotime|date='Y-m-d H:i:s',###}</td>
+                                    <td>
+                                        <if condition="checkAuth('Admin/message/edit') eq true"><a href="javascript:;" onclick="add({$item.id})">编辑</a>&nbsp;</if>
+                                        <if condition="checkAuth('Admin/message/delete') eq true"><a href="javascript:;" style="color:red;" onclick="del({$item.id})">删除</a>&nbsp;</if>
+                                    </td>
+                                </tr>
+                                <foreach name="item.sub" item="sub">
+                                    <tr class="groupmsg_{$item.id} row subitem" style="display:none;">
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;{$sub.id}</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sub.title}</td>
+                                        <td>{$sub.typeStr}</td>
+                                        <td><eq name="sub.status" value="1"><span style="color:green;">已发布</span><else/><span style="color:red;">未发布</span></eq></td>
+                                        <td>{$sub.add_time|strtotime|date='Y-m-d H:i:s',###}</td>
+                                        <td>
+                                            <if condition="checkAuth('Admin/message/message_comment') eq true"><a href="javascript:;" onclick="msg_comment({$sub.id})">评论</a>&nbsp;</if>
+                                            <if condition="checkAuth('Admin/message/edit') eq true"><a href="javascript:;" onclick="edit({$item.id},{$sub.id})">编辑</a>&nbsp;</if>
+                                            <if condition="checkAuth('Admin/message/delete') eq true"><a href="javascript:;" style="color:red;" onclick="del2({$item.id})">删除</a>&nbsp;</if>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                            <else/>
+                                <tr class="row">
+                                    <td><input type="checkbox" id="check_{$item.id}"></td>
+                                    <td>{$item.id}</td>
+                                    <td>{$item.sub.title}</td>
+                                    <td>{$item.typeStr}</td>
+                                    <td><eq name="item.status" value="1"><span style="color:green;">已发布</span><else/><a href="javascript:;" style="color:red;" title="点击发布消息" onclick="pass(this,{$item.id})">未发布</a></eq></td>
+                                    <td>{$item.add_time|strtotime|date='Y-m-d H:i:s',###}</td>
+                                    <td>
+                                        <if condition="checkAuth('Admin/message/edit') eq true"><a href="javascript:;" onclick="edit({$item.id},{$item.sub.id})">编辑</a>&nbsp;</if>
+                                        <if condition="checkAuth('Admin/message/delete') eq true"><a href="javascript:;" style="color:red;" onclick="del({$item.id})">删除</a>&nbsp;</if>
+                                    </td>
+                                </tr>
+                            </eq>
+                        </foreach>
+                    </notempty>
+                    <tr>
+                        <td height="5" colspan="7" class="bottomTd"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">{$show}</div>
+        <!-- 列表显示区域结束 -->
+        <div style="clear: both;"></div>
+        <div><if condition="checkAuth('Admin/message/recycle') eq true"><input type="button" value="回收站" onclick="recycle()" style="color:red;" class="add imgButton"></if></div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+    var _page = "{$params.page}";
+    var _s = "{$params.search}";
+    var _type = "{$params.type}";
+    function showGroup(_obj, _gid){
+        if($(".groupmsg_" + _gid).css('display') == 'none'){
+            $(_obj).addClass('icon_close');
+            $(".groupmsg_" + _gid).css('display', 'table-row');
+        }else{
+            $(_obj).removeClass('icon_close');
+            $(".groupmsg_" + _gid).css('display', 'none');
+        }
+    }
+    function msg_comment(_mid){
+        var params = '/p/' + _page;
+        if(_s) params += '/s/' + _s;
+        if(_type) params += '/type/' + _type;
+        window.location.href = ROOT + "/message/message_comment/mid/" + _mid + params;
+    }
+    function recycle(){
+
+    }
+</script>
+<script type="application/javascript" src="{:C('STATIC_ADMIN')}/js/message_list.js"></script>

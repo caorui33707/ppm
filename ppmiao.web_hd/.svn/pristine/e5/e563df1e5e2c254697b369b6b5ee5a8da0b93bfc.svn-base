@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+	<script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+	<script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" href="https://image.ppmiao.com/Public/channel/20171121_channel/css/channel.css">
+	<title>票票喵</title>
+	<style>
+		.footer{
+			background-image: url(https://image.ppmiao.com/Public/channel/20171121_channel/images/888_02.jpg);
+			width: 10rem;
+		    height: 0.65rem;
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		}
+	</style>
+	
+	<if condition="($is_ws eq '1')"> 
+	
+	
+		<style>
+			.container .channel3_01 {
+			background-image: url("https://image.ppmiao.com/Public/channel/20171121_channel/images/888-4-2.jpg");
+				width: 10rem;
+    height: 10rem;
+    background-size: 100%;
+    background-repeat: no-repeat;
+		}
+		
+	</style>
+	
+	</if>
+</head>
+
+<body>
+	<!-- 弹框 -->
+	<div class="pop">
+		<div class="dialog">
+			<div class="top"> 请输入验证码 </div>
+			<div class="bottom">
+				确定
+			</div>
+		</div>
+	</div>	
+	<!-- 注册页面 -->
+	<div class="container">
+		<div class="img00 channel3_01"></div>
+		<div class="img00 channel3_02">
+			<input type="text" class="mobile" placeholder="请输入手机号" style="top:1.55rem;" id="mobile" name="mobile" maxlength="11">
+			<input type="text" class="code" placeholder="请输入验证码" style="top: 3.01rem;" id="code" name="code" maxlength="6">
+			<div class="get-code">| <span class="code-time">获取验证码</span></div>
+			<div class="invest register" style="top:4.47rem;">开始赚钱</div>
+		</div>
+		<div class="img00 channel3_03"></div>
+		<div class="img00 channel3_04">
+			<div class="invest go-top" style="bottom: 2.17rem;">真不错，开始赚钱</div>
+		</div>
+
+		<!--后添加代码-->
+		<div class="footer" style="disply:none;">
+		</div>
+		
+	</div>
+
+
+	<script>
+
+		function GetQueryString(name) {
+			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) {
+				return unescape(r[2]);
+			}
+			return null;
+		}
+
+		var channel = GetQueryString("ch");
+	
+	
+		var ch = "{$ch}";
+
+		// 获取验证码
+		$('.code-time').click(function() {
+    		var mobile = $('input[name=mobile]').val();
+    		if(!checkPhone(mobile)) {
+    			if(mobile == "") {    				
+    				$('.pop .top').html('请输入您的手机号码！');
+    			} else {
+    				$('.pop .top').html('输入的手机号码有误！');
+    			}
+    			$('.pop').css({display:'block'});
+    			return;
+    		}
+    			
+    		$.ajax({
+    	    	url: "/hd/sendCode.html",
+    	        type: "post",
+    	        data: {'invitedMobile':mobile},
+    	        success: function (json) {
+    	        	if(json.status == 1){
+    	        		Countdown();    	        		
+    	        	} else {
+    	        		$('.pop .top').html(json.info);
+    	        		$('.pop').css({display:'block'});
+    	        	}
+    	        	return;
+    	          }
+    	   	})
+	    
+		});
+
+		
+		// 开始赚钱
+		$('.register').click(function() {
+			
+			
+			var mobile = $('input[name=mobile]').val();    		
+    		var code = $('input[name=code]').val();
+			
+    		if(!checkPhone(mobile)) {
+    			if(mobile == "") {
+    				$('.pop .top').html('请输入您的手机号码！');
+    			} else {
+    				$('.pop .top').html('输入的手机号码有误！');
+    			}
+    			$('.pop').css({display:'block'});
+    			return ;
+    		}
+    		
+    		if(!code || code.length<6) {
+    			$('.pop .top').html('请输入6位数的验证码！');
+    			$('.pop').css({display:'block'});
+    			return ;
+    		}
+    		
+    		$.ajax({
+    	    	url: "/hd/tg_login.html",
+    	        type: "post",
+    	        data: {'code':code,'mobile':mobile,'ch':ch},
+    	        success: function (json) {
+    	        	if(json.status == 0){
+    	        		$('.pop .top').html(json.info);
+    	        		$('.pop').css({display:'block'});
+    	        	} else {
+    	        		
+    	        		if (channel && channel.indexOf("jrtt") == 0) {
+							_taq.push({convert_id: "77181213087",event_type: "form"});
+						}
+
+    	        		window.location.href=json.info;    	        		
+    	        	}
+    	        	return;
+    	        }
+    	   	});  
+
+						
+		});
+		
+		// 真不错，开始赚钱
+		$('.go-top').click(function() {
+			$('body,html').animate({scrollTop:0},500);
+
+		});
+
+
+		//  修改弹出框内容
+		//$('.pop .top').html('这里修改弹出提示');
+		//显示弹框
+		// $('.pop').css({display:'block'});
+		//隐藏弹框
+		$('.pop .bottom').click(function() {
+			$('.pop').css({display: "none"});
+		});
+
+
+		// 注册
+
+		// 倒计时
+		var sleep = 60, interval = null;
+        function Countdown(){
+        	if (!interval) {
+				$('.get-code').css('pointer-events', 'none');
+ 			   $('.code-time').html(sleep + " s");
+ 			   interval = setInterval(function () {
+ 				   if (sleep == 0) {
+ 					   if (!!interval) {
+ 						   clearInterval(interval);
+ 						   interval = null;
+ 						   sleep = 60;
+						   $('.get-code').css('pointer-events', 'auto');
+ 						   $(".code-time").html("获取验证码");
+ 					   }
+ 					   return false;
+ 				   }
+ 				   $('.code-time').html(sleep-- + " s");
+ 			   }, 1000);
+            }
+        }
+        
+        function checkPhone(phone){ 
+			if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){ 
+				return false; 
+			} 
+			return true;
+		}
+
+		//后添加代码/////////////////
+
+		if(channel&&channel.indexOf("jrtt")==0){
+		//  alert("dd")
+			(function(root) {
+					root._tt_config = true;
+					var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;
+					ta.src = document.location.protocol + '//' + 's1.pstatp.com/bytecom/resource/track_log/src/toutiao-track-log.js';
+					ta.onerror = function () {
+							var request = new XMLHttpRequest();
+							var web_url = window.encodeURIComponent(window.location.href);
+							var js_url  = ta.src;
+							var url = '//ad.toutiao.com/link_monitor/cdn_failed?web_url=' + web_url + '&js_url=' + js_url + '&convert_id=77181213087';
+							request.open('GET', url, true);
+							request.send(null);
+					}
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ta, s);
+
+			})(window);
+
+			// $('.register').click(function() {
+			// 	_taq.push({convert_id:"77181213087", event_type:"form"})
+			// });
+
+			$(".footer").show()
+		}else {
+			$(".footer").hide()
+		}
+        
+	</script>
+</body>
+
+</html>

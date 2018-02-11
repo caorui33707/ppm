@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/web_user/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/web_user/js/tabs.js"></script>
+    <title>票票喵-我的投资</title>
+
+    <style>
+        .click_show{
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+<include file="Common:header" />
+<!--弹出层-->
+<div class="backgr" id="integral_bj" style="display: none;"></div>
+<div class="tankuang" id="integral_window" style="display: none;">
+    <div class="integral_content">
+        <iframe src="" id="contract_content" style="width:100%;height:100%;border: 0;height:510rem;">
+
+        </iframe>
+
+    </div>
+</div>
+<!--正文-->
+<div class="pandect_big">
+    <div class="pandect_seat">
+        <p>您现在的位置：我的账户><span>我的投资</span></p>
+    </div>
+    <!--左-->
+    <div class="pandect_left">
+
+        <include file="layouts:menu" />
+    </div>
+    <div class="pandect_right">
+        <div class="discounts_money">
+            <div class="discounts_capital">
+                <div class="discounts_money_top br">
+                    <p>待收本金（元）</p>
+                    <h5><?php echo sprintf("%01.2f",$response->waitCapital); ?></h5>
+                </div>
+                <div class="discounts_money_top br">
+                    <p>待收利息（元）</p>
+                    <h5><?php echo sprintf("%01.2f",$response->waitInterest); ?></h5>
+                </div>
+                <div class="discounts_money_top br">
+                    <p>累计总投资（元）</p>
+                    <h5><?php echo sprintf("%01.2f",$response->totalInvestCapital); ?></h5>
+                </div>
+                <div class="discounts_money_top br">
+                    <p>累计历史总收益（元）</p>
+                    <h5><?php echo sprintf("%01.2f",$response->totalInvestInterest); ?></h5>
+                </div>
+                <div class="discounts_money_top">
+                    <p>回款支付中（元）</p>
+                    <h5><?php echo sprintf("%01.2f",$response->handOutCapitail); ?></h5>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="line"></div>
+            <div class="pandect_property">
+                <p>投资明细</p>
+            </div>
+            <div class="account_all">
+                <div class='tabs' id="tabs">
+                    <ul class='horizontal'>
+                        <li rel="tab-1" class="selectActive">投资中</li>
+                        <li rel="tab-2" relHref="T1.html">已结束</li>
+                        <div style="clear:both;"></div>
+                    </ul>
+
+                    <!--1-->
+                    <div rel='tab-1' class="account_exceed">
+
+                        <?php
+                    if(empty($InvestingRecord)){
+                    ?>
+
+                        <div class="account_bill">
+                            <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                        </div>
+                        <?php
+                    }else{
+                    ?>
+                        <div class="account_square">
+                            <div class="account_line">
+                                <div class="discounts_time1">
+                                    <p>产品名</p>
+                                </div>
+                                <div class="discounts_time2">
+                                    <p>投资金额（元）</p>
+                                </div>
+                                <div class="discounts_time3">
+                                    <p>待收利息（元）</p>
+                                </div>
+                                <div class="discounts_time4">
+                                    <p>到期时间</p>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                            <!---数据循环-->
+
+                            <?php
+                                foreach($InvestingRecord as $key => $value):
+                            ?>
+                            <ul class="account_record">
+                                <li class="discounts_time1 click_show" data-id="{$value->id}">
+                                    <p>{$value->projectTitle}</p>
+                                </li>
+                                <li class="discounts_time2 cr click_show" data-id="{$value->id}">
+                                    <p>{$value->invSucc}</p>
+                                </li>
+                                <li class="discounts_time3 cr click_show" data-id="{$value->id}">
+                                    <p>{$value->waitInterest}</p>
+                                </li>
+                                <li class="discounts_time4 click_show" data-id="{$value->id}">
+                                    <p><?php echo date('Y-m-d',$value->endTime/1000); ?></p>
+                                </li>
+                                <li class="discounts_time5">
+                                    <p class="show toshow_{$value->id}"  data-id="{:C('WEB_ROOT')}/mobile/contract/{$value->projectId}/{$Think.session.USER_ONLINE_SESSION.user_id}/{$value->id}/<?php echo md5($value->projectId.$Think['session']['ONLINE_SESSION']['uid'].$value->id.'zHQGfyGky2qO8GcDlq2KjHiaphYU1Ukc'); ?>">展开详情</p>
+                                </li>
+                                <div style="clear:both;"></div>
+                                <!--展开详情-->
+                                <div class="discounts_detail">
+                                    <!-- <div class="discounts_time1">
+                                      <p style="height: 15px;line-height: 30px;">票票喵第2919期</p>
+                                      <span>2017/11/11 12:00:00</span>
+                                    </div>
+                                    <div class="discounts_time2 cr">
+                                      <p>1000.00</p>
+                                    </div>
+                                    <div class="discounts_time3 cr">
+                                      <p>1000.00</p>
+                                    </div>
+                                    <div class="discounts_time4">
+                                      <p>2016-11-11</p>
+                                    </div>
+                                    <div class="discounts_time5 cr">
+                                      <p class="hide">收起详情</p>
+                                    </div> -->
+                                    <div class="discounts_pige">
+                                        <div class="discounts_property">
+                                            <p>{$value->projectTitle}</p>
+                                            <span>年化率：<?php echo sprintf("%01.2f",$value->userInterest); ?>%</span>
+                                            <span id="limit">理财期限：<span><?php echo count_days(date('Y-m-d',$value->endTime/1000),date('Y-m-d',$value->addTime/1000))+1;?></span>天</span>
+                                            <span>到期时间：<?php echo date('Y-m-d',$value->endTime/1000); ?></span>
+                                        </div>
+                                        <div class="discounts_property">
+                                            <p>资金状态</p>
+                                            <div class="discounts_lines">
+                                                <img src="{:C('STATIC_ROOT')}/web_user/images/time1.jpg" />
+                                                <span id="buy">购买成功（<?php echo date('Y-m-d',$value->addTime/1000); ?>）</span>
+                                                <span id="now">收益中...</span>
+                                                <span id="haven">已到期，本息已转入账户余额</span>
+                                            </div>
+                                        </div>
+                                        <div class="discounts_pact">
+                                            <p>查看购买合同>></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+
+                            <?php
+                                endforeach;
+                            ?>
+                        </div>
+
+
+                        <?php
+                    }
+                    ?>
+                    </div>
+                    <!--2-->
+                    <div rel='tab-2' class="account_exceed">
+
+
+
+                        <?php
+                    if(empty($InvestFinishRecord)){
+                    ?>
+
+                        <div class="account_bill">
+                            <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                        </div>
+                        <?php
+                    }else{
+                    ?>
+
+                        <div class="account_square">
+                            <div class="account_line">
+                                <div class="discounts_time1">
+                                    <p>产品名</p>
+                                </div>
+                                <div class="discounts_time2">
+                                    <p>投资金额（元）</p>
+                                </div>
+                                <div class="discounts_time3">
+                                    <p>待收利息（元）</p>
+                                </div>
+                                <div class="discounts_time4">
+                                    <p>到期时间</p>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                            <!---数据循环-->
+
+                            <?php
+                                foreach($InvestFinishRecord as $key => $value):
+                            ?>
+                            <ul class="account_record">
+                                <li class="discounts_time1 click_show" data-id="{$value->id}">
+                                    <p>{$value->projectTitle}</p>
+                                </li>
+                                <li class="discounts_time2 cr click_show" data-id="{$value->id}">
+                                    <p>{$value->invSucc}</p>
+                                </li>
+                                <li class="discounts_time3 cr click_show" data-id="{$value->id}">
+                                    <p>{$value->waitInterest}</p>
+                                </li>
+                                <li class="discounts_time4 click_show" data-id="{$value->id}">
+                                    <p><?php echo date('Y-m-d',$value->endTime/1000); ?></p>
+                                </li>
+                                <li class="discounts_time5">
+                                    <p class="show toshow_{$value->id}"  data-id="{:C('WEB_ROOT')}/mobile/contract/{$value->projectId}/{$Think.session.USER_ONLINE_SESSION.user_id}/{$value->id}/<?php echo md5($value->projectId.$Think['session']['ONLINE_SESSION']['user_id'].$value->id.'zHQGfyGky2qO8GcDlq2KjHiaphYU1Ukc'); ?>">展开详情</p>
+                                </li>
+                                <div style="clear:both;"></div>
+                                <!--展开详情-->
+                                <div class="discounts_detail">
+                                    <div class="discounts_pige">
+                                        <div class="discounts_property">
+                                            <p>{$value->projectTitle}</p>
+                                            <span>年化率：<?php echo sprintf("%01.2f",$value->userInterest); ?>%</span>
+                                            <span id="limit">理财期限：<span><?php echo count_days(date('Y-m-d',$value->endTime/1000),date('Y-m-d',$value->addTime/1000))+1;?></span>天</span>
+                                            <span>到期时间：<?php echo date('Y-m-d',$value->endTime/1000); ?></span>
+                                        </div>
+                                        <div class="discounts_property">
+                                            <p>资金状态</p>
+                                            <div class="discounts_lines">
+                                                <img src="{:C('STATIC_ROOT')}/web_user/images/time2.jpg" />
+                                                <span id="buy">购买成功（<?php echo date('Y-m-d',$value->addTime/1000); ?>）</span>
+                                                <span id="now">收益中...</span>
+                                                <span id="haven">已到期，本息已转入账户余额</span>
+                                            </div>
+                                        </div>
+                                        <div class="discounts_pact">
+                                            <p>查看购买合同>></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+
+                            <?php
+                                endforeach;
+                            ?>
+                        </div>
+
+                        <?php
+                    }
+                    ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />
+</body>
+
+</html>
+<script type="text/javascript">
+
+    tabs_takes.init("tabs");
+
+
+    $('.click_show').click(function(){
+        var obj = $(this).data('id');
+        var class_name = 'toshow_'+obj
+        $('.'+class_name).click();
+    });
+
+    $('.discounts_detail').hide()
+    $('.show').click(function(event) {
+        if ($(this).html()=="展开详情") {
+
+
+            $('#contract_content').attr('src',$(this).data('id'));
+            $(".discounts_detail").hide()
+            $(this).parent().next().next().show()
+            $('.show').html('展开详情');
+            $(this).html('收起详情');
+        }else{
+            $(this).parent().next().next().hide()
+            $(this).html('展开详情');
+        }
+
+    });
+
+
+    var event_f = function(e){e.preventDefault();}
+    $(function() {
+        $(".discounts_pact>p").click(function() {
+            $("#integral_bj").show();
+            $("#integral_window").show();
+            $('body').css("overflow-y","hidden");
+        });
+
+        $(".backgr").click(function() {
+            $("#integral_bj").hide();
+            $("#integral_window").hide();
+            $('body').css("overflow-y","scroll");
+        });
+    });
+
+
+</script>

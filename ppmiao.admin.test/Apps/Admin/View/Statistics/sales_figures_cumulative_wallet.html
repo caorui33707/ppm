@@ -1,0 +1,108 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/highcharts/modules/exporting.js"></script>
+    <div class="content">
+        <div class="title">销售图表 -
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/daily">日数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/monthly">月数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/year">年数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/bk">爆款数据</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/hbfxztl">还本付息再次投资率</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/xsectz">购买新手标二次投资</a>&nbsp;&nbsp;
+            <a href="{:C('ADMIN_ROOT')}/statistics/sales_figures/target/cumulative">销售增量(产品)</a>&nbsp;&nbsp;
+            销售增量&nbsp;&nbsp;
+        </div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+
+            </div>
+        </div>
+        <div id="result" class="result none"></div>
+        <div id="container" style="min-width: 310px;width:1000px; height: 800px; margin: 0 auto"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: '每日平台运营数据'
+            },
+            subtitle: {
+                text: '投资用户成本:88元，人均投资:18691元'
+            },
+            xAxis: [{
+                categories: [{$categories}]
+            }],
+            yAxis: [{ // Primary yAxis
+                min:0,
+                labels: {
+                    formatter: function(){
+                        return this.value/10000 + '万';
+                    },
+                    style: {
+                        color: '#f87355'
+                    }
+                },
+                title: {
+                    text: '投资金额',
+                    style: {
+                        color: '#f87355'
+                    }
+                }
+            }, { // Secondary yAxis
+                min:0,
+                title: {
+                    text: '投资人数',
+                    style: {
+                        color: '#0066cc'
+                    }
+                },
+                labels: {
+                    format: '{value}个',
+                    style: {
+                        color: '#0066cc'
+                    }
+                },
+                opposite: true
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 120,
+                verticalAlign: 'top',
+                y: 100,
+                floating: true,
+                backgroundColor: '#FFFFFF'
+            },
+            series: [{
+                name: '投资人数',
+                color: '#0066cc',
+                type: 'spline',
+                yAxis: 1,
+                data: [{$totle_person}],
+                tooltip: {
+                    valueSuffix: '人'
+                }
+
+            }, {
+                name: '投资金额',
+                color: '#f87355',
+                type: 'column',
+                data: [{$totle_price}],
+                tooltip: {
+                    valueSuffix: '元'
+                }
+            }]
+        });
+    });
+</script>

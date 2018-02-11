@@ -1,0 +1,114 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始-->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">指定时间段内产品还本付息列表导出(Excel)</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <label for="start_time">开始：<input type="text" class="laydate-icon" name="start_time" id="start_time" value="{$params.start_time}" readonly /></label>
+                        <label for="end_time">结束：<input type="text" class="laydate-icon" name="end_time" id="end_time" value="{$params.end_time}" readonly /></label>
+                        <label for="financing">
+                            融资人：
+                            <select name="financing" id="financing">
+                                <option value="0">不限制</option>
+                                <foreach name="term_type_list" item="v">
+                                    <option value="{$v['financing']}">{$v['financing']}</option>
+                                </foreach>
+                            </select>
+                        </label>
+                        <label for="term_type">
+                            产品类型：
+                            <select name="term_type" id="term_type">
+                                <option value="0">不限制</option>
+                                <option value="1">稳一稳</option>
+                                <option value="2">搏一搏</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="button"  name="search" value="导出excel" onclick="timeperiod_repayment()" class="search imgButton" style="width:120px"></div>
+                </form>
+            </div>
+        </div>
+        <!-- 功能操作区域结束 -->
+        <!-- 列表显示区域  -->
+        <!--  分页显示区域 -->
+        <div class="page"></div>
+        <!-- 列表显示区域结束 -->
+        <div style="clear: both;"></div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束-->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+    var _layerIndex = 0;
+    var _start_time = "{$params.start_time}";
+    var _end_time = "{$params.end_time}";
+    var _bank = "{$params.bank}";
+
+    var start = {
+        elem: '#start_time',
+        format: 'YYYY-MM-DD',
+        min: '1970-00-00', //设定最小日期为当前日期
+        max: '2099-06-16', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+            end.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+    var end = {
+        elem: '#end_time',
+        format: 'YYYY-MM-DD',
+        min: laydate.now(),
+        max: '2099-06-16',
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+    laydate(start);
+    laydate(end);
+    //导出指定时间段内产品还本付息导出
+    function timeperiod_repayment(){
+        var _start_time = $("#start_time").val();
+        var _end_time = $("#end_time").val();
+        var _financing = $("#financing").val();
+        var _term_type = $("#term_type").val();
+        if(_start_time && _end_time){
+            layer.confirm('确认导出指定时间段内产品还本付息表吗?', function(){
+                _layerIndex = layer.load('导出中...');
+                window.location.href=ROOT +"/project/repayment/st/"+_start_time+'/et/'+_end_time+'/term_type/'+_term_type+'/financing/'+_financing;
+                setTimeout(function(){
+                        layer.alert('导出成功~!');
+                        layer.close(_layerIndex);
+
+                    },5000);
+            });
+
+        }
+
+    }
+</script>

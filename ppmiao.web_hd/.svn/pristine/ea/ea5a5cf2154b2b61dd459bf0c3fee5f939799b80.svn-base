@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    <title>票票喵 - 找回密码</title>
+</head>
+
+<body style="background-color:#f4f4f4;">
+    
+    <include file="Public:ppm_menu" />
+
+    <!-- 内容部分 -->
+    <div class="changePassword">
+        <div class="content-background">
+            <div class="content1">
+                <div style="position:relative;height:100%;width:100%">
+                    <div class="title">
+                        找回密码
+                    </div>
+                    <div class="changePassword-content ">
+                        
+                         <div id ='step1'>
+                                <div class="changePassword-text">
+                                    忘记密码
+                                </div>
+                                <div class="">
+                                    <input type="text" id="userName" name="userName" maxlength="21" placeholder="请输入营业执照号">
+                                    <p class="remove-float"></p>
+                                </div>
+                                <div class="">
+                                    <div class="fl" style="width:55%">
+                                        <input type="text" id="verify" name="verify" maxlength="5" placeholder="请确认验证码" style="margin-left: 40px;">
+                                        <p  class="remove-float"></p>
+                                    </div>
+                                    <div class="sign_three cut30 fl rel">
+                                    
+                                        <img class="verifyImg" src="{:C('WEB_ROOT')}/common/verify" />
+                                        
+                                        <div class="sign_foure abs tc" style="top: 40px;left: 50px;" >
+                                            <a onClick="fleshVerify()"><p style="text-align: center;">看不清楚，换一张</p></a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <p class="next-step" style="margin:120px auto;cursor:pointer;" id="btn_step1"> 下一步</p>
+                            </div> 
+
+                        <div id = 'step2' style="display:none;">
+                            <div class="changePassword-text">
+                                
+                            </div>
+                            <div style="width: 80%; margin: 0 auto; height: 20px;">
+                                <div>
+                                    <span style="float:left;font-size: 15px;">手机号</span><span style="float:right" id='showmobile'></span>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="cut70 fl">
+                                    <input type="text" id="mobileCode" name="mobileCode" maxlength="5" placeholder="请输入短信验证码">
+                                    <input type="hidden" id="mobile" name="mobile">
+                                    <input type="hidden" id="userName2" name="userName2">
+                                    <p class="remove-float"></p>
+                                </div>
+                                <div class="sign_three cut30 fl" style=" margin-left: -25px;">
+                                    <div class="sign_five" style="padding:0">
+                                        <input type="button" id="btn1" value="获取验证码" style="text-indent:0; background: #ff580f; color: white; border: 0;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="next-step" style="margin:120px auto;cursor:pointer;" id="btn_step2">下一步</p>
+                        </div>
+
+                        <!-- 第三步 -->
+                         <div id ="step3"  style="display:none;">
+                                <div class="changePassword-text">
+                                    设置新密码
+                                </div>
+                                <div class="">
+                                    <span style="position: relative;right: 72px;font-size: 15px;">营业执照号</span><span style="position: relative; left: -50px;" id="userName3"></span>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <input type="password" id="pwd" name="pwd" maxlength="20" placeholder="请输入新的登录密码">
+                                        <p class="remove-float"></p>
+                                    </div>
+                                    <div class="">
+                                        <input type="password" id="pwd2" name="pwd2" maxlength="20" placeholder="请确认新的登录密码">
+                                        <p class="remove-float"></p>
+                                    </div>
+                                </div>
+                                <p class="next-step" style="cursor:pointer;" id="btn_step3">确认修改</p>
+                            </div>
+                    </div>
+                    <!-- 修改成功 -->
+                   <div class="change-info" style="display:none;">
+                        <div class="change-text">
+                            <img class="change-pic" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/images/success.png" />密码修改成功
+                            <!-- <img class="change-pic" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/images/fail.png" />密码修改失败 -->
+                        </div>
+                        <div style="margin: 5px 0;">
+                            <a href="login.html"><button class="change-info-button">返回我的账户</button></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+	
+	<script type="text/javascript">
+		$(function () {	
+			$('#btn_step1').click(function () {  
+				var userName = $("#userName").val();
+				var verify = $("#verify").val();
+				if(!userName){
+					$("#userName").nextAll(".remove-float").html('请输入营业执照号');
+					return false;
+				}
+				if(userName.length<6 || userName.length>21){
+					$("#userName").nextAll(".remove-float").html('输入营业执照号有误，格式由的数字字母组成');
+					return false;
+				}	
+				$("#userName").nextAll(".remove-float").html('');
+				if(!verify){
+					$("#verify").nextAll(".remove-float").html('请输入文字验证码');
+					return false;
+				}
+				$("#verify").nextAll(".remove-float").html('');
+				
+				$.ajax({     
+	    		    url:'findpwd.html',     
+	    		    type:'post',     
+	    		    data : {'userName':userName, 'verify':verify,'step':1},//这里使用json对象  
+	    		    success:function(data){     
+	     		    	if(data.status==1){
+	     		    		
+	     		    		$('#showmobile').html(data.info.new_mobile);
+	     		    		$('#mobile').val(data.info.mobile);
+	     		    		$('#userName2').val(data.info.username);	     		    		
+	     		    		
+	     		    		$('#step1').css('display','none'); 
+	     		    		$('#step2').css('display','block'); 
+	     		    		$('#step3').css('display','none'); 
+	     		    		$('.change-info').css('display','none'); 
+	     		    	} else{
+	     		    		if(data.status == 0) {
+	     		    			$("#userName").nextAll(".remove-float").html(data.info);
+	     		    		} else {
+	     		    			$("#verify").nextAll(".remove-float").html(data.info);
+	     		    		}
+	     		    	}   
+	     		    },
+	    		    error:function(){     
+	    		    	$("#verify").nextAll(".remove-float").html('系统异常');  
+	    		    }     
+	    		}); 
+			});
+			
+			
+			$('#btn1').click(function(){
+		    	var mobile = $.trim($("input[name='mobile']").val());	    	
+				$.ajax({
+			    	url: "/common/getcode",
+			        type: "post",
+			        data: {'mobile':mobile},
+			        success: function (json) {
+			        	if(json.status == 1){
+			        		Countdown();
+			        		return;
+			        	} 
+			          }
+			   	})
+		    });
+			
+			$('#btn_step2').click(function(){
+				var code = $.trim($("input[name='mobileCode']").val());
+				if(!code){
+					$("#mobileCode").nextAll(".remove-float").html('请输入手机验证码');
+					return false;
+				}
+				$("#mobileCode").nextAll(".remove-float").html('');
+				var mobile = $.trim($("input[name='mobile']").val());
+				$.ajax({     
+	    		    url:'findpwd.html',     
+	    		    type:'post',     
+	    		    data : {'code':code, 'mobile':mobile,'step':'2'},//这里使用json对象  
+	    		    success:function(data){     
+	     		    	if(data.status==1){
+	     		    		$('#step1').css('display','none'); 
+	     		    		$('#step2').css('display','none'); 
+	     		    		$('#step3').css('display','block'); 
+	     		    		$('.change-info').css('display','none'); 
+	     		    		$('#userName3').empty().html($("#userName").val());
+	     		    		
+	     		    		$("input[name='pwd']").val()
+	     		    		$("input[name='pwd2']").val()
+	     		    	} else{
+	     		    		$("#mobileCode").nextAll(".remove-float").html(data.info);
+	     		    	}   
+	     		    },
+	    		    error:function(){     
+	    		    	$("#mobileCode").nextAll(".remove-float").html('系统异常');  
+	    		    }     
+	    		}); 
+			});
+			
+			$('#btn_step3').click(function(){
+				
+				var pwd = $.trim($("input[name='pwd']").val());
+				var pwd2 = $.trim($("input[name='pwd2']").val());
+				
+				if(!pwd || pwd.length<6 || pwd.length>20  ){
+					$("#pwd").nextAll(".remove-float").html('请输入密码，密码的长度在6 -20 ');
+					return false;
+				}
+				$("#pwd").nextAll(".remove-float").html('');
+				if(!pwd2 || pwd2.length<6 || pwd2.length>20  ){
+					$("#pwd2").nextAll(".remove-float").html('请输入密码，密码的长度在6 -20 ');
+					return false;
+				}
+				$("#pwd2").nextAll(".remove-float").html('');
+				if(pwd != pwd2) {
+					$("#pwd2").nextAll(".remove-float").html('两次密码输入不一致，');
+					return false;
+				}
+				
+				$("#pwd").nextAll(".remove-float").html('');
+				$("#pwd2").nextAll(".remove-float").html('');
+
+				var mobile = $.trim($("input[name='mobile']").val());
+				var userName = $.trim($("input[name='userName']").val());
+				
+				$.ajax({     
+	    		    url:'findpwd.html',     
+	    		    type:'post',     
+	    		    data : {'pwd':pwd,'pwd2':pwd2,'mobile':mobile,'userName':userName,'step':'3'},//这里使用json对象  
+	    		    success:function(data){     
+	     		    	if(data.status==1){	     		    		
+	     		    		$('#step1').css('display','none'); 
+	     		    		$('#step2').css('display','none'); 
+	     		    		$('#step3').css('display','none'); 
+	     		    		$('.change-info').css('display','block'); 	     		    		
+	     		    	} else{
+	     		    		$("#pwd2").nextAll(".remove-float").html(data.info);
+	     		    	}   
+	     		    },
+	    		    error:function(){     
+	    		    	$("#pwd2").nextAll(".remove-float").html('系统异常');  
+	    		    }     
+	    		}); 
+			});
+		})
+		
+		function fleshVerify(){ 
+			var timenow = new Date().getTime();
+			$(".verifyImg").attr('src','{:C('WEB_ROOT')}/common/verify?'+timenow); 
+		}
+		
+	</script>
+	
+    <script type="text/javascript">
+    var sleep = 60, interval = null;
+    function Countdown(){
+    	if (!interval) {    		
+    	   $("#btn1").css("backgroundColor","#ff712b");
+		   $("#btn1").attr("disabled","disabled");
+		   $("#btn1").css('cursor','wait');
+		   $("#btn1").val(sleep + " S");
+		   interval = setInterval(function () {
+			   if (sleep == 0) {
+				   if (!!interval) {
+					   clearInterval(interval);
+					   interval = null;
+					   sleep = 60;
+					   $('#btn1').css('cursor','pointer');
+					   $("#btn1").removeAttr("disabled")
+					   $("#btn1").val("获取验证码");
+					   $("#btn1").css("backgroundColor","#ff712b");
+				   }
+				   return false;
+			   }
+			   $('#btn1').val("" + sleep-- + " S");
+		   }, 1000);
+        }
+    }
+    </script>
+</body>
+
+</html>

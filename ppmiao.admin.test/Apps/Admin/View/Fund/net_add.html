@@ -1,0 +1,81 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">添加净值</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <form id="frmMain" method='post' action="">
+            <input type="hidden" name="fund_id" value="{$fund_id}" />
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">净值：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" id="val" name="val" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">日增长率(%)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="day_increment" name="day_increment" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">日期：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" datatype="*" id="datetime" name="datetime" readonly></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+    var _fund_id = {$fund_id};
+    var _adding = false;
+    var _layerIndex = 0;
+    $(document).ready(function(){
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                if(_adding) return;
+                _adding = true;
+                _layerIndex = layer.load('数据提交中...');
+                $.ajax({
+                    url: ROOT + '/fund/net_add',
+                    data: $('#frmMain').serialize(),
+                    type: "POST",
+                    cache: false,
+                    success: function(msg) {
+                        layer.close(_layerIndex);
+                        if(msg.status){
+                            layer.confirm('添加成功~!是否继续?', function(){
+                                window.location.reload();
+                            }, function(){
+                                window.close();
+                            });
+                        }else{
+                            layer.alert(msg.info);
+                        }
+                        _adding = false;
+                    }
+                });
+                return false;
+            }
+        });
+    });
+    var dt = {
+        elem: '#datetime',
+        format: 'YYYY-MM-DD',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+        }
+    };
+    laydate(dt);
+</script>

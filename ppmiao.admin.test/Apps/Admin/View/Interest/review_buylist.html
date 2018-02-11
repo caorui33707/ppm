@@ -1,0 +1,65 @@
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">购买用户 - 付息日期:{$repay_detail.repayment_time|strtotime|date='Y-m-d',###} - {$detail.title}
+
+        </div>
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td height="5" colspan="5" class="topTd"></td>
+                    </tr>
+                    <tr class="row">
+                        <th width="80px" align="center">用户姓名</th>
+                        <th width="120px" align="center">支付利息(元)</th>
+                        <th width="120px" align="center">支付本金(元)</th>
+                        <th width="120px" align="center">使用红包(元)</th>
+                        <th width="120px" align="center">券包产生利息(元)</th>
+                    </tr>
+                    <foreach name="list" item="item">
+                        <tr class="row">
+                            <td align="center">{$item.real_name}</td>
+                            <td align="right">{$item.due_interest|default=0|number_format=2}</td>
+                            <td align="right">{$item.due_capital|default=0|number_format=2}</td>
+                            <td align="right">{$item.red_amount}</td>
+                            <td align="right">{$item.coupon_income|default=0|number_format=2}</td>
+                        </tr>
+                    </foreach>
+                    <!--<tr class="row">-->
+                        <!--<td align='center'>当页总计</td>-->
+                        <!-- -->
+                        <!--<td align="right">{$page_totle_interest|default=0|number_format=2}</td>-->
+                        <!--<td align="right">{$page_totle_capital|default=0|number_format=2}</td>-->
+                        <!--<td align="right">&nbsp;</td>-->
+                        <!--<td align="right">&nbsp;</td>-->
+                    <!--</tr>-->
+                    <tr>
+                        <td height="5" colspan="5" class="bottomTd"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">
+            <div style="float:left;">本期支付利息总计：<b>{$totle_interest|default=0|number_format=2}</b>(元); 本期支付本金总计：<b>{$totle_capital|default=0|number_format=2}</b>(元)
+                本期使用红包总计：<b>{$page_totle_red|default=0|number_format=2}</b>(元)
+                本期券包产生利息总计：<b>{$page_totle_coupon|default=0|number_format=2}</b>(元)</div>
+        </div>
+        <div class="page">
+            <div style="float:left;">记录数：{$count}</div>
+            {$show}
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<script>
+</script>

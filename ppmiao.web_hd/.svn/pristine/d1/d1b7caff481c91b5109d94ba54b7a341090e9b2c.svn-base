@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{$meta_title}</title>
+    <meta name="keywords" content="{$meta_keywords}" />
+    <meta name="description" content="{$meta_description}" />
+    <meta name="author" content="{:C('META_AUTHOR')}" />
+    <link rel="shortcut icon" href="{:C('WEB_ROOT')}/favicon.ico">
+    <link href="{:C('STATIC_ROOT')}/v2/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/v2/css/css.css?v=1.0" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+    <script language="javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.form.js"></script>
+    <script language="javascript" src="{:C('STATIC_ROOT')}/layer/layer.js"></script>
+</head>
+
+<body id="innerBody">
+<div class="headerBg">
+    <div class="header w1010 clear">
+        <ul>
+            <li><a href="{:C('WEB_ROOT')}">首页</a></li>
+            <li><a href="{:C('WEB_ROOT')}/product/">理财推荐</a></li>
+            <li><a href="{:C('WEB_ROOT')}">&nbsp;</a></li>
+            <li><a href="{:C('WEB_ROOT')}/about.html">关于石头</a></li>
+            <li><a href="{:C('WEB_ROOT')}/contact.html">联系我们</a></li>
+        </ul>
+        <a href="{:C('WEB_ROOT')}" class="headerImg"><img src="{:C('STATIC_ROOT')}/v2/images/logo.png" /></a>
+        <div class="userHeader userHeaderLogin">
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".userHeader").hover(function(){
+            $(this).find(".pulldown-nav").addClass("hover");
+            $(this).find(".uderHeaderDl").show();
+        },function(){
+            $(this).find(".uderHeaderDl").hide();
+            $(this).find(".pulldown-nav").removeClass("hover");
+        });
+    });
+</script>
+
+<div class="loginImg fLe clear">
+    <p style="background:url({:C('STATIC_ROOT')}/v2/images/img/loginBg.jpg) no-repeat scroll center top; display:block; background-size:auto 100%;"></p>
+    <div class="loginBuyImg"></div>
+    <div class="slogn"></div>
+    <div class="buttonDiv">
+        <a href="javascript:;" class="login">立即登录</a>
+        <a href="{:C('WEB_ROOT')}/product/" class="buyNow">立刻去购买</a>
+    </div>
+    <div class="loginBg" style="display:none;">
+        <h2 class="close"></h2>
+        <h5>登录石头理财</h5>
+        <form id="frmMain" action="" method="post">
+            <input type="hidden" name="jump" value="{$source_url}" />
+            <ul>
+                <li><div class="inputBg"><i><img src="{:C('STATIC_ROOT')}/v2/images/img/icon07.png" /></i><input type="text" placeholder="请输入手机号码" name="phone" class="input01" maxlength="11" onkeyup="value=value.replace(/[^\d]/g,'')" /></div></li>
+                <li><div class="inputBg"><i><img src="{:C('STATIC_ROOT')}/v2/images/img/icon08.png" /></i><input type="text" placeholder="请输入验证码" name="verifycode" class="input01 input02" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" /><span id="cdt" onclick="getVerifyCode(this)">获取验证码</span></div></li>
+                <li class="msg" style="display:none;"><p>验证码已发送到，请注意查收！</p></li>
+                <li><input type="button" class="button01" value="立即登录" onclick="login(this)" /></li>
+            </ul>
+        </form>
+    </div>
+    <div class="shadow" style="display:none;"></div>
+</div>
+<script>
+    var _root = "{:C('WEB_ROOT')}";
+    var _phone = "{$phone}";
+    var _layerIndex = 0;
+    var _cdTime = 60;
+    var _cdtObj = $("#cdt");
+    var _pid = 0;
+    window.onload=function(){
+        var winH = $(window).height();
+        var winH1=winH-112;
+        $(".loginImg").css('height',winH1+'px');
+    }
+</script>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/login.js"></script>
+<div class="innerFooterBox fLe clear" style="position:absolute; bottom:0; left:0;">
+    <div class="innerFooter w978">
+        <p><a href="{:C('WEB_ROOT')}/about.html" target="_blank">关于石头</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="{:C('WEB_ROOT')}/join.html" target="_blank">加入我们</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="{:C('WEB_ROOT')}/contact.html" target="_blank">联系我们</a></p>
+        <p>©2015&nbsp;&nbsp;杭州时投信息科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;浙ICP备15009112号</p>
+    </div>
+</div>
+</body>
+</html>

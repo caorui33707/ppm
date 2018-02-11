@@ -1,0 +1,114 @@
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">浮动加息统计 </div>
+        
+        <!-- 
+        
+        	<a href="{:C('ADMIN_ROOT')}/project/daysales_export/dt/{$datetime}" target="_blank">导出Excel</a>&nbsp;&nbsp;日销售额宝付对账 <a href="{:C('ADMIN_ROOT')}/project/daysales_lianlian_export/dt/{$datetime}" target="_blank">导出Excel</a>
+        
+         -->
+        
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='get' action="">
+                    <div class="fLeft">
+                    	产品状态：<select name="status" width="30px">
+                            <option value="0">所有状态</option>
+                            <option value="2" <eq name="params.status" value="2">selected</eq>>销售中 </option>
+                            <option value="3" <eq name="params.status" value="3">selected</eq>>已售完</option>
+                            <option value="4" <eq name="params.status" value="4">selected</eq>>还款中</option>
+                            <option value="5" <eq name="params.status" value="5">selected</eq>>已还款</option>
+                        </select>
+                        <span><input type="text" name="key" placeholder="输入关键字" class="medium" value="{$params.key}"></span>
+                        <label for="dt">到期日期：<input type="text" class="laydate-icon" name="dt" id="dt" value="{$params.repayment_time}" readonly /></label>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="搜索" class="search imgButton"></div>
+                </form>
+            </div>
+            <!-- 高级查询区域 -->
+            <div  id="searchM" class=" none search cBoth" >
+            </div>
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="9" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="8%" align="center">编号</th>
+                    <th width="15%" align="center">项目期数</th>
+                    <th width="15%" align="center">到期日期</th>
+                    <th width="10%" align="center">状态</th>
+                    <th width="10%" align="center">项目利率</th>
+                    <th width="12%" align="center">本期投资总金额(元)</th>
+                    <th width="10%" align="center">加息收益(元)</th>
+                    <th width="10%" align="center">加息人数</th>                    
+                    <th width="10%" align="center">操作</th>
+                </tr>
+                <foreach name="list" item="item">
+                    <tr class="row">
+                        <td>{$item.id}</td>
+                        <td>{$item.title}</td>
+                        <td align="center">{$item.end_time|strtotime|date='Y-m-d',###}</td>
+                        <td align="center">
+                        	<switch name="item.status">
+	                        	<case value="2">销售中 </case> 
+	                            <case value="3">已售完</case> 
+	                            <case value="4">还款中</case> 
+	                            <case value="5">已还款</case>
+                        	</switch>
+						</td>
+						
+						<td align="center">
+                        	{$item.user_interest}
+						</td>
+                        <td align="right">{$item.due_capital}</td>
+                        <td align="center">{$item.coupon_income}</td>
+                        <td align="center">{$item.coupon_income_count|number_format=2}</td>
+                        <td align="center">
+                        	<a href="###" onclick="buy_detail_list({$item.id})">明细</a>| 
+                        	<a href="{:C('ADMIN_ROOT')}/DynamicRate/buy_detail_list_export/project_id/{$item.id}">导出</a>
+                        </td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td height="5" colspan="9" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<script>
+    var _layerIndex = 0;
+    var _dt = "{$datetime}";
+
+    var datetime = {
+        elem: '#dt',
+        format: 'YYYY-MM-DD',
+        min: '1970-00-00 00:00:00', //设定最小日期为当前日期
+        max: '2099-06-16 23:59:59', //最大日期
+        istime: false,
+        istoday: true
+    };
+    laydate(datetime);
+        
+    function buy_detail_list(id){
+        window.open(ROOT + "/DynamicRate/buy_detail_list/project_id/" + id, 'buylist', 'height=600,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+    
+</script>

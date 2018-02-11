@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link href="{:C('OSS_ROOT')}/Public/mobile/css/contract_index.css" rel="stylesheet" type="text/css">
+    <script src="https://image.ppmiao.com/Public/js/flexible.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/flexible_css.js"></script>
+    <script src="https://image.ppmiao.com/Public/js/jquery-1.10.2.min.js"></script>
+    <title>汇票质押委托协议</title>
+    <!--  <style>
+          .three{
+              width: 3rem;
+          }
+      </style>-->
+</head>
+<body>
+<h1 class="title">汇票质押委托协议</h1>
+<p>甲方(出借方)：{$detail.real_name}</p>
+<p>乙方(居间人)：{$detail.master_company}</p>
+<p>
+    <span class="underline"></span>（以下简称借款人）通过乙方网络借贷平台向甲方借款并签订编号为___的《借款担保合同》（以下称主合同），为保证还款，以<1>银行承兑汇票；<2>商业承兑汇票向甲方的所有出借人提供质押担保。为便于质押票据权利行使及甲方债权有效实现，甲方特授权委托乙方代为办理汇票质押等如下事项，经平等协商一致，达成如下协议：
+</p>
+<h3 class="definition">一、汇票基本信息</h3>
+<table border="2" bordercolor="black" width="640" cellspacing="0" cellpadding="5">
+    <tr>
+        <td class="one" rowspan="4">质押汇票基本信息</td>
+        <td class="two">承兑汇票票号</td>
+        <td class="three">{$contractInfo.ticket_number}</td>
+    </tr>
+    <tr>
+        <td class="two">承兑行（承兑人）</td>
+        <td class="three">{$detail.accepting_bank}</td>
+    </tr>
+    <tr>
+        <td class="two">票面金额</td>
+        <td class="three">{$contractInfo.price}</td>
+    </tr>
+    <tr>
+        <td class="two">票面到期日</td>
+        <td class="three">{$contractInfo.end_time|date='Y年m月d日',###}</td>
+    </tr>
+</table>
+<p>
+    &nbsp;&nbsp;&nbsp;以上票据通过借款人出质于甲方后，将由乙方或乙方指定的第三方机构代为保管；债权到期的前一工作日若借款企业未通知还款，则票据保管人有权于到期日代替甲方承兑此票据，并要求承兑银行（承兑人）付款，利用银行付款结清借款本息。
+</p>
+<h3 class="definition">二、授权具体事项：</h3>
+<p>
+    &nbsp;&nbsp;1.授权委托乙方以自己名义（或受托人转委托的第三方）代为办理汇票质押手续；<br>
+    &nbsp;&nbsp;2.授权委托乙方代为办理背书并记载“已质押”、“不得转让”字样；<br>
+    &nbsp;&nbsp;3.代为接受质押票据；<br>
+    &nbsp;&nbsp;4.授权乙方委托银行代为验证票据的真伪，代为保管票据；<br>
+    &nbsp;&nbsp;5.针对借款、票据质押引起的纠纷，代为诉讼（承认、变更、放弃诉讼请求；代为和解、上诉和反诉）；<br>
+    &nbsp;&nbsp;6.代为签署相关法律文书；<br>
+    &nbsp;&nbsp;7.代为行使和主张相关票据收益权、付款请求权、追索权；<br>
+</p>
+<h3 class="definition">三、委托事项行为后果承担</h3>
+<p>
+    &nbsp;&nbsp;甲方对于乙方在上述授权范围内所进行的民事行为后果承担法律责任。乙方代为签署、背书、被背书、接受、移交汇票等行为的法律后果及权利、义务由甲方自行承担。<br>
+    &nbsp;&nbsp;质押票据的真实性、合法性、有效性、出质人前手之间交易的真实性、背书连贯性等风险，及汇票出票人、承兑人、背书人、被背书人的任何瑕疵、风险及/或因此产生的纠纷和后果，由甲方自行承担，乙方不承担任何责任。<br>
+    &nbsp;&nbsp;票据出票人、承兑人、付款人、代付款人出现不能付款的情况或票据被挂失止付等情况引起的后果由甲方自行承担。<br>
+</p>
+<h3 class="definition">四、授权不可撤销及转委托</h3>
+<p>
+    &nbsp;&nbsp;甲方的上述委托行为在委托期限内是不可变更和撤销的。乙方有权转委托<br>
+</p>
+<h3 class="definition">五、授权期限</h3>
+<p>
+    &nbsp;&nbsp;上述委托事项委托权限自甲方在乙方网站平台确认委托之时开始至甲方出借资金本息及其它相关费用全额得到清偿或实现质权之日止。<br>
+</p>
+<h3 class="definition">六、争议处理</h3>
+<p>
+    &nbsp;&nbsp;因本委托协议引起的纠纷，不能协商解决的，由乙方所在地人民法院诉讼管辖。 <br>
+    &nbsp;&nbsp;双方同意，甲方同意一经勾选双方即认可《汇票质押委托协议》项下的所有条款。<br>
+</p>
+<br><br>
+<h3 class="definition">甲方：{$detail.real_name}</h3>
+<br><br>
+<h3 class="definition">乙方：{$detail.master_company}</h3>
+<br><br><br><br>
+<p class="sign-date">签署日期：____年__月__日</p>
+
+</body>
+</html>

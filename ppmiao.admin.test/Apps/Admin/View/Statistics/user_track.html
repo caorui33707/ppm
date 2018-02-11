@@ -1,0 +1,125 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">录入用户跟踪记录</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/auth/js/editor/kindeditor-all.js"></script>
+        <load href='__PUBLIC__/admin/css/autocomplete.css' />
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.autocomplete.js"></script>
+        <form id="frmMain" method='post' action="" enctype="multipart/form-data">
+            <input type="hidden" name="user_id" id="user_id" value="{$user_id}" />
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="150px">跟踪类型：</td>
+                    <td class="tLeft">
+
+                        <select id="type_one" name="type_one" class="bLeftRequire" datatype="*">
+                            <option value="">--请选择一个跟踪类型--</option>
+                            <foreach name="trackTypeList" item="item">
+                                <option value="{$item.id}">{$item.title}</option>
+                            </foreach>
+                        </select>
+                        <select id="type_two" name="type_two" class="bLeftRequire"></select>
+                        <select id="type_three" name="type_three" class="bLeftRequire"></select>
+                    </td>
+                </tr>
+
+                <tr class="hidden_descr">
+                    <td class="tRight tTop">跟踪内容：</td>
+                    <td class="tLeft">
+                        <textarea id="user_track_content" name="user_track_content" style="width:700px;height:300px;"></textarea>
+                    <td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="hidden" name="index_type" id="index_type" value="" />
+                            <input type="submit" value="保 存"  class="button small">
+                            <input type="reset" class="button small" onclick="javascript:if(!confirm('确认重置吗?')) return false;resetEditor()" value="重 置" >
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</div>
+<script>
+//一级
+$("#type_one").change(function(){
+    var type_one = $(this).val();
+    $.post(ROOT + "/statistics/catch_user_track",{type_id:""+type_one+""},function(result){
+        var select_str = '<option value="">--请选择一个跟踪类型--</option>';
+        if(result.length){
+            $.each(result,function(i,v){
+                select_str+="<option value="+v.id+">"+v.title+"</option>";
+            });
+
+            $("#type_two").html(select_str);
+        }else{
+            $("#type_two").html("");
+        }
+    });
+    $("#index_type").val(type_one);
+
+})
+//二级
+$("#type_two").change(function(){
+    var type_two = $(this).val();
+    $.post(ROOT + "/statistics/catch_user_track",{type_id:""+type_two+""},function(result){
+        var select_str = '<option value="">--请选择一个跟踪类型--</option>';
+        if(result.length){
+            $.each(result,function(i,v){
+                select_str+="<option value="+v.id+">"+v.title+"</option>";
+            });
+
+            $("#type_three").html(select_str);
+        }else{
+            $("#type_three").html("");
+        }
+    });
+    $("#index_type").val(type_two);
+
+})
+//三级
+$("#type_three").change(function(){
+    var type_three = $(this).val();
+    $("#index_type").val(type_three);
+
+})
+//提交
+var _adding = false;
+var _layerIndex = 0;
+
+$(document).ready(function(){
+    $("#frmMain").Validform({ // 表单验证
+        tiptype: 3,
+        callback: function(form){
+            if(_adding) return;
+            _adding = true;
+            _layerIndex = layer.load('录入中...');
+            $.ajax({
+                url: ROOT + '/Statistics/insert_user_track',
+                data: $('#frmMain').serialize(),
+                type: "POST",
+                cache: false,
+                success: function(msg) {
+                    layer.close(_layerIndex);
+                    if(msg.status){
+                        layer.alert('录入成功~!', -1, function(){
+                            window.location.href = msg.link;
+                        });
+                    }else{
+                        layer.alert(msg.info);
+                    }
+                    _adding = false;
+                }
+            });
+            return false;
+        }
+    })})
+</script>

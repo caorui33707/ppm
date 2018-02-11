@@ -1,0 +1,145 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">查询接口调试</div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/layer3/layer.js"></script>
+        <style>
+            pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+            .string { color: green; }
+            .number { color: darkorange; }
+            .boolean { color: blue; }
+            .null { color: magenta; }
+            .key { color: red; }
+        </style>
+        <form id="frmMain" method='post' action="">
+            <table id cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight">一、接口类型：</td>
+                    <td class="tLeft" >
+                        <select onchange="changeType(this)">
+                            <foreach name="params" item="item">
+                                <option value="{$item.name}" >{$item.name}</option>
+                                存管         </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">二、接口列表：</td>
+                    <td class="tLeft" >
+                        <select id="methods" onchange="changeParams(this)">
+                            <foreach name="params.0.methods" item="item">
+                                <option value="{$item.sub_name}" >{$item.sub_name}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">三、参数列表：</td>
+                    <td class="tLeft" >
+                    </td>
+                </tr>
+            </table>
+            <table id="params_table">
+                <tr>
+                    <td>query_order_no:</td>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="text"style="width:320px;"  name="query_order_no" placeholder="订单号">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center">
+                        <div style="width:85%;margin:5px">
+                            <input type="submit" value="执行"  class="button small">
+                        </div>
+                    </td>
+                </tr>
+                <input type="hidden" name="key" value="trade/orderinfo">
+            </table>
+        </form>
+        <pre id="result">
+        </pre>
+    </div>
+</div>
+<script>
+    var _layerIndex = 0;
+    var _layerIndex2 = 0;
+    var _action = 0;
+    var _urlObj, _extObj;
+
+
+    var _adding = false;
+
+    $(document).ready(function(){
+        _urlObj = $("#url");
+        _extObj = $("#ext");
+        $("#frmMain").Validform({ // 表单验证
+            tiptype: 3,
+            callback: function(form){
+                _layerIndex = layer.load('请求中...');
+                $("#frmMain").ajaxSubmit({
+                    url: ROOT + '/UserFund/request',
+                    type: "post",
+                    dataType: "json",
+                    success: function(msg){
+                        layer.close(_layerIndex);
+                        $('#result').html(syntaxHighlight(msg));
+                    }
+                });
+                return false;
+            }
+        });
+    });
+
+
+    function changeType(_obj){
+        _action = $(_obj).val();
+        $("#methods").html("");
+        $.get('{:C("ADMIN_ROOT")}/UserFund/select_search',{type: _action},function(msg){
+
+            $("#methods").html(msg);
+            changeParam($('#methods').val());
+        });
+    }
+
+    function changeParams(_obj){
+        var _methods = $(_obj).val();
+        $.get('{:C("ADMIN_ROOT")}/UserFund/select_params',{methods: _methods},function(msg){
+
+            $("#params_table").html(msg);
+        });
+    }
+    function changeParam(_methods){
+        $.get('{:C("ADMIN_ROOT")}/UserFund/select_params',{methods: _methods},function(msg){
+
+            $("#params_table").html(msg);
+        });
+    }
+    function syntaxHighlight(json) {
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+
+
+</script>

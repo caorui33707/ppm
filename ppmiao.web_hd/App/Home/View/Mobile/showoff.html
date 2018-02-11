@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>炫耀一下</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/css02.css?v=1.8" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/js/jquery.min.js"></script>
+</head>
+
+<body>
+<section class="shareBox">
+    <section class="shareContent">
+        <section class="shareBg">
+            <img src="{:C('STATIC_ROOT')}/mobile/images/shareBg_01.png" id="sharebg01">
+            <div class="shareTxt">
+                <h6>哇~我在石头理财</h6>
+                <h3>赚了<em>{$money|number_format=2}</em>元</h3>
+                <h5>你也快来吧！</h5>
+            </div>
+            <div class="shareImg01Box">
+                <div class="shareImg01"><img src="{:C('STATIC_ROOT')}/mobile/images/shareImg01.png"></div>
+                <div class="starBox">
+                    <div class="star star01"><img src="{:C('STATIC_ROOT')}/mobile/images/star.png"></div>
+                    <div class="star star02"><img src="{:C('STATIC_ROOT')}/mobile/images/star.png"></div>
+                    <div class="star star03"><img src="{:C('STATIC_ROOT')}/mobile/images/star.png"></div>
+                </div>
+            </div>
+        </section>
+        <div class="shareFooter">
+            <img src="{:C('STATIC_ROOT')}/mobile/images/shareerweima01.png" id="shareerweima">
+            <a href="{:C('APP_DOWNLOAD_MICRO')}"><img src="{:C('STATIC_ROOT')}/mobile/images/shareBtn.png" id="shareBtn"></a>
+        </div>
+    </section>
+    </div>
+</section>
+<script>
+    $(function() {
+        $(function() {
+            $(".star").animate({}, 50, function() {
+                $(".star").addClass('anima');
+            });
+        })
+    })
+</script>
+</body>
+</html>

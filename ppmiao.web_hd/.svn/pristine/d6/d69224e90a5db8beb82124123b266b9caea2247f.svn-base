@@ -1,0 +1,412 @@
+/*1*/
+.remainder{
+	padding: 55px 56px 0 45px;
+    height: 180px;
+	}
+	.remainder-left{
+	float:left;
+	}
+	.remainder-amount{
+	color: #ea581f;
+    margin-bottom: 30px;
+	}
+ .remainder-left p {
+    font-size: 15px;
+    line-height: 40px;
+}
+.remainder-right {
+    float: right;
+    margin-top: 10px;
+}
+.recharge {
+    margin-right: 26px;
+    background-color: #ff712b;
+    color: #fff;
+	float: left;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #ff712b;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+.cash{
+	    float: left;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #ff712b;
+    border-radius: 30px;
+    color: #ff712b;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+.line2 {
+    margin: 0 32px;
+}
+
+/*2*/
+.repayment {
+    display: block;
+	margin:30px 0 0 20px;
+}
+.repayment dl {
+    color: #000;
+    float: left;
+    width: 16.5%;
+	font-size: 14px;
+}
+.repayment dl dt {
+    padding: 3px 5px;
+}
+.repayment dl dd {
+    padding: 3px 5px;
+    margin-top: 17px;
+}
+.repayment .operation dd {
+    width: 50px;
+    background-color: #ea581f;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .3);
+    filter: alpha(opacity=30)
+}
+
+.popup .dialog {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -360px;
+    width: 720px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding-bottom: 10px
+}
+
+.popup .dialog .dialog-head {
+    height: 148px;
+    background-color: #f8f8f8;
+    border-radius: 10px 10px 0 0
+}
+
+.popup .dialog .dialog-head .bank-log {
+    float: left;
+    width: 118px;
+    height: 108px;
+    padding: 20px 25px
+}
+
+.popup .dialog .dialog-head p {
+    font-size: 28px;
+    color: #000
+}
+
+.popup .dialog .dialog-head .bankname {
+    padding-top: 38px;
+    margin-bottom: 14px
+}
+
+.popup .dialog .dialog-head .time {
+    font-size: 22px;
+    color: #797979;
+    padding-bottom: 10px
+}
+
+.popup .dialog .dialog-body {
+    padding: 0 60px 0 40px;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    font-size: 22px
+}
+
+.popup .dialog .dialog-body .cash-limit {
+    margin: 66px 0 50px 0;
+    color: #000
+}
+
+.popup .dialog .dialog-body .cash-limit span {
+    color: #ea581f;
+    margin: 0 20px 0 40px
+}
+
+.popup .dialog .dialog-body .withdrawals {
+    margin-bottom: 50px
+}
+
+.popup .dialog .dialog-body .withdrawals input {
+    width: 433px;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 80px;
+    padding-left: 10px;
+    color: #bfbfbf;
+    font-size: 22px;
+    border: 1px solid #d2d2d2
+}
+
+.popup .dialog .dialog-body .withdrawals ::-webkit-input-placeholder {
+    color: #bfbfbf
+}
+
+.popup .dialog .dialog-body .withdrawals :-moz-placeholder {
+    color: #bfbfbf
+}
+
+.popup .dialog .dialog-body .withdrawals ::-moz-placeholder {
+    color: #bfbfbf
+}
+
+.popup .dialog .dialog-body .withdrawals :-ms-input-placeholder {
+    color: #bfbfbf
+}
+
+.popup .dialog .dialog-body .verification input[type=text] {
+    width: 230px;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 60px;
+    padding-left: 10px;
+    color: #bfbfbf;
+    font-size: 22px;
+    border: 1px solid #d2d2d2
+}
+
+.popup .dialog .dialog-body .verification ::-webkit-input-placeholder {
+    color: #bfbfbf
+}
+
+.popup .dialog .dialog-body .verification :-moz-placeholder {
+    color: #bfbfbf
+}
+
+.popup .dialog .dialog-body .verification ::-moz-placeholder {
+    color: #bfbfbf
+}
+
+.popup .dialog .dialog-body .verification :-ms-input-placeholder {
+    color: #bfbfbf
+}
+
+.popup .dialog .dialog-body .verification input[type=submit] {
+    width: 169px;
+    height: 50px;
+    margin-left: 25px;
+    color: #fff;
+    font-size: 22px;
+    background-color: #ff804e;
+    border: 1px solid #ff804e;
+    cursor: pointer
+}
+
+.popup .dialog .dialog-body .explain {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #797979;
+    line-height: 28px
+}
+
+.popup .dialog .dialog-body .close-btn, .popup .dialog .dialog-body .withdrawals-btn {
+    float: right;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    background-color: #ff712b;
+    border: 0;
+    border-radius: 30px;
+    margin: 30px 0 40px 20px;
+    cursor: pointer
+}
+
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.container .content .remainder {
+    width: 1100px;
+    padding: 22px 55px 0 45px;
+    height: 70px;
+    background-color: #ffefe7
+}
+
+.container .content .remainder div {
+    font-size: 22px;
+    line-height: 40px;
+    float: left
+}
+
+.container .content .remainder .sum1 {
+    color: #ea581f;
+    margin-right: 100px
+}
+
+.container .content .remainder .sum2 {
+    color: #000
+}
+
+.container .content .remainder .sum2 .line {
+    margin: 0 32px
+}
+
+.container .content .input_money {
+    border-bottom: 1px solid #d2d2d2
+}
+
+.container .content .input_money .in {
+    position: relative;
+    font-size: 20px;
+    padding: 20px 55px 20px 45px;
+    width: 450px;
+    line-height: 50px
+}
+
+.container .content .input_money .in span {
+    margin-right: 15px
+}
+
+.container .content .input_money .in input {
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    padding-left: 10px;
+    border: 1px solid #d2d2d2
+}
+
+.container .content .input_money .in ::-webkit-input-placeholder {
+    color: #bfbfbf
+}
+
+.container .content .input_money .in :-moz-placeholder {
+    color: #bfbfbf
+}
+
+.container .content .input_money .in ::-moz-placeholder {
+    color: #bfbfbf
+}
+
+.container .content .input_money .in :-ms-input-placeholder {
+    color: #bfbfbf
+}
+
+.container .content .input_money .in i {
+    position: absolute;
+    right: 105px
+}
+
+.container .content .choice_bank {
+    padding: 40px 55px 0 45px
+}
+
+.container .content .choice_bank .choice_rule {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 40px
+}
+
+.container .content .choice_bank .choice_rule span {
+    font-size: 18px;
+    color: #8b8b8b
+}
+
+.container .content .list {
+    padding: 0 55px 30px 45px
+}
+
+.container .content .list .bank_box {
+    width: 226px;
+    height: 60px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 27px;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer
+}
+
+.container .content .list .bank_box .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #FEF2EC;
+    opacity: .3;
+    filter: alpha(opacity=30);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+    display: none
+}
+
+.container .content .list .bank_box i {
+    width: 25px;
+    height: 24px;
+    background: url('../images/arrow@2x.png') 0 0 no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none
+}
+
+.container .content .list .bank_box img {
+    width: 226px;
+    height: 60px
+}
+
+.container .content .login_pay_box {
+    margin-bottom: 68px
+}
+
+.container .content .login_pay_box .login_pay {
+    width: 210px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff0ef;
+    background-color: #f87332;
+    border-radius: 50px;
+    float: right;
+    margin-right: 85px;
+    cursor: pointer
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+
+.shade{display:none;position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;background-color:rgba(0,0,0,0.3);filter:alpha(opacity=30);z-index:99}.shade .prompt1,.shade .prompt2,.shade .prompt3{position:absolute;top:40%;left:50%;margin-left:-175px;width:350px;height:140px;background-color:#fff;border:2px solid #ff7128;border-radius:15px;text-align:center;display:none}.shade .prompt_top{width:100%;height:80px;line-height:80px;font-size:16px}.shade .prompt_bottom{width:100%;height:50px;line-height:50px;font-size:18px;border-top:2px solid #ff7128;cursor:pointer}.shade .prompt_bottom .prompt_cancel{width:124px;border-right:2px solid #ff7128;float:left}.shade .prompt_bottom .prompt_confirm{float:left;width:124px}.shade .prompt2 .prompt_top{margin:0 auto;width:250px;height:70px;line-height:22px;font-size:16px;padding-top:20px;text-align:left}.shade .prompt2 .prompt_bottom{width:100%;height:50px;border-top:2px solid #ff7128}.shade .prompt2 .prompt_bottom .prompt_confirm{width:100%;text-align:center}.shade .prompt3 .prompt_top{height:60px;line-height:22px;font-size:14px;padding-top:20px;text-align:center}

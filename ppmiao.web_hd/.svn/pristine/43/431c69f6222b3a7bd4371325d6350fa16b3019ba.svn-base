@@ -1,0 +1,543 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/web_user/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="{:C('STATIC_ROOT')}/web_user/js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/web_user/js/tabs.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/web_user/js/common.js"></script>
+    <title>票票喵-我的优惠</title>
+
+
+</head>
+
+<body style="min-width:1200px;background-color:#f5f5f5;">
+<!--弹出层-->
+<div class="backgr" id="integral_bj" style="display: none;"></div>
+<div class="tankuang" id="integral_window" style="display: none;">
+    <div class="invest_integral_content">
+        <img src="{:C('STATIC_ROOT')}/web_user/images/cash.jpg"/>
+        <p id="put">提交成功</p>
+        <p>使用现金券后，次日打款到您的账户余额</p>
+        <p>如遇节假日顺延，请耐心等候。</p>
+        <button>完成</button>
+    </div>
+</div>
+
+<include file="Common:header" />
+<div class="pandect_big">
+    <div class="pandect_seat">
+        <p>您现在的位置：我的账户><span>我的优惠</span></p>
+    </div>
+    <!--左-->
+    <div class="pandect_left">
+
+        <include file="layouts:menu" />
+    </div>
+    <div class="pandect_right">
+        <div class="invest_money">
+            <div class="pandect_property">
+                <p>我的优惠</p>
+            </div>
+            <div class="account_all">
+                <div class='tabs' id="tabs">
+                    <ul class='horizontal'>
+                        <li rel="tab-1" class="selectActive">红包券<span>（{$info['RedEnvelopeCount']}）</span></li>
+                        <li rel="tab-2" relHref="T1.html">现金券<span>（{$info['CashCouponsCount']}）</span></li>
+                        <li rel="tab-3" relHref="T1.html">加息券<span>（{$info['InterestCouponCount']}）</span></li>
+                        <div style="clear:both;"></div>
+                    </ul>
+
+                    <!--1-->
+                    <div rel='tab-1' class="account_exceed">
+                        <div class="investment_f">
+                            <div class="investment_title">
+                                <div class="foot">未使用</div>
+                                <div>已使用</div>
+                                <div>已过期</div>
+                            </div>
+                            <div class="investment_con">
+                                <div class="investment_con_list">
+
+                                    <?php
+                                        if(!empty($RedEnvelope->result[0]->couponList)){
+                                        foreach($RedEnvelope->result[0]->couponList as $key => $val):
+                                    ?>
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash">{$val->amount}<span>元</span></p>
+                                            <p>{$val->title}</p>
+                                        </div>
+                                        <div class="invest_time_else">
+                                            <p>投资金额≥{$val->minInvest}元</p>
+                                            <p>投资期限≥{$val->minDue}天</p>
+                                            <p><?php echo tagToType($val->applyTag); ?></p>
+                                            <p>有效期：<?php echo date('Y-m-d',$val->createTime/1000); ?>至<?php echo date('Y-m-d',$val->expireTime/1000); ?></p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        endforeach;
+                                        }else{
+                                    ?>
+
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                                <div class="investment_con_list">
+
+                                    <?php
+                                        if(!empty($RedEnvelope->result[1]->couponList)){
+                                    ?>
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                        foreach($RedEnvelope->result[1]->couponList as $key => $val):
+                                        ?>
+                                        <ul class="invest_new">
+                                            <li>{$val->amount}</li>
+                                            <li>{$val->title}</li>
+                                            <li><?php echo date('Y-m-d',$val->createTime/1000); ?></li>
+                                            <li><?php echo date('Y-m-d',$val->expireTime/1000); ?></li>
+                                        </ul>
+                                        <?php
+                                        endforeach;
+                                    ?>
+                                    </div>
+                                    <?php
+                                    }else{
+                                    ?>
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                                <div class="investment_con_list">
+                                    <?php
+                                        if(!empty($RedEnvelope->result[2]->couponList)){
+                                    ?>
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <?php
+                                        foreach($RedEnvelope->result[2]->couponList as $key => $val):
+                                        ?>
+                                        <ul class="invest_new">
+                                            <li>{$val->amount}</li>
+                                            <li>{$val->title}</li>
+                                            <li><?php echo date('Y-m-d',$val->createTime/1000); ?></li>
+                                            <li><?php echo date('Y-m-d',$val->expireTime/1000); ?></li>
+                                        </ul>
+                                        <?php
+                                        endforeach;
+                                        ?>
+                                    </div>
+                                    <?php
+                                    }else{
+                                    ?>
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--2-->
+                    <div rel='tab-2' class="account_exceed">
+                        <div class="investment_f">
+                            <div class="investment_title">
+                                <div class="foot">未使用</div>
+                                <div>已使用</div>
+                                <div>已过期</div>
+                            </div>
+                            <div class="investment_con">
+                                <div class="investment_con_list">
+                                    <?php
+                                        if(!empty($CashCoupons->result[0]->couponList) || !empty($CashCoupons->result[3]->couponList) || !empty($CashCoupons->result[4]->couponList)){
+                                        foreach($CashCoupons->result[0]->couponList as $key => $val):
+                                    ?>
+
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash">{$val->amount}<span>元</span></p>
+                                            <p>{$val->title}</p>
+                                        </div>
+                                        <div class="invest_time">
+                                            <p id="remit" class="toWallet" data-id="{$val->id}">
+                                                <button>点击转入账户余额</button>
+                                            </p>
+                                            <p>有效期：<?php echo date('Y/m/d',$val->addTime/1000); ?>至<?php echo date('Y/m/d',$val->expireTime/1000); ?></p>
+                                        </div>
+                                    </div>
+
+                                    <?php
+                                    endforeach;
+                                    ?>
+
+                                    <?php
+                                        foreach($CashCoupons->result[3]->couponList as $key => $val):
+                                    ?>
+
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash">{$val->amount}<span>元</span></p>
+                                            <p>{$val->title}</p>
+                                        </div>
+                                        <div class="invest_time">
+                                            <p id="remit">
+                                                <span>打款中</span>
+                                            </p>
+                                            <p>有效期：<?php echo date('Y/m/d',$val->addTime/1000); ?>至<?php echo date('Y/m/d',$val->expireTime/1000); ?></p>
+                                        </div>
+                                    </div>
+
+                                    <?php
+                                    endforeach;
+                                    ?>
+
+                                    <?php
+                                        foreach($CashCoupons->result[4]->couponList as $key => $val):
+                                    ?>
+
+                                    <div class="invest_ticket">
+
+                                        <div class="invest_qian">
+                                            <p id="cash">{$val->amount}<span>元</span></p>
+                                            <p>{$val->title}</p>
+                                        </div>
+                                        <div class="invest_time">
+                                            <p>现金券异常，详询客服</p>
+                                            <p>有效期：<?php echo date('Y/m/d',$val->addTime/1000); ?>至<?php echo date('Y/m/d',$val->expireTime/1000); ?></p>
+                                        </div>
+                                        <div class="incest_frost">
+                                            <img src="{:C('STATIC_ROOT')}/web_user/images/bq、.png"/>
+                                        </div>
+
+                                    </div>
+
+                                    <?php
+                                    endforeach;
+                                        }else{
+                                    ?>
+
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                                <div class="investment_con_list">
+
+                                    <?php
+                                        if(!empty($CashCoupons->result[1]->couponList)){
+                                    ?>
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                        foreach($CashCoupons->result[1]->couponList as $key => $val):
+                                        ?>
+
+                                        <ul class="invest_new">
+                                            <li>{$val->amount}</li>
+                                            <li>{$val->title}</li>
+                                            <li><?php echo date('Y-m-d',$val->addTime/1000); ?></li>
+                                            <li><?php echo date('Y-m-d',$val->expireTime/1000); ?></li>
+                                        </ul>
+
+                                        <?php
+                                    endforeach;
+                                    ?>
+                                    </div>
+                                    <?php
+                                    }else{
+                                    ?>
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                                <div class="investment_con_list">
+                                    <?php
+                                        if(!empty($CashCoupons->result[2]->couponList)){
+                                    ?>
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <?php
+                                        foreach($CashCoupons->result[2]->couponList as $key => $val):
+                                        ?>
+
+                                        <ul class="invest_new">
+                                            <li>{$val->amount}</li>
+                                            <li>{$val->title}</li>
+                                            <li><?php echo date('Y-m-d',$val->addTime/1000); ?></li>
+                                            <li><?php echo date('Y-m-d',$val->expireTime/1000); ?></li>
+                                        </ul>
+
+                                        <?php
+                                    endforeach;
+                                    ?>
+                                    </div>
+                                    <?php
+                                    }else{
+                                    ?>
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--3-->
+                    <div rel='tab-3' class="account_exceed">
+                        <div class="investment_f">
+                            <div class="investment_title">
+                                <div class="foot">未使用</div>
+                                <div>已使用</div>
+                                <div>已过期</div>
+                            </div>
+                            <div class="investment_con">
+                                <div class="investment_con_list">
+
+                                    <?php
+                                        if(!empty($InterestCoupon->result[0]->couponList)){
+                                        foreach($InterestCoupon->result[0]->couponList as $key => $val):
+                                    ?>
+
+                                    <div class="invest_ticket">
+                                        <div class="invest_qian">
+                                            <p id="cash"><span>+</span><?php echo sprintf("%01.2f",$val->interestRate); ?><span>%</span></p>
+                                            <p>{$val->title}</p>
+                                        </div>
+
+                                        <div class="invest_time_else">
+                                            <p>投资金额≥{$val->minInvest}元</p>
+                                            <p>投资期限≥{$val->minDue}天</p>
+                                            <p><?php echo tagToType($val->applyTag); ?></p>
+                                            <p>有效期：<?php echo date('Y-m-d',$val->addTime/1000); ?>至<?php echo date('Y-m-d',$val->expireTime/1000); ?></p>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    endforeach;
+                                        }else{
+                                    ?>
+
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                        }
+                                    ?>
+
+                                </div>
+                                <div class="investment_con_list">
+
+                                    <?php
+                                        if(!empty($InterestCoupon->result[1]->couponList)){
+                                    ?>
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <?php
+                                        foreach($InterestCoupon->result[1]->couponList as $key => $val):
+                                        ?>
+
+                                        <ul class="invest_new">
+                                            <li>+<?php echo sprintf("%01.2f",$val->interestRate); ?>%</li>
+                                            <li>{$val->title}</li>
+                                            <li><?php echo date('Y-m-d',$val->addTime/1000); ?></li>
+                                            <li><?php echo date('Y-m-d',$val->expireTime/1000); ?></li>
+                                        </ul>
+
+                                        <?php
+                                    endforeach;
+                                    ?>
+                                    </div>
+                                    <?php
+                                    }else{
+                                    ?>
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                                <div class="investment_con_list">
+                                    <?php
+                                        if(!empty($InterestCoupon->result[1]->couponList)){
+                                    ?>
+                                    <div class="invest_big">
+                                        <div class="invest_top">
+                                            <div class="invest_one">
+                                                <p>面额（元）</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得方式</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>获得日期</p>
+                                            </div>
+                                            <div class="invest_one">
+                                                <p>到期日期</p>
+                                            </div>
+                                        </div>
+                                        <?php
+                                        foreach($InterestCoupon->result[2]->couponList as $key => $val):
+                                        ?>
+
+                                        <ul class="invest_new">
+                                            <li>+<?php echo sprintf("%01.2f",$val->interestRate); ?>%</li>
+                                            <li>{$val->title}</li>
+                                            <li><?php echo date('Y-m-d',$val->addTime/1000); ?></li>
+                                            <li><?php echo date('Y-m-d',$val->expireTime/1000); ?></li>
+                                        </ul>
+
+                                        <?php
+                                    endforeach;
+                                    ?>
+                                    </div>
+                                    <?php
+                                    }else{
+                                    ?>
+                                    <div class="account_bill">
+                                        <img src="{:C('STATIC_ROOT')}/web_user/images/bill.png"/>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />
+</body>
+
+</html>
+<script type="text/javascript" src="{:C('STATIC_ROOT')}/v2/js/jquery.js"></script>
+<script type="text/javascript">
+    tabs_takes.init("tabs");
+
+
+    $(function(){
+        $('.toWallet').click(function(){
+            var obj = $(this);
+            var id = obj.data('id');
+
+            if(obj.html() != '<span>打款中</span>'){
+                $.ajax({
+                    type: "post",
+                    url: "{:C('WEB_ROOT')}/index.php/User/index/cashCouponToWallet",
+                    dataType: "json",
+                    data:{id:id},
+                    success: function (data) {
+                        if(data.success == true){
+                            $("#integral_bj").show();
+                            $("#integral_window").show();
+
+                            obj.html('<span>打款中</span>');
+                        }else{
+                            alert(data.errorMsg);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    }
+                });
+            }
+
+        });
+
+
+
+        $(".invest_integral_content>button").click(function() {
+            $("#integral_bj").hide();
+            $("#integral_window").hide();
+        });
+    });
+</script>

@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+    <title>票票喵</title>
+</head>
+
+<body style="background-color:#f4f4f4;">
+    
+    <include file="Public:ppm_menu" />
+	<form id="frmMain" method='post' action="edit_company_detail.html" enctype="multipart/form-data">
+    <div class="recover" style="margin-top:50px;">
+        <div class="recover_chong">
+            <p>营业执照认证</p>
+        </div>
+        <div class="recover_big">
+            <ul>
+                <li class="recover_qi cut25 fl tc" style="margin-top:60px;">
+                    <p>企业名称</p>
+                </li>
+                <li class="recover_xie cut75 fl rel" style="margin-top:50px;">
+                    <input type="text" id="company_name" name="company_name" maxlength="15" value="{$detail.company_name}" placeholder="请输入您的企业名称" style="text-indent:1em;">
+                    <div class="recover_world abs">
+                        <p class="form_tip"></p>
+                    </div>
+                </li>
+                <li class="clear"></li>
+                <li class="recover_qi cut25 fl tc" style="margin-top:60px;">
+                    <p>执照类型</p>
+                </li>
+                <li class="recover_xie cut75 fl" style="margin-top:50px;">
+                    <div id="selectStyle">
+                        <select id="select" name="license_type">
+                            <option value='0'>默认证件</option>
+                            <option value='1'>三证合一</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="recover_qi cut25 fl tc" style="margin-top:60px;">
+                    <p>营业执照注册号</p>
+                </li>
+                <li class="recover_xie cut75 fl rel" style="margin-top:50px;">
+                    <input type="text" id="license_no" name="license_no" readonly="readonly" value="{$detail.license_no}" placeholder="请输入您的营业执照注册号码" style="text-indent:1em;">
+                    <div class="recover_world abs">
+                        <p class="form_tip"></p>
+                    </div>
+                </li>
+                <li class="clear"></li>
+                
+                <li class="recover_qi cut25 fl tc license_type" style="margin-top:60px;">
+                    <p>组织机构代码</p>
+                </li>
+                <li class="recover_xie cut75 fl rel license_type" style="margin-top:50px;">
+                    <input type="text" id="organizing_code" name="organizing_code" value="{$detail.organizing_code}" maxlength="9" placeholder="请输入您的组织机构代码" style="text-indent:1em;">
+                    <div class="recover_world abs">
+                        <p class="form_tip"></p>
+                    </div>
+                </li>
+                <li class="clear license_type" ></li>
+               
+                <li class="recover_qi cut25 fl tc license_type" style="margin-top:60px;">
+                    <p>税务登记账号</p>
+                </li>
+                <li class="recover_xie cut75 fl rel license_type" style="margin-top:50px;">
+                    <input type="text" id="tax_no" name="tax_no" maxlength="15" value="{$detail.tax_no}" placeholder="请输入您的税务登记账号" style="text-indent:1em;">
+                    <div class="recover_world abs">
+                        <p class="form_tip"></p>
+                    </div>
+                </li>
+                <li class="clear license_type"></li>
+                <li class="recover_qi cut25 fl tc license_type" style="margin-top:60px;">
+                    <p>组织机构代码图片</p>
+                </li>
+                <li class="recover_xie cut75 fl rel license_type" style="margin-top:50px;">
+                    <div class="apply_return_input abs"><!--1-->
+                        <div class="fl" style="margin-top:10px;">
+                            <input class="fl" type="file" id="organizing_code_img" name="organizing_code_img" >
+                            <input type="hidden" id="organizing_code_img_old" name="organizing_code_img_old" value="{$detail.organizing_code_img}"/>
+                        </div>
+                        <p class="fl">图片大小不超过2M</p>
+                    </div>
+                    <div class="recover_world abs" style="top:50px">
+                        <p id="organizing_code_img_tips"></p>
+                    </div>
+                </li>
+                
+                <li class="clear license_type" ></li>
+                <li class="recover_qi cut25 fl tc license_type" style="margin-top:60px;">
+                    <p>税务登记图片</p>
+                </li>
+                <li class="recover_xie cut75 fl rel license_type" style="margin-top:50px;">
+                    <div class="apply_return_input abs"><!--2-->
+                        <div class="fl" style="margin-top:10px;">
+                            <input class="fl" type="file" id="tax_no_img" name="tax_no_img">
+                            <input type="hidden" id="tax_no_img_old" name="tax_no_img_old" value="{$detail.tax_no_img}"/>
+                        </div>
+                        <p class="fl">图片大小不超过2M</p>
+                    </div>
+                    <div class="recover_world abs" style="top:50px">
+                        <p id="tax_no_img_tips"></p>
+                    </div>
+                </li>
+                <li class="clear"></li>
+                
+                <li class="recover_qi cut25 fl tc" style="margin-top:60px;">
+                    <p>营业执照照片</p>
+                </li>
+                <li class="recover_xie cut75 fl rel" style="margin-top:50px;">
+                    <div class="apply_return_input abs"><!--3-->
+                        <div class="fl" style="margin-top:10px;">
+                            <input class="fl" type="file" name="license_no_img" id="license_no_img">
+                            <input type="hidden" id="license_no_img_old" name="license_no_img_old" value="{$detail.license_no_img}"/>
+                        </div>
+                        <p class="fl">图片大小不超过2M</p>
+                    </div>
+                    <div class="recover_world abs" style="top:50px">
+                        <p id="license_no_img_tips"></p>
+                    </div>
+                </li>
+                <li class="clear"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="recover"style="margin-top:50px;">
+        <div class="recover_chong">
+            <p>法人信息认证</p>
+        </div>
+        <div class="recover_big">
+            <ul>
+                <li class="recover_qi cut25 fl tc" style="margin-top:60px;">
+                    <p>法人姓名</p>
+                </li>
+                <li class="recover_xie cut75 fl rel" style="margin-top:50px;">
+                    <input type="text" id="legal_person" name="legal_person" maxlength="5" value="{$detail.legal_person}" placeholder="请输入法人姓名" style="text-indent:1em;">
+                    <div class="recover_world abs">
+                        <p class="form_tip"></p>
+                    </div>
+                </li>
+                <li class="clear"></li>
+                <li class="recover_qi cut25 fl tc" style="margin-top:60px;">
+                    <p>法人身份证号码</p>
+                </li>
+                <li class="recover_xie cut75 fl rel" style="margin-top:50px;">
+                    <input type="text" id="idcard" name="idcard" maxlength="18" value="{$detail.idcard}" placeholder="请输入法人身份证号码" style="text-indent:1em;">
+                    <div class="recover_world abs">
+                        <p class="form_tip"></p>
+                    </div>
+                </li>
+                <li class="clear"></li>
+                <li class="recover_qi cut25 fl tc" style="margin-top:60px;">
+                    <p>法人身份证正面照</p>
+                </li>
+                <li class="recover_xie cut75 fl rel" style="margin-top:50px;">
+                    <div class="apply_return_input abs"><!--4-->
+                        <div class="fl" style="margin-top:10px;">
+                            <input class="fl" type="file" id="idcard_fornt_img" name="idcard_fornt_img"/>
+                            <input type="hidden" id="idcard_fornt_img_old" name="idcard_fornt_img_old" value="{$detail.idcard_fornt_img}"/>
+                        </div>
+                        <p class="fl">图片大小不超过2M</p>
+                    </div>
+                    <div class="recover_world abs" style="top:50px">
+                        <p id="idcard_fornt_img_tips"></p>
+                    </div>
+                </li>
+                <li class="clear"></li>
+                <li class="recover_qi cut25 fl tc" style="margin-top:60px;">
+                    <p>法人身份证反面照</p>
+                </li>
+                <li class="recover_xie cut75 fl rel" style="margin-top:50px;">
+                    <div class="apply_return_input abs"><!--5-->
+                        <div class="fl" style="margin-top:10px;">
+                            <input class="fl" type="file" id="idcard_verso_img" name="idcard_verso_img"/>
+                            <input type="hidden" id="idcard_verso_img_old" name="idcard_verso_img_old" value="{$detail.idcard_verso_img}"/>
+                        </div>
+                        <p class="fl">图片大小不超过2M</p>
+                    </div>
+                    <div class="recover_rember  abs">
+                        <p>证件必须是彩色原件电子版，可以是扫描件或是数码拍摄照片，支持：jpg、jpeg、bmg、gif、png的图片格式。</p>
+                    </div>
+                </li>
+                <li class="clear"></li>
+                <li class="tc" style="width:100%;margin-top:60px;">
+	                <li class="tc" style="margin-top:20px;margin-bottom:10px;">
+	                	<p class="err" style="color:red;top:0;left:100px;"></p>
+	                </li>
+                	
+	                <li class="money_sure tc " style="margin:auto;cursor:pointer;">
+	                   <a>确认提交</a>	                   
+	                </li>
+	            </li>
+            </ul>
+        </div>
+    </div>
+    </form>
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/card.js"></script>
+	
+	<script type="text/javascript">
+		
+	$(function() {
+		
+		var license_type= '{$detail.license_type}';
+		if(license_type>0) {
+			$('#select').val(license_type);
+			$('.license_type').css('display','none');
+		}		
+		
+		
+		$('#company_name').blur(function(){
+			checkCompanyName();
+	   	});
+		
+		if($("#select").val() == 0){
+			$("#organizing_code").blur(function(){
+				checkOrganizingCode();
+			});
+			$("#tax_no").blur(function(){
+				checkTaxNo();
+			});
+		}
+		$('#legal_person').blur(function(){
+			checkLegalPerson();
+	   	});
+		
+		
+		$('#idcard').blur(function(){
+			isCardNo();
+	   	});
+		
+		
+		$("#select").live('change',function(){  
+			if($('#select').val() == 0) {
+				$('.license_type').css('display','block'); 
+			} else {
+				$('.license_type').css('display','none');
+			}
+		});
+		
+        $(".money_sure").on("click", function() {
+            var options = {
+                "beforeSubmit" : checkForm,
+                "success" : resultForm,
+                "resetForm" : true,
+                "dataType" : "json"
+            };
+            $("#frmMain").ajaxSubmit(options);
+            return false;
+        });
+ 
+        function checkForm(formData, form, options) {
+        	
+        	if(!checkCompanyName()) return false;
+        	
+        	if($("#select").val() == 0){
+   				if(!checkOrganizingCode()) return false;
+   				if(!checkTaxNo()) return false;
+   				
+   				if($("#organizing_code_img").val() == "" && $("#organizing_code_img_old").val() == ""){
+					$('#organizing_code_img_tips').empty().html('请选译要上传的组织机构代码图片');
+					return false;
+				}
+   				
+   				$('#organizing_code_img_tips').empty().html('');
+	
+				if($("#tax_no_img").val() == "" && $("#tax_no_img_old").val() == ""){
+					$('#tax_no_img_tips').empty().html('请选译要上传的税务登记图片');
+					return false;
+				}
+				$('#tax_no_img_tips').empty().html('');
+    		}
+        	
+        	if($("#license_no_img").val() == "" && $("#license_no_img_old").val() == ""){
+				$('#license_no_img_tips').empty().html('请选译要上传的营业执照照片');
+				return false;
+			}
+        	
+        	$('#license_no_img_tips').empty().html('');
+        	
+        	if(!checkLegalPerson()) return false;
+        	if(!isCardNo()) return false;
+        	
+        	if($("#idcard_fornt_img").val() == "" && $("#idcard_fornt_img_old").val() == ""){
+				$('#idcard_fornt_img_tips').empty().html('请选译要上传的法人身份证正面照');
+				return false;
+			}
+        	
+        	$('#idcard_fornt_img_tips').empty();
+        	
+        	if($("#idcard_verso_img").val() == "" && $("#idcard_verso_img_old").val() == ""){
+				$('.err').empty().html('请选译要上传的法人身份证反面照');
+				return false;
+			}
+        	return true;
+        }
+ 
+        function resultForm(data, status) {
+        	
+        	
+            if(data.status == 0) {
+            	$('.err').empty().html(data.info);
+            } else {
+            	location.href = data.res; 
+            }
+        }
+        
+        function showTips(target, message, isOk) {
+    		target.next('div').html(message); 
+        }
+        
+        function checkCompanyName(){
+            var _companyName = $.trim($("input[name='company_name']").val());
+            if (!_companyName.length || getByteLen(_companyName)<5 || getByteLen(_companyName)>35) {
+                showTips($('#company_name'), '请输入正确格式的企业名称');
+                return false
+            }
+            if (!isChineseStr(_companyName)) {
+                showTips($('#company_name'), '请输入正确格式的企业名称');
+                return false
+            }
+            showTips($('#company_name'), '',true);
+            return true
+        }
+        
+        function checkOrganizingCode(){
+        	var _organizingCode = $.trim($("input[name='organizing_code']").val());
+            if (_organizingCode.length != 9) {
+                showTips($('#organizing_code'), '请输入正确组织机构代码');
+                return false
+            }
+            if (!/^[0-9a-zA-Z]*$/g.test(_organizingCode)) {
+                showTips($('#organizing_code'), '组织机构代码由数字字母组成长度9');
+                return false
+            }
+            showTips($('#organizing_code'), '',true);
+            return true
+        }
+        
+        function checkTaxNo(){
+        	var _taxNo = $.trim($("input[name='tax_no']").val());
+            if (_taxNo.length != 15) {
+                showTips($('#tax_no'), '请输入正确税务登记账号');
+                return false
+            }
+            if (!/^[0-9]*$/g.test(_taxNo)) {
+                showTips($('#tax_no'), '税务登记账号由数字组成长度15');
+                return false
+            }
+            showTips($('#tax_no'), '',true);
+            return true
+        }
+        
+        function checkLegalPerson() {
+        	
+            var _legalPerson = $.trim($("input[name='legal_person']").val());
+            
+            if (getByteLen(_legalPerson)<4 || getByteLen(_legalPerson)>8) {
+                showTips($('#legal_person'), '请输入正确的法人姓名，长度在2-5个汉字');
+                return false
+            }
+            if (!isChineseStr(_legalPerson)) {
+                showTips($('#legal_person'), '输入的法姓名格式错误');
+                return false
+            }
+            showTips($('#legal_person'), '',true);
+            return true
+        }
+        
+        function isCardNo() {
+        	var _idcard = $.trim($("input[name='idcard']").val());
+        	var r = checkCard();
+        	if(r<1) {
+        		if(r==-1){
+        			showTips($('#idcard'), '请输入身份证号，身份证号不能为空');
+        		}else if(r ==-2) {
+        			showTips($('#idcard'), '您输入的身份证号码长度不正确,请重新输入');
+        		}else if(r == -3) {
+        			showTips($('#idcard'), '您输入的身份证号码省份错误,请重新输入');
+        		} else if(r ==-4){
+        			showTips($('#idcard'), '您输入的身份证号码生日不正确,请重新输入');
+        		}else if(r ==-5){
+        			showTips($('#idcard'), '您的身份证校验位不正确,请重新输入');
+        		}
+        		return false
+        	}
+        	showTips($('#idcard'), '',true);
+            return true
+        	/*
+            if (!_idcard.length) {
+                showTips($('#idcard'), '请输入法人身份证号码');
+                return false
+            }
+            if (_idcard.length != 15 && _idcard.length !=18) {
+                showTips($('#idcard'), '请输入法人正确位数的身份证号码');
+                return false
+            }
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;  
+            if(reg.test(_idcard) === false)  
+            {  
+            	showTips($('#idcard'), '输入法人的身份证号码有误');
+            	return false;
+            } */
+            
+            showTips($('#idcard'), '',true);
+            return true
+        } 
+        
+		});
+	</script>
+</body>
+</html>

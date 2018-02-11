@@ -1,0 +1,72 @@
+
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr class="row">
+                    <th width="150px" align="center">一级分类</th>
+                    <th width="100px" align="center">人数（人）</th>
+                    <th width="100px" align="center">占比（%）</th>
+                    <th width="100px" align="center">二级分类</th>
+                    <th width="150px" align="center">人数（人）</th>
+                    <th width="100px" align="center">占比（%）</th>
+                </tr>
+
+                <foreach name="categories" item="category" key="key">
+
+                    <foreach name="category" item="cate" key="k">
+                    <tr>
+                        <if  condition="$k eq 0">
+                            <td rowspan="{:count($category)}">{$cate_name.$key}</td>
+                            <td rowspan="{:count($category)}">{$this_month_data.$key}</td>
+                            <td rowspan="{:count($category)}"><php>echo    round(  $this_month_data[$key]/$this_month_data['total'] * 100 , 2) . "%";</php></td>
+                        </if>
+                        <td>{$cate_name.$cate}</td>
+                        <td>{$this_month_data.$cate}</td>
+                        <td><php>echo    round(  $this_month_data[$cate]/$this_month_data['total'] * 100 , 2) . "%";</php></td>
+                    </tr>
+                    </foreach>
+                </foreach>
+                </tbody>
+            </table>
+
+
+            <foreach name="cate_list" item="cate">
+                <table  class="list" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr class="row">
+                        <th width="150px" align="center">{$last_month_date}</th>
+                        <th width="100px" align="center">总数（人）</th>
+                        <th width="100px" align="center">去向（人数）</th>
+                        <th width="100px" align="center">占比（%）</th>
+                        <th width="150px" align="center">类别</th>
+                        <th width="100px" align="center">占比（%）</th>
+                        <th width="100px" align="center">来源（人数）</th>
+                        <th width="100px" align="center">总数（人）</th>
+                        <th width="100px" align="center">{$month_date}</th>
+                    </tr>
+
+                    <foreach name="cate_list" item="sub_cate" key="key">
+                        <tr>
+                            <if  condition="$key eq 0">
+                                <td rowspan="14">{$cate_name.$cate}</td>
+                                <td rowspan="14">{$last_month_data.$cate}</td>
+                            </if>
+                            <td>{$category_count.$cate.$sub_cate}</td>
+                            <td><php>echo    round(  $category_count[$sub_cate][$cate]/$last_month_data[$cate] * 100 , 2) . "%";</php></td>
+                            <td>{$cate_name.$sub_cate}</td>
+                            <td><php>echo    round(  $category_count[$sub_cate][$cate]/$this_month_data[$cate] * 100 , 2) . "%";</php></td>
+                            <td>{$category_count.$sub_cate.$cate}</td>
+                            <if  condition="$key eq 0">
+                                <td rowspan="14">{$this_month_data.$cate}</td>
+                                <td rowspan="14">{$cate_name.$cate}</td>
+                            </if>
+                        </tr>
+                    </foreach>
+
+
+                    </tbody>
+                </table>
+
+            </foreach>
+
+
+

@@ -1,0 +1,14 @@
+﻿@charset "utf-8";
+        .head_pic img {
+            width: 100%;
+        }
+
+        .head_now {
+            width: 100%;
+            line-height: 45px;
+            background-color: #f8b62a;
+            color: #d92d2d;
+            font-size: 17px;
+            width:100%;position:fixed;bottom:0;left:0;
+            text-align:center;
+        }

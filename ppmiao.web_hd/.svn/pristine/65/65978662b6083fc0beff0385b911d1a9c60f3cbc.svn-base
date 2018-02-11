@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>银行存管开户</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link href="{:C('STATIC_ROOT')}/assets/css/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/header.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/css/cover.css" rel="stylesheet" type="text/css">
+    <link href="{:C('STATIC_ROOT')}/assets/openAccount/style.css" rel="stylesheet" type="text/css">
+    <script src="{:C('STATIC_ROOT')}/assets/openAccount/index.js"></script>
+    <script src="{:C('STATIC_ROOT')}/assets/js/semantic.min.js"></script>
+    <script src="{:C('STATIC_ROOT')}/web_user/layer/layer.js"></script>
+</head>
+
+<body>
+<include file="Common:header" />
+<div class="main">
+    <div class="container">
+        <div class="pandect_big">
+            <div class="pandect_seat">
+                <p>您现在的位置：我的账户><span>我的银行卡</span></p>
+            </div>
+            <!--左-->
+            <div class="pandect_left">
+                <include file="layouts:menu" />
+            </div>
+            <div class="pandect_right">
+                <div class="container">
+                    <div class="title">
+                        开通银行存管账户
+                    </div>
+                    <div class="background">
+
+                    </div>
+                    <div class="subtitle">
+                        <div>
+                            1、票票喵采用与银行一致的认证机制，交易行为前需要进行银行存管开户。
+                        </div>
+                        <div>
+                            2、此次绑定的银行卡，是您唯一的资金出入口，提现时只能提取到绑定的银行卡内，最大程度保障您的资金安全。
+                        </div>
+                    </div>
+                    <div class="form">
+                        <input type="hidden" id="originOrderNo">
+                        <div class="oneline">
+                            <div class="Title">
+                                真实姓名：
+                            </div>
+                            <div class="input">
+                                <div class="ui input">
+                                    <input type="text" id="realName" placeholder="请输入真实姓名"  onkeyup="subStatus()">
+                                </div>
+                            </div>
+                            <div class="warning">
+                                <!--请输入真实姓名-->
+                            </div>
+                        </div>
+                        <div class="oneline">
+                            <div class="Title">
+                                身份证号码：
+                            </div>
+                            <div class="input">
+                                <div class="ui input">
+                                    <input type="text" id="cardNo" placeholder="请输入身份证号" onkeyup="clearNoNum(this)">
+                                </div>
+                            </div>
+                            <div class="warning">
+                                <!--请输入正确的身份证号-->
+                            </div>
+                        </div>
+                        <div class="oneline">
+                            <div class="Title">
+                                开户银行：
+                            </div>
+                            <div class="input" style="position:relative">
+                                <img id="point" src="{:C('STATIC_ROOT')}/web_user/images/point.png" style="position: absolute;z-index: 1;top: 14px;left: 231px;"/>
+                                <select name="skills" id="bankCode" class="ui fluid search dropdown" style="width:250px;" onchange="subStatus()">
+                                    <option value="">请选择开户银行</option>
+                                    <?php
+                                        foreach($bankList->result as $key => $val):
+                                    ?>
+                                    <option value="{$val->bankCode}"><?php echo bankInfo($val); ?></option>
+                                    <?php
+                                        endforeach;
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="warning">
+                                <!--请选择开户行-->
+                            </div>
+                        </div>
+                        <div class="oneline">
+                            <div class="Title">
+                                银行卡号：
+                            </div>
+                            <div class="input">
+                                <div class="ui input">
+                                    <input type="text" id="bankCardNo" placeholder="目前仅支持储蓄卡" onkeyup="clearNoNum(this)">
+                                </div>
+                            </div>
+                            <div class="warning">
+                                <!--请输入正确的银行卡号-->
+                            </div>
+                        </div>
+                        <div class="oneline">
+                            <div class="Title">
+                                银行预留手机号：
+                            </div>
+                            <div class="input">
+                                <div class="ui input">
+                                    <input type="text" maxlength="11" id="mobile" placeholder="请输入开户时在银行预留的手机号" onblur="checkPhone()" onkeyup="clearNoNum(this)">
+                                </div>
+                            </div>
+                            <div id="errorMsg" class="warning">
+                                <!--请输入正确的手机号-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui checkbox checkboxclick" style="display: none">
+                        <input type="checkbox" checked id="agree" onclick="subStatus()" tabindex="0">
+                        <label>我同意<span style="color: #ff7117">《XXX协议》</span></label>
+                    </div>
+                    <div class="button" id="subbtn"  style="background-color:gray;" onclick="bindCard()">
+                        立即开户
+                    </div>
+                </div>
+            </div>
+            <!-- 开户结果 -->
+            <!--<div class="pandect_right">-->
+                <!--<div class="container">-->
+                    <!--<div class="title">-->
+                        <!--开通银行存管账户-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; 开户成功 &ndash;&gt;-->
+                    <!--<div class="success">-->
+                        <!--<div class="success-button1"></div>-->
+                        <!--<div class="success-button2"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; 开户失败 &ndash;&gt;-->
+                    <!--&lt;!&ndash; <div class="default">-->
+                        <!--<div class="default-button"></div>-->
+                    <!--</div> &ndash;&gt;-->
+                    <!--<div style="color:#999;padding:20px;border-top:1px solid #d9d9d9;">-->
+                        <!--<div>-->
+                            <!--温馨提示：-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--1、票票喵采用与银行一致的认证机制，交易行为前需要进行银行存管开户。-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--2、此次绑定的银行卡，是您唯一的资金出入口，提现时只能提取到绑定的银行卡内，最大程度保障您的资金安全-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--3、如有疑问可联系客服热线：400-992-8855 服务时间  9:00-21:00-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="dialog" style="display:block">
+        <div class="dialog-shadow" onclick="closeDialog()"></div>
+        <div class="dialog-container">
+            <div class="dialog-button" onclick="closeDialog()"></div>
+        </div>
+    </div>
+    <div class="dialog2 dialog" style="display:none">
+        <div class="dialog-shadow" onclick="closeDialog()"></div>
+        <div class="dialog-container2">
+            <div class="dialog-contain2__title">
+                验证码已经发送至您的手机 <span id="bindMobile"></span>
+            </div>
+            <div class="ui input dialog-contain2__input">
+                <input type="text" maxlength="6" id="msgCode" placeholder="请输入短信验证码">
+            </div>
+            <input type="button" class="dialog-container2__button" value="获取验证码" onclick="settime(this)" />
+            <div id="confirmErrorMsg" style="color: red;margin: 5px 39px;">
+
+            </div>
+            <div class="dialog-button2" id="confirm" onclick="bindCardConfirm()">提交</div>
+        </div>
+    </div>
+    <div class="dialog3 dialog" style="display:none">
+        <div class="dialog-shadow" onclick="closeDialog()"></div>
+        <div class="dialog-container3">
+            <div class="dialog-contain2__title" id="msg">
+
+            </div>
+            <div class="dialog-button2" onclick="closeDialog()">知道了</div>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />
+</body>
+<script>
+
+    var _layerIndex = 0;
+    var _layerIndex2 = 0;
+    $('.tag.example .ui.dropdown')
+        .dropdown({
+            allowAdditions: true
+        });
+
+
+
+
+    function bindCard(){
+        var realName = $('#realName').val();
+        var mobile = $('#mobile').val();
+        var cardNo = $('#cardNo').val();
+        var bankCode = $('#bankCode').val();
+        var bankCardNo = $('#bankCardNo').val();
+
+
+        if(realName && mobile && cardNo && bankCode && bankCardNo && $('#agree').is(':checked')) {
+            $('#subbtn').css("background-color","gray");
+            _layerIndex = layer.msg('提交中...');
+            $.ajax({
+                type: "post",
+                url: "{:C('WEB_ROOT')}/index.php/User/index/bindCardRequest",
+                dataType: "json",
+                data: {realName: realName, mobile: mobile, cardNo: cardNo, bankCode: bankCode, bankCardNo: bankCardNo},
+                success: function (data) {
+
+
+                    $('#subbtn').css("background-color","#ff7117");
+                    layer.close(_layerIndex);
+                    if(data.success == true){
+                        $('#originOrderNo').val(data.result);
+                        $('.dialog2').show();
+                        $('body').css('overflow', 'hidden');
+                        $('.dialog-container2__button').click();
+                        $('#bindMobile').html(mobile);
+                        $('#confirmErrorMsg').html('');
+                        $('#msgCode').val('');
+                    }else{
+
+                        $('.dialog3').show();
+
+                        $('body').css('overflow', 'hidden');
+                        $('.dialog-contain2__title').html(data.errorMsg);
+
+                        $('#msg').html(data.errorMsg);
+
+                    }
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+
+    }
+
+
+    function bindCardConfirm(){
+        var realName = $('#realName').val();
+        var mobile = $('#mobile').val();
+        var cardNo = $('#cardNo').val();
+        var bankCode = $('#bankCode').val();
+        var bankCardNo = $('#bankCardNo').val();
+        var msgCode = $('#msgCode').val();
+        var originOrderNo = $('#originOrderNo').val();
+
+
+        if(msgCode && realName && mobile && cardNo && bankCode && bankCardNo && $('#agree').is(':checked')){
+            $('#confirm').css("background-color","gray");
+            _layerIndex2 = layer.msg('提交中,请耐心等待...');
+            $.ajax({
+                type: "post",
+                url: "{:C('WEB_ROOT')}/index.php/User/index/bindCardConfirm",
+                dataType: "json",
+                data:{realName:realName,mobile:mobile,cardNo:cardNo,bankCode:bankCode,bankCardNo:bankCardNo,msgCode:msgCode,originOrderNo:originOrderNo},
+                success: function (data) {
+
+                    if(data.success == true){
+                        window.location.href='{:C(\'WEB_ROOT\')}/index.php/User/index/bindCard_success'
+                    }else{
+                        // $('#error_msg').show();
+
+                        $('#confirm').css("background-color","#ff7117");
+                        layer.close(_layerIndex2);
+                        $('#confirmErrorMsg').html(data.errorMsg);
+                    }
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+
+
+    }
+
+
+    function clearNoNum(obj){
+        obj.value = obj.value.replace(/[^\d]/g,"");  //清除“数字”和“.”以外的字符
+        subStatus();
+    }
+
+    function subStatus() {
+
+        var realName = $('#realName').val();
+        var mobile = $('#mobile').val();
+        var cardNo = $('#cardNo').val();
+        var bankCode = $('#bankCode').val();
+        var bankCardNo = $('#bankCardNo').val();
+
+        if(bankCode){
+            $('#point').hide();
+        }else{
+            $('#point').show();
+        }
+
+        if(realName && mobile && cardNo && bankCode && bankCardNo && $('#agree').is(':checked')){
+            status = 1;
+        }else{
+            status = 0;
+        }
+
+        if(status == 0){
+
+            $('#subbtn').css("background-color","gray");
+        }else{
+
+            $('#subbtn').css("background-color","#ff7117");
+        }
+    }
+
+    function checkPhone(){
+        var mobile = $('#mobile').val();
+        if(!(/^1[345789]\d{9}$/.test(mobile))){
+            $('#errorMsg').html('请输入正确的手机号码');
+        }else{
+            $('#errorMsg').html('');
+        }
+    }
+</script>
+
+</html>

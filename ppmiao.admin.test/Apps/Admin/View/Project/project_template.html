@@ -1,0 +1,60 @@
+<include file="Public:header" />
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">产品内容模板</div>
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td height="5" colspan="2" class="topTd"></td>
+                    </tr>
+                    <tr class="row">
+                        <th width="80%" align="center">模板标题</th>
+                        <th width="*" align="center">操作</th>
+                    </tr>
+                    <foreach name="list" item="item">
+                        <tr class="row">
+                            <td align="center">{$item.title}</td>
+                            <td align="center">
+                                <a href="javascript:;" onclick="select({$item.id})">选择</a>
+                                <a href="javascript:;" onclick="del({$item.id})" style="color:red;">删除</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                    <tr>
+                        <td height="5" colspan="2" class="bottomTd"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<script>
+    var _layerIndex = 0;
+    function select(_id){
+        window.opener.selectTemplateCallback(_id);
+        window.close();
+    }
+    function del(_id){
+        layer.confirm('确定删除吗?', function(){
+            _layerIndex = layer.load('正在删除中...');
+            $.post(ROOT + "/project/project_template_delete", {id: _id}, function(msg){
+                layer.close(_layerIndex);
+                if(msg.status){
+                    window.location.reload();
+                }else{
+                    layer.alert(msg.info);
+                }
+            });
+        });
+    }
+</script>

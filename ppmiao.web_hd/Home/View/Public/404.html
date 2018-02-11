@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/basic.css"
+	rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style.css"
+	rel="stylesheet" type="text/css" />
+<link href="{:C('STATIC_ROOT')}/new_ppmiao/css/style2.css"
+	rel="stylesheet" type="text/css" />
+<title>票票喵</title>
+
+</head>
+<style>
+.content {
+	position: absolute;
+	z-index: 3;
+	width: 100%;
+}
+
+.about_banner {
+	margin-top: -96px;
+}
+<!--
+第二导航条透明度--
+>
+</style>
+<style>
+.arrow_pic img {
+	padding-top: 150px;
+	padding-bottom: 20px;
+}
+
+.arrow_world p {
+	font-size: 30px;
+}
+
+.arrow_five p {
+	font-size: 16px;
+}
+
+.arrow_five span {
+	font-size: 18px;
+	color: #ff580f;
+}
+</style>
+<body style="min-width: 1200px;">
+	<!--第一导航栏-->
+	<include file="Public:menu" />
+
+	<div class="arrow_pic tc">
+		<img src="{:C('STATIC_ROOT')}/new_ppmiao/images/backer_03.png" />
+	</div>
+	<div class="arrow_world tc">
+		<p>哎呀亲...你访问的页面出错了！</p>
+	</div>
+	<div class="arrow_five tc mtop">
+		<p>你输入的网址有误或者链接已经过期。</p>
+	</div>
+	<div class=" tc mtop2">
+		<a href="/"><img src="{:C('STATIC_ROOT')}/new_ppmiao/images/backer_07.png" /></a>
+	</div>
+	<include file="Public:footer" />
+
+<!--点击二维码显示隐藏-->
+<script type="text/javascript">
+	var IsPopup = false;
+	function IsPass() {
+		if (IsPopup) {
+			document.getElementById("index_bj").className = "hidden";
+			document.getElementById("index_window").className = "hidden";
+			IsPopup = false;
+		} else {
+			document.getElementById("index_bj").className = "index_bj abs";
+			document.getElementById("index_window").className = "index_window abs";
+			IsPopup = true;
+		}
+	}
+
+	$(function() {
+
+		$(".connect_question img").css('opacity', '0.6');
+		$(".connect_question .connect_money:eq(0) img").mouseover(
+				function(e) {
+					$(this).css('opacity', '1.0').siblings().stop().css(
+							'opacity', '0.6');
+				});
+		$(".connect_question .connect_money:eq(0) img").mouseout(
+				function(e) {
+					$(this).css('opacity', '0.6').siblings().stop().css(
+							'opacity', '0.6');
+				});
+		$(".connect_question .connect_money:eq(1) img").mouseover(
+				function(e) {
+					$(this).css('opacity', '1.0').siblings().stop().css(
+							'opacity', '0.6');
+				});
+		$(".connect_question .connect_money:eq(1) img").mouseout(
+				function(e) {
+					$(this).css('opacity', '0.6').siblings().stop().css(
+							'opacity', '0.6');
+				});
+	});
+</script>
+</body>
+</html>
+

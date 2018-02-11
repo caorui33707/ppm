@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">    
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/new_ppmiao_v3/css/style2.css" rel="stylesheet" type="text/css" />
+   
+    <link rel="stylesheet" href="{:C('STATIC_ROOT')}/new_ppmiao_v4/css/base.css">
+	<link rel="stylesheet" href="{:C('STATIC_ROOT')}/new_ppmiao_v4/css/index.css">
+	<script src="{:C('STATIC_ROOT')}/new_ppmiao_v4/js/jquery-1.10.2.min.js"></script>
+	<script src="{:C('STATIC_ROOT')}/new_ppmiao_v4/js/index.js"></script>
+    <title>票票喵 - 个人中心</title>
+
+
+</head>
+<body style="background-color:#f4f4f4;">
+	<include file="Public:ppm_menu" />
+    <!--正文-->
+        <div class="person_top">
+            <div class="person_center">
+                <a href="profile.html"><p class="cut10 fl" style="color:#ff6a00;">个人中心</p></a>
+                <a href="repayment_list.html?type=2"><p class="cut10 fl">待还款</p></a>
+                <a href="repayment_list.html?type=1"><p class="cut10 fl">已还款</p></a>
+                <a href="money_detail.html"><p class="cut10 fl">资金明细</p></a>
+                <a href="setting.html"><p class="cut10 fl">账户设置</p></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="person_big">
+            <!--  <ul>
+                <li class="cut20 fl tc">
+                    <img src="{:C('STATIC_ROOT')}/new_ppmiao_v3/images/tou_03.png">
+                </li>
+                <li class="cut40 fl ">
+                    <p>您好，{$companyName}</p>
+                </li>
+                <li class="cut40 fl" >
+                    <a href="pay.html"><button style="cursor:pointer;"> 充值</button></a>
+                </li>
+            </ul>-->
+            <div class="remainder">
+				<div class="remainder-left">
+					<p class="remainder-amount">余额：<span id="total_amt"></span>元</p>
+					<p>可用余额：<span id="balance"></span>元 <span class="line2">|</span>在途余额：<span id="frozen_amount"></span>元</p>
+				</div>
+				<div class="remainder-right">
+					<a href="pay.html" target="_blank"><div class="recharge">充值</div></a>
+					<!-- 
+					<div class="cash" id="cashBtn">提现</div>
+					 -->
+				</div>
+			</div>
+            <div class="clear"></div>
+        </div>
+        
+        <div class="popup">
+		<div class="dialog">
+			<div class="dialog-head" style="text-align:center">
+				<!-- <img class="bank-log" src="images/bank/1@2x.png" alt="中国银行"> -->
+				<p class="bankname">中国银行 <span>尾号1006</span></p>
+				<p class="time">预计今日24点前到账</p>
+			</div>
+			<div class="dialog-body">
+				<!-- 可用提现额度 -->
+				<div class="cash-limit">
+					<p>可用提现额度<span id="withdraw_amt"></span>元</p>
+				</div>
+				<!-- 提现金额 -->
+				<div class="withdrawals">
+					<span>提现金额</span>
+					<input type="text" placeholder="请输入提现金额" value="请输入提现金额" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength='7'>
+					<div style="    color: red;
+    font-size: 16px;
+    width: 433px;
+    position: relative;
+    left: 187px;
+    top: 10px;" id="errorMoney">12321321321321</div>
+				</div>
+				<!-- 手机验证码 -->
+				<div class="verification">
+					<span>手机验证码</span>
+					<input type="text" placeholder="请输入手机验证码" value="请输入手机验证码">
+					<input type="submit" id="btn" value="获取验证码">
+					<div style="    color: red;
+    font-size: 16px;
+    width: 433px;
+    position: relative;
+    left: 187px;
+    top: 10px;" id="errorPhone">12321321321321</div>
+				</div>
+				<!-- 提现说明 -->
+				<div class="explain">
+					<p>提现说明：<br>
+						1.提现预计1小时内到账,具体到账时间由银行处理速度决定。<br>
+						2.单笔提现限额100万元。<br>
+						3.当日充值金额不可当日提现。</p>
+				</div>
+				<div class="close-btn">取消</div>
+				<input class="withdrawals-btn" type="submit" value="提现">
+			</div>
+		</div>
+		</div>
+        
+
+    <!--底部导航-->
+    <include file="Public:ppm_footer" />
+	<script type="text/javascript" src="{:C('STATIC_ROOT')}/new_ppmiao_v3/js/common.js"></script>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$.post("/account_info.html",function(result){
+    	if(result.status){
+    		$("#balance").empty().html(result.balance);
+    		$("#frozen_amount").empty().html(result.frozen_amount);
+    		$("#total_amt").empty().html(result.total_amt);
+    		$("#withdraw_amt").empty().html(result.balance);
+    	} else{
+    		$("#balance").empty().html(result.info);
+    		$("#frozen_amount").empty().html(result.info);
+    	}
+  	});
+	
+	$("#btn").click(function(){
+		$.post("/msgcode.html",function(result){
+	    	if(result.status){
+	    		Countdown();
+	    	} else{
+	    		alert(result.info);
+	    	}
+	  	});
+	});
+	
+	
+});
+</script>
+    <script type="text/javascript">
+    var sleep = 60, interval = null;
+    function Countdown(){
+    	if (!interval) {
+			   $("#btn").attr("disabled","disabled");
+			   $('#btn').css('cursor','wait');
+			   $('#btn').val(sleep + " S");
+			   interval = setInterval(function () {
+				   if (sleep == 0) {
+					   if (!!interval) {
+	                        clearInterval(interval);
+	                        interval = null;
+	                        sleep = 60;
+	                        btn.style.cursor = "pointer";
+	                        btn.removeAttribute('disabled');
+	                        btn.value = "获取验证码";
+	                    }
+					   return false;
+				   }
+				   $('#btn').val("" + sleep-- + " S");
+			   }, 1000);
+        }
+    }
+    </script>
+    <script>
+    $(document).ready(function(){
+    	$('#errorMoney').css('display','none');
+        $('#errorPhone').css('display','none');
+        $('#errorMoney').css('display','block');
+        $('#errorMoney').html('123');
+        
+    	});
+    </script>
+
+</html>         

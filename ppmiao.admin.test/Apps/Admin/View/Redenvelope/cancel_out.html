@@ -1,0 +1,137 @@
+{// 加载头部公共文件 }
+<include file="Public:header"/>
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main">
+
+    <!-- 主体内容  -->
+    <div class="content">
+        <div class="title">红包核销</div>
+        <!--  功能操作区域  -->
+        <div class="operate">
+            <!-- 查询区域 -->
+            <div class="fRig">
+
+                <form method='post' action="{:C("ADMIN_ROOT")}/redenvelope/cancel_out_index">
+                <div class="fLeft">
+                    手机号：
+                    <input type="text" id="mobile" name="mobile" class="medium" value="{$mobile}">
+                    姓名：
+                    <input type="text" id="real_name" name="real_name" class="medium" value="{$real_name}">
+                    <label for="start_time">核销状态：</label>
+                    <select name="status">
+                        <option value="1000" <eq name="status" value="100">selected</eq>>全部</option>
+                        <option value="0" <eq name="status" value="0">selected</eq>>未核销</option>
+                        <option value="1" <eq name="status" value="1">selected</eq>>已核销</option>
+                        <option value="2" <eq name="status" value="2">selected</eq>>过期</option>
+                        <option value="6" <eq name="status" value="6">selected</eq>>使用中</option>
+                    </select>
+                </div>
+                <div class="impBtn hMargin fLeft shadow">
+                    <input type="submit" value="查询" class="search imgButton">
+                </div>
+                </form>
+            </div>
+        </div>
+        <!-- 列表显示区域  -->
+        <div class="list">
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="14" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="2%" align="center">序号</th>
+                    <th width="3%" align="center">用户姓名</th>
+                    <th width="3%" align="center">手机号</th>
+                    <th width="3%" align="center">标题</th>
+                    <th width="4%" align="center">红包金额(元)</th>
+                    <th width="4%" align="center">最小投资金额(元)</th>
+                    <th width="2%" align="center">最小投资期限(天)</th>
+                    <th width="7%" align="center">适用标签</th>
+                    <th width="5%" align="center">生效时间</th>
+                    <th width="5%" align="center">有效期至</th>
+                    <th width="4%" align="center">状态</th>
+                    <th width="4%" align="center">更新时间</th>
+                    <th width="3%" align="center">操作</th>
+                </tr>
+                <foreach name="list" item="item">
+                    <tr>
+                        <th align="center">{$item.id}</th>
+                        <td align="center"><a href="{:C('ADMIN_ROOT')}/statistics/user_search/key/{$mobile}">{$real_name}</a></td>
+                        <td align="center">{$mobile}</td>
+                        <td align="center">{$item.title}</td>
+                        <td align="center">{$item.amount|number_format=2}</td>
+                        <td align="center">{$item.min_invest|number_format=2}</td>
+                        <td align="center">{$item.min_due}</td>
+                        <td align="center">{$item.apply_tag}</td>
+                        <td align="center">{$item.create_time}</td>
+                        <td align="center">{$item.expire_time}</td>
+                        <td align="center">
+                            <?php if($item['status']==0){echo '未核销';
+                        }elseif($item['status']==1){
+                            echo '已核销';
+                        }elseif($item['status']==2){
+                            echo '过期';
+                        }elseif($item['status']==6){
+                            echo '锁住';
+                        }else{
+                            echo '';
+                        };
+                       ?></td>
+                        <td align="center">{$item.modify_time}</td>
+                        <td align="center">
+                            <if condition="$item.status == 0 ">
+                                <button id="func15" onclick="cancel_out({$item.id})">核销</button>
+                            </if>
+                        </td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">
+            {$showPage}
+        </div>
+        <!-- 列表显示区域结束 -->
+        <div style="clear: both;">
+            <label>共:<b>{$params.totalCnt}</b>条记录;当前第<b>{$params.page}</b>页</label>
+        </div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/layer/2.1/layer.js"></script>
+<script>
+function cancel_out(_id) {
+        layer.config({
+            extend: 'extend/layer.ext.js'
+        });
+        layer.ready(function () {
+            layer.prompt({
+                title: '请输入相关订单号',
+                formType: 0
+            }, function (str) {
+                if (str) {
+                    $.post(ROOT + "/redenvelope/cancel_out_handle", {id: _id,recharge_no: str}, function(msg){
+                        layer.msg(msg, {
+                            time: 2000,
+                            btn: ['确定   ']
+                        });
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2000);
+                    });
+
+                }else{
+                    layer.msg('请输入订单号，并确认');
+                }
+            });
+        });
+}
+</script>

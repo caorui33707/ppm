@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta content="telephone=no,email=no" name="format-detection">
+        <title>三重福利大派送</title>
+       <script src="http://image.ppmiao.com/Public/js/flexible.js"></script>
+        <script src="http://image.ppmiao.com/Public/js/flexible_css.js"></script>
+		<script src="http://image.ppmiao.com/Public/js/jquery-1.9.1.js"></script>
+    </head>
+    <style>
+        .bg{
+            width: 10rem;
+            height: 31rem;
+            background-image: url(http://image.ppmiao.com/H5picture/Update-act/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .button{
+            background-image: url(http://image.ppmiao.com/H5picture/Update-act/update-button@2x.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            width: 1rem;
+            height: 3rem;
+            position: fixed;
+            top:5rem;
+            right: 0;
+        }
+        .skip{
+            width: 6rem;
+            height: 2rem;
+            position: absolute;
+            top: 19rem;
+            left: 50%;
+            margin-left: -3rem;
+        }
+        .dialog{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .dialog-shadow{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #000;
+            opacity: .7;
+        }
+        .dialog-img{
+            position: absolute;
+            background-image: url(http://image.ppmiao.com/H5picture/Update-act/dialog.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            width: 8rem;
+            height: 3.5rem;
+            top: 50%;
+            left: 50%;
+            margin-left: -4rem;
+            margin-top: -1.75rem;
+        }
+        .dialog-close{
+            position: relative;
+            width: 1rem;
+            height: 1rem;
+            float: right;
+        }
+    </style>
+    <body>
+        <div class="dialog" style="display:none">
+            <div class="dialog-shadow"></div>
+            <div class="dialog-img">
+                <div class="dialog-close"></div>
+            </div>
+        </div>
+        <div class= "bg">
+            <a href="introduce.html">
+                <div class="button"></div>
+            </a>
+            <div class="skip"></div>
+        </div>
+    </body>
+	<script>
+	 $(document).ready(function() {
+		 $('.skip').click(function() {
+            var version = getQueryString('version');
+            if(version != null){
+                var v = version.replace(/[.]/g,"");
+                if(v < 123){
+                    window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=cn.ppmiao.app";
+                }
+                else {
+                    $('.dialog').css('display','block');
+                }
+            }
+         });
+         $('.dialog-close').click(function() {
+            $('.dialog').css('display','none');
+         });
+	 });
+     function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+	</script>
+</html>

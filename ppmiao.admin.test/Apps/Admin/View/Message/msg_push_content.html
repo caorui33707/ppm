@@ -1,0 +1,374 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title"> 消息管理  - 推送消息  [ <a href="{:C('ADMIN_ROOT')}/message/msg_push_index">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <form id="frmMain" method='post' action="">
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="150px">正文内容：</td>
+                    <td class="tLeft">
+                        <textarea name="content" id="content" maxlength="58" style="width:600px;height:150px;border: none"><?php
+                                $text = json_encode($push_list['content']);
+                                $text = preg_replace_callback('/\\\\\\\\/i',function($str){
+                                    return '\\';
+                                    },$text);
+                                echo  json_decode($text);
+                            ?>
+                        </textarea>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">接收对象</td>
+                    <td class="tLeft">
+                    	<label for="filter_bk">
+                            <eq name="push_list.target" value="1" >
+                                按用户推送
+                            </eq>
+                            <eq name="push_list.target" value="0" >
+                    	        &nbsp;按版本推送
+                            </eq>
+                            <eq name="push_list.target" value="2" >
+                                &nbsp;按手机号推送
+                            </eq>
+                        </label>
+                    </td>
+                </tr>
+
+
+
+
+
+                <?php if($push_list['target']!=2){ ?>
+                <if condition="$push_list.registration_id neq null" >
+                    <tr>
+                        <td class="tRight">Registration ID</td>
+                        <td class="tLeft"><input type="text" name="regid" class="huge" value="{$push_list.registration_id}" disabled /></td>
+                    </tr>
+                <else />
+                
+                    <tr class="ver_controller"  > <!-- <if condition="$push_list.android_ver egt 0 " > <else/> style="display:none" </if> -->
+                        <td class="tRight">安卓版本</td>
+                        <td class="tLeft">
+                            <label for="filter_bk">
+                                <eq name="push_list.android_ver" value="0"  >
+                                    &nbsp;全部
+                                </eq>
+                                <if condition="$push_list.android_ver gt 0 " >
+                                      指定版本
+                                </if>
+                            </label>
+                        </td>
+                    </tr>
+                    <if condition="$push_list.android_ver gt 0 " >
+                        <tr id="android_ver_list"     class="android_ver_list_controller">
+                            <td class="tRight">安卓版本列表</td>
+                            <td class="tLeft">
+                                <label for="filter_bk">
+                                <foreach name="android_list" item="item">
+                                    <if condition="in_array($item['app_version'],explode(',',$push_list['android_ver'])) " >
+                                        {$item.app_version}
+                                    </if>&nbsp;
+                                </foreach>
+
+                                </label>
+                            </td>
+                        </tr>
+                    </if>
+
+                    <tr class="ver_controller"  > <!-- <if condition="$push_list.ios_ver egt 0 ">  <else /> style="display:none" </if> -->
+                        <td class="tRight">苹果版本</td>
+                        <td class="tLeft">
+                            <label for="filter_bk">
+                                <eq name="push_list.ios_ver" value="0"  > &nbsp;全部 </eq>
+                                <if condition="$push_list.ios_ver gt 0 " > &nbsp;指定版本</if>
+                            </label>
+                        </td>
+                    </tr>
+                    <if condition="$push_list.ios_ver gt 0 "  >
+                        <tr id="ios_ver_list"    class="ios_ver_list_controller">
+                            <td class="tRight">苹果版本列表</td>
+                            <td class="tLeft">
+                                <label for="filter_bk">
+                                <foreach name="ios_list" item="item">
+                                    <if condition="in_array($item['app_version'],explode(',',$push_list['ios_ver'])) " > {$item.app_version}   </if>
+                                    &nbsp;
+                                </foreach>
+                                </label>
+                            </td>
+                        </tr>
+                    </if>
+                </if>
+                <?php } ?>
+
+                 
+                <tr>
+                    <td class="tRight">定时推送</td>
+                    <td class="tLeft">
+                        <eq name="push_list.push_type" value="0" >
+                             关闭
+                        </eq >
+
+                        <eq name="push_list.push_type" value="1" >
+                            开启 :
+                        </eq>
+
+                        <eq name="push_list.push_type" value="1" >
+                            {$push_list.push_time|date='Y-m-d H:i:s',###}
+                        </eq>
+                        
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="tRight">推送动作</td>
+                    <td class="tLeft">
+                        <php>
+                            $push_extra = json_decode($push_list['push_extra'],true);
+                            $action = isset($push_extra['action'])?$push_extra['action']:0;
+
+                            $url = isset($push_extra['url'])?$push_extra['url']:0;
+
+                            $islogin = isset($push_extra['islogin'])?$push_extra['islogin']:0;
+                            $isloginStr = empty($islogin)?'否':'是';
+                        </php>
+                        <select name="action" onchange="pushAction(this)" disabled >
+                            <eq name="action" value="0">
+                                <option value="0"  >无动作</option>
+                            </eq>
+                            <eq name="action" value="5">
+                                <option value="5"  >URL</option>
+                            </eq>
+                            <eq name="action" value="6">
+                                <option value="6"  >产品详细</option>
+                            </eq>
+                            <!-- 
+                            <option value="1">精品推荐</option>
+                            <option value="2">理财产品</option>
+                            <option value="3">发现</option>
+                            <option value="4">我</option>
+                            <option value="7">立即购买</option>
+                            <option value="8">账户中心</option>
+                            <option value="9">完善银行卡</option>
+                            <option value="10">我的钱包</option>
+                            <option value="11">邀请好友</option>
+                             -->
+                        </select>
+                    </td>
+                </tr>
+
+                <php> if($url){</php>
+
+                <tr id="is_login_display"   >
+                    <td class="tRight">是否需要登录</td>
+                    <td class="tLeft">
+                        ： {$isloginStr}
+                    </td>
+                </tr>
+                <php> } </php>
+                <tr>
+                    <td class="tRight">参数数组</td>
+                    <td class="tLeft">
+
+                        <if condition="isset($push_extra['url'])" >
+                            <p><input type="text" name="key[]" value="url" disabled /> - <input  disabled type="text" name="value[]" class="huge" value="{$push_extra.url}" /></p>
+                        <elseif condition="isset($push_extra['id'])" />
+                            <p><input type="text" name="key[]" value="id" disabled /> - <input disabled type="text" name="value[]" class="huge" value="{$push_extra.id}" />
+                        <else />
+                            <p><input type="text" name="key[]"  disabled  /> - <input disabled type="text" name="value[]" class="huge"  />
+                        </if>
+
+                        <if condition="isset($push_extra['title'])" >
+                            <p><input type="text" name="key[]" value="title"  disabled /> - <input disabled type="text" name="value[]" class="huge" value="{$push_extra.title}" /></p>
+                        <else />
+                            <p><input type="text" name="key[]" disabled  /> - <input disabled type="text" name="value[]" class="huge"/></p>
+                        </if>
+                        <!-- 
+                        <p><input type="text" name="key[]" /> - <input type="text" name="value[]" class="huge"/></p>
+                        <p><input type="text" name="key[]" /> - <input type="text" name="value[]" class="huge"/></p>
+                        <p><input type="text" name="key[]" /> - <input type="text" name="value[]" class="huge"/></p>
+                         -->
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script>
+
+
+	var end = {
+        elem: '#time',
+        format: 'YYYY-MM-DD hh:mm:ss',
+        min: laydate.now(),
+        max: '2099-06-16 23:59:59',
+        istime: true,
+        istoday: true,
+        choose: function(datas){
+            
+        }
+    };
+    
+    laydate(end);
+    var pust_time = {$push_list.push_time};
+    if(pust_time){
+        $('#time').val(laydate.now(0, '{$push_list.push_time|date='Y-m-d H:i:s',###}'));
+    }else {
+        $('#time').val(laydate.now(1, 'YYYY-MM-DD 10:00:00'));
+    }
+
+
+
+    var _layerIndex = 0;
+    $("#frmMain").Validform({ // 表单验证
+        tiptype: 3,
+        callback: function(form){
+            _layerIndex = layer.load('消息推送中...');
+            $.ajax({
+                url: ROOT + '/message/msg_push_edit',
+                data: $('#frmMain').serialize(),
+                type: "POST",
+                cache: false,
+                success: function(msg) {
+                    layer.close(_layerIndex);
+                    if(msg.status){
+                       layer.alert('推送保存成功~!', -1, function(){
+                           window.location.href = msg.info;
+                       });
+                    }else{
+                        layer.alert(msg.info);
+                    }
+                }
+            });
+            return false;
+        }
+    });
+    function pushAction(_obj){ // 转换推送动作
+        var _act = $(_obj).val();
+        resetExtra();
+        switch(_act){
+            case '1':
+                $("input[name='key[]']").val('');
+                break;
+            case '2':
+                $("input[name='key[]']").val('');
+                break;
+            case '3':
+                $("input[name='key[]']").val('');
+                break;
+            case '4':
+                $("input[name='key[]']").val('');
+                break;
+            case '5':
+                $("input[name='key[]']:first").val('url');
+                break;
+            case '6':
+                $("input[name='key[]']:first").val('id');
+                $("input[name='key[]']:eq(1)").val('title');
+                break;
+            case '7':
+                $("input[name='key[]']:first").val('id');
+                break;
+            case '8':
+                $("input[name='key[]']:first").val('id');
+                break;
+            case '9':
+                $("input[name='key[]']:first").val('cardNo');
+                break;
+            default:
+                $("input[name='key[]']").val('');
+                break;
+        }
+    }
+    function resetExtra(){ // 重置参数
+        $("input[name='key[]'],input[name='value[]']").val('');
+    }
+    
+    $("input[name='target']").click(function(){
+    	var val = $(this).val();
+    	if(val=='0'){
+    		$("input[name='regid']").parent().parent().css('display', 'none');
+    		$(".ver_controller").css('display', '');
+    		
+    		$("input[name='android_ver']").get(0).checked=true; 
+    		$("input[name='ios_ver']").get(0).checked=true; 
+    		
+    		
+    	} else{
+    		$("input[name='regid']").parent().parent().css('display', '');
+    		$(".ver_controller").css('display', 'none');
+    		
+    		if($("input[name='android_ver']").val() == 0){
+    			$('.android_ver_list_controller').css('display', 'none');
+    		} else{
+    			$('.android_ver_list_controller').css('display', '');
+    		}
+    		
+    		if($("input[name='ios_ver']").val() == 0){
+    			$('.ios_ver_list_controller').css('display', 'none');
+    		} else{
+    			$('.ios_ver_list_controller').css('display', '');
+    		}
+    	}
+    });
+
+    $("input[name='android_ver']").click(function(){
+        var val = $(this).val();
+        if(val=='1'){
+            $("#android_ver_list").css('display', '');
+        } else{
+            $("#android_ver_list").css('display', 'none');
+        }
+    });
+
+    // 全选
+    $("input[name='_android_all']").click(function(){
+        //$('input[name=\'_android_ver[]\']').attr('checked',true);
+        var id = $("input[name='_android_all']").val();
+        if(id==0){
+            $('input[name=\'_android_ver[]\']').attr('checked',true);
+            $("input[name='_android_all']").val(1);
+        }else{
+            $('input[name=\'_android_ver[]\']').attr('checked',false);
+            $("input[name='_android_all']").val(0);
+        }
+    });
+
+    $("input[name='_ios_all']").click(function(){
+        var id = $("input[name='_ios_all']").val();
+        if(id==0){
+            $('input[name=\'_ios_ver[]\']').attr('checked',true);
+            $("input[name='_ios_all']").val(1);
+        }else{
+            $('input[name=\'_ios_ver[]\']').attr('checked',false);
+            $("input[name='_ios_all']").val(0);
+        }
+    });
+
+    //end 全选
+
+    
+    $("input[name='ios_ver']").click(function(){
+    	var val = $(this).val();
+    	if(val=='1'){
+    		$("#ios_ver_list").css('display', '');
+    	} else{
+    		$("#ios_ver_list").css('display', 'none');
+    	}
+    });
+
+    
+    function pushType(_obj){
+    	var val = $(_obj).val();
+    	if(val=='0'){
+    		$("input[name='time']").css('display', 'none');
+    	} else{
+    		$("input[name='time']").css('display', '');
+    	}
+    }
+    
+</script>

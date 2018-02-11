@@ -1,0 +1,47 @@
+
+<input type="hidden" name="" class="select_commodity_id" value="{$commodity.id}">
+<tr>
+    <td>商品详情：</td>
+    <td>
+    </td>
+</tr>
+<tr>
+    <td>标题：</td>
+    <td class="select_commodity_name">{$commodity.name}</td>
+</tr>
+<if condition="($commodity.type eq 1)">
+    <tr>
+        <td>红包金额：</td>
+        <td>{$commodity.amount}</td>
+    </tr>
+</if>
+<if condition="($commodity.type eq 2)">
+    <tr>
+        <td>加息利率：</td>
+        <td>{$commodity.amount}</td>
+    </tr>
+</if>
+<if condition="($commodity.type eq 3)">
+    <tr>
+        <td>现金券金额：</td>
+        <td>{$commodity.amount}</td>
+    </tr>
+</if>
+<if condition="($commodity.type eq 1) or ($commodity.type eq 2) or ($commodity.type eq 3)">
+    <tr>
+        <td>最小投资金额：</td>
+        <td>{$commodity.min_invest_amount}</td>
+    </tr>
+    <tr>
+        <td>最小投资期限：</td>
+        <td>{$commodity.min_invest_days}</td>
+    </tr>
+    <tr>
+        <td>有效天数：</td>
+        <td>{$commodity.valid_days}</td>
+    </tr>
+    <tr>
+        <td>适用标签：</td>
+        <td>{$commodity.project_type}</td>
+    </tr>
+</if>

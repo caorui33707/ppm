@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/*reset style*/
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-weight: normal;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; }
+
+body * {
+  max-height: 999999px; }
+
+body {
+  font-family: 'microsoft yahei';
+  width: 100%;
+  line-height: 150%; }
+
+body em, body i {
+  font-style: normal; }
+
+body a {
+  text-decoration: none; }
+
+body a:hover, body a:active, body a:focus {
+  text-decoration: none; }
+
+body b {
+  font-weight: normal; }
+
+li, dd {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+table th {
+  font-weight: normal; }
+
+img {
+  display: block; }
+
+fieldset, img {
+  border: 0;
+  font-size: 0;
+  vertical-align: top; }
+
+.box:before, .box:after {
+  content: " ";
+  height: 0px;
+  display: block;
+  visibility: hidden; }
+
+.box:after {
+  clear: both; }
+
+.box {
+  *zoom: 1; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.abso {
+  position: absolute; }
+
+.relative {
+  position: relative; }
+
+.hidden {
+  display: none; }
+
+header, footer, article, aside, section, nav, menu, hgroup, details, dialog, figure, figcaption {
+  display: block; }
+
+input[type="submit"], input[type="button"], input[type="reset"], button {
+  -webkit-appearance: none;
+  border-radius: 0;
+  background: none;
+  border: none; }
+
+input[type="submit"]:focus, input[type="button"]:focus, input[type="reset"]:focus, button:focus {
+  outline: none; }
+
+input[type="text"], input[type="password"], select, input[type="checkbox"], textarea {
+  border-radius: 0; }
+
+/*×îÍâ²ã wap*/
+.main {
+  width: 100%;
+  margin: 0 auto; }
+
+.u-btn {
+  background: url("http://mobile.stlc.cn/build/img/btnLight.png") no-repeat;
+  background-size: 45%;
+  background-position: 8% 12%; }
+
+/*# sourceMappingURL=style.min.css.map */

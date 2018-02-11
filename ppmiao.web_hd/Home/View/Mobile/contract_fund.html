@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>基金损益权转让协议</title>
+    <meta name="viewport" content="user-scalable=no,width=device-width">
+    <link href="{:C('STATIC_ROOT')}/mobile/css/contract_fund.css" rel="stylesheet" type="text/css"  media="all" />
+</head>
+
+<body id="contractBody">
+<section class="wrapBox">
+    <h5>基金损益权转让协议</h5>
+    <section class="contractListBox">
+        <section class="contractList">
+            甲方（出让方）：{$detail.nickname}
+        </section>
+        <section class="contractList">
+            身份证号码：{$detail.idcard|hide_whole_idcard}
+        </section>
+        <section class="contractList">
+            乙方（受让方）：{$due_detail.uinfo.real_name}
+        </section>
+        <section class="contractList">
+            身份证号码：{$due_detail.uinfo.card_no|hide_whole_idcard}
+        </section>
+        <section class="contractList">
+            电话：{$due_detail.uinfo.username}
+        </section>
+        <section class="contractList">
+            丙方（第三方服务机构）：杭州时投信息科技有限公司
+        </section>
+        <section class="contractList contractList03">
+            鉴于：
+        </section>
+
+        <section class="contractList contractList02">
+            1、丙方为一家专业的投融资第三方信息服务平台。丙方运营网站“石头理财网”有大量的注册会员。
+        </section>
+
+        <section class="contractList contractList02">
+            2、甲方为专业的基金投资人，具有丰富的基金投资经验。
+        </section>
+
+        <section class="contractList contractList02">
+            3、乙方为甲方的注册会员，并具有投资意向。
+        </section>
+
+        <section class="contractList contractList02">
+            根据《中华人民共和国合同法》、《中华人民共和国民法通则》等有关法律规定，甲乙丙三方本着诚实信用的基本原则，经平等友好协商，就甲方通过丙方运营平台向乙方转让基金损益权的相关事宜达成如下协议：
+        </section>
+
+        <section class="contractList contractList03">
+            第一条 本协议名词释义
+        </section>
+
+        <section class="contractList contractList04">
+            1、“基金损益权”是指基金持有人基于其持有的基金可能获得收益或承担损失的一种权利义务。
+        </section>
+
+        <section class="contractList contractList04">
+            2、“资金监管账户”是指甲方通过丙方平台在丙方合作的第三方支付机构或银行开立的资金管理账户，该账户由丙方与甲方共同监管。
+        </section>
+
+        <section class="contractList contractList03">
+            第二条 基金基本信息
+        </section>
+
+        <section class="contractList contractList04">
+            1、甲方持有基金的基本情况如下：
+        </section>
+
+        <section class="contractList contractList05">
+            <table width="100%" border="0">
+                <tr>
+                    <td><span>基金全称：</span></td>
+                    <td><span>{$fund_info.name}</span></td>
+                    <td><span>基金代码：</span></td>
+                    <td><span>{$fund_info.code}</span></td>
+                </tr>
+                <tr>
+                    <td><span>申购价格：</span></td>
+                    <td><span>{$totle_money/10000}万</span></td>
+                    <td><span>申购数量：</span></td>
+                    <td><span>{$totle_money/10000}万</span></td>
+                </tr>
+
+                <tr>
+                    <td><span>预计持有时间：</span></td>
+                    <td><span>至{$detail.end_time|strtotime|date='Y.m.d',###}</span></td>
+                    <td><span>剩余持有时间：</span></td>
+                    <td><span>{$detail.cyDays}天</span></td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="contractList contractList04">
+            2、为应对不同风险类型受让人的投资需求，甲方将上述基金的基金损益权拆分为基金损益权（A）和基金损益权（B）两类，比例为 <p style="text-decoration:underline;display: inline-block;">1:2</p>   ，基金损益权（A）称作劣后损益权，基金损益权（B）称作保本损益权，即当基金损益权获得收益时，其基金损益权（B）收益的 <p style="text-decoration:underline;display: inline-block;">80%</p>  由基金损益权（A）受让人按受让比例和受让期限优先享有，剩余部分收益由基金损益权（B）受让人按受让比例和受让期限享有；当基金损益权出现亏损时，基金损益权亏损全部由基金损益权（A）受让人按受让比例和受让期限优先承担，若仍有亏损剩余由基金损益权（B）受让人按受让比例和受让期限承担。
+        </section>
+
+        <section class="contractList contractList04">
+            3、基金损益权收益=基金损益权对应基金的实际收益（亏损时为负数）-基金损益权对应基金申购和赎回等交易手续费-基金损益权对应基金持有管理费，基金损益权对应基金持有管理费为<p style="text-decoration:underline;display: inline-block;">对基金损益权（A），年化收益超过100%时收取，收取超额部分50%，对基金损益权（B），年化收益超过20%时，收取超额部分50%</p>，基金损益权收益计算结果为负数时即为基金损益权亏损。
+        </section>
+
+        <section class="contractList contractList04">
+            4、为保障基金损益权（B）的保本性，在基金损益权对应基金持有期间，当<p style="text-decoration:underline;display: inline-block;">{$fund_info.name}</p>当前累计净值低于初始累计净值 <p style="text-decoration:underline;display: inline-block;">70%</p> 时，丙方有权强行要求甲方平仓基金损益权对应基金，甲方也可以自行平仓。
+        </section>
+
+        <section class="contractList contractList04">
+            5、基金损益权对应基金的申购过程由<p style="text-decoration:underline; display: inline-block;">丙方法务和风控人员</p>全程监督和见证，甲方持仓账户和密码在基金损益权获得全部实现之前，由<p style="text-decoration:underline;display: inline-block;">丙方</p>负责保管，甲方不得私自操作。
+        </section>
+
+        <section class="contractList contractList03">
+            第三条 基金损益权转让
+        </section>
+
+        <section class="contractList contractList04">
+            1、甲方转让的基金损益权类型为 <p style="text-decoration:underline;display: inline-block;"><eq name="detail.type" value="109">基金损益权（B）<else/>基金损益权（A）</eq></p>，对应基金数量为 <p style="text-decoration:underline;display: inline-block;">{$due_detail.due_capital|number_format}份</p>。</br>
+        </section>
+
+        <section class="contractList contractList04">
+            2、甲方自愿将上述类型基金损益权以人民币 <p style="text-decoration:underline;display: inline-block;">{$due_detail.due_capital|number_format}元</p>的价格转让给乙方。
+        </section>
+
+        <section class="contractList contractList04">
+            3、乙方同意按本条第二款约定的价格受让甲方上述转让的基金损益权。
+        </section>
+
+        <section class="contractList contractList03">
+            第四条 基金损益权转让款的支付
+        </section>
+
+        <section class="contractList contractList04">
+            1、甲乙丙三方均一致同意乙方将基金损益权转让款支付至甲方通过丙方平台在第三方支付机构或银行开立的资金监管账户，该账户由丙方与甲方共同监管。
+        </section>
+
+        <section class="contractList contractList04">
+            2、乙方按照石头理财网的规则将基金损益权转让款支付至甲方通过丙方平台在第三方支付机构或银行开立的资金监管账户中，即视为乙方完成了该笔基金损益权转让的付款行为。
+        </section>
+
+        <section class="contractList contractList03">
+            第五条 基金损益权的取得
+        </section>
+
+        <section class="contractList contractList04">
+            乙方自本协议生效之日即取得本协议项下的基金损益权，有权按照本协议约定的条件获得基金损益权收益并承担基金损益权损失。
+        </section>
+
+        <section class="contractList contractList03">
+            第六条 基金损益权的实现
+        </section>
+
+        <section class="contractList contractList04">
+            1、基金损益权到期后或出现提前平仓情况，甲方应按本协议第二条的规定将已转让基金损益权的对应结算资金（转让价格获得收益或扣除亏损后的剩余资金）支付到资金监管账户绑定账号（结算资金已直接提取至资金监管账户绑定账号的除外），并向乙方支付对应基金损益权的结算资金。
+        </section>
+
+        <section class="contractList contractList04">
+            2、在基金损益权对应基金持有期间若出现基金分红，基金红利按本协议第二条基金损益权收益规则和上述方式进行分配。
+        </section>
+
+        <section class="contractList contractList04">
+            3、丙方对甲方向乙方支付基金损益权结算资金的行为负有监管的权利和义务，并对甲方的上述行为予以配合。
+        </section>
+
+        <section class="contractList contractList03">
+            第七条 其他权利义务
+        </section>
+
+        <section class="contractList contractList04">
+            1、转让基金损益权可能并非甲方申购的全部基金对应基金损益权，乙方对此充分理解和认可。而且乙方已经充分了解甲方申购基金的全部情况，并且同意从甲方处受让基金损益权。
+        </section>
+
+        <section class="contractList contractList04">
+            2、甲方保证本协议项下转让给乙方的基金损益权真实有效，并为甲方合法拥有，甲方对其拥有完全、有效的处分权。
+        </section>
+
+        <section class="contractList contractList04">
+            3、乙方声明与保证其所用于受让标的基金损益权的资金来源合法，乙方是该资金的合法所有人，如果第三方对资金归属、合法性问题发生争议，由乙方自行负责解决。
+        </section>
+
+        <section class="contractList contractList04">
+            4、因战争、动乱、自然灾害等不可抗力或国家法律政策变动、电信网络服务终止、黑客攻击等客观因素出现，导致协议内容延迟履行或不能履行，甲、乙、丙三方互不追究责任。
+        </section>
+
+        <section class="contractList contractList04">
+            5、甲乙丙三方确认，本协议的签订 、生效和履行以不违反中国的法律法规为前提。如果本协议中的任何一条或多条违反现行的法律法规，则该条将被视为无效，但该无效条款并不影响本协议其他条款的效力。
+        </section>
+
+        <section class="contractList contractList03">
+            第十条 协议的变更
+        </section>
+
+        <section class="contractList contractList04">
+            本协议的任何修改、补充均须以石头理财网平台电子文本形式做出。
+        </section>
+
+        <section class="contractList contractList03">
+            第十一条 争议解决
+        </section>
+
+        <section class="contractList contractList04">
+            如果甲乙丙三方在本协议履行过程中发生任何争议，应友好协商解决；如协商不成，则须提交丙方所在地人民法院进行诉讼。
+        </section>
+
+        <section class="contractList contractList03">
+            第十二条 协议的保管
+        </section>
+
+        <section class="contractList contractList04">
+            甲乙双方一致同意委托丙方保管所有与本协议有关的书面文件或电子信息。
+        </section>
+
+        <section class="contractList contractList03">
+            第十三条 协议的解释
+        </section>
+
+        <section class="contractList contractList04">
+            本协议中所使用的定义，除在上下文中另有定义外，以石头理财网公布的《石头理财网网站定义与释义规则》中的定义及内容为准。
+        </section>
+
+        <section class="contractList contractList03">
+            第十四条 本协议的成立与生效
+        </section>
+
+        <section class="contractList contractList04">
+            乙方按照“石头理财网”的规则，通过甲方的基金损益权（“标的基金损益权”）转让需求界面，点击 “立即投资”按钮，进入投资理财详细信息界面，填写完成乙方的投资理财信息，点击同意《基金损益权转让协议范本》，形成相应订单，并在线完成基金损益权转让款支付后本协议即成立并立即生效。
+        </section>
+    </section>
+</section>
+</body>
+</html>

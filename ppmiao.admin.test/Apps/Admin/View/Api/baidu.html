@@ -1,0 +1,93 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">百度API查询</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/jquery.form.js"></script>
+        <table width="100%">
+            <tr>
+                <td class="tRight">身份证查询：</td>
+                <td class="tLeft">
+                    <input type="text" id="idcard" name="idcard" class="huge">
+                    <input type="button" class="button small" onclick="apiIdcard()" value="查询">
+                </td>
+            </tr>
+            <tr>
+                <td class="tRight">手机归属地：</td>
+                <td class="tLeft">
+                    <input type="text" id="phone" name="phone" class="huge">
+                    <input type="button" class="button small" onclick="apiPhone()" value="查询">
+                </td>
+            </tr>
+            <tr>
+                <td class="tRight">银行卡归属地：</td>
+                <td class="tLeft">
+                    <input type="text" id="card" name="card" class="huge">
+                    <input type="button" class="button small" onclick="apiCard()" value="查询">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+    var _searching = false;
+    var _layerIndex = 0;
+    function apiIdcard(){
+        if(!_searching){
+            _layerIndex = layer.load('正在查询中');
+            _searching = true;
+            $.post(ROOT + "/common/baiduApi", {act: 'idcard', idcard: $('#idcard').val()}, function(msg){
+                _searching = false;
+                layer.close(_layerIndex);
+                if(msg.status){
+                    layer.alert('性别：'+getSex(msg.info.sex)+'<br>生日：'+msg.info.birthday+'<br>地址：'+msg.info.address, -1);
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        }
+    }
+    function apiPhone(){
+        if(!_searching){
+            _layerIndex = layer.load('正在查询中');
+            _searching = true;
+            $.post(ROOT + "/common/baiduApi", {act: 'mobilephoneservice', phone: $('#phone').val()}, function(msg){
+                _searching = false;
+                layer.close(_layerIndex);
+                if(msg.status){
+                    layer.alert('省份：'+msg.info.province+'<br>运营商：'+msg.info.carrier, -1);
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        }
+    }
+    function apiCard(){
+        if(!_searching){
+            _layerIndex = layer.load('正在查询中');
+            _searching = true;
+            $.post(ROOT + "/common/baiduApi", {act: 'cardinfo', card: $('#card').val()}, function(msg){
+                _searching = false;
+                layer.close(_layerIndex);
+                if(msg.status){
+                    layer.alert('银行卡类型：'+msg.info.cardtype+'<br>银行卡长度：'+msg.info.cardlength+'<br>银行卡前缀：'+msg.info.cardprefixnum+'<br>银行卡名称：'+msg.info.cardname+'<br>归属银行：'+msg.info.bankname+'<br>内部结算代码：'+msg.info.banknum, -1);
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        }
+    }
+    function getSex(_sex){
+        switch(_sex){
+            case 'M':
+                return '男';
+                break;
+            case 'F':
+                return '女';
+                break;
+            default:
+                return '未知';
+                break;
+        }
+    }
+</script>

@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170511/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170511/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="{:C('IMG_ROOT')}/activity/event20170511/js/jquery-1.8.2.min.js"></script>
+    <title>票票喵</title>
+    <style>
+
+        .index_second{
+            background: url("{:C('IMG_ROOT')}/activity/event20170511/images/warn_03.jpg") no-repeat;
+            background-size:100% 100%;
+            width:100%;
+            height:4rem;
+        }
+
+
+    </style>
+</head>
+<body>
+    <section>
+        <!--弹框-->
+        <div class="backgr" id="integral_bj" style="display: none"></div>
+        <div class="tankuang rel" id="integral_window" style="z-index:12;display: none">
+            <div class="integral_content abs">
+                <p id="tips">
+                    活动于5月16号0:00开启
+                </p>
+            </div>
+            <div class="intergral_cha abs">
+                <img src="{:C('IMG_ROOT')}/activity/event20170511/images/cha.png" style="width:30px;"/>
+            </div>
+        </div>
+        <!--正文-->
+        <div class="index_top">
+            <img src="{:C('IMG_ROOT')}/activity/event20170511/images/eight_02.jpg" />
+        </div>
+        <div class="index_fourth rel" style="margin-top:-1px;" id="shit1">
+            <img src="{:C('IMG_ROOT')}/activity/event20170511/images/eight_03.jpg" />
+            <div class="index_now abs">
+                <img src="{:C('IMG_ROOT')}/activity/event20170511/images/right_03.png" />
+            </div>
+        </div>
+        <div class="index_fifth rel" style="margin-top:-1px;" id="shit2">
+            <img src="{:C('IMG_ROOT')}/activity/event20170511/images/eight_04.jpg" />
+            <div class="index_on abs">
+                <img src="{:C('IMG_ROOT')}/activity/event20170511/images/right_03.png" />
+            </div>
+        </div>
+        <div class="index_thrid" style="margin-top:-1px;" id="shit3">
+            <img src="{:C('IMG_ROOT')}/activity/event20170511/images/eight_05.jpg" />
+        </div>
+
+
+        <!--导航栏-->
+        <nav>
+            <div class="index_nav">
+                <div class="index_er">
+                    <div class="chunk cut50 tc fl rel" id="nav_hot" onclick="show_index()" >
+                        <div class="abb">
+                            <img id="hot_text" src="{:C('STATIC_ROOT')}/activity/event20170511/images/four_15.jpg" />
+                        </div>
+                        <div class="cbb hidden" id="nav_pic1">
+                            <img src="{:C('IMG_ROOT')}/activity/event20170511/images/one_15.jpg"/>
+                        </div>
+                    </div>
+                    <div class="chunk cut50 tc fl rel" id="nav_model" onclick="show_model()" >
+                        <div class="abb">
+                            <img id="model_text" src="{:C('STATIC_ROOT')}/activity/event20170511/images/two_14.jpg" />
+                        </div>
+                        <div class="cbb hidden" id="nav_pic2">
+                            <img src="{:C('IMG_ROOT')}/activity/event20170511/images/three_14.jpg"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </nav>
+        <!--昨日-->
+        <div class="gift_ti">
+        <section id="hot_forum" style="width:92%;height:129px;margin:auto;background-color:#83088a;">
+				<div class="index_line" style="">	
+					<notempty  name="yesterdayList">
+						<ul class="">
+	                        <li class="model_top cut20 fl tc">
+	                            <p>排名</p>
+	                        </li>
+	                        <li class="model_top cut20 fl tc">
+	                            <p>用户</p>
+	                        </li>
+	                        <li class="model_top cut30 fl tc">
+	                            <p>手机号码</p>
+	                        </li>
+	                        <li class="model_top cut30 fl tc">
+	                            <p>投资金额</p>
+	                        </li>
+	                        <li class="clear"></li>
+                   		</ul>
+                   		
+                   		<ul class="">
+                       		<volist name="yesterdayList" id="vo" key="k">
+		                        <li class="">
+		                            <div class="model_number cut20 fl tc">
+		                                <p>{$k}</p>
+		                            </div>
+		                            <div class="model_number cut20 fl tc">
+		                                <p>{$vo.real_name}</p>
+		                            </div>
+		                            <div class="model_number cut30 fl tc">
+		                                <p>{$vo.username}</p>
+		                            </div>
+		                            <div class="model_number cut30 fl tc">
+		                                <p>{$vo.amount}</p>
+		                            </div>
+		                            <li class="clear"></li>
+		                        </li>
+	                        </volist>
+                       		
+                   		</ul>
+					<else />
+						<if condition="$data.hdStatus eq 2">
+							<div class="index_laster tc">
+                       			<p>活动已结束</p>
+                       			</div>
+                       	</if>
+                      	<if condition="$data.hdStatus eq 0">
+                      		<div class="index_laster tc">
+                      			<p>活动今日开启，</p>
+                     			<p>暂无昨日记录。</p>
+                      		</div>
+                      	</if> 
+					</notempty>
+
+                    <if condition="$data.hdStatus eq 1 ">
+                    	<div class="index_laster tc">
+                        	<p>活动即将开始，</p>
+                        	<p>做好准备了吗？</p>
+                    	</div>
+                    </if>
+                    </div>
+        </section>
+        </div>
+        <!--今日-->
+        <div class="gift_ti" >
+            <section id="model" class="hidden" style="width:92%;height:129px;margin:auto;background-color:#82088a;">
+                
+                <div class="model_bj">
+                
+                <notempty name="todayList">
+                
+                
+                    <ul class="">
+                        <li class="model_top cut20 fl tc">
+                            <p>排名</p>
+                        </li>
+                        <li class="model_top cut20 fl tc">
+                            <p>用户</p>
+                        </li>
+                        <li class="model_top cut30 fl tc">
+                            <p>手机号码</p>
+                        </li>
+                        <li class="model_top cut30 fl tc">
+                            <p>投资金额</p>
+                        </li>
+                        <li class="clear"></li>
+
+                    </ul>
+                    <ul class="">
+                        <volist name="todayList" id="vo" key="k">
+	                        <li class="">
+	                            <div class="model_number cut20 fl tc">
+	                                <p>{$k}</p>
+	                            </div>
+	                            <div class="model_number cut20 fl tc">
+	                                <p>{$vo.real_name}</p>
+	                            </div>
+	                            <div class="model_number cut30 fl tc">
+	                                <p>{$vo.username}</p>
+	                            </div>
+	                            <div class="model_number cut30 fl tc">
+	                                <p>{$vo.amount}</p>
+	                            </div>
+	                        </li>
+	                        <li class="clear"></li>
+                        </volist>
+                    </ul>
+                    
+                <else />
+                	<div class="index_laster tc">
+                     	
+                     	<if condition="($data.hdStatus eq 2)">
+                       			<p>活动已结束</p>
+                       	</if>
+                     	<if condition="($data.hdStatus eq 0)">
+                     			
+                     	</if>
+                     	<if condition="$data.hdStatus eq 1">
+                     			<p>活动即将开始，</p>
+                     			<p>做好准备了吗？</p>
+                     	</if>
+                     </div>	
+                </notempty>
+                </div>
+                <div class="clear"></div>
+            </section>
+        </div>
+
+        <div class="index_thrid" style="margin-top:-1px;">
+            <img src="{:C('IMG_ROOT')}/activity/event20170511/images/eight_08.jpg" />
+        </div>
+        
+    </section>
+    <script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+</body>
+</html>
+
+<script>
+    var Ishot = false;
+    var Ismodel = false;
+    var IsCollection1 = false;
+    var IsCollection2 = false;
+    var IsGreat1 = false;
+    var IsGreat2 = false;
+    //加载调用函数
+    window.onload = function () {
+        show_model();
+    }
+    //奖品榜
+    function show_index() {
+        if (Ishot) {
+            document.getElementById("hot_forum").className = "hidden";
+            document.getElementById("nav_pic1").className = "hidden";
+            Ishot = false;
+        } else {
+            Ismodel = true;
+            show_model();
+            document.getElementById("hot_forum").className = "";
+            document.getElementById("nav_pic1").className = "abs nav_pic";
+            Ishot = false;
+        }
+    }
+    //排行榜
+    function show_model() {
+        if (Ismodel) {
+            document.getElementById("model").className = "hidden";
+            document.getElementById("nav_pic2").className = "hidden";
+            Ismodel = false;
+        } else {
+            Ishot = true;
+            show_index();
+            document.getElementById("model").className = "";
+            document.getElementById("nav_pic2").className = "abs nav_pic";
+            Ismodel = false;
+        }
+    }
+</script>
+<script>
+	var err = "{$data.hdMsg}";
+    $(function () {
+        $(".index_now , .index_on").click(function () {
+        	if(err) {
+        		$('#tips').empty().html(err);
+        		$("#integral_bj").show();
+                $("#integral_window").show();
+        	} else {
+        		go2App();
+        	}
+        	return;
+        });
+        $(".backgr , .intergral_cha").click(function () {
+            $("#integral_bj").hide();
+            $("#integral_window").hide();
+        });
+    });
+</script>

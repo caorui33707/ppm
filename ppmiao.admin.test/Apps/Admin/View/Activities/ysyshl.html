@@ -1,0 +1,61 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">赢收益,送豪礼 ({$count}人)</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+
+            </div>
+            <!-- 高级查询区域 -->
+        </div>
+        <!-- 功能操作区域结束 -->
+        <!--startprint-->
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="4" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="120px" align="center">姓名</th>
+                    <th width="150px" align="center">手机号码</th>
+                    <th width="150px" align="center">累计投资金额</th>
+                    <th width="*">操作</th>
+                </tr>
+                <foreach name="list" item="item">
+                    <gt name="item.user_id" value="0">
+                        <tr class="row">
+                            <td>{$item.uinfo.real_name}</td>
+                            <td align="center">{$item.uinfo.username}</td>
+                            <td align="right">{$item.sum|number_format}</td>
+                            <td></td>
+                        </tr>
+                    <else/>
+                        <tr class="row" style="background-color:lavender;">
+                            <td colspan="4">{$item.title}</td>
+                        </tr>
+                    </gt>
+                </foreach>
+                <tr>
+                    <td height="5" colspan="4" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <!--endprint-->
+        <!--<div class="page"></div>-->
+        <!-- 列表显示区域结束 -->
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->

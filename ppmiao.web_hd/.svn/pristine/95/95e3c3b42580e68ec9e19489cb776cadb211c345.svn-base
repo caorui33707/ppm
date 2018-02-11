@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20161115/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20161115/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20161115/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="{:C('STATIC_ROOT')}/lottery/event20161115/css/invitePerson.css" rel="stylesheet">
+    <script src="{:C('STATIC_ROOT')}/lottery/event20161115/js/pullToRefresh.js"></script>
+    <script src="{:C('STATIC_ROOT')}/lottery/event20161115/js/iscroll.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/lottery/event20161115/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="{:C('STATIC_ROOT')}/lottery/event20161115/js/lottery.js"></script>
+    <title>票票喵</title>
+    <style>
+        .contents {
+        width:100%;
+        background: url("{:C('STATIC_ROOT')}/lottery/event20161115/images/bj.jpg") no-repeat;
+        background-size:100% 100%;
+        }
+
+        .square_window .square_content {
+            top: 20%;
+            left: 8%;
+                margin: auto;
+                width: 85%;
+                height: 420px;
+                background: url("{:C('STATIC_ROOT')}/lottery/event20161115/images/huang_04.png") no-repeat;
+                background-size: 100% 100%;
+                z-index:10;
+                position: fixed;
+            }
+
+         #lottery {
+            height: 310px;
+            background-size: cover;
+            background-color: #000;
+            margin: auto;
+            width:100%;
+            background: url("{:C('STATIC_ROOT')}/lottery/event20161115/images/bj.jpg") no-repeat;
+            background-size:100% 100%;
+        }
+    </style>
+ 
+    
+</head>
+<body id="invitePerson_index" style=" display: block; overflow: auto;width:100%;">
+    <section>
+        <!--九宫格弹出层-->
+        <div class="backgr" id="integral_bj" style="display: none;"></div>
+        <div class="tankuang" id="integral_window" style="z-index:1;display: none;">
+            <div class="integral_content">
+                <div class="integral_baise" >
+                    <img class=" fr" id="cha" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/cha.png" style="width:25px" />
+                </div>
+                <div class="clear"></div>
+                <p class=" tc"><span>恭喜您！</span></p>
+                <p class="sj" style="margin-top:10px;"></p>
+                <div class="integral_kuang tc">
+                    <img class="record"  src="{:C('STATIC_ROOT')}/lottery/event20161115/images/xia_05.jpg" style="width:60px; margin:auto;margin-top:10px;" />
+                 </div>
+                   </div>
+        </div>
+<!--中奖提示1-->
+        <div class="tankuang" id="integral_window2" style="z-index:1;display: none;">
+            <div class="integral_content">
+                <div class="integral_baise">
+                    <img class=" fr" id="cha2" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/cha.png" style="width:25px" />
+                </div>
+                <div class="clear"></div>
+                <div class="tc" id="two" >
+                    <p class=" tc" id="err"><span>请先登录！</span></p>
+                </div>
+            </div>
+        </div>
+                
+          
+        <!--中奖纪录弹框-->
+        <div class="hidden" id="square_bj"></div>
+        <div class="hidden" id="square_window">
+            <div class="square_content rel">
+                <div class="success  tc">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/my_04.png" />
+                    <div class="clear"></div>
+                    <div class="must cut40 fl">
+                        <p>奖品名称</p>
+                    </div>
+                    <div class="must cut30 fl">
+                        <p>派送方式</p>
+                    </div>
+                    <div class="must cut30 fl">
+                        <p>抽奖时间</p>
+                    </div>
+                    <div class="center_html">
+                        <ul id="prize_list">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="yes tc abs">
+                    <img onclick="Pass()" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/cha.png" />
+                </div>
+            </div>
+        </div>
+        <!--正文-->
+        <div class="four_pic">
+            <img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/god_01.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/god_02.jpg" />
+        </div>
+        <div class="four_yuan rel">
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/god_03.jpg" />
+            <div class="times abs">
+                <p id="me_cnt">{$params.cnt}</p>
+            </div>
+        </div>
+        <!--九宫格-->
+        <div id="lottery">
+            <table border="0" cellpadding="0" cellspacing="0" class="lottery_tab">
+                <tr class="lottery-group">
+                    <td class="lottery-unit td_1 active" ><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_03.png" /></td>
+                    <td class="lottery-unit td_2"><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_05.png" /></td>
+                    <td class="lottery-unit td_3"><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_07.png" /></td>
+                </tr>
+                <tr class="lottery-group">
+                    <td class="lottery-unit td_4"><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_25.png" /></td>
+                    <td class="td_5"><a href="###"><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_14.png" style="width:100%;height: 85px;"/></a></td>
+                    <td class="lottery-unit td_6"><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_12.png" /></td>
+                </tr>
+                <tr class="lottery-group">
+                    <td class="lottery-unit td_7"><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_23.png" /></td>
+                    <td class="lottery-unit td_8"><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_21.png" /></td>
+                    <td class="lottery-unit td_9"><img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/four_16.png" /></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="four_activity">
+            <img style="margin-top:0px;" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/light_05.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/god_05.jpg" />
+        </div>
+        <div class="four_look tc">
+            <img class="record" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/god_08.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/god_10.jpg" />
+        </div>
+        <!--滚动-->
+        <div class="preferential_bigsquare rel" style="margin-top:-1px;">
+            <div class="preferential_square">
+                <div class="preferential_number tc">
+                    <img src="{:C('STATIC_ROOT')}/lottery/event20161115/images/god_13.jpg" />
+                </div>
+                <div class="invite_detailed mar" style="margin-top:-1px;">
+                    <div class="topRec_List">
+                        <div class="maquee">
+                            <ul id="iu">
+                            	<foreach name="params.lottery_log" item="item">
+                                <li >
+                                    <div>恭喜</div>
+                                    <div>{$item.user_name}</div>
+                                    <div>{$item.prize_name}</div>
+                                   
+                                </li>
+                                </foreach>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="four_pic ">
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/lottery/event20161115/images/god_16.jpg" />
+        </div>
+        <!--中奖人员轮播代码-->
+       <script type="text/javascript">
+            function autoScroll(obj) {
+                $(obj).find("ul").animate({
+                    marginTop: "-39px"
+                }, 500, function () {
+                    $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+                })
+            }
+            $(function () {
+                var len = $("#iu li").length;
+                if (len >= 8) {
+                    setInterval('autoScroll(".maquee")', 1500);
+                }
+            });
+        </script>
+        <!--抽奖滚动代码-->
+
+        <script type="text/javascript">
+        	var lotteryId = "{$params.lottery_id}";
+        	var userId = "{$params.user_id}"; 
+        	var userName = "{$params.user_name}";
+        	var flg = true;
+            window.onload = function () {
+                lottery.lottery({
+                    selector: '#lottery',
+                    width: 3,
+                    height: 3,
+                    index: 0,    // 初始位置
+                    initSpeed: 300,  // 初始转动速度
+                    upStep: 50,   // 加速滚动步长
+                    upMax: 50,   // 速度上限
+                    downStep: 30,   // 减速滚动步长
+                    downMax: 250,  // 减速上限
+                    waiting: 1000, // 匀速转动时长
+                    aim: function () {
+                        this.options.target = lottery.target;
+                        console.log('amin:'+this.options.target);
+                    },
+                    
+                    end: function () {
+                    	var _cnt = parseInt($("#me_cnt").text()) - 1;
+                    	
+                    	console.log('_cnt:'+_cnt);
+                    	
+                    	if(_cnt<0){
+                    		_cnt = 0;
+                    	}
+                    	$("#me_cnt").html(_cnt);
+                    	flg = true;
+                    	mask();
+                        console.log('end:'+lottery.target);
+                        lottery._disable();
+                    }
+                });
+                
+                lottery._disable();
+                
+                $('#lottery').find('a').bind('click', function(){
+                
+                	if(!flg) {
+                		return false;
+                	}
+                	flg = false;
+                	$.ajax({
+   	        		        type: "post",
+   	        		        async: false,
+   	        		        data:{'lotteryId':lotteryId,'userId':userId,'userName':userName},
+   	        		        url: "?c=Lottery&a=do_lottery", 
+   	        		        dataType: "json",
+   	        		        success: function (json) { //成功处理
+
+   								if(json.status == 1) {
+   									
+   									/*
+   									红包6
+   									返现券7
+   									加息券8
+   									话费9
+   									京东卡100元10
+   									京东卡500元11
+   									空气净化器12
+   									iphone手机13
+   									*/
+   									if(json.info.id == '6'){
+   										lottery.target = 0;
+   									}else if(json.info.id == '10'){
+   										lottery.target = 1;
+   									}else if(json.info.id == '11'){
+   										lottery.target = 2;
+   									}else if(json.info.id == '8'){
+   										lottery.target = 3;
+   									}else if(json.info.id == '12'){
+   										lottery.target = 4;
+   									}else if(json.info.id == '7'){
+   										lottery.target = 5;
+   									}else if(json.info.id == '9'){
+   										lottery.target = 6;
+   									}else if(json.info.id == '13'){
+   										lottery.target = 7;
+   									}
+   									
+   									$('.sj').empty().html(json.info.name);
+   									
+                                    lottery.beforeRoll();
+   								} else {
+   									flg = true;
+   									$("#err").empty().html('<span>'+json.info+'<span>');
+   									mask_err();
+   									return;
+   								}
+   	        		        },
+   	        		        error: function () {  //错误处理
+   	        		       		$("#err").empty().html('<span>系统出错<span>');
+								mask_err();
+   	        		       }
+   	        		 });
+                });
+            }
+        </script>
+
+        <!--弹出层-->
+        <script type="text/javascript">
+		    var IsPopup = false;
+		    function Pass() {
+		        if (IsPopup) {
+		            document.getElementById("square_bj").className = "hidden";
+		            document.getElementById("square_window").className = "hidden";
+		            IsPopup = false;
+		        } else {
+		            document.getElementById("square_bj").className = "square_bj abs";
+		            document.getElementById("square_window").className = "square_window abs";
+		            IsPopup = true;
+		        }
+		    }
+		    
+		    $(".record").on("click",function(){
+		    	if(!userId){
+		    		$("#err").empty().html('<span>请先登录<span>');
+					mask_err();
+		    		return false;
+		    	}
+		    	$.ajax({
+       		        type: "post",
+       		        async: false,
+       		        data:{'lotteryId':lotteryId,'userId':userId,'userName':userName},
+       		        url: "?c=Lottery&a=get_lottery_log", 
+       		        dataType: "json",
+       		        success: function (json) {
+       		        	if(json.status == 1) {
+       		        		var arr = [];
+       		        		for(var item in json.info) {
+       		        			var s = '<li><div class="cut40 fl">'+json.info[item]['prize_name']+'</div><div class="cut30 fl">系统派发</div><div class="cut30 fl">'+json.info[item]['create_time']+'</div></li>';
+       		        			arr.push(s);
+       		        		}
+       		        		$('#prize_list').empty().html(arr.join(''));
+       		        		//recordDialog();
+       		        		Pass();
+       		        	} else {
+       		        		$("#err").empty().html('<span>'+json.info+'<span>');
+    						mask_err();
+       		        	}
+       		        },
+       		        error: function () {  //错误处理
+       		       		$("#err").empty().html('<span>系统出错<span>');
+						mask_err();
+       		       }
+       		 });
+		    });
+		 	
+		    function recordDialog(){
+		    	document.getElementById("square_bj").className = "square_bj abs";
+	            document.getElementById("square_window").className = "square_window abs";
+		    }
+		    
+		    
+        </script>
+        <script type="text/javascript">
+		    var IsPopup = false;
+		    function coPass() {
+		        if (IsPopup) {
+		            document.getElementById("integral_bj").className = "hidden";
+		            document.getElementById("integral_window").className = "hidden";
+		            IsPopup = false;
+		        } else {
+		            document.getElementById("square_bj").className = "square_bj abs";
+		            document.getElementById("square_window").className = "square_window abs";
+		            IsPopup = true;
+		        }
+		    }
+        </script>
+        
+        <script>
+        	function mask(){
+        		$("#integral_bj").show();
+				$("#cha").show();
+				$("#integral_window").show();
+        	}
+        	
+        	function mask_err(){
+        		$("#integral_bj").show();
+				$("#cha").show();
+				$("#integral_window2").show();
+        	}
+        	
+        	$(".backgr").click(function() {
+				$("#integral_bj").hide();
+				$("#cha").hide();
+				$("#integral_window").hide();
+				$("#integral_window2").hide();
+			});
+        	
+        	$("#cha").click(function() {
+				$("#integral_bj").hide();
+				$("#cha").hide();
+				$("#integral_window").hide();
+			});
+        	
+        	$("#cha2").click(function() {
+				$("#integral_bj").hide();
+				$("#cha").hide();
+				$("#integral_window2").hide();
+			});
+        	
+		</script>
+		
+    </section>
+</body>
+
+</html>

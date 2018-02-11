@@ -1,0 +1,208 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+    <div class="content">
+        <div class="title">产品详细 [ <a href="{:C('ADMIN_ROOT')}/Project/index/p/{$params.page}/type/{$params.type}/status/{$params.status}<notempty name='params.search'>/s/{$params.search}</notempty>">返回列表</a> ]</div>
+        <div id="result" class="result none"></div>
+        <script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/admin/js/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/auth/js/editor/kindeditor-all.js"></script>
+        <form id="frmMain" method='post' action="" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$detail.id}" />
+            <input type="hidden" name="p" value="{$params.page}" />
+            <input type="hidden" name="s" value="{$params.search}" />
+            <input type="hidden" name="_type" value="{$params.type}" />
+            <input type="hidden" name="_status" value="{$params.status}" />
+            <table cellpadding=3 cellspacing=3 >
+                <tr>
+                    <td class="tRight" width="150px">类型：</td>
+                    <td class="tLeft">
+                        <select id="type" name="type" class="bLeftRequire" datatype="*" onchange="changeType(this)" disabled>
+                        <option value="">--请选择一个产品类型--</option>
+                        <foreach name="type_arr" item="item">
+                            <option value="{$item.id}" <eq name="detail.type" value="$item['id']">selected</eq>>{$item.cons_value}</option>
+                        </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">期数：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" id="stage" name="stage" datatype="n" value="{$detail.stage}" onchange="changeStage(this)" <neq name="detail.status" value="1">disabled</neq> /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">标题：</td>
+                    <td class="tLeft" ><input type="text" class="huge bLeftRequire" datatype="*" id="title" name="title" value="{$detail.title}" readonly></td>
+                </tr>
+                <tr>
+                    <td class="tRight">购买基数：</td>
+                    <td class="tLeft"><input type="text" datatype="n" id="basecount" name="basecount" value="{$detail.buy_base}" readonly />&nbsp;<span style="color:#409DFE;">注：前端显示该项目购买数量为此基数+用户实际购买数之和</span></td>
+                </tr>
+                <tr>
+                    <td class="tRight">特殊标签：</td>
+                    <td class="tLeft">
+                        <select name="new_preferential" disabled>
+                            <option value="0">无</option>
+                            <option value="1" <eq name="detail.new_preferential" value="1">selected</eq>>新人特惠</option>
+                            <option value="2" <eq name="detail.new_preferential" value="2">selected</eq>>爆款</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">期限类型：</td>
+                    <td class="tLeft">
+                        <select name="term_type" id="term_type" disabled>
+                            <option value="1" <eq name="detail.term_type" value="1">selected</eq>>稳一稳</option>
+                            <option value="2" <eq name="detail.term_type" value="2">selected</eq>>搏一搏</option>
+                            <!--<option value="3" <eq name="detail.term_type" value="3">selected</eq>>A类产品</option>-->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">融资方：</td>
+                    <td class="tLeft"><input type="text" id="financing" name="financing" value="{$detail.financing}" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">昵称(在电子合同显示债权人名称)：</td>
+                    <td class="tLeft"><input type="text" id="nickname" name="nickname" datatype="*" value="{$detail.nickname}" class="bLeftRequire" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">身份证(在电子合同显示债权人身份证)：</td>
+                    <td class="tLeft"><input type="text" id="idcard" name="idcard" value="{$detail.idcard}" datatype="*" class="bLeftRequire" maxlength="18" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">合同编号：</td>
+                    <td class="tLeft"><input type="text" id="contract_no" name="contract_no" value="{$detail.contract_no}" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">石头编号：</td>
+                    <td class="tLeft"><input type="text" id="stone_no" name="stone_no" value="{$detail.stone_no}" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">以H5展示：</td>
+                    <td class="tLeft"><label><input type="checkbox" id="is_h5" name="is_h5" value="1" <eq name="detail.is_h5" value="1">checked</eq> disabled />H5页面</label></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">当前估价：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" name="evaluation" id="evaluation" style="width:50px;text-align:right;" value="{$project_ext.evaluation}" /></td>
+                </tr>
+                <tr>
+                    <td class="tRight">所得股份：</td>
+                    <td class="tLeft"><input type="text" class="bLeftRequire" name="shares" id="shares" style="width:50px;text-align:right;" value="{$detail_ext.shares}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">可购买次数：</td>
+                    <td class="tLeft"><input type="text" id="buy_times" name="buy_times" datatype="n" value="{$detail.buy_times|default=0}" readonly />&nbsp;<span style="color:#409DFE;">注：0为不限制</span></td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">起购封顶金额(元)：</td>
+                    <td class="tLeft">
+                        <input type="text" id="money_min" name="money_min" datatype="semoney" value="{$detail.money_min}" nullmsg="请填写信息！" errormsg="必须为数字！" disabled /> -
+                        <input type="text" id="money_max" name="money_max" datatype="semoney" value="{$detail.money_max}" nullmsg="请填写信息！" errormsg="必须为数字！" readonly />&nbsp;<span style="color:#409DFE;">注：0为不限制</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">起止时间：</td>
+                    <td class="tLeft">
+                        <input type="text" class="bLeftRequire laydate-icon" name="start_time" id="start_time" value="{$detail.start_time|strtotime|date='Y-m-d H:i',###}" readonly <neq name="detail.status" value="1">disabled</neq> /> -
+                        <input type="text" class="bLeftRequire laydate-icon" name="end_time" id="end_time" value="{$detail.end_time|strtotime|date='Y-m-d H:i',###}" readonly <neq name="detail.status" value="1">disabled</neq> />
+                    <td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">借款天数：</td>
+                    <td class="tLeft"><input type="text" name="days" id="days" class="bLeftRequire" datatype="n" value="{$detail_ext.days}" disabled /><td>
+                </tr>
+                <tr>
+                    <td class="tRight">计息方式：</td>
+                    <td class="tLeft">
+                        <select id="count_interest_type" name="count_interest_type" class="bLeftRequire" datatype="*" disabled>
+                            <option value="">--请选择计息方式--</option>
+                            <option value="1" <eq name="detail.count_interest_type" value="1">selected</eq>>T+0</option>
+                            <option value="2" <eq name="detail.count_interest_type" value="2">selected</eq>>T+1</option>
+                            <option value="3" <eq name="detail.count_interest_type" value="3">selected</eq>>T+2</option>
+                            <option value="4" <eq name="detail.count_interest_type" value="4">selected</eq>>T+3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="interest_type3" <neq name="detail.type" value="69">style="display:none;"</neq>>
+                <td class="tRight">石头3号计息方式：</td>
+                <td class="tLeft">
+                    <select id="count_interest_type3" name="count_interest_type3" onchange="changeInterestType3(this)" disabled>
+                        <option value="0" <eq name="detail.count_interest_type3" value="0">selected</eq>>沿用石头1、2号模式</option>
+                        <option value="1" <eq name="detail.count_interest_type3" value="1">selected</eq>>募集完成开始计息</option>
+                        <option value="2" <eq name="detail.count_interest_type3" value="2">selected</eq>>固定日期开始计息</option>
+                    </select>
+                </td>
+                </tr>
+                <tr id="interest_datetime" <neq name="detail.count_interest_type3" value="2">style="display:none;"</neq>>
+                <td class="tRight">计息日期：</td>
+                <td class="tLeft"><input type="text" class="bLeftRequire laydate-icon" name="interest_time3" id="interest_time3" value="{$detail.interest_datetime|strtotime|date='Y-m-d H:i:s',###}" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="tRight tTop">还款方式：</td>
+                    <td class="tLeft">
+                        <select id="repayment_type" name="repayment_type" class="bLeftRequire" datatype="*" onchange="changeRepayment(this)" disabled>
+                            <option value="">--请选择还款方式--</option>
+                            <option value="1" <eq name="detail.repayment_type" value="1">selected</eq>>一次性还本付息</option>
+                            <option value="2" <eq name="detail.repayment_type" value="2">selected</eq>>按月付息，到期还本</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="trRepayment" style="display:none;">
+                    <td class="tRight tTop">每月固定还款日：</td>
+                    <td class="tLeft"><input type="text" id="repayment_day" name="repayment_day" datatype="n" value="{$detail.repayment_day|default=20}" class="bLeftRequire" disabled /><td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">借款金额(元)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="amount" name="amount" value="<?php echo (int)$detail['amount']; ?>" datatype="n" onchange="count_earn()" disabled><span id="formatAmount" style="color:green"></span></td>
+                </tr>
+                <tr>
+                    <td class="tRight">合同上的利息(%)：</td>
+                    <td class="tLeft" ><input type="text" class="bLeftRequire" id="contract_interest" value="{$detail.contract_interest}" datatype="f" errormsg="请输入数字" name="contract_interest" onchange="count_earn()" disabled></td>
+                </tr>
+                <tr>
+                    <td class="tRight">给用户的利息(%)：</td>
+                    <td class="tLeft" >
+                        <input type="text" class="bLeftRequire" id="user_interest" value="{$detail.user_interest}" datatype="f" errormsg="请输入数字" name="user_interest" onchange="count_earn()" disabled />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">项目到期收益(元)：</td>
+                    <td class="tLeft">
+                        <input type="text" name="corporation_earnings" id="corporation_earnings" readonly class="fLeft" disabled />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td class="tRight">描述内容：</td>
+                    <td class="tLeft">
+                        <p style="color:red;">注：标题分隔符"&lt;!--title--&gt;"，内容分隔符"&lt;!--line--&gt;"</p>
+                        <textarea name="description" id="description" style="width:700px;height:500px;" readonly>{$detail_ext.description}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tRight">H5预留内容：<br>(基金类产品)</td>
+                    <td class="tLeft"><textarea name="h5_content" id="h5_content" style="width:700px;height:100px;" readonly>{$detail_ext.h5_content}</textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border-bottom:1px #F0F0FF solid;"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="center">
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

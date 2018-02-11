@@ -1,0 +1,180 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">票票商城管理</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <div class="fRig">
+                <div class="fRig">
+                    <form method='get' action="{:C("ADMIN_ROOT")}/member/store">
+                    <div class="fLeft">
+                        商品名称
+                        <span><input type="text" id="key" name="name" placeholder="标题" class="medium" value="{$params.name}"></span>
+
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" value="搜索" class="search imgButton"></div>
+                    </form>
+
+                </div>
+                <div class="impBtn hMargin fLeft shadow"><input type="button" id="" name="add" value="新增" style="color:green;" onclick="add()" class="add imgButton"></div>
+
+            </div>
+        </div>
+        <!-- 功能操作区域结束 -->
+
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="10" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="3%" align="center">编号</th>
+                    <th width="5%" align="center">名称</th>
+                    <th width="5%" align="center">图片</th>
+                    <th width="3%" align="center">类型</th>
+                    <th width="8%" align="center">所需积分</th>
+                    <th width="8%" align="center">兑换个数</th>
+                    <th width="8%" align="center">使用个数</th>
+                    <th width="8%" align="center">状态</th>
+                    <th width="8%" align="center">操作</th>
+                </tr>
+                <foreach name="commodities" item="item">
+                    <tr>
+                        <td align="center">{$item.id}</td>
+                        <td>{$item.title}</td>
+                        <td align="center"><img src="{:C('SITE_ROOT')}/Uploads/focus/{$item.commodity.image}" style="max-height: 100px;max-width: 100px;" /></td>
+                        <td align="center">
+                            <switch name="item.commodity.type">
+                                <case value="1"><span style="color:red;">红包</case>
+                                <case value="2"><span style="color:green;">加息券</case>
+                                <case value="3"><span style="color:blue;">现金券</case>
+                                <case value="4"><span style="color:yellow;">第三方券</case>
+                                <case value="5"><span style="color:gray;">实物</case>
+                            </switch>
+                        </td>
+                        <td align="center">
+                            {$item.jf_val}
+                        </td>
+                        <td align="center">
+                            {$item.total}
+                        </td>
+                        <td align="center">
+                            {$item.use_count}
+                        </td>
+                        <td align="center">
+                            <eq name="item.status" value="1">
+                                <a href="javascript:;" style="color:green;" onclick="changeStatus({$item.id})">正常</a>
+                                <else/>
+                                <a href="javascript:;" style="color:red;" onclick="changeStatus({$item.id})">下架</a>
+                            </eq>
+                        </td>
+                        <td align="center">
+                            <a href="javascript:;" style="color:blue;" onclick="show({$item.commodity.type},'{$item.source}','{$item.title}',{$item.id})">兑换明细</a>&nbsp;
+                            <a href="javascript:;" onclick="edit({$item.id})">编辑</a>
+                            <a href="javascript:;" onclick="move(1,{$item.id})">上移</a>
+                            <a href="javascript:;" onclick="move(-1,{$item.id})">下移</a>
+                            <a href="javascript:;" style="color:red;" onclick="del({$item.id})">删除</a>
+                        </td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td height="5" colspan="10" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">{$show}</div>
+        <!-- 列表显示区域结束 -->
+    </div>
+    <label><if condition="$params.total_cnt gt 0 ">发放共金额:<b>{$params.total_money}</b>元;&nbsp;&nbsp;使用金额：<b>{$params.total_use_money}</b>元;&nbsp;&nbsp;- 共:{$params.total_cnt}条记录</if></label>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+
+    var _page = "{$params.page}";
+    var _layerIndex = 0;
+
+    function add(){
+        window.location.href = ROOT + "/member/store_add";
+    }
+
+
+    function show(type,source,name,id){
+        var name = encodeURI(name);
+        if(type == 2){
+            window.open(ROOT + "/member/commodities_use_show/title/"+name+"/source/"+source+"/model/UserInterestCoupon");
+        }else if(type == 1){
+            window.open(ROOT + "/member/commodities_use_show/title/"+name+"/source/"+source+"/model/UserRedenvelope");
+        }else{
+            window.open(ROOT + "/member/commodities_use_show/title/"+name+"/source/"+id+"/model/MemberStoreUser");
+        }
+    }
+    function move(direction,id){
+        _layerIndex = layer.load('移动中......');
+        $.post(ROOT + "/member/store_move", {direction:direction,id: id}, function(msg){
+            layer.close(_layerIndex);
+            if(msg.status){
+                window.location.reload();
+            }else{
+                layer.alert(msg.info, -1);
+            }
+        });
+    }
+    function edit(_id) {
+        window.location.href = ROOT + "/member/store_edit/id/" + _id + "/p/" + _page;
+    }
+    function del(_id){
+        layer.confirm('确定删除吗?', function(){
+            _layerIndex = layer.load('数据删除中...');
+            var model = 'MemberStore';
+            $.post(ROOT + "/member/delete", {model:model,id: _id}, function(msg){
+                layer.close(_layerIndex);
+                if(!msg.status){
+                    layer.alert(msg.info, -1,function (){
+                        window.location.reload();
+                    });
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        });
+    }
+    function changeStatus(_id){
+        layer.confirm('确定改变状态吗?', function(){
+            _layerIndex = layer.load('状态改变中...');
+            var model = "MemberStore";
+            $.post(ROOT + "/member/update", {model : model,id: _id}, function(msg){
+                layer.close(_layerIndex);
+                if(msg.status){
+                    layer.alert('改变状态成功~', -1, function(){
+                        window.location.reload();
+                    })
+                }else{
+                    layer.alert(msg.info, -1);
+                }
+            });
+        });
+    }
+</script>

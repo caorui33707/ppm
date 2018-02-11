@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN">
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="{:C('STATIC_ROOT')}/activity/event20170428/css/basic.css" rel="stylesheet" type="text/css" />
+    <title>票票喵</title>
+	<script src="{:C('STATIC_ROOT')}/activity/event20170428/js/jquery-1.2.6.min.js"></script>
+	<script src="{:C('STATIC_ROOT')}/activity/js/common.js"></script>
+    <style>
+          .wu_pic img {
+            width: 100%;
+        }
+        .wu_now {
+            width: 100%;
+            line-height: 50px;
+            background-color: #ffd734;
+            color: #be2a2a;
+            font-size: 17px;
+            width:100%;position:fixed;bottom:0;left:0;
+            text-align:center;
+        }
+    </style>
+
+</head>
+<body>
+    <section>
+        <!--正文-->
+        <div class="wu_pic">
+            <img src="{:C('STATIC_ROOT')}/activity/event20170428/images/four_02.jpg" />
+            <img style="margin-top:-1px;" src="{:C('STATIC_ROOT')}/activity/event20170428/images/four_03.jpg" />
+            <img style="margin-bottom:42px;" src="{:C('STATIC_ROOT')}/activity/event20170428/images/four_04.jpg" />
+        </div>
+        <div class="wu_now tc" style="cursor:pointer;margin-top:50px;z-index:1;" onclick="go2App();">
+            <p>立即投资</p>
+        </div>
+    </section>
+    </body>
+</html>

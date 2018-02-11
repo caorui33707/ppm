@@ -1,0 +1,131 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script type="text/javascript" src="__PUBLIC__/admin/laydate/laydate.js"></script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+    <!-- 主体内容  -->
+    <div class="content" >
+        <div class="title">签到奖励配置</div>
+        <!--  功能操作区域  -->
+        <div class="operate" >
+            <!-- 查询区域 -->
+            <div class="fRig">
+                <form method='post' action="">
+                    <div class="fLeft">
+                        <label for="start_time">开始时间：<input type="text" class="laydate-icon" name="start_time" id="start_time" value="{$params.start_time}" readonly /></label>
+                        <label for="end_time">结束时间：<input type="text" class="laydate-icon" name="end_time" id="end_time" value="{$params.end_time}" readonly /></label>
+                    </div>
+                    <div class="impBtn hMargin fLeft shadow"><input type="submit" id="" name="search" value="查询" onclick="" class="search imgButton"></div>
+                    <if condition="checkAuth('Admin/signIn/add') eq true">
+                    <input type="button" value="添加" onclick="add()" class="search imgButton" style="width:150px;" />
+                    </if>
+                </form>
+            </div>
+        </div>
+        <!-- 列表显示区域  -->
+        <div class="list" >
+            <table id="checkList" class="list" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td height="5" colspan="7" class="topTd"></td>
+                </tr>
+                <tr class="row">
+                    <th width="5%" align="center">编号</th>
+                    <th width="15%" align="center">日期</th>
+					<th width="15%" align="center">签到赠送积分</th>
+                    <th width="15%" align="center">签到赠送成长值</th>
+                    <th width="20%" align="center">文案</th>
+                    <th width="15%" align="center">签到次数</th>
+                    <th width="10%" align="center">操作</th>
+                </tr>
+                <foreach name="list" item="item">
+                    <if condition="$item.add_time gt $now_date"><tr style="background:#00FFA9"><elseif condition="$item.add_time eq $now_date"/><tr style="background:#F0F0FF"><else/><tr></if>
+                        <td>{$item.id}</td>
+                        <td>{$item.sign_date}</td>
+						<td>{$item.jf_val}</td>
+                        <td>{$item.grow_val}</td>
+                        <td>{$item.memo}</td>
+                        <td>{$item.sign_count}</td>
+                        <td>
+                        	<if condition="checkAuth('Admin/signIn/edit') eq true">
+                            <if condition="$item.sign_date gt $now_date"><a href="javascript:;" onclick="edit({$item.id})">编辑</a><elseif condition="$item.sign_date eq $now_date"/>今天<else/>禁止</if>
+                        	</if>
+                        </td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td height="5" colspan="7" class="bottomTd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  分页显示区域 -->
+        <div class="page">
+            {$show}
+        </div>
+        <!-- 列表显示区域结束 -->
+        <div style="clear: both;"></div>
+    </div>
+    <!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+<style>
+    .icon_add{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_open.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        padding-left: 25px;
+    }
+    .icon_close{
+        background-image: url('{:C("STATIC_ADMIN")}/auth/images/icon_close.png');
+    }
+    .subitem{background-color: whitesmoke!important;}
+</style>
+<script>
+    var _layerIndex = 0;
+    var _page = "{$params.page}";
+    var _status = "{$params.status}";
+    var _start_time = "{$params.start_time}";
+    var _end_time = "{$params.end_time}";
+
+    var start = {
+        elem: '#start_time',
+        format: 'YYYY-MM-DD',
+        min: '1970-00-00', //设定最小日期为当前日期
+        max: '2099-06-16', //最大日期
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+            end.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+    var end = {
+        elem: '#end_time',
+        format: 'YYYY-MM-DD',
+        min: laydate.now(),
+        max: '2099-06-16',
+        istime: false,
+        istoday: true,
+        choose: function(datas){
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+    laydate(start);
+    laydate(end);
+    
+    function add(){
+        var _redirect_url = ROOT +"/signIn/add";
+        window.location.href =_redirect_url;
+    }
+    
+    function edit(id){
+        if(id){
+            var _rate_edit_redirect_url = ROOT +"/signIn/edit/id/"+id;
+            window.location.href =_rate_edit_redirect_url;
+        }
+
+    }
+</script>
